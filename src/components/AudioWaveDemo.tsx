@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function AudioWaveDemo() {
+  const [wave, setWave] = useState([3, 6, 9, 12, 8, 5, 10, 7, 4, 11, 6, 9, 3, 8, 5, 7, 11, 4, 6]);
   const [msgIdx, setMsgIdx] = useState(0);
   const [msgVisible, setMsgVisible] = useState(true);
 
@@ -14,6 +15,9 @@ export default function AudioWaveDemo() {
   ];
 
   useEffect(() => {
+    const waveIv = setInterval(() => {
+      setWave(w => w.map(() => Math.floor(Math.random() * 16) + 2));
+    }, 160);
     const msgIv = setInterval(() => {
       setMsgVisible(false);
       setTimeout(() => {
@@ -21,7 +25,7 @@ export default function AudioWaveDemo() {
         setMsgVisible(true);
       }, 500);
     }, 3800);
-    return () => { clearInterval(msgIv); };
+    return () => { clearInterval(waveIv); clearInterval(msgIv); };
   }, []);
 
   return (
@@ -114,6 +118,17 @@ export default function AudioWaveDemo() {
                   {/* Latency badge — top right */}
                   <div className="absolute top-3 right-3 bg-[#29B6F6]/20 border border-[#29B6F6]/40 px-3 py-1 rounded-full">
                     <span className="text-[11px] text-[#29B6F6] font-bold font-mono">LIVE</span>
+                  </div>
+
+                  {/* Waveform — animated bars */}
+                  <div className="absolute bottom-28 left-0 right-0 flex items-end justify-center gap-[3px] h-12 px-8">
+                    {wave.map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-shrink-0 w-[5px] rounded-full bg-[#29B6F6]/80 transition-all duration-150"
+                        style={{ height: `${h * 2.4}px` }}
+                      />
+                    ))}
                   </div>
 
                   {/* Chat bubble — animated cycling messages */}
