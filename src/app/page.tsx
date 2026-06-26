@@ -204,118 +204,83 @@ function NeuronCounter() {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStarted(true); }, { threshold: 0.5 });
-    obs.observe(el);
-    return () => obs.disconnect();
+    const el = ref.current; if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStarted(true); }, { threshold: 0.4 });
+    obs.observe(el); return () => obs.disconnect();
   }, []);
-
   useEffect(() => {
     if (!started) return;
-    const duration = 2200;
-    const target = 86;
-    const steps = 60;
-    const step = duration / steps;
-    let current = 0;
-    const timer = setInterval(() => {
+    let current = 0; const target = 86; const steps = 55; const interval = 2000 / steps;
+    const t = setInterval(() => {
       current += target / steps;
-      if (current >= target) { setCount(target); clearInterval(timer); }
-      else setCount(Math.floor(current));
-    }, step);
-    return () => clearInterval(timer);
+      if (current >= target) { setCount(target); clearInterval(t); } else setCount(Math.floor(current));
+    }, interval);
+    return () => clearInterval(t);
   }, [started]);
-
   return (
-    <div ref={ref} className="flex items-end justify-center gap-1">
-      <span className="text-[88px] font-black text-white leading-none tabular-nums">{count}</span>
-      <span className="text-[44px] font-black text-[#29B6F6] leading-none mb-2">B</span>
+    <div ref={ref} className="flex items-end justify-center gap-0 leading-none">
+      <span className="text-[120px] md:text-[160px] font-black text-white leading-none tabular-nums tracking-tighter">{count}</span>
+      <span className="text-[60px] md:text-[80px] font-black text-[#29B6F6] leading-none mb-3">B</span>
     </div>
   );
 }
 
-// ── Neural Network SVG ────────────────────────────────────────────────────────
-function NeuralNetwork() {
-  const nodes = [
-    { cx: 200, cy: 60 },  { cx: 80, cy: 140 },  { cx: 320, cy: 140 },
-    { cx: 40, cy: 260 },  { cx: 160, cy: 240 }, { cx: 260, cy: 220 }, { cx: 360, cy: 260 },
-    { cx: 100, cy: 350 }, { cx: 220, cy: 340 }, { cx: 320, cy: 360 },
-    { cx: 180, cy: 440 }, { cx: 290, cy: 430 },
-  ];
-  const edges = [
-    [0,1],[0,2],[1,3],[1,4],[2,5],[2,6],[3,7],[4,7],[4,8],[5,8],[5,9],[6,9],[7,10],[8,10],[8,11],[9,11],
-  ];
-  const highlights = [0, 4, 8, 11];
-
+// ── ECG Pulse Line ────────────────────────────────────────────────────────────
+function PulseLine() {
   return (
-    <svg viewBox="0 0 400 500" className="w-full max-w-sm opacity-90" style={{ filter: 'drop-shadow(0 0 24px rgba(41,182,246,0.15))' }}>
-      <defs>
-        <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#29B6F6" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="#29B6F6" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      {/* Edges */}
-      {edges.map(([a, b], i) => (
-        <line
-          key={i}
-          x1={nodes[a].cx} y1={nodes[a].cy}
-          x2={nodes[b].cx} y2={nodes[b].cy}
-          stroke="#29B6F6"
-          strokeWidth="0.8"
-          strokeOpacity="0.2"
-          style={{
-            animation: `edgePulse ${2.5 + (i % 4) * 0.4}s ease-in-out infinite`,
-            animationDelay: `${i * 0.18}s`,
-          }}
+    <div className="w-full max-w-3xl mx-auto" style={{ height: 64 }}>
+      <svg viewBox="0 0 900 64" className="w-full h-full" preserveAspectRatio="none">
+        <defs>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        {/* Glow layer */}
+        <path
+          d="M0,32 L180,32 L200,32 L215,6 L228,58 L241,6 L255,32 L275,32 L310,32 L325,14 L338,50 L348,32 L380,32 L430,32 L448,32 L462,4 L478,60 L492,4 L508,32 L535,32 L560,32 L900,32"
+          stroke="#29B6F6" strokeWidth="6" fill="none" strokeLinecap="round"
+          filter="url(#glow)"
+          style={{ strokeDasharray: 1400, strokeDashoffset: 1400, animation: 'drawECG 1.8s cubic-bezier(0.4,0,0.2,1) forwards 0.4s' }}
         />
+        {/* Sharp layer */}
+        <path
+          d="M0,32 L180,32 L200,32 L215,6 L228,58 L241,6 L255,32 L275,32 L310,32 L325,14 L338,50 L348,32 L380,32 L430,32 L448,32 L462,4 L478,60 L492,4 L508,32 L535,32 L560,32 L900,32"
+          stroke="#29B6F6" strokeWidth="1.5" fill="none" strokeLinecap="round"
+          style={{ strokeDasharray: 1400, strokeDashoffset: 1400, animation: 'drawECG 1.8s cubic-bezier(0.4,0,0.2,1) forwards 0.4s' }}
+        />
+        <style>{`
+          @keyframes drawECG { to { stroke-dashoffset: 0; } }
+        `}</style>
+      </svg>
+    </div>
+  );
+}
+
+// ── Background Neural Watermark ───────────────────────────────────────────────
+function BgNeural() {
+  const nodes = [
+    {x:10,y:15},{x:25,y:55},{x:42,y:20},{x:58,y:70},{x:72,y:35},
+    {x:85,y:80},{x:15,y:85},{x:50,y:45},{x:68,y:15},{x:90,y:50},
+    {x:35,y:30},{x:78,y:60},{x:20,y:65},{x:62,y:85},{x:48,y:8},
+  ];
+  const edges = [[0,2],[0,6],[1,6],[1,7],[2,4],[2,10],[3,7],[3,12],[4,7],[4,8],[5,9],[5,11],[7,10],[7,11],[8,14],[9,11],[10,12],[11,13],[12,13],[13,5]];
+  return (
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"
+      className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none">
+      {edges.map(([a,b],i) => (
+        <line key={i} x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y}
+          stroke="#29B6F6" strokeWidth="0.3"
+          style={{ animation: `bgEdge ${3+i*0.2}s ease-in-out infinite`, animationDelay: `${i*0.15}s` }} />
       ))}
-
-      {/* Nodes */}
-      {nodes.map((n, i) => {
-        const isHighlight = highlights.includes(i);
-        return (
-          <g key={i}>
-            {isHighlight && (
-              <circle
-                cx={n.cx} cy={n.cy} r="18"
-                fill="url(#nodeGlow)"
-                style={{ animation: 'neuronGlow 2.5s ease-in-out infinite', animationDelay: `${i * 0.3}s` }}
-              />
-            )}
-            <circle
-              cx={n.cx} cy={n.cy}
-              r={isHighlight ? 7 : 4.5}
-              fill={isHighlight ? '#29B6F6' : '#29B6F6'}
-              fillOpacity={isHighlight ? 0.95 : 0.35}
-              style={{ animation: `neuronPulse ${1.8 + (i % 3) * 0.5}s ease-in-out infinite`, animationDelay: `${i * 0.22}s` }}
-            />
-            <circle
-              cx={n.cx} cy={n.cy}
-              r={isHighlight ? 4 : 2.5}
-              fill="white"
-              fillOpacity={isHighlight ? 0.9 : 0.5}
-            />
-          </g>
-        );
-      })}
-
+      {nodes.map((n,i) => (
+        <circle key={i} cx={n.x} cy={n.y} r="0.8" fill="#29B6F6"
+          style={{ animation: `bgNode ${2.5+i*0.3}s ease-in-out infinite`, animationDelay: `${i*0.2}s` }} />
+      ))}
       <style>{`
-        @keyframes neuronPulse {
-          0%, 100% { r: ${4.5}; opacity: 0.6; }
-          50% { r: ${6.5}; opacity: 1; }
-        }
-        @keyframes neuronGlow {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.7; }
-        }
-        @keyframes edgePulse {
-          0%, 100% { stroke-opacity: 0.12; }
-          50% { stroke-opacity: 0.4; }
-        }
+        @keyframes bgEdge { 0%,100%{opacity:0.4} 50%{opacity:1} }
+        @keyframes bgNode { 0%,100%{opacity:0.5;r:0.8} 50%{opacity:1;r:1.4} }
       `}</style>
     </svg>
   );
@@ -578,73 +543,65 @@ export default function HomePage() {
       </section>
 
       {/* ── 86B STORY ──────────────────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#0E202E] relative overflow-hidden">
-        {/* Ambient radial glows */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#29B6F6]/5 blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-[#29B6F6]/4 blur-[100px] pointer-events-none" />
+      <section className="py-24 bg-[#0E202E] relative overflow-hidden">
+        {/* Ghost neural watermark */}
+        <BgNeural />
+        {/* Radial glows */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-[#29B6F6]/5 blur-[140px] pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
 
-            {/* LEFT — Animated neural network */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: 'easeOut' }}
-              className="relative flex flex-col items-center justify-center"
-            >
-              {/* Big number */}
-              <div className="relative z-10 text-center mb-6">
-                <NeuronCounter />
-                <p className="text-[#29B6F6] text-sm font-semibold uppercase tracking-widest mt-2">Neurons in the human brain</p>
-              </div>
+          {/* Eyebrow */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-4">
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6]">
+              <span className="w-6 h-px bg-[#29B6F6]/50" />
+              The name behind the company
+              <span className="w-6 h-px bg-[#29B6F6]/50" />
+            </motion.span>
+          </motion.div>
 
-              {/* Neural SVG */}
-              <NeuralNetwork />
-            </motion.div>
+          {/* Giant 86B counter */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <NeuronCounter />
+            <p className="text-zinc-500 text-xs uppercase tracking-[0.25em] mt-1 mb-2">Neurons in the human brain</p>
+          </motion.div>
 
-            {/* RIGHT — Story */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              className="flex flex-col gap-7"
-            >
-              <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6]">
-                <span className="w-6 h-px bg-[#29B6F6]/50" />
-                The Name Behind the Company
-              </motion.span>
+          {/* ECG Pulse Line */}
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+            <PulseLine />
+          </motion.div>
 
-              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                Why we are called <span className="text-[#29B6F6]">86b</span>.ai
-              </motion.h2>
+          {/* 3 Stat Pills */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-3 mt-2 mb-14"
+          >
+            {[
+              { val: '100 Trillion', label: 'Synaptic connections' },
+              { val: '20 Watts',     label: 'Power it runs on' },
+              { val: '2.5 PB',       label: 'Estimated storage' },
+            ].map((s, i) => (
+              <motion.div key={s.val} variants={fadeUp} custom={i}
+                className="flex flex-col items-center px-6 py-3 rounded-xl border border-white/8 bg-white/[0.03] backdrop-blur-sm"
+              >
+                <span className="text-white font-bold text-lg">{s.val}</span>
+                <span className="text-zinc-500 text-[10px] uppercase tracking-wider mt-0.5">{s.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
 
-              {/* Paragraph 1 */}
-              <motion.p variants={fadeUp} custom={2} className="text-zinc-300 text-base leading-relaxed">
-                The human brain carries{' '}
-                <span className="text-white font-semibold">86 billion neurons</span> — not as passengers, but as architects. Each one a live wire, firing in fractions of a millisecond, weaving a web so intricate that after centuries of study, science still cannot draw its full map. That network is not merely where intelligence lives. It is where <em className="text-[#29B6F6] not-italic font-medium">judgment</em> lives — where a surgeon&apos;s hands know where to stop, where a negotiator reads the room before a word is spoken, where experience, pattern, and instinct collapse into a single irreversible decision.
-              </motion.p>
-
-              {/* Divider */}
-              <motion.div variants={fadeUp} custom={3} className="w-12 h-px bg-[#29B6F6]/40" />
-
-              {/* Paragraph 2 */}
-              <motion.p variants={fadeUp} custom={3} className="text-zinc-400 text-base leading-relaxed">
-                Then we tried to build a second one. Not from carbon and synapses, but from silicon and mathematics. We called the architecture <em className="text-zinc-200 not-italic font-medium">neural</em> — a quiet confession that we were always trying to imitate the original. And we got astonishingly close. Machines that reason, infer, create, and surprise even their makers. Intelligence, replicated not in biology but in behaviour.
-              </motion.p>
-
-              {/* Paragraph 3 */}
-              <motion.p variants={fadeUp} custom={4} className="text-zinc-400 text-base leading-relaxed">
-                <span className="text-[#29B6F6] font-semibold">86b.ai</span> carries that number as a name because we carry it as a philosophy. Not a target to hit, not a benchmark to beat — but a reminder of what intelligence truly is. Emergent. Adaptive. Deeply contextual. Born not from raw power, but from the slow, patient accumulation of experience.
-              </motion.p>
-
-              {/* Closing line */}
-              <motion.p variants={fadeUp} custom={5} className="text-white/60 text-sm italic leading-relaxed border-l-2 border-[#29B6F6]/40 pl-4">
-                We named ourselves after the most remarkable thing in the known universe — and we spend every working day trying to be worthy of it.
-              </motion.p>
-            </motion.div>
-          </div>
+          {/* Story — 2 paragraphs */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col gap-6 text-left max-w-3xl mx-auto">
+            <motion.p variants={fadeUp} custom={1} className="text-zinc-300 text-lg leading-relaxed">
+              Your brain runs on <span className="text-white font-semibold">20 watts</span> — less than a dim lightbulb. Inside it: 86 billion neurons, 100 trillion synaptic connections, and a storage capacity estimated at 2.5 petabytes. No data centre has ever matched it. No GPU cluster has come close. It is the original intelligence — specific, contextual, and earned across a lifetime of experience.
+            </motion.p>
+            <motion.p variants={fadeUp} custom={2} className="text-zinc-400 text-lg leading-relaxed">
+              <span className="text-[#29B6F6] font-semibold">86b.ai</span> carries that number as a standard, not a statistic. Every AI system we build reaches for the same qualities that make the biological original irreplaceable — deeply contextual, adaptive, and built to serve one organisation the way your brain serves one person. Not a generic model shared with the world. <em className="text-white not-italic font-medium">Intelligence engineered for you.</em>
+            </motion.p>
+            <motion.p variants={fadeUp} custom={3} className="text-white/40 text-sm italic border-l-2 border-[#29B6F6]/30 pl-4 mt-2">
+              We named ourselves after the most remarkable thing in the known universe — and we spend every working day trying to be worthy of it.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
