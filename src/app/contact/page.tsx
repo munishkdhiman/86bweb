@@ -44,16 +44,14 @@ export default function ContactPage() {
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(to right, rgba(15,23,42,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.03) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-semibold tracking-wide mb-6">
-              <Lock className="w-3.5 h-3.5" />NDA Protected · No Commitment Required
-            </div>
-            <h1 className="text-5xl md:text-6xl font-light tracking-tight text-slate-900 mb-5 leading-tight">
+            <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
+              <Lock className="inline w-3.5 h-3.5 mr-1" />NDA Protected · No Commitment Required
+            </span>
+            <h1 className="text-5xl md:text-6xl font-bold text-[#0E202E] mb-5 leading-tight">
               Start your{" "}
-              <span className="font-semibold" style={{ background: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                AI journey
-              </span>
+              <span className="italic text-[#1F3249]">AI journey.</span>
             </h1>
-            <p className="text-base text-slate-500 font-light leading-relaxed">
+            <p className="text-base text-zinc-500 leading-relaxed">
               Tell us about your challenge. We&apos;ll review it, sign an NDA, and give you an honest technical assessment — no sales pitch, no commitment required.
             </p>
           </div>
@@ -69,14 +67,14 @@ export default function ContactPage() {
                 <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-8 h-8 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-semibold text-slate-900 mb-3">Message received</h2>
-                <p className="text-base text-slate-500 font-light leading-relaxed max-w-sm mx-auto">We&apos;ll review your request and send an NDA within 24 business hours. Check your inbox.</p>
+                <h2 className="text-2xl font-bold text-[#0E202E] mb-3">Message received</h2>
+                <p className="text-base text-zinc-500 leading-relaxed max-w-sm mx-auto">We&apos;ll review your request and send an NDA within 24 business hours. Check your inbox.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-slate-200/60 overflow-hidden">
                 <div className="p-8 border-b border-slate-100">
-                  <h2 className="text-xl font-semibold text-slate-900 mb-1">Tell us about your project</h2>
-                  <p className="text-sm text-slate-500 font-light">All information is treated as confidential.</p>
+                  <h2 className="text-xl font-bold text-[#0E202E] mb-1">Tell us about your project</h2>
+                  <p className="text-sm text-zinc-500">All information is treated as confidential.</p>
                 </div>
                 <div className="p-8 space-y-5">
                   {/* Name */}
@@ -125,7 +123,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="px-8 pb-8">
-                  <button type="submit" className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-bold shadow-lg shadow-blue-500/25 hover:opacity-90 transition-all">
+                  <button type="submit" className="w-full py-4 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold shadow-lg transition-all">
                     Send Enquiry — NDA Sent Within 24h
                   </button>
                   <p className="text-center text-xs text-slate-400 font-light mt-4">
@@ -140,7 +138,7 @@ export default function ContactPage() {
           {/* Sidebar */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-6">What happens next</h3>
+              <h3 className="text-xl font-bold text-[#0E202E] mb-6">What happens next</h3>
               <div className="space-y-5">
                 {nextSteps.map((step, i) => (
                   <div key={step.title} className="flex items-start gap-4">
@@ -151,15 +149,15 @@ export default function ContactPage() {
                       {i < nextSteps.length - 1 && <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-5 bg-slate-200 mt-1" />}
                     </div>
                     <div className="pt-1">
-                      <div className="text-sm font-semibold text-slate-900 mb-0.5">{step.title}</div>
-                      <div className="text-xs text-slate-500 font-light leading-relaxed">{step.desc}</div>
+                      <div className="text-sm font-semibold text-[#0E202E] mb-0.5">{step.title}</div>
+                      <div className="text-xs text-zinc-500 leading-relaxed">{step.desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-slate-900 rounded-2xl p-7 space-y-3">
+            <div className="bg-[#0E202E] rounded-2xl p-7 space-y-3">
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Our Guarantees</div>
               {[
                 "NDA signed before any technical discussion",
@@ -170,7 +168,7 @@ export default function ContactPage() {
               ].map((g) => (
                 <div key={g} className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-xs text-slate-400 font-light">{g}</span>
+                  <span className="text-xs text-zinc-400">{g}</span>
                 </div>
               ))}
             </div>
