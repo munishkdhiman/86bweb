@@ -388,90 +388,50 @@ export default function HomePage() {
                 tier: '01',
                 title: 'On-Premise\nAir-Gapped',
                 sub: 'Maximum control',
-                secLevel: 4,
                 desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
                 tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
-                glow: 'hover:shadow-[0_8px_32px_rgba(14,32,46,0.12)] hover:-translate-y-0.5',
-                borderColor: 'border-[#0E202E]/20',
-                topAccent: 'bg-[#0E202E]',
-                numColor: 'text-[#0E202E]/06',
-                badgeBg: 'bg-[#0E202E] text-white',
-                tagBg: 'bg-zinc-100 border-zinc-200 text-zinc-600',
-                privacyActive: 'bg-[#0E202E]',
               },
               {
                 tier: '02',
                 title: 'Private VPC',
                 sub: 'Balanced security',
-                secLevel: 3,
                 desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
                 tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
-                glow: 'hover:shadow-[0_8px_32px_rgba(41,182,246,0.18)] hover:-translate-y-0.5',
-                borderColor: 'border-[#29B6F6]/30',
-                topAccent: 'bg-[#29B6F6]',
-                numColor: 'text-[#29B6F6]/08',
-                badgeBg: 'bg-[#29B6F6]/15 text-[#0288D1]',
-                tagBg: 'bg-[#29B6F6]/08 border-[#29B6F6]/20 text-[#0288D1]',
-                privacyActive: 'bg-[#29B6F6]',
               },
               {
                 tier: '03',
                 title: 'Enterprise\nCloud APIs',
                 sub: 'Fast to deploy',
-                secLevel: 2,
                 desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints. Ideal if you already hold Microsoft EA or AWS EDP credits.',
                 tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
-                glow: 'hover:shadow-[0_8px_32px_rgba(100,116,139,0.14)] hover:-translate-y-0.5',
-                borderColor: 'border-slate-200',
-                topAccent: 'bg-slate-400',
-                numColor: 'text-slate-200',
-                badgeBg: 'bg-slate-100 text-slate-600',
-                tagBg: 'bg-slate-50 border-slate-200 text-slate-500',
-                privacyActive: 'bg-slate-400',
               },
               {
                 tier: '04',
                 title: 'Managed\nAPI Tier',
                 sub: 'Lowest upfront cost',
-                secLevel: 1,
                 desc: 'OpenAI Enterprise, Anthropic Claude, or Cohere — via your own API keys with DPAs in place. Best for non-sensitive use cases where speed matters.',
                 tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
-                glow: 'hover:shadow-[0_8px_32px_rgba(113,113,122,0.12)] hover:-translate-y-0.5',
-                borderColor: 'border-zinc-200',
-                topAccent: 'bg-zinc-400',
-                numColor: 'text-zinc-200',
-                badgeBg: 'bg-zinc-100 text-zinc-500',
-                tagBg: 'bg-zinc-50 border-zinc-200 text-zinc-500',
-                privacyActive: 'bg-zinc-400',
               },
             ].map((d, i) => (
               <motion.div
                 key={d.tier}
                 variants={fadeUp}
                 custom={i * 0.12}
-                className={`relative rounded-2xl border ${d.borderColor} bg-white p-6 flex flex-col gap-5 transition-all duration-300 ${d.glow} group overflow-hidden`}
+                className="relative rounded-2xl border border-zinc-200 bg-white p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-[0_8px_28px_rgba(14,32,46,0.09)] hover:-translate-y-0.5 overflow-hidden group"
               >
-                {/* Top accent bar */}
-                <div className={`absolute top-0 left-0 right-0 h-[3px] ${d.topAccent}`} />
+                {/* Uniform top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#29B6F6]" />
 
-                {/* Giant number watermark */}
-                <div className={`absolute -bottom-4 -right-2 text-[110px] font-black ${d.numColor} select-none pointer-events-none leading-none`}>{d.tier}</div>
-
-                {/* Badge */}
-                <div className="flex items-start gap-2">
-                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${d.badgeBg}`}>{d.sub}</span>
+                {/* Header row: badge left, tier number right */}
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-500 border border-zinc-200">
+                    {d.sub}
+                  </span>
+                  <span className="text-sm font-bold text-zinc-300 tabular-nums">{d.tier}</span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-bold text-[#0E202E] text-lg leading-tight whitespace-pre-line">{d.title}</h3>
-
-                {/* Privacy level bar */}
-                <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400 uppercase tracking-wider mr-1">Privacy</span>
-                  {[1,2,3,4].map(n => (
-                    <div key={n} className={`w-5 h-1.5 rounded-full transition-all ${n <= d.secLevel ? d.privacyActive : 'bg-zinc-200'}`} />
-                  ))}
-                </div>
+                <h3 className="font-bold text-[#0E202E] text-base leading-snug whitespace-pre-line">{d.title}</h3>
 
                 {/* Description */}
                 <p className="text-zinc-500 text-sm leading-relaxed flex-1">{d.desc}</p>
@@ -479,7 +439,7 @@ export default function HomePage() {
                 {/* Tech tags */}
                 <div className="flex flex-wrap gap-1.5">
                   {d.tags.map(t => (
-                    <span key={t} className={`px-2 py-0.5 rounded-md text-[10px] font-medium border ${d.tagBg}`}>{t}</span>
+                    <span key={t} className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-zinc-50 border border-zinc-200 text-zinc-500">{t}</span>
                   ))}
                 </div>
               </motion.div>
@@ -501,7 +461,6 @@ export default function HomePage() {
             </p>
           </motion.div>
         </div>
-      </section>
 
 
 
