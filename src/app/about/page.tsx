@@ -1,7 +1,19 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.7, delay: i * 0.1, ease: 'easeOut' },
+  }),
+};
 
 const principles = [
   {
@@ -48,16 +60,82 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-24 bg-white border-b border-zinc-200">
+      {/* ── INSPIRATION HERO ─────────────────────────────────────────────────── */}
+      <section className="relative min-h-screen flex items-center bg-[#060d18] overflow-hidden">
+        {/* Neuron background */}
+        <Image
+          src="/neuron_hero.png"
+          alt="86 billion neurons — the inspiration behind 86b.ai"
+          fill
+          className="object-cover object-center opacity-35"
+          priority
+        />
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/90 via-[#060d18]/50 to-[#060d18]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-transparent to-[#060d18]/50" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-36 pb-24">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col gap-8">
+
+            {/* Eyebrow */}
+            <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.28em] font-medium">
+              The inspiration behind 86b.ai
+            </motion.p>
+
+            {/* Heading */}
+            <motion.h1 variants={fadeUp} custom={1} className="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.08] max-w-3xl">
+              Named after the most remarkable architecture{' '}
+              <em className="not-italic text-white/40 font-light">in the known universe.</em>
+            </motion.h1>
+
+            {/* Stats row */}
+            <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-10 pt-2">
+              {[
+                { val: '86B',    label: 'Neurons in the human brain' },
+                { val: '100T',   label: 'Synaptic connections' },
+                { val: '20W',    label: 'Power it runs on' },
+                { val: '2.5PB', label: 'Estimated storage capacity' },
+              ].map(s => (
+                <div key={s.val}>
+                  <p className="text-white font-light text-3xl tracking-tight">{s.val}</p>
+                  <p className="text-white/30 text-[10px] uppercase tracking-wider mt-1 font-light">{s.label}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Thin rule */}
+            <motion.div variants={fadeUp} custom={2.5} className="w-12 h-px bg-white/10" />
+
+            {/* Two-column story */}
+            <motion.div variants={fadeUp} custom={3} className="grid md:grid-cols-2 gap-10 max-w-4xl">
+              <p className="text-white/60 text-lg font-light leading-[1.8]">
+                Your brain runs on 20 watts — less energy than a dim lightbulb. Inside it: 86 billion neurons, each one a live wire, weaving 100 trillion connections shaped by a lifetime of experience. No data centre has ever matched it. No GPU cluster has come close. It is the original intelligence — specific, contextual, and irreducibly human.
+              </p>
+              <p className="text-white/40 text-lg font-light leading-[1.8]">
+                We named our company after that number not as a boast, but as a standard. Every AI system we build is measured against the same qualities that make biological intelligence irreplaceable — deeply contextual, adaptive, and built to serve one organisation the way your brain serves one person. <span className="text-white/65 font-normal">Not generic. Not shared. Yours.</span>
+              </p>
+            </motion.div>
+
+            {/* Scroll cue */}
+            <motion.div variants={fadeUp} custom={3.5} className="flex items-center gap-3 pt-4">
+              <span className="h-px w-8 bg-white/20" />
+              <span className="text-white/25 text-[10px] uppercase tracking-[0.22em] font-light">How we work</span>
+            </motion.div>
+
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── WHO WE ARE / MISSION ─────────────────────────────────────────────── */}
+      <section className="pt-24 pb-16 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
           <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
             About 86b.ai
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-[#0E202E] mb-6 leading-[1.06] max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-6 leading-[1.06] max-w-3xl">
             Solution Engineers,<br />
             <span className="text-[#1F3249] italic">Not Software Licences.</span>
-          </h1>
+          </h2>
           <p className="text-zinc-500 text-xl leading-relaxed max-w-2xl mb-12">
             We are an applied AI engineering firm. We build custom AI systems that integrate with your existing infrastructure — deployed within your chosen environment, from on-premise to enterprise cloud — and hand them over with full source code, documentation, and team training.
           </p>
@@ -78,10 +156,9 @@ export default function AboutPage() {
             * Estimated based on prior similar engagements. Actual timelines, scope and outcomes vary by project complexity and are confirmed only after a detailed requirement analysis under mutual NDA. Nothing on this page constitutes a guarantee.
           </p>
         </div>
-
       </section>
 
-      {/* Who we are */}
+      {/* ── WHO WE ARE ───────────────────────────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -114,7 +191,7 @@ export default function AboutPage() {
                   'A SaaS company that charges per seat',
                   'A systems integrator who outsources delivery',
                   'A consulting firm that produces slide decks',
-                  'A startup selling AI you don\'t control',
+                  "A startup selling AI you don't control",
                   'An offshore development shop with no AI depth',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-zinc-400">
@@ -133,7 +210,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Operational Principles */}
+      {/* ── OPERATIONAL PRINCIPLES ───────────────────────────────────────────── */}
       <section className="py-24 bg-white border-t border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
           <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
@@ -144,7 +221,7 @@ export default function AboutPage() {
           </h2>
 
           <div className="space-y-6">
-            {principles.map((p, i) => (
+            {principles.map((p) => (
               <div
                 key={p.number}
                 className="grid md:grid-cols-[80px_1fr] gap-6 p-8 rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:border-zinc-300 hover:shadow-sm transition-all duration-200"
@@ -160,7 +237,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="bg-[#0E202E] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
@@ -192,5 +269,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-

@@ -455,98 +455,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 86B STORY ──────────────────────────────────────────────────────────── */}
-      <section className="relative bg-[#060d18] overflow-hidden">
-        <div className="flex flex-col lg:flex-row min-h-[92vh]">
-
-          {/* Left — full-bleed neuron image */}
+      {/* ── 86B INSPIRATION QUOTE ─────────────────────────────────────────────── */}
+      <section className="py-28 bg-[#070f1c] relative overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full bg-[#29B6F6]/5 blur-[130px] pointer-events-none" />
+        <div className="relative max-w-3xl mx-auto px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.1, ease: 'easeOut' }}
-            className="relative lg:w-[52%] min-h-[55vw] lg:min-h-0"
+            transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <Image
-              src="/neuron_hero.png"
-              alt="Neural connections — the inspiration behind 86b.ai"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 52vw"
-              priority
-            />
-            {/* Fades into dark on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#060d18]/10 to-[#060d18]" />
-            {/* Fades top & bottom */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#060d18]/70 via-transparent to-[#060d18]/70" />
-            {/* Floating stat — bottom-left of image */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="absolute bottom-10 left-8 lg:left-12"
-            >
-              <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] mb-1">The original intelligence</p>
-              <p className="text-white font-light text-4xl tracking-tight">86,000,000,000</p>
-              <p className="text-white/40 text-xs mt-1 font-light">neurons — in every human brain</p>
-            </motion.div>
+            <span className="block text-[#29B6F6]/15 text-[96px] font-serif leading-none -mb-4 select-none">&ldquo;</span>
+            <p className="text-white/70 text-2xl md:text-[1.75rem] font-light leading-[1.75] italic tracking-wide">
+              86 billion neurons. The most sophisticated intelligence ever built — and it runs on 20 watts.
+              We named our company after it as a reminder of what intelligence truly means:
+              specific, contextual, and deeply earned.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-4">
+              <span className="h-px w-10 bg-[#29B6F6]/30" />
+              <Link href="/about" className="text-[#29B6F6] text-[10px] uppercase tracking-[0.28em] font-light hover:text-white transition-colors">
+                The inspiration behind 86b.ai
+              </Link>
+              <span className="h-px w-10 bg-[#29B6F6]/30" />
+            </div>
           </motion.div>
-
-          {/* Right — story content */}
-          <div className="relative lg:w-[48%] flex items-center">
-            {/* Ghost watermark */}
-            <motion.div
-              animate={{ y: [-6, 6, -6] }}
-              transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute inset-0 flex items-center justify-end pr-4 pointer-events-none select-none overflow-hidden"
-            >
-              <span className="text-[18vw] lg:text-[180px] font-thin text-white/[0.03] leading-none tracking-tighter">86B</span>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              className="relative px-10 lg:px-16 py-20 lg:py-0 flex flex-col gap-10"
-            >
-              {/* Eyebrow */}
-              <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.25em] font-medium">
-                The Biology of Intelligence
-              </motion.p>
-
-              {/* 3 stats — no borders, no boxes */}
-              <motion.div variants={fadeUp} custom={0.5} className="flex gap-10">
-                {[
-                  { val: '100T',   label: 'Synaptic connections' },
-                  { val: '20W',    label: 'Power it runs on' },
-                  { val: '2.5PB', label: 'Estimated storage' },
-                ].map(s => (
-                  <div key={s.val}>
-                    <p className="text-white font-light text-2xl tracking-tight">{s.val}</p>
-                    <p className="text-white/30 text-[10px] uppercase tracking-wider mt-0.5 font-light">{s.label}</p>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* Thin rule */}
-              <motion.div variants={fadeUp} custom={1} className="w-10 h-px bg-white/10" />
-
-              {/* Paragraph 1 */}
-              <motion.p variants={fadeUp} custom={1.5} className="text-white/60 text-lg font-light leading-[1.8] max-w-md">
-                Your brain runs on 20 watts — less than a dim lightbulb. Inside it: 86 billion neurons, 100 trillion synaptic connections, and a storage capacity no data centre has ever matched. It is the original intelligence — specific, contextual, earned across a lifetime.
-              </motion.p>
-
-              {/* Paragraph 2 */}
-              <motion.p variants={fadeUp} custom={2} className="text-white/40 text-lg font-light leading-[1.8] max-w-md">
-                86b.ai carries that number as a standard. Every AI system we build reaches for the same qualities — deeply contextual, adaptive, built to serve one organisation the way your brain serves one person. Not a generic model. <span className="text-white/70 font-normal">Intelligence engineered for you.</span>
-              </motion.p>
-
-
-            </motion.div>
-          </div>
         </div>
       </section>
+
 
       {/* ── 4 CORE CAPABILITIES BENTO ─────────────────────────────────────────── */}
       <section className="py-24 bg-white">
