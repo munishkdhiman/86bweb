@@ -11,7 +11,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.7, delay: i * 0.1, ease: 'easeOut' },
+    transition: { duration: 0.7, delay: i * 0.12, ease: 'easeOut' },
   }),
 };
 
@@ -26,7 +26,7 @@ const principles = [
     number: '02',
     title: 'Privacy is not a feature. It is the foundation.',
     description:
-      'We design every AI system with data privacy as a foundational requirement — not an afterthought. Where your compliance requirements demand it, we build fully air-gapped on-premise deployments. Where your existing cloud agreements allow it, we deploy within private VPCs on Azure, AWS, or GCP with private endpoints and data residency controls. The deployment model is always chosen to match your regulatory environment and risk appetite.',
+      'We design every AI system with data privacy as a foundational requirement — not an afterthought. Where your compliance requirements demand it, we build fully air-gapped on-premise deployments. Where your existing cloud agreements allow it, we deploy within private VPCs on Azure, AWS, or GCP with private endpoints and data residency controls.',
   },
   {
     number: '03',
@@ -62,71 +62,60 @@ export default function AboutPage() {
 
       {/* ── INSPIRATION HERO ─────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center bg-[#060d18] overflow-hidden">
-        {/* Neuron background */}
+
+        {/* Neuron full-bleed background */}
         <Image
           src="/neuron_hero.png"
           alt="86 billion neurons — the inspiration behind 86b.ai"
           fill
-          className="object-cover object-center opacity-35"
+          className="object-cover object-center opacity-30"
           priority
         />
-        {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/90 via-[#060d18]/50 to-[#060d18]/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-transparent to-[#060d18]/50" />
+        {/* Directional overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/95 via-[#060d18]/55 to-[#060d18]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-transparent to-[#060d18]/40" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-36 pb-24">
+        {/* Ghost watermark */}
+        <div className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none overflow-hidden">
+          <span className="text-[22vw] font-black text-white/[0.03] leading-none tracking-tighter">86B</span>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 pt-40 pb-28">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col gap-8">
 
             {/* Eyebrow */}
-            <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.28em] font-medium">
+            <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.3em] font-medium">
               The inspiration behind 86b.ai
             </motion.p>
 
-            {/* Heading */}
-            <motion.h1 variants={fadeUp} custom={1} className="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.08] max-w-3xl">
-              Named after the most remarkable architecture{' '}
-              <em className="not-italic text-white/40 font-light">in the known universe.</em>
+            {/* Inspiration line — FIRST and largest */}
+            <motion.h1 variants={fadeUp} custom={1}
+              className="text-5xl md:text-6xl lg:text-[4.5rem] font-extralight text-white leading-[1.1] max-w-3xl"
+            >
+              The human brain has{' '}
+              <span className="text-[#29B6F6] font-light">86 billion neurons</span>
+              {' '}— and nothing humans have ever built comes close.
             </motion.h1>
 
-            {/* Stats row */}
-            <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-10 pt-2">
-              {[
-                { val: '86B',    label: 'Neurons in the human brain' },
-                { val: '100T',   label: 'Synaptic connections' },
-                { val: '20W',    label: 'Power it runs on' },
-                { val: '2.5PB', label: 'Estimated storage capacity' },
-              ].map(s => (
-                <div key={s.val}>
-                  <p className="text-white font-light text-3xl tracking-tight">{s.val}</p>
-                  <p className="text-white/30 text-[10px] uppercase tracking-wider mt-1 font-light">{s.label}</p>
-                </div>
-              ))}
-            </motion.div>
-
             {/* Thin rule */}
-            <motion.div variants={fadeUp} custom={2.5} className="w-12 h-px bg-white/10" />
+            <motion.div variants={fadeUp} custom={2} className="w-12 h-px bg-white/10" />
 
-            {/* Two-column story */}
-            <motion.div variants={fadeUp} custom={3} className="grid md:grid-cols-2 gap-10 max-w-4xl">
-              <p className="text-white/60 text-lg font-light leading-[1.8]">
-                Your brain runs on 20 watts — less energy than a dim lightbulb. Inside it: 86 billion neurons, each one a live wire, weaving 100 trillion connections shaped by a lifetime of experience. No data centre has ever matched it. No GPU cluster has come close. It is the original intelligence — specific, contextual, and irreducibly human.
+            {/* Story paragraphs */}
+            <motion.div variants={fadeUp} custom={2.5} className="flex flex-col gap-5 max-w-2xl">
+              <p className="text-white/60 text-lg font-light leading-[1.85]">
+                Each neuron is a live wire — shaped by experience, firing in patterns specific to you and no one else. Your brain does not process information generically. It filters, infers, and decides through a lens built over a lifetime. That is what makes it extraordinary. That is what makes it irreplaceable.
               </p>
-              <p className="text-white/40 text-lg font-light leading-[1.8]">
-                We named our company after that number not as a boast, but as a standard. Every AI system we build is measured against the same qualities that make biological intelligence irreplaceable — deeply contextual, adaptive, and built to serve one organisation the way your brain serves one person. <span className="text-white/65 font-normal">Not generic. Not shared. Yours.</span>
+              <p className="text-white/35 text-lg font-light leading-[1.85]">
+                86b.ai carries that number as its name — and its standard. Every AI system we build is designed to serve one organisation the way your brain serves one person: deeply specific, continuously learning, and grounded in genuine understanding.{' '}
+                <span className="text-white/55">Not a generic model. Intelligence that knows who it is serving.</span>
               </p>
-            </motion.div>
-
-            {/* Scroll cue */}
-            <motion.div variants={fadeUp} custom={3.5} className="flex items-center gap-3 pt-4">
-              <span className="h-px w-8 bg-white/20" />
-              <span className="text-white/25 text-[10px] uppercase tracking-[0.22em] font-light">How we work</span>
             </motion.div>
 
           </motion.div>
         </div>
       </section>
 
-      {/* ── WHO WE ARE / MISSION ─────────────────────────────────────────────── */}
+      {/* ── MISSION ──────────────────────────────────────────────────────────── */}
       <section className="pt-24 pb-16 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
           <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
@@ -134,7 +123,7 @@ export default function AboutPage() {
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-6 leading-[1.06] max-w-3xl">
             Solution Engineers,<br />
-            <span className="text-[#1F3249] italic">Not Software Licences.</span>
+            <span className="text-[#1F3249] italic font-normal">Not Software Licences.</span>
           </h2>
           <p className="text-zinc-500 text-xl leading-relaxed max-w-2xl mb-12">
             We are an applied AI engineering firm. We build custom AI systems that integrate with your existing infrastructure — deployed within your chosen environment, from on-premise to enterprise cloud — and hand them over with full source code, documentation, and team training.

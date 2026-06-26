@@ -455,34 +455,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 86B INSPIRATION QUOTE ─────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#070f1c] relative overflow-hidden">
-        {/* Ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full bg-[#29B6F6]/5 blur-[130px] pointer-events-none" />
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
+      {/* ── 86B INSPIRATION ───────────────────────────────────────────────────── */}
+      <section className="relative py-36 overflow-hidden bg-[#060d18]">
+        {/* Neuron image — barely visible, full bleed */}
+        <Image
+          src="/neuron_hero.png"
+          alt=""
+          fill
+          className="object-cover object-center opacity-[0.08] pointer-events-none select-none"
+        />
+        {/* Darken */}
+        <div className="absolute inset-0 bg-[#060d18]/50" />
+
+        {/* Giant ghost number */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+          <span className="text-[32vw] font-black text-white/[0.022] leading-none tracking-tighter">86B</span>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1.1, ease: 'easeOut' }}
+            className="flex flex-col gap-6"
           >
-            <span className="block text-[#29B6F6]/15 text-[96px] font-serif leading-none -mb-4 select-none">&ldquo;</span>
-            <p className="text-white/70 text-2xl md:text-[1.75rem] font-light leading-[1.75] italic tracking-wide">
-              86 billion neurons. The most sophisticated intelligence ever built — and it runs on 20 watts.
-              We named our company after it as a reminder of what intelligence truly means:
-              specific, contextual, and deeply earned.
+            {/* Inspiration line — first */}
+            <p className="text-white text-3xl md:text-4xl font-extralight leading-[1.5] tracking-wide">
+              The human brain has{' '}
+              <span className="text-[#29B6F6] font-light">86 billion neurons</span>
+              {' '}— and it is the most sophisticated intelligence ever built.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-4">
-              <span className="h-px w-10 bg-[#29B6F6]/30" />
-              <Link href="/about" className="text-[#29B6F6] text-[10px] uppercase tracking-[0.28em] font-light hover:text-white transition-colors">
-                The inspiration behind 86b.ai
+
+            {/* Explanation */}
+            <p className="text-white/40 text-base font-light leading-[1.9] mt-2">
+              Each one specific. Each one earned. True intelligence was never meant to be generic — and neither is the AI we build.
+            </p>
+
+            {/* Link to about */}
+            <div className="mt-4 flex items-center justify-center gap-4">
+              <span className="h-px w-8 bg-white/10" />
+              <Link
+                href="/about"
+                className="text-white/30 text-[10px] uppercase tracking-[0.28em] font-light hover:text-[#29B6F6] transition-colors duration-300"
+              >
+                The story behind the name
               </Link>
-              <span className="h-px w-10 bg-[#29B6F6]/30" />
+              <span className="h-px w-8 bg-white/10" />
             </div>
           </motion.div>
         </div>
       </section>
-
 
       {/* ── 4 CORE CAPABILITIES BENTO ─────────────────────────────────────────── */}
       <section className="py-24 bg-white">
