@@ -353,104 +353,156 @@ export default function HomePage() {
       </motion.section>
 
       {/* ── DEPLOYMENT SPECTRUM ────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white border-t border-zinc-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="text-center mb-12"
-          >
-            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
-              Deployment
+      <section className="py-24 bg-[#0E202E] relative overflow-hidden">
+        {/* Background grid */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:'linear-gradient(#29B6F6 1px,transparent 1px),linear-gradient(90deg,#29B6F6 1px,transparent 1px)',backgroundSize:'48px 48px'}} />
+        {/* Radial glow center */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#29B6F6]/5 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          {/* Header */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6] mb-5">
+              <span className="w-6 h-px bg-[#29B6F6]/60" />
+              Deployment Spectrum
+              <span className="w-6 h-px bg-[#29B6F6]/60" />
             </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-bold text-[#0E202E] leading-tight">
-              Your infrastructure. Your choice.
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-bold text-white leading-tight">
+              Your infrastructure.{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#29B6F6] to-[#4FC3F7]">Your choice.</span>
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg mt-4 max-w-2xl mx-auto">
-              We work across the full enterprise deployment spectrum — from fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints. The right model depends on your regulatory environment, existing cloud agreements, and data sensitivity.
+            <motion.p variants={fadeUp} custom={2} className="text-zinc-400 text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
+              From fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints — we deploy where your security, compliance, and budget requirements demand.
             </motion.p>
           </motion.div>
 
+          {/* Cards grid */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           >
             {[
               {
                 tier: '01',
-                title: 'On-Premise / Air-Gapped',
+                title: 'On-Premise\nAir-Gapped',
                 sub: 'Maximum control',
+                secLevel: 4,
                 desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
                 tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
-                accent: 'border-[#0E202E]',
-                badge: 'bg-[#0E202E] text-white',
+                topBar: 'bg-gradient-to-r from-[#0E202E] via-white to-white',
+                glow: 'hover:shadow-[0_0_40px_rgba(255,255,255,0.07)]',
+                borderColor: 'border-white/20',
+                topAccent: 'bg-white',
+                numColor: 'text-white/10',
+                badgeBg: 'bg-white/10 text-white',
+                tagBg: 'bg-white/8 border-white/10 text-zinc-300',
               },
               {
                 tier: '02',
                 title: 'Private VPC',
                 sub: 'Balanced security',
+                secLevel: 3,
                 desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
                 tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
-                accent: 'border-[#29B6F6]',
-                badge: 'bg-[#29B6F6] text-white',
+                glow: 'hover:shadow-[0_0_40px_rgba(41,182,246,0.15)]',
+                borderColor: 'border-[#29B6F6]/40',
+                topAccent: 'bg-[#29B6F6]',
+                numColor: 'text-[#29B6F6]/10',
+                badgeBg: 'bg-[#29B6F6]/15 text-[#29B6F6]',
+                tagBg: 'bg-[#29B6F6]/8 border-[#29B6F6]/20 text-[#93D8F5]',
               },
               {
                 tier: '03',
-                title: 'Enterprise Cloud APIs',
+                title: 'Enterprise\nCloud APIs',
                 sub: 'Fast to deploy',
-                desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints and your data residency requirements. Ideal if you already hold Microsoft EA or AWS EDP credits.',
+                secLevel: 2,
+                desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints. Ideal if you already hold Microsoft EA or AWS EDP credits.',
                 tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
-                accent: 'border-zinc-300',
-                badge: 'bg-zinc-700 text-white',
+                glow: 'hover:shadow-[0_0_40px_rgba(148,163,184,0.1)]',
+                borderColor: 'border-slate-600/50',
+                topAccent: 'bg-slate-400',
+                numColor: 'text-slate-600/30',
+                badgeBg: 'bg-slate-700/50 text-slate-300',
+                tagBg: 'bg-slate-800/50 border-slate-600/30 text-slate-400',
               },
               {
                 tier: '04',
-                title: 'Managed API Tier',
+                title: 'Managed\nAPI Tier',
                 sub: 'Lowest upfront cost',
-                desc: 'OpenAI Enterprise, Anthropic Claude API, or Cohere — via your own API keys with data processing agreements in place. Best for non-sensitive use cases where speed matters.',
+                secLevel: 1,
+                desc: 'OpenAI Enterprise, Anthropic Claude, or Cohere — via your own API keys with DPAs in place. Best for non-sensitive use cases where speed matters.',
                 tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
-                accent: 'border-zinc-200',
-                badge: 'bg-zinc-500 text-white',
+                glow: 'hover:shadow-[0_0_40px_rgba(100,116,139,0.1)]',
+                borderColor: 'border-zinc-700/50',
+                topAccent: 'bg-zinc-500',
+                numColor: 'text-zinc-700/40',
+                badgeBg: 'bg-zinc-700/50 text-zinc-400',
+                tagBg: 'bg-zinc-800/50 border-zinc-700/30 text-zinc-500',
               },
             ].map((d, i) => (
               <motion.div
                 key={d.tier}
                 variants={fadeUp}
-                custom={i * 0.1}
-                className={`rounded-2xl border-2 ${d.accent} bg-white p-6 flex flex-col gap-4`}
+                custom={i * 0.12}
+                className={`relative rounded-2xl border ${d.borderColor} bg-white/[0.03] backdrop-blur-sm p-6 flex flex-col gap-5 transition-all duration-300 ${d.glow} group overflow-hidden`}
               >
-                <div className="flex items-center justify-between">
-                  <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${d.badge}`}>{d.tier}</span>
-                  <span className="text-xs text-zinc-400 font-medium">{d.sub}</span>
+                {/* Top accent bar */}
+                <div className={`absolute top-0 left-0 right-0 h-[3px] ${d.topAccent} opacity-80`} />
+
+                {/* Giant number watermark */}
+                <div className={`absolute top-2 right-3 text-8xl font-black ${d.numColor} select-none pointer-events-none leading-none`}>{d.tier}</div>
+
+                {/* Header */}
+                <div className="flex items-start justify-between gap-2">
+                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${d.badgeBg}`}>{d.sub}</span>
                 </div>
+
+                {/* Title */}
                 <div>
-                  <h3 className="font-bold text-[#0E202E] text-base leading-tight mb-2">{d.title}</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed">{d.desc}</p>
+                  <h3 className="font-bold text-white text-lg leading-tight whitespace-pre-line">{d.title}</h3>
                 </div>
-                <div className="flex flex-wrap gap-1.5 mt-auto">
+
+                {/* Security level dots */}
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] text-zinc-500 uppercase tracking-wider mr-1">Privacy</span>
+                  {[1,2,3,4].map(n => (
+                    <div key={n} className={`w-5 h-1.5 rounded-full transition-all ${n <= d.secLevel ? d.topAccent + ' opacity-90' : 'bg-white/10'}`} />
+                  ))}
+                </div>
+
+                {/* Description */}
+                <p className="text-zinc-400 text-sm leading-relaxed flex-1">{d.desc}</p>
+
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-1.5">
                   {d.tags.map(t => (
-                    <span key={t} className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-zinc-100 text-zinc-600 border border-zinc-200">{t}</span>
+                    <span key={t} className={`px-2 py-0.5 rounded-md text-[10px] font-medium border ${d.tagBg}`}>{t}</span>
                   ))}
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={5}
-            className="text-center text-sm text-zinc-400 mt-8"
+          {/* Bottom bar — spectrum indicator */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={6}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 px-2"
           >
-            We advise on the right model for your situation. You decide. Our engineers build and run it.
-          </motion.p>
+            <div className="flex items-center gap-3 flex-1">
+              <span className="text-xs text-zinc-500 whitespace-nowrap">Max privacy</span>
+              <div className="flex-1 h-1 rounded-full bg-gradient-to-r from-white via-[#29B6F6] via-slate-500 to-zinc-700" />
+              <span className="text-xs text-zinc-500 whitespace-nowrap">Lower cost</span>
+            </div>
+            <p className="text-xs text-zinc-500 text-center sm:text-right max-w-sm">
+              We advise on the right model. You decide. Our engineers build and run it.
+            </p>
+          </motion.div>
         </div>
       </section>
+
+
 
       {/* ── 4 CORE CAPABILITIES BENTO ─────────────────────────────────────────── */}
       <section className="py-24 bg-white">
