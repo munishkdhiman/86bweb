@@ -353,25 +353,25 @@ export default function HomePage() {
       </motion.section>
 
       {/* ── DEPLOYMENT SPECTRUM ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0E202E] relative overflow-hidden">
-        {/* Background grid */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:'linear-gradient(#29B6F6 1px,transparent 1px),linear-gradient(90deg,#29B6F6 1px,transparent 1px)',backgroundSize:'48px 48px'}} />
-        {/* Radial glow center */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#29B6F6]/5 blur-3xl pointer-events-none" />
+      <section className="py-24 bg-zinc-50 relative overflow-hidden border-t border-zinc-100">
+        {/* Subtle dot grid */}
+        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage:'radial-gradient(#0E202E 1px,transparent 1px)',backgroundSize:'28px 28px'}} />
+        {/* Soft radial glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-[#29B6F6]/6 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           {/* Header */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-16">
             <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6] mb-5">
-              <span className="w-6 h-px bg-[#29B6F6]/60" />
+              <span className="w-6 h-px bg-[#29B6F6]/40" />
               Deployment Spectrum
-              <span className="w-6 h-px bg-[#29B6F6]/60" />
+              <span className="w-6 h-px bg-[#29B6F6]/40" />
             </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-bold text-white leading-tight">
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-bold text-[#0E202E] leading-tight">
               Your infrastructure.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#29B6F6] to-[#4FC3F7]">Your choice.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0E202E] to-[#29B6F6]">Your choice.</span>
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-zinc-400 text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
               From fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints — we deploy where your security, compliance, and budget requirements demand.
             </motion.p>
           </motion.div>
@@ -381,7 +381,7 @@ export default function HomePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           >
             {[
               {
@@ -391,13 +391,13 @@ export default function HomePage() {
                 secLevel: 4,
                 desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
                 tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
-                topBar: 'bg-gradient-to-r from-[#0E202E] via-white to-white',
-                glow: 'hover:shadow-[0_0_40px_rgba(255,255,255,0.07)]',
-                borderColor: 'border-white/20',
-                topAccent: 'bg-white',
-                numColor: 'text-white/10',
-                badgeBg: 'bg-white/10 text-white',
-                tagBg: 'bg-white/8 border-white/10 text-zinc-300',
+                glow: 'hover:shadow-[0_8px_32px_rgba(14,32,46,0.12)] hover:-translate-y-0.5',
+                borderColor: 'border-[#0E202E]/20',
+                topAccent: 'bg-[#0E202E]',
+                numColor: 'text-[#0E202E]/06',
+                badgeBg: 'bg-[#0E202E] text-white',
+                tagBg: 'bg-zinc-100 border-zinc-200 text-zinc-600',
+                privacyActive: 'bg-[#0E202E]',
               },
               {
                 tier: '02',
@@ -406,12 +406,13 @@ export default function HomePage() {
                 secLevel: 3,
                 desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
                 tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
-                glow: 'hover:shadow-[0_0_40px_rgba(41,182,246,0.15)]',
-                borderColor: 'border-[#29B6F6]/40',
+                glow: 'hover:shadow-[0_8px_32px_rgba(41,182,246,0.18)] hover:-translate-y-0.5',
+                borderColor: 'border-[#29B6F6]/30',
                 topAccent: 'bg-[#29B6F6]',
-                numColor: 'text-[#29B6F6]/10',
-                badgeBg: 'bg-[#29B6F6]/15 text-[#29B6F6]',
-                tagBg: 'bg-[#29B6F6]/8 border-[#29B6F6]/20 text-[#93D8F5]',
+                numColor: 'text-[#29B6F6]/08',
+                badgeBg: 'bg-[#29B6F6]/15 text-[#0288D1]',
+                tagBg: 'bg-[#29B6F6]/08 border-[#29B6F6]/20 text-[#0288D1]',
+                privacyActive: 'bg-[#29B6F6]',
               },
               {
                 tier: '03',
@@ -420,12 +421,13 @@ export default function HomePage() {
                 secLevel: 2,
                 desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints. Ideal if you already hold Microsoft EA or AWS EDP credits.',
                 tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
-                glow: 'hover:shadow-[0_0_40px_rgba(148,163,184,0.1)]',
-                borderColor: 'border-slate-600/50',
+                glow: 'hover:shadow-[0_8px_32px_rgba(100,116,139,0.14)] hover:-translate-y-0.5',
+                borderColor: 'border-slate-200',
                 topAccent: 'bg-slate-400',
-                numColor: 'text-slate-600/30',
-                badgeBg: 'bg-slate-700/50 text-slate-300',
-                tagBg: 'bg-slate-800/50 border-slate-600/30 text-slate-400',
+                numColor: 'text-slate-200',
+                badgeBg: 'bg-slate-100 text-slate-600',
+                tagBg: 'bg-slate-50 border-slate-200 text-slate-500',
+                privacyActive: 'bg-slate-400',
               },
               {
                 tier: '04',
@@ -434,46 +436,45 @@ export default function HomePage() {
                 secLevel: 1,
                 desc: 'OpenAI Enterprise, Anthropic Claude, or Cohere — via your own API keys with DPAs in place. Best for non-sensitive use cases where speed matters.',
                 tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
-                glow: 'hover:shadow-[0_0_40px_rgba(100,116,139,0.1)]',
-                borderColor: 'border-zinc-700/50',
-                topAccent: 'bg-zinc-500',
-                numColor: 'text-zinc-700/40',
-                badgeBg: 'bg-zinc-700/50 text-zinc-400',
-                tagBg: 'bg-zinc-800/50 border-zinc-700/30 text-zinc-500',
+                glow: 'hover:shadow-[0_8px_32px_rgba(113,113,122,0.12)] hover:-translate-y-0.5',
+                borderColor: 'border-zinc-200',
+                topAccent: 'bg-zinc-400',
+                numColor: 'text-zinc-200',
+                badgeBg: 'bg-zinc-100 text-zinc-500',
+                tagBg: 'bg-zinc-50 border-zinc-200 text-zinc-500',
+                privacyActive: 'bg-zinc-400',
               },
             ].map((d, i) => (
               <motion.div
                 key={d.tier}
                 variants={fadeUp}
                 custom={i * 0.12}
-                className={`relative rounded-2xl border ${d.borderColor} bg-white/[0.03] backdrop-blur-sm p-6 flex flex-col gap-5 transition-all duration-300 ${d.glow} group overflow-hidden`}
+                className={`relative rounded-2xl border ${d.borderColor} bg-white p-6 flex flex-col gap-5 transition-all duration-300 ${d.glow} group overflow-hidden`}
               >
                 {/* Top accent bar */}
-                <div className={`absolute top-0 left-0 right-0 h-[3px] ${d.topAccent} opacity-80`} />
+                <div className={`absolute top-0 left-0 right-0 h-[3px] ${d.topAccent}`} />
 
                 {/* Giant number watermark */}
-                <div className={`absolute top-2 right-3 text-8xl font-black ${d.numColor} select-none pointer-events-none leading-none`}>{d.tier}</div>
+                <div className={`absolute -bottom-4 -right-2 text-[110px] font-black ${d.numColor} select-none pointer-events-none leading-none`}>{d.tier}</div>
 
-                {/* Header */}
-                <div className="flex items-start justify-between gap-2">
+                {/* Badge */}
+                <div className="flex items-start gap-2">
                   <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${d.badgeBg}`}>{d.sub}</span>
                 </div>
 
                 {/* Title */}
-                <div>
-                  <h3 className="font-bold text-white text-lg leading-tight whitespace-pre-line">{d.title}</h3>
-                </div>
+                <h3 className="font-bold text-[#0E202E] text-lg leading-tight whitespace-pre-line">{d.title}</h3>
 
-                {/* Security level dots */}
+                {/* Privacy level bar */}
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-500 uppercase tracking-wider mr-1">Privacy</span>
+                  <span className="text-[10px] text-zinc-400 uppercase tracking-wider mr-1">Privacy</span>
                   {[1,2,3,4].map(n => (
-                    <div key={n} className={`w-5 h-1.5 rounded-full transition-all ${n <= d.secLevel ? d.topAccent + ' opacity-90' : 'bg-white/10'}`} />
+                    <div key={n} className={`w-5 h-1.5 rounded-full transition-all ${n <= d.secLevel ? d.privacyActive : 'bg-zinc-200'}`} />
                   ))}
                 </div>
 
                 {/* Description */}
-                <p className="text-zinc-400 text-sm leading-relaxed flex-1">{d.desc}</p>
+                <p className="text-zinc-500 text-sm leading-relaxed flex-1">{d.desc}</p>
 
                 {/* Tech tags */}
                 <div className="flex flex-wrap gap-1.5">
@@ -485,17 +486,17 @@ export default function HomePage() {
             ))}
           </motion.div>
 
-          {/* Bottom bar — spectrum indicator */}
+          {/* Bottom spectrum bar */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={6}
             className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 px-2"
           >
             <div className="flex items-center gap-3 flex-1">
-              <span className="text-xs text-zinc-500 whitespace-nowrap">Max privacy</span>
-              <div className="flex-1 h-1 rounded-full bg-gradient-to-r from-white via-[#29B6F6] via-slate-500 to-zinc-700" />
-              <span className="text-xs text-zinc-500 whitespace-nowrap">Lower cost</span>
+              <span className="text-xs text-zinc-400 whitespace-nowrap font-medium">Max privacy</span>
+              <div className="flex-1 h-1 rounded-full bg-gradient-to-r from-[#0E202E] via-[#29B6F6] via-slate-400 to-zinc-300" />
+              <span className="text-xs text-zinc-400 whitespace-nowrap font-medium">Lower cost</span>
             </div>
-            <p className="text-xs text-zinc-500 text-center sm:text-right max-w-sm">
+            <p className="text-xs text-zinc-400 text-center sm:text-right max-w-sm">
               We advise on the right model. You decide. Our engineers build and run it.
             </p>
           </motion.div>
