@@ -96,18 +96,18 @@ export default function AudioWaveDemo() {
                 </div>
 
                 {/* Main screen — photorealistic face + overlays */}
-                <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
+                <div className="relative w-full" style={{ aspectRatio: '3/4' }}>
                   {/* The MetaHuman face */}
                   <Image
                     src="/svc_digital_human.png"
                     alt="Digital Human Agent"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     unoptimized
                     priority
                   />
                   {/* Gradient overlay — darken bottom for readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/95 via-[#0A1628]/30 to-[#0A1628]/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/20 to-transparent" />
 
                   {/* Connected badge — top left */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
@@ -121,7 +121,7 @@ export default function AudioWaveDemo() {
                   </div>
 
                   {/* Waveform — above chat bubble */}
-                  <div className="absolute bottom-20 left-0 right-0 flex items-end justify-center gap-[3px] h-10 px-6">
+                  <div className="absolute bottom-24 left-0 right-0 flex items-end justify-center gap-[3px] h-10 px-6">
                     {wave.map((h, i) => (
                       <div
                         key={i}
@@ -133,7 +133,7 @@ export default function AudioWaveDemo() {
 
                   {/* Chat bubble — animated cycling messages */}
                   <div
-                    className={`absolute bottom-10 left-3 right-3 transition-opacity duration-500 ${
+                    className={`absolute bottom-12 left-3 right-3 transition-opacity duration-500 ${
                       msgVisible ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
