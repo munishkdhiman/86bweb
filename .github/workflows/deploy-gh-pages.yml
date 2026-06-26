@@ -34,14 +34,27 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ── Image restoration ──────────────────────────────────────────────────
+      # Images are NOT tracked in git (too large). We restore them from the
+      # 'images' branch which contains only the public/ image files.
+      # This keeps master/dev clean while making images available for the build.
+      - name: Restore images from images branch
+        run: |
+          git fetch origin images --depth=1 2>/dev/null || echo "No images branch yet — skipping image restore"
+          if git rev-parse origin/images >/dev/null 2>&1; then
+            git checkout origin/images -- public/ 2>/dev/null || echo "No public/ folder on images branch"
+            echo "Images restored from images branch"
+          fi
+
+      # ── Static export build ───────────────────────────────────────────────
       - name: Build static export
         env:
           GITHUB_ACTIONS: "true"
         run: npm run build
 
-      # next build with output: 'export' creates an 'out/' directory
-      # GitHub Pages requires a .nojekyll file to bypass Jekyll processing
-      - name: Add .nojekyll file
+      # next build with output: 'export' creates an 'out/' directory.
+      # GitHub Pages requires a .nojekyll file to bypass Jekyll processing.
+      - name: Add .nojekyll
         run: touch out/.nojekyll
 
       - name: Upload Pages artifact
