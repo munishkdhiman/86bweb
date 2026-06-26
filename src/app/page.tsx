@@ -512,7 +512,7 @@ export default function HomePage() {
             >
               {/* Eyebrow */}
               <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.25em] font-medium">
-                The name behind the company
+                The Biology of Intelligence
               </motion.p>
 
               {/* 3 stats — no borders, no boxes */}
@@ -542,10 +542,7 @@ export default function HomePage() {
                 86b.ai carries that number as a standard. Every AI system we build reaches for the same qualities — deeply contextual, adaptive, built to serve one organisation the way your brain serves one person. Not a generic model. <span className="text-white/70 font-normal">Intelligence engineered for you.</span>
               </motion.p>
 
-              {/* Closing line */}
-              <motion.p variants={fadeUp} custom={2.5} className="text-white/20 text-sm font-light italic">
-                We named ourselves after the most remarkable thing in the known universe —<br />and we spend every working day trying to be worthy of it.
-              </motion.p>
+
             </motion.div>
           </div>
         </div>
