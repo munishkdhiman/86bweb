@@ -60,60 +60,40 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      {/* ── INSPIRATION HERO ─────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center bg-[#060d18] overflow-hidden">
-
-        {/* Neuron full-bleed background */}
+      {/* ── INSPIRATION HEADER ───────────────────────────────────────────────── */}
+      <section className="relative bg-[#060d18] overflow-hidden">
+        {/* Neuron image — very faint */}
         <Image
           src="/neuron_hero.png"
-          alt="86 billion neurons — the inspiration behind 86b.ai"
+          alt=""
           fill
-          className="object-cover object-center opacity-30"
+          className="object-cover object-center opacity-20"
           priority
         />
-        {/* Directional overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/95 via-[#060d18]/55 to-[#060d18]/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-transparent to-[#060d18]/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060d18]/80 via-[#060d18]/70 to-[#060d18]" />
 
-        {/* Ghost watermark */}
-        <div className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none overflow-hidden">
-          <span className="text-[22vw] font-black text-white/[0.03] leading-none tracking-tighter">86B</span>
-        </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-44 pb-24">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col gap-5">
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 pt-40 pb-28">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col gap-8">
-
-            {/* Eyebrow */}
             <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.3em] font-medium">
               The inspiration behind 86b.ai
             </motion.p>
 
-            {/* Inspiration line — FIRST and largest */}
             <motion.h1 variants={fadeUp} custom={1}
-              className="text-5xl md:text-6xl lg:text-[4.5rem] font-extralight text-white leading-[1.1] max-w-3xl"
+              className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl"
             >
-              The human brain has{' '}
-              <span className="text-[#29B6F6] font-light">86 billion neurons</span>
-              {' '}— and nothing humans have ever built comes close.
+              Named after <span className="text-[#29B6F6] font-light">86 billion neurons</span> — the only intelligence that has never needed to be generic.
             </motion.h1>
 
-            {/* Thin rule */}
-            <motion.div variants={fadeUp} custom={2} className="w-12 h-px bg-white/10" />
-
-            {/* Story paragraphs */}
-            <motion.div variants={fadeUp} custom={2.5} className="flex flex-col gap-5 max-w-2xl">
-              <p className="text-white/60 text-lg font-light leading-[1.85]">
-                Each neuron is a live wire — shaped by experience, firing in patterns specific to you and no one else. Your brain does not process information generically. It filters, infers, and decides through a lens built over a lifetime. That is what makes it extraordinary. That is what makes it irreplaceable.
-              </p>
-              <p className="text-white/35 text-lg font-light leading-[1.85]">
-                86b.ai carries that number as its name — and its standard. Every AI system we build is designed to serve one organisation the way your brain serves one person: deeply specific, continuously learning, and grounded in genuine understanding.{' '}
-                <span className="text-white/55">Not a generic model. Intelligence that knows who it is serving.</span>
-              </p>
-            </motion.div>
+            <motion.p variants={fadeUp} custom={2} className="text-white/35 text-base font-light leading-relaxed max-w-xl">
+              Every AI system we build carries the same standard: specific to your organisation, adaptive to your context, and owned by you entirely.
+            </motion.p>
 
           </motion.div>
         </div>
       </section>
+
+
 
       {/* ── MISSION ──────────────────────────────────────────────────────────── */}
       <section className="pt-24 pb-16 bg-white border-b border-zinc-200">
