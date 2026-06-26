@@ -511,7 +511,7 @@ export default function HomePage() {
               className="relative px-10 lg:px-16 py-20 lg:py-0 flex flex-col gap-10"
             >
               {/* Eyebrow */}
-              <motion.p variants={fadeUp} className="text-white/30 text-[10px] uppercase tracking-[0.25em] font-light">
+              <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.25em] font-medium">
                 The name behind the company
               </motion.p>
 
