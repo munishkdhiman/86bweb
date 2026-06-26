@@ -48,7 +48,7 @@ export default function ServicesPage() {
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4"
+            className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4"
           >
             All Capabilities
           </motion.span>
@@ -56,7 +56,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4"
+            className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-4"
           >
             Our Services
           </motion.h1>
@@ -86,7 +86,7 @@ export default function ServicesPage() {
                 className="w-full flex items-center justify-between px-8 py-6 hover:bg-zinc-50 transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <h2 className="text-lg font-bold text-zinc-900">{cat}</h2>
+                  <h2 className="text-lg font-bold text-[#0E202E]">{cat}</h2>
                   <span className="text-xs text-zinc-400 bg-zinc-100 px-2.5 py-1 rounded-full">
                     {categoryServices.length} service{categoryServices.length !== 1 ? 's' : ''}
                   </span>
@@ -107,7 +107,7 @@ export default function ServicesPage() {
                       variants={fadeUp}
                       custom={i}
                       onClick={() => setSelectedService({ ...svc, id: svc.slug })}
-                      className="group relative rounded-xl border border-zinc-200 bg-white overflow-hidden cursor-pointer hover:border-[#29B6F6]/30 hover:shadow-md transition-all duration-200"
+                      className="group relative rounded-xl border border-zinc-200 bg-white overflow-hidden cursor-pointer hover:border-zinc-300 hover:shadow-md transition-all duration-200"
                     >
                       {/* Image */}
                       <div className="relative h-40 overflow-hidden bg-zinc-100">
@@ -122,7 +122,7 @@ export default function ServicesPage() {
                       </div>
                       {/* Content */}
                       <div className="p-5">
-                        <h3 className="font-semibold text-zinc-900 text-sm mb-1 leading-tight">{svc.title}</h3>
+                        <h3 className="font-semibold text-[#0E202E] text-sm mb-1 leading-tight">{svc.title}</h3>
                         <p className="text-zinc-500 text-xs leading-relaxed mb-3">{svc.tagline}</p>
                         <div className="flex items-center gap-1.5 text-[#29B6F6] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                           <span>View details</span>
@@ -143,4 +143,5 @@ export default function ServicesPage() {
     </div>
   );
 }
+
 

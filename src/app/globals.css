@@ -2,25 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design Tokens ─────────────────────────────────────────────────────────── */
+/* ── Design Tokens — Infosys-inspired enterprise palette ────────────────────── */
 :root {
-  --bg: #F9FAFB;
-  --bg-surface: #FFFFFF;
-  --bg-elevated: #F3F4F6;
-  --fg: #18181B;
-  --fg-muted: #6B7280;
-  --fg-subtle: #9CA3AF;
+  /* Backgrounds */
+  --bg:          #F7F8FA;          /* off-white page bg */
+  --bg-surface:  #FFFFFF;          /* card / panel surface */
+  --bg-elevated: #EEF0F4;          /* hover / subtle lift */
 
-  /* Brand accent — matches 86b.ai logo sky-blue */
-  --accent: #29B6F6;
-  --accent-dark: #0288D1;
+  /* Foregrounds — Infosys dark charcoal + navy */
+  --fg:          #0E202E;          /* deep navy — primary heading colour */
+  --fg-body:     #2D3748;          /* charcoal — body text */
+  --fg-muted:    #5A6A7A;          /* medium grey — secondary text */
+  --fg-subtle:   #94A3B8;          /* light grey — hints / labels */
+
+  /* Borders */
+  --border:       #DDE1E7;
+  --border-light: #EAECF0;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(14,32,46,0.06);
+  --shadow-md: 0 4px 16px rgba(14,32,46,0.09);
+  --shadow-lg: 0 16px 48px rgba(14,32,46,0.12);
+
+  /* Brand accent — 86b.ai logo sky-blue — used sparingly */
+  --accent:       #29B6F6;
+  --accent-dark:  #0288D1;
   --accent-hover: #039BE5;
-  --accent-muted: rgba(41, 182, 246, 0.10);
-  --border: #E4E4E7;
-  --border-accent: rgba(41, 182, 246, 0.30);
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg: 0 16px 48px rgba(0,0,0,0.10);
+  --accent-muted: rgba(41,182,246,0.09);
+  --border-accent: rgba(41,182,246,0.28);
+
+  /* Navy dark sections */
+  --navy-deep:    #0E202E;
+  --navy-mid:     #1F3249;
+  --navy-border:  rgba(255,255,255,0.08);
 }
 
 /* ── Base ───────────────────────────────────────────────────────────────────── */
@@ -28,50 +42,58 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  color: var(--fg-body);
+  font-family: var(--font-geist-sans), 'Poppins', system-ui, sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Typography — lighter weights throughout ────────────────────────────────── */
+/* ── Typography ─────────────────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
+  color: #0E202E;              /* deep navy — Infosys-inspired primary heading */
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
-p, li, span {
-  font-weight: 300;
-}
+p { font-weight: 300; color: var(--fg-body); }
 
 strong, b { font-weight: 500; }
 
-/* Bold utility — demoted to medium for the lighter feel */
-.font-bold   { font-weight: 500 !important; }
-.font-semibold { font-weight: 400 !important; }
+/* Tailwind overrides — demote to lighter weights */
+.font-bold    { font-weight: 500 !important; }
+.font-semibold { font-weight: 450 !important; }
 
 /* ── Scrollbar ──────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+::-webkit-scrollbar-thumb { background: #C5CDD8; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
 /* ── Selection ──────────────────────────────────────────────────────────────── */
-::selection { background: rgba(41,182,246,0.15); color: #0288D1; }
+::selection { background: rgba(41,182,246,0.12); color: #0288D1; }
+
+/* ── Navbar solid bg — clear dark text, no opacity tricks ───────────────────── */
+.nav-solid {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
 
 /* ── Glass (light) ──────────────────────────────────────────────────────────── */
 .glass-light {
-  background: rgba(255,255,255,0.80);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid rgba(255,255,255,0.70);
 }
 
-/* ── Glass (dark — for hero / spatial section) ──────────────────────────────── */
+/* ── Glass (dark — spatial section) ─────────────────────────────────────────── */
 .glass-dark {
-  background: rgba(10,10,10,0.60);
+  background: rgba(14,32,46,0.70);
   backdrop-filter: blur(20px) saturate(130%);
   -webkit-backdrop-filter: blur(20px) saturate(130%);
   border: 1px solid rgba(255,255,255,0.08);
@@ -79,16 +101,15 @@ strong, b { font-weight: 500; }
 
 /* ── Spatial glass card ─────────────────────────────────────────────────────── */
 .glass-spatial {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.03);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(41,182,246,0.20);
-  box-shadow: 0 0 0 0 rgba(41,182,246,0);
+  border: 1px solid rgba(255,255,255,0.10);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .glass-spatial:hover {
-  border-color: rgba(41,182,246,0.50);
-  box-shadow: 0 0 32px rgba(41,182,246,0.12), inset 0 0 32px rgba(41,182,246,0.04);
+  border-color: rgba(41,182,246,0.35);
+  box-shadow: 0 0 28px rgba(41,182,246,0.10);
 }
 
 /* ── Accent gradient text ───────────────────────────────────────────────────── */
@@ -99,37 +120,34 @@ strong, b { font-weight: 500; }
   background-clip: text;
 }
 
-/* ── Sky-blue electric glow ─────────────────────────────────────────────────── */
-.glow-blue {
-  box-shadow: 0 0 0 1px rgba(41,182,246,0.2), 0 0 20px rgba(41,182,246,0.15);
-}
-.glow-blue-lg {
-  box-shadow: 0 0 0 1px rgba(41,182,246,0.25), 0 0 60px rgba(41,182,246,0.18);
+/* ── Subtle glow — use only on hero CTA / key accent elements ───────────────── */
+.glow-accent {
+  box-shadow: 0 0 0 1px rgba(41,182,246,0.15), 0 4px 20px rgba(41,182,246,0.12);
 }
 
 /* ── Mesh grid (spatial section bg) ────────────────────────────────────────── */
 .mesh-grid {
   background-image:
-    linear-gradient(rgba(41,182,246,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(41,182,246,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
-/* ── Card hover border glow ─────────────────────────────────────────────────── */
+/* ── Card hover ─────────────────────────────────────────────────────────────── */
 .card-hover {
   transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
 }
 .card-hover:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
-  border-color: var(--border-accent);
+  border-color: #C5CDD8;
 }
 
 /* ── Stats disclaimer ───────────────────────────────────────────────────────── */
 .stats-disclaimer {
   font-size: 0.7rem;
   font-weight: 300;
-  color: #9CA3AF;
+  color: #94A3B8;
   font-style: italic;
   line-height: 1.4;
 }
@@ -147,19 +165,17 @@ strong, b { font-weight: 500; }
 .wave-bar-4 { animation: wave4 0.8s ease-in-out infinite 0.3s; }
 .wave-bar-5 { animation: wave5 1.0s ease-in-out infinite 0.2s; }
 
-/* ── Float ──────────────────────────────────────────────────────────────────── */
+/* ── Animations ─────────────────────────────────────────────────────────────── */
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 .animate-float { animation: float 5s ease-in-out infinite; }
 .animate-float-delayed { animation: float 5s ease-in-out infinite 2.5s; }
 
-/* ── Slow pulse ─────────────────────────────────────────────────────────────── */
 @keyframes pulse-ring {
   0% { transform: scale(1); opacity: 0.7; }
   100% { transform: scale(1.6); opacity: 0; }
 }
 .animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
 
-/* ── Fade slide up ──────────────────────────────────────────────────────────── */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }

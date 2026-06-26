@@ -40,11 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# AI-generated images — served via CDN (Vercel / GitHub Pages), NOT tracked in git
-# Images live only on disk and are uploaded by the CI/CD build step
-public/*.png
-public/*.jpg
-public/*.jpeg
-public/*.webp
-public/originals/
+
+# Temp scripts
 copy_images.ps1
+replace_navy.ps1

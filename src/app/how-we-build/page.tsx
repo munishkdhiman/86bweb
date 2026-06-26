@@ -11,7 +11,7 @@ const phases = [
     number: '01',
     timeframe: 'Days 1–7',
     title: 'Secure Data Audit & NDA Signing',
-    color: 'bg-zinc-900',
+    color: 'bg-[#0E202E]',
     icon: FileText,
     description:
       'Before a single technical detail is shared, we sign a mutual NDA. Our lead engineers then conduct a comprehensive data landscape audit — mapping all data sources, identifying integration touchpoints, assessing data quality, and scoping the AI opportunity within your existing infrastructure.',
@@ -28,7 +28,7 @@ const phases = [
     number: '02',
     timeframe: 'Days 8–30',
     title: 'Private RAG & Model Deployment',
-    color: 'bg-[#29B6F6]',
+    color: 'bg-[#0E202E]',
     icon: Server,
     description:
       'Your first AI system is built and deployed inside your security boundary. We configure the RAG pipeline, connect all approved data sources, deploy the private LLM (or connect to your existing model), and run the first round of evaluation testing alongside your internal subject matter experts.',
@@ -75,10 +75,10 @@ export default function HowWeBuildPage() {
       {/* Header */}
       <section className="pt-32 pb-20 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
+          <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
             Our Engineering Process
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 leading-tight max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-6 leading-tight max-w-3xl">
             From NDA to production AI in 30 days.
           </h1>
           <p className="text-zinc-500 text-lg max-w-2xl leading-relaxed">
@@ -89,11 +89,11 @@ export default function HowWeBuildPage() {
           <div className="flex flex-wrap gap-6 mt-12">
             {principles.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-start gap-3 max-w-xs">
-                <div className="w-9 h-9 rounded-xl bg-[#29B6F6]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon className="w-4 h-4 text-[#29B6F6]" />
+                  <div className="w-9 h-9 rounded-xl bg-[#0E202E]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon className="w-4 h-4 text-[#0E202E]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-zinc-900 text-sm">{title}</p>
+                  <p className="font-semibold text-[#0E202E] text-sm">{title}</p>
                   <p className="text-zinc-500 text-xs leading-relaxed mt-0.5">{desc}</p>
                 </div>
               </div>
@@ -126,12 +126,12 @@ export default function HowWeBuildPage() {
                     <div>
                       <div className="flex items-center gap-3 mb-1">
                         <span className="text-xs font-mono font-semibold text-zinc-400">{phase.number}</span>
-                        <span className="text-xs font-semibold text-[#29B6F6] bg-blue-50 border border-blue-100 px-3 py-0.5 rounded-full flex items-center gap-1">
+                        <span className="text-xs font-normal text-[#5A6A7A] bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {phase.timeframe}
                         </span>
                       </div>
-                      <h2 className="text-xl font-bold text-zinc-900">{phase.title}</h2>
+                      <h2 className="text-xl font-bold text-[#0E202E]">{phase.title}</h2>
                     </div>
                     <span className="text-xs text-zinc-400 hidden md:block">{phase.team}</span>
                   </div>
@@ -148,7 +148,7 @@ export default function HowWeBuildPage() {
                       <ul className="space-y-2">
                         {phase.deliverables.map((d) => (
                           <li key={d} className="flex items-start gap-2.5 text-sm text-zinc-600">
-                            <CheckCircle2 className="w-4 h-4 text-[#29B6F6] flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-[#0E202E] flex-shrink-0 mt-0.5" />
                             {d}
                           </li>
                         ))}
@@ -163,7 +163,7 @@ export default function HowWeBuildPage() {
       </div>
 
       {/* CTA */}
-      <section className="bg-zinc-900 py-16">
+      <section className="bg-[#0E202E] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to start your Day 1 audit?
@@ -185,4 +185,5 @@ export default function HowWeBuildPage() {
     </div>
   );
 }
+
 

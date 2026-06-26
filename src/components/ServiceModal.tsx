@@ -92,11 +92,11 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                 )}
               </div>
 
-              <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-3 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0E202E] mb-3 leading-tight">
                 {service.title}
               </h2>
-              <p className="text-[#29B6F6] font-medium mb-4">{service.tagline}</p>
-              <p className="text-zinc-600 leading-relaxed mb-8">{service.longDescription}</p>
+              <p className="text-[#5A6A7A] font-normal mb-4 leading-relaxed">{service.tagline}</p>
+              <p className="text-[#2D3748] leading-relaxed mb-8">{service.longDescription}</p>
 
               {/* Metrics */}
               {service.metrics.length > 0 && (
@@ -127,7 +127,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
-                      <p className="font-semibold text-zinc-900 text-sm">{step.title}</p>
+                      <p className="font-semibold text-[#0E202E] text-sm">{step.title}</p>
                       <p className="text-zinc-500 text-sm mt-0.5">{step.desc}</p>
                     </div>
                   </li>
@@ -152,68 +152,76 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               </h3>
               <ul className="space-y-1.5">
                 {service.useCases.map((uc) => (
-                  <li key={uc} className="flex items-center gap-2 text-sm text-zinc-600">
-                    <ArrowRight className="w-3.5 h-3.5 text-[#29B6F6] flex-shrink-0" />
+                  <li key={uc} className="flex items-center gap-2 text-sm text-[#2D3748]">
+                    <ArrowRight className="w-3.5 h-3.5 text-[#5A6A7A] flex-shrink-0" />
                     {uc}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* RIGHT — 40%: Sticky lead form */}
-            <div className="w-full md:w-80 lg:w-96 bg-zinc-900 p-8 md:p-10 flex flex-col gap-6 flex-shrink-0">
-              <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                  Deploy Under NDA
-                </span>
-                <h3 className="text-xl font-bold text-white mt-2 leading-tight">
-                  Integrate <span className="text-[#29B6F6]">{service.title}</span> into your infrastructure
+            {/* RIGHT — 40%: Sticky lead form — navy dark panel */}
+            <div className="w-full md:w-80 lg:w-96 bg-[#0E202E] p-8 md:p-10 flex flex-col gap-5 flex-shrink-0">
+              <div className="border-b border-white/10 pb-5">
+                <span className="text-[10px] font-normal uppercase tracking-widest text-[#29B6F6]">Deploy Under NDA</span>
+                <h3 className="text-xl font-normal text-white mt-2 leading-snug">
+                  Integrate {service.title} into your infrastructure
                 </h3>
-                <p className="text-zinc-400 text-sm mt-2">
-                  Speak directly with a lead engineer. All conversations are covered by a mutual NDA before any technical details are shared.
+                <p className="text-zinc-400 text-sm mt-2 leading-relaxed font-light">
+                  Speak directly with a lead engineer. All conversations are covered by a mutual NDA.
                 </p>
               </div>
 
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="flex flex-col gap-3"
-              >
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors"
-                />
-                <input
-                  type="text"
-                  placeholder="Company / Organisation"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors"
-                />
-                <input
-                  type="email"
-                  placeholder="Work Email"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors"
-                />
-                <textarea
-                  placeholder={`Brief context on how ${service.title} fits your needs…`}
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors resize-none"
-                />
+              <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-3">
+                {/* Visible label + input pattern for dark bg */}
+                <div>
+                  <label className="block text-[11px] font-normal text-zinc-400 mb-1.5 uppercase tracking-wider">Full Name *</label>
+                  <input
+                    type="text"
+                    placeholder="Jane Smith"
+                    required
+                    className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-normal text-zinc-400 mb-1.5 uppercase tracking-wider">Company *</label>
+                  <input
+                    type="text"
+                    placeholder="Acme Corp"
+                    required
+                    className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-normal text-zinc-400 mb-1.5 uppercase tracking-wider">Work Email *</label>
+                  <input
+                    type="email"
+                    placeholder="jane@company.com"
+                    required
+                    className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-normal text-zinc-400 mb-1.5 uppercase tracking-wider">Your Requirements</label>
+                  <textarea
+                    placeholder={`Brief context on how ${service.title} fits your needs…`}
+                    rows={3}
+                    className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all resize-none"
+                  />
+                </div>
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 mt-1"
+                  className="w-full py-3 rounded-lg bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-normal tracking-wide transition-colors flex items-center justify-center gap-2 mt-1"
                 >
                   Request Technical Audit
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </form>
 
-              <div className="border-t border-zinc-800 pt-4 space-y-2">
+              <div className="border-t border-white/10 pt-4 space-y-2">
                 {['Under mutual NDA', 'No commitment required', 'Response within 24h'].map((t) => (
-                  <div key={t} className="flex items-center gap-2 text-xs text-zinc-500">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6] flex-shrink-0" />
+                  <div key={t} className="flex items-center gap-2 text-xs text-zinc-400 font-light">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6]/60 flex-shrink-0" />
                     {t}
                   </div>
                 ))}
@@ -225,3 +233,4 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
     </AnimatePresence>
   );
 }
+

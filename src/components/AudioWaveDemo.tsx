@@ -32,7 +32,7 @@ export default function AudioWaveDemo() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
               Live Capability
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight mb-6">
               Digital Human Agents.<br />
               <span className="text-accent-gradient">0.3s Latency.</span>
             </h2>
@@ -73,7 +73,7 @@ export default function AudioWaveDemo() {
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-md">
               {/* Browser chrome */}
-              <div className="bg-zinc-900 rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+              <div className="bg-[#0E202E] rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
                 {/* Browser top bar */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800/80 border-b border-zinc-700/50">
                   <div className="flex gap-1.5">
@@ -150,3 +150,4 @@ export default function AudioWaveDemo() {
     </section>
   );
 }
+

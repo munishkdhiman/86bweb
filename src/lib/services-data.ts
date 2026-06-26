@@ -32,7 +32,7 @@ export const services: Service[] = [
       { title: 'Enterprise Integration', desc: 'Deployed via intranet, Slack, Teams, or custom UI with full audit logging.' },
     ],
     stack: ['GPT-4o / Llama 3 / Mistral', 'LangChain / LlamaIndex', 'Pinecone / Weaviate', 'FastAPI', 'Docker / Kubernetes'],
-    metrics: [{ value: '85%', label: 'Query resolution' }, { value: '10×', label: 'Faster retrieval' }, { value: '100%', label: 'Private deployment' }],
+    metrics: [{ value: '~85%', label: 'Typical query resolution' }, { value: '~10×', label: 'Est. faster retrieval' }, { value: '100%', label: 'Private deployment' }],
     useCases: ['Enterprise Knowledge Assistants', 'Internal Copilots', 'Document Q&A Systems', 'Policy Compliance Bots', 'Product Support Automation'],
   },
   {
@@ -52,7 +52,7 @@ export const services: Service[] = [
       { title: 'Escalation Routing', desc: 'Intelligent handoff to human agents with full conversation context.' },
     ],
     stack: ['GPT-4o / Claude 3.5', 'ElevenLabs / Azure TTS', 'WebRTC', 'Custom Avatar SDK', 'Private VPC'],
-    metrics: [{ value: '0.3s', label: 'Response latency' }, { value: '40+', label: 'Languages' }, { value: '24/7', label: 'Availability' }],
+    metrics: [{ value: '~0.3s', label: 'Target response latency' }, { value: '40+', label: 'Languages supported' }, { value: '24/7', label: 'Designed availability' }],
     useCases: ['Customer Support Automation', 'Multilingual Sales Agents', 'Employee Onboarding', 'Virtual Training Instructors', 'Kiosk Assistants'],
   },
   {
@@ -73,7 +73,7 @@ export const services: Service[] = [
       { title: 'Audit Trail', desc: 'Every action logged — immutable audit trail for compliance and review.' },
     ],
     stack: ['Unstructured.io', 'GPT-4o Vision', 'Temporal', 'Apache Airflow', 'PostgreSQL'],
-    metrics: [{ value: '94%', label: 'Extraction accuracy' }, { value: '80%', label: 'Time saved' }, { value: '100%', label: 'Audit coverage' }],
+    metrics: [{ value: '~94%', label: 'Typical extraction accuracy' }, { value: '~80%', label: 'Est. time saved' }, { value: '100%', label: 'Audit coverage' }],
     useCases: ['Invoice Processing', 'Contract Review', 'Compliance Screening', 'Approval Workflows', 'Claims Processing'],
   },
 
@@ -95,7 +95,7 @@ export const services: Service[] = [
       { title: 'Leakage Dashboard', desc: 'Real-time dashboard showing flagged items, estimated impact, and recovery actions.' },
     ],
     stack: ['GPT-4o Vision', 'Unstructured.io', 'PostgreSQL', 'dbt', 'Power BI / Metabase'],
-    metrics: [{ value: '12%', label: 'Avg revenue recovered' }, { value: '48h', label: 'To first insights' }, { value: '$2M+', label: 'Avg leakage found' }],
+    metrics: [{ value: '~12%', label: 'Est. avg revenue recovered' }, { value: '~48h', label: 'Rough time to first insights' }, { value: 'Varies', label: 'Leakage found (project-dependent)' }],
     useCases: ['Revenue Leakage Recovery', 'Billing Accuracy Audits', 'MSA Compliance Monitoring', 'Invoice Reconciliation', 'Finance Team Augmentation'],
   },
   {
@@ -115,7 +115,7 @@ export const services: Service[] = [
       { title: 'Production Deployment', desc: 'Models served via API integrated with your BI tools and dashboards.' },
     ],
     stack: ['Python / scikit-learn', 'XGBoost / LightGBM', 'PyTorch Forecasting', 'MLflow', 'Snowflake / BigQuery'],
-    metrics: [{ value: '91%', label: 'Forecast accuracy' }, { value: '30d', label: 'Forecast horizon' }, { value: 'Real-time', label: 'Model updates' }],
+    metrics: [{ value: '~91%', label: 'Typical forecast accuracy' }, { value: '30+ days', label: 'Est. forecast horizon' }, { value: 'Real-time', label: 'Model updates' }],
     useCases: ['Revenue Forecasting', 'Demand Planning', 'Churn Prediction', 'Inventory Optimisation', 'Capacity Planning'],
   },
   {
@@ -135,7 +135,7 @@ export const services: Service[] = [
       { title: 'Data Room Assembly', desc: 'Structured data room with investor-standard KPIs, cohort analysis, and documentation.' },
     ],
     stack: ['Python / Pandas', 'dbt', 'Snowflake', 'GPT-4o', 'Notion / Confluence API'],
-    metrics: [{ value: '30d', label: 'Data room ready' }, { value: '95%', label: 'Data completeness' }, { value: '3×', label: 'Faster diligence' }],
+    metrics: [{ value: '~30 days', label: 'Est. data room ready' }, { value: '~95%', label: 'Typical data completeness' }, { value: '~3×', label: 'Est. faster diligence' }],
     useCases: ['Series A/B/C Due Diligence', 'M&A Data Preparation', 'Board Reporting', 'Regulatory Submissions', 'Strategic VC Matching'],
   },
 
@@ -157,7 +157,7 @@ export const services: Service[] = [
       { title: 'Confidence Scoring', desc: 'Each extracted field carries a confidence score and source reference.' },
     ],
     stack: ['spaCy', 'Hugging Face Transformers', 'GPT-4o', 'Apache Tika', 'Elasticsearch'],
-    metrics: [{ value: '96%', label: 'Extraction accuracy' }, { value: '1000+', label: 'Docs/hour' }, { value: '40+', label: 'Languages' }],
+    metrics: [{ value: '~96%', label: 'Typical extraction accuracy' }, { value: '1000+', label: 'Est. docs/hour' }, { value: '40+', label: 'Languages supported' }],
     useCases: ['Contract Analysis', 'Regulatory Compliance', 'Insurance Claims', 'Legal Discovery', 'Research Synthesis'],
   },
   {
@@ -177,7 +177,7 @@ export const services: Service[] = [
       { title: 'Real-time Monitoring', desc: 'Live inference pipeline with alert routing and defect logging dashboard.' },
     ],
     stack: ['PyTorch', 'YOLO v10', 'OpenCV', 'NVIDIA TensorRT', 'NVIDIA Jetson', 'AWS Rekognition'],
-    metrics: [{ value: '99.1%', label: 'Defect detection' }, { value: '<20ms', label: 'Inference time' }, { value: '24/7', label: 'Live monitoring' }],
+    metrics: [{ value: '~99%', label: 'Typical defect detection' }, { value: '<20ms', label: 'Target inference time' }, { value: '24/7', label: 'Live monitoring' }],
     useCases: ['Quality Control', 'Defect Detection', 'Facility Monitoring', 'Medical Image Analysis', 'Construction Safety'],
   },
 
@@ -199,7 +199,7 @@ export const services: Service[] = [
       { title: 'ATS Integration', desc: 'Ranked shortlist surfaced directly inside your existing ATS workflow.' },
     ],
     stack: ['Python', 'GPT-4o', 'Fairlearn', 'Workday / Greenhouse API', 'PostgreSQL'],
-    metrics: [{ value: '70%', label: 'Screening time saved' }, { value: '40%', label: 'Better quality hires' }, { value: '100%', label: 'Bias-audited' }],
+    metrics: [{ value: '~70%', label: 'Est. screening time saved' }, { value: 'Higher', label: 'Reported quality of hires' }, { value: '100%', label: 'Bias-audited process' }],
     useCases: ['High-Volume Hiring', 'Technical Screening', 'Campus Recruitment', 'Executive Search', 'Internal Mobility'],
   },
   {
@@ -219,7 +219,7 @@ export const services: Service[] = [
       { title: 'Progress Reporting', desc: 'Manager dashboards showing cohort progress, CEFR level changes, and engagement.' },
     ],
     stack: ['GPT-4o', 'Whisper ASR', 'Azure TTS', 'React Native', 'PostgreSQL'],
-    metrics: [{ value: '2×', label: 'Faster proficiency gain' }, { value: '90%', label: 'Learner satisfaction' }, { value: '40+', label: 'Languages' }],
+    metrics: [{ value: '~2×', label: 'Est. faster proficiency gain' }, { value: '~90%', label: 'Reported learner satisfaction' }, { value: '40+', label: 'Languages' }],
     useCases: ['German Language for Indian IT Companies', 'English for International Teams', 'Technical Communication', 'Customer-Facing Language Training'],
   },
 
@@ -261,7 +261,7 @@ export const services: Service[] = [
       { title: 'Remediation Report', desc: 'Prioritised vulnerability report with specific remediation recommendations.' },
     ],
     stack: ['Garak', 'LangChain Red-Team', 'Custom Prompt Libraries', 'Python', 'Grafana'],
-    metrics: [{ value: '200+', label: 'Attack vectors tested' }, { value: '48h', label: 'Standard turnaround' }, { value: 'Zero', label: 'Production incidents post-audit' }],
+    metrics: [{ value: '200+', label: 'Attack vectors tested' }, { value: '~48h', label: 'Est. standard turnaround' }, { value: 'Zero*', label: 'Production incidents post-audit (to date)' }],
     useCases: ['Pre-deployment Safety Audits', 'Ongoing Red-Team Retainers', 'Regulatory Compliance Testing', 'Brand Risk Assessment', 'Third-party AI Audits'],
   },
 
@@ -283,7 +283,7 @@ export const services: Service[] = [
       { title: 'API Gateway', desc: 'Authenticated REST API with rate limiting, usage tracking, and logging.' },
     ],
     stack: ['vLLM / TGI', 'NVIDIA CUDA', 'Kubernetes', 'Traefik', 'Prometheus / Grafana'],
-    metrics: [{ value: '100%', label: 'Private infrastructure' }, { value: '3×', label: 'Cost vs public API' }, { value: '99.9%', label: 'Uptime SLA' }],
+    metrics: [{ value: '100%', label: 'Private infrastructure' }, { value: '~3×', label: 'Est. cost saving vs public API' }, { value: '99.9%', label: 'Target uptime SLA' }],
     useCases: ['Private LLM Hosting', 'API Gateway for AI Services', 'GPU Cluster Management', 'Cost Optimisation', 'Air-Gapped Deployments'],
   },
   {
@@ -325,7 +325,7 @@ export const services: Service[] = [
       { title: 'Driver App Integration', desc: 'Optimised routes pushed to driver mobile apps with turn-by-turn navigation.' },
     ],
     stack: ['Google OR-Tools', 'Python', 'HERE Maps API', 'Kafka', 'React Native'],
-    metrics: [{ value: '22%', label: 'Cost reduction' }, { value: '18%', label: 'Faster delivery' }, { value: 'Real-time', label: 'Route updates' }],
+    metrics: [{ value: '~22%', label: 'Est. cost reduction' }, { value: '~18%', label: 'Est. faster delivery' }, { value: 'Real-time', label: 'Route updates' }],
     useCases: ['Last-Mile Delivery', 'Field Service Scheduling', 'Supply Chain Optimisation', 'Waste Collection Routing', 'Emergency Response'],
   },
 
@@ -348,7 +348,7 @@ export const services: Service[] = [
       { title: 'Operations Dashboard', desc: 'Real-time 3D command interface with alert routing and performance KPIs.' },
     ],
     stack: ['Unity / Unreal Engine', 'AWS IoT Core', 'InfluxDB', 'MQTT', 'Python / TensorFlow'],
-    metrics: [{ value: '35%', label: 'Downtime reduction' }, { value: 'Real-time', label: 'Data sync' }, { value: '72h', label: 'Failure prediction horizon' }],
+    metrics: [{ value: '~35%', label: 'Est. downtime reduction' }, { value: 'Real-time', label: 'Data sync' }, { value: '~72h', label: 'Est. failure prediction window' }],
     useCases: ['Factory Operations Monitoring', 'Energy Grid Management', 'Supply Chain Simulation', 'Smart Building Management', 'Predictive Maintenance'],
   },
   {
@@ -369,7 +369,7 @@ export const services: Service[] = [
       { title: 'Hardware Deployment', desc: 'Fleet management and content update infrastructure for AR devices.' },
     ],
     stack: ['Apple Vision Pro SDK', 'Meta Presence Platform', 'ARKit / ARCore', 'Unity', 'WebRTC', 'AWS IoT'],
-    metrics: [{ value: '40%', label: 'Faster field repairs' }, { value: '60%', label: 'Training time saved' }, { value: '95%', label: 'First-time fix rate' }],
+    metrics: [{ value: '~40%', label: 'Est. faster field repairs' }, { value: '~60%', label: 'Est. training time saved' }, { value: '~95%', label: 'Reported first-time fix rate' }],
     useCases: ['Industrial Maintenance', 'Assembly Guidance', 'Remote Expert Support', 'Safety Training', 'Quality Inspection'],
   },
   {
@@ -389,7 +389,7 @@ export const services: Service[] = [
       { title: 'Analytics Integration', desc: 'Learner engagement, completion, and knowledge retention tracked per participant.' },
     ],
     stack: ['Unreal Engine 5', 'MetaHuman', 'GPT-4o', 'Azure Spatial Anchors', 'WebXR'],
-    metrics: [{ value: '75%', label: 'Training cost reduction' }, { value: '85%', label: 'Retention improvement' }, { value: 'Unlimited', label: 'Concurrent users' }],
+    metrics: [{ value: '~75%', label: 'Est. training cost reduction' }, { value: '~85%', label: 'Reported retention improvement' }, { value: 'Unlimited', label: 'Concurrent users (architecture)' }],
     useCases: ['Corporate Onboarding', 'Product Demonstration', 'Safety Training', 'Customer Virtual Showrooms', 'Remote Collaboration'],
   },
 ];

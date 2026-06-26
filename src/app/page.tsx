@@ -167,21 +167,21 @@ const spatialCards = [
 const phases = [
   {
     number: '01',
-    label: 'Days 1–7',
+    label: 'Est. Days 1–7',
     title: 'Secure Data Audit & NDA',
     description: 'We sign a mutual NDA before any technical conversation begins. Our engineers map your data landscape, identify integration points, and scope the AI opportunity within your infrastructure.',
     deliverable: 'Technical opportunity brief + data readiness report',
   },
   {
     number: '02',
-    label: 'Days 8–30',
+    label: 'Est. Days 8–30',
     title: 'Private RAG & Model Deployment',
     description: 'Your first AI system is built and deployed inside your security boundary. We configure the RAG pipeline, connect data sources, and run the first round of evaluation testing with your team.',
     deliverable: 'Working AI system in staging environment',
   },
   {
     number: '03',
-    label: 'Day 30+',
+    label: 'Day 30+ (Approx.)',
     title: 'Adversarial Testing & VPC Onboarding',
     description: 'Before production go-live, we red-team the system — prompt injection tests, edge-case evaluation, and performance benchmarking. Then we migrate to your production VPC with full handover documentation.',
     deliverable: 'Production-ready system + full documentation + team training',
@@ -367,7 +367,7 @@ export default function HomePage() {
             <motion.h2
               variants={fadeUp}
               custom={1}
-              className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight"
+              className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight"
             >
               Four pillars. One engineering team.
             </motion.h2>
@@ -407,7 +407,7 @@ export default function HomePage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/40 to-zinc-900/10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E202E]/90 via-[#0E202E]/40 to-[#0E202E]/10" />
                   </div>
 
                   {/* Content */}
@@ -463,7 +463,7 @@ export default function HomePage() {
         id="spatial"
         ref={spatialRef}
         onMouseMove={onMouseMove}
-        className="relative py-28 bg-zinc-950 overflow-hidden"
+        className="relative py-28 bg-[#0E202E] overflow-hidden"
       >
         {/* Mesh grid bg */}
         <div className="absolute inset-0 mesh-grid opacity-100" />
@@ -550,7 +550,7 @@ export default function HomePage() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
               How We Engage
             </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight mb-4">
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight mb-4">
               Solution engineers,<br />not software licences.
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed">
@@ -576,15 +576,15 @@ export default function HomePage() {
                 >
                   {/* Step number circle */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#29B6F6] text-white font-bold text-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0E202E] text-white font-normal text-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-zinc-900/15">
                       {phase.number}
                     </div>
-                    <span className="text-xs font-semibold text-[#29B6F6] bg-blue-50 border border-blue-100 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold text-[#5A6A7A] bg-zinc-50 border border-zinc-200 px-3 py-1 rounded-full">
                       {phase.label}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-zinc-900 mb-3">{phase.title}</h3>
+                  <h3 className="text-lg font-bold text-[#0E202E] mb-3">{phase.title}</h3>
                   <p className="text-zinc-500 text-sm leading-relaxed mb-4">{phase.description}</p>
 
                   <div className="flex items-start gap-2 p-3 bg-white rounded-xl border border-zinc-200">
@@ -599,7 +599,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BOTTOM CTA ────────────────────────────────────────────────────────── */}
-      <section className="bg-[#29B6F6] py-20">
+      <section className="bg-[#0E202E] py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial="hidden"
@@ -615,7 +615,7 @@ export default function HomePage() {
             <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#29B6F6] text-sm font-bold hover:bg-zinc-100 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#0E202E] text-sm font-normal hover:bg-zinc-100 transition-colors shadow-lg"
               >
                 Book Free AI Audit
                 <ChevronRight className="w-4 h-4" />
@@ -638,4 +638,5 @@ export default function HomePage() {
     </div>
   );
 }
+
 

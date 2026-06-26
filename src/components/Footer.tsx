@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-light tracking-wide transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-[#0E202E] text-sm font-normal tracking-wide hover:bg-zinc-100 transition-colors shadow-sm"
             >
               Book Free AI Audit
               <ChevronRight className="w-4 h-4" />
@@ -64,9 +64,10 @@ export default function Footer() {
             <Image
               src="/logos/86B_white.png"
               alt="86b.ai"
-              width={80}
-              height={32}
-              className="h-8 w-auto object-contain"
+              width={160}
+              height={56}
+              style={{ height: '56px', width: 'auto' }}
+              className="object-contain"
             />
             <p className="text-sm mt-3 leading-relaxed text-zinc-500">
               Applied enterprise AI — built privately, deployed securely, operated by engineers.
@@ -78,7 +79,7 @@ export default function Footer() {
                 { icon: Globe, text: 'On-Premise Deployments' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-xs text-zinc-600">
-                  <Icon className="w-3.5 h-3.5 text-[#29B6F6]" />
+                  <Icon className="w-3.5 h-3.5 text-zinc-400" />
                   {text}
                 </div>
               ))}
@@ -108,14 +109,25 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-zinc-800 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-zinc-600">
-            © {new Date().getFullYear()} 86b.ai. All rights reserved. All client engagements are protected under mutual NDA.
-          </p>
-          <p className="text-xs text-zinc-700">
-            Built with precision by Solution Engineers.
-          </p>
+        <div className="border-t border-zinc-700 mt-16 pt-8 flex flex-col gap-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+            <p className="text-xs text-zinc-400">
+              © {new Date().getFullYear()} 86b.ai. All rights reserved. All client engagements are protected under mutual NDA.
+            </p>
+            <p className="text-xs text-zinc-500">
+              Built with precision by Solution Engineers.
+            </p>
+          </div>
+          <div className="border-t border-zinc-700 pt-4">
+            <p className="text-xs text-zinc-400 italic leading-relaxed">
+              <span className="text-zinc-300 not-italic font-normal">Disclaimer: </span>
+              All performance figures, timelines and capability metrics shown on this site are indicative estimates only.
+              Actual outcomes are confirmed following a detailed requirement analysis conducted under mutual NDA.
+            </p>
+          </div>
         </div>
+
+
       </div>
     </footer>
   );
