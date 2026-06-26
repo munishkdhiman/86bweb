@@ -368,8 +368,7 @@ export default function HomePage() {
               <span className="w-6 h-px bg-[#29B6F6]/40" />
             </motion.span>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-bold text-[#0E202E] leading-tight">
-              Your infrastructure.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0E202E] to-[#29B6F6]">Your choice.</span>
+              Your infrastructure. Your choice.
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
               From fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints — we deploy where your security, compliance, and budget requirements demand.
@@ -446,20 +445,12 @@ export default function HomePage() {
             ))}
           </motion.div>
 
-          {/* Bottom spectrum bar */}
-          <motion.div
+          <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={6}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 px-2"
+            className="text-center text-xs text-zinc-400 mt-8"
           >
-            <div className="flex items-center gap-3 flex-1">
-              <span className="text-xs text-zinc-400 whitespace-nowrap font-medium">Max privacy</span>
-              <div className="flex-1 h-1 rounded-full bg-gradient-to-r from-[#0E202E] via-[#29B6F6] via-slate-400 to-zinc-300" />
-              <span className="text-xs text-zinc-400 whitespace-nowrap font-medium">Lower cost</span>
-            </div>
-            <p className="text-xs text-zinc-400 text-center sm:text-right max-w-sm">
-              We advise on the right model. You decide. Our engineers build and run it.
-            </p>
-          </motion.div>
+            We advise on the right model for your situation. You decide. Our engineers build and run it.
+          </motion.p>
         </div>
       </section>
 
