@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI-generated images — served via Vercel CDN, not tracked in git
+public/svc_*.png
+public/video_*.png
+public/hero_*.png
