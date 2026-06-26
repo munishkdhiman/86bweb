@@ -12,7 +12,7 @@ const posts = [
     slug: 'the-86-billion-neuron-standard',
     title: 'The 86 Billion Neuron Standard: What the Human Brain Teaches Us About Building Enterprise AI',
     excerpt:
-      'Your brain runs on 20 watts and outperforms every GPU cluster ever built. The lesson for enterprise AI is not about raw power — it's about specificity, context, and intelligence that knows who it serves.',
+      'Your brain runs on 20 watts and outperforms every GPU cluster ever built. The lesson for enterprise AI is not about raw power — it\'s about specificity, context, and intelligence that knows who it serves.',
     category: 'AI Strategy',
     date: 'June 27, 2025',
     readTime: '6 min read',
