@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -94,13 +94,16 @@ export default function ServiceDetailClient({ svc }: Props) {
               </div>
             )}
 
+            {/* ── Digital Human live demo visual (only for digital-humans) ── */}
+            {svc.slug === 'digital-humans' && <DigitalHumanLivePanel />}
+
             <div>
               <h2 className="text-2xl font-bold text-[#0E202E] mb-6">Implementation Pipeline</h2>
               <ol className="space-y-5">
                 {svc.steps.map((step, i) => (
                   <li key={i} className="flex gap-5 p-5 bg-white rounded-xl border border-zinc-200">
                     <span className="w-8 h-8 rounded-full bg-[#0E202E]/10 text-[#0E202E] text-sm font-normal flex items-center justify-center flex-shrink-0 mt-0.5">
-                      {String(i + 1).padStart(2, '0')}
+                      {String(i + 1).padStart(2, '00')}
                     </span>
                     <div>
                       <p className="font-semibold text-[#0E202E]">{step.title}</p>
@@ -192,6 +195,97 @@ export default function ServiceDetailClient({ svc }: Props) {
 
       <Footer />
       <ServiceModal service={showModal ? modalService : null} onClose={() => setShowModal(false)} />
+    </div>
+  );
+}
+/* ── Digital Human Live Demo Panel ───────────────────────────── */
+function DigitalHumanLivePanel() {
+  const [wave, setWave] = useState([3,6,9,12,8,5,10,7,4,11,6,9,3,8,5]);
+  const [msgVisible, setMsgVisible] = useState(true);
+
+  useEffect(() => {
+    const iv = setInterval(() => {
+      setWave(w => w.map(() => Math.floor(Math.random() * 14) + 2));
+    }, 180);
+    const mv = setInterval(() => setMsgVisible(v => !v), 3200);
+    return () => { clearInterval(iv); clearInterval(mv); };
+  }, []);
+
+  const langs = ['EN','DE','HI','AR','ZH','+36'];
+
+  return (
+    <div className="rounded-2xl overflow-hidden border border-zinc-200 bg-[#0A1628] relative mb-10 shadow-xl">
+      {/* Window chrome */}
+      <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#0D1F35] border-b border-white/10">
+        <span className="w-3 h-3 rounded-full bg-red-500/80" />
+        <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+        <span className="w-3 h-3 rounded-full bg-green-500/80" />
+        <span className="ml-3 text-xs text-zinc-500 font-mono">86B · agent live</span>
+      </div>
+
+      {/* Main visual area */}
+      <div className="relative w-full aspect-video">
+        {/* Background — photorealistic digital human face */}
+        <Image
+          src="/svc_digital_human.png"
+          alt="Digital Human Agent"
+          fill
+          className="object-cover object-center"
+          unoptimized
+          priority
+        />
+        {/* Dark overlay for readability of overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/30 to-transparent" />
+
+        {/* Connected badge */}
+        <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-xs text-white font-mono">Connected · 0.3s · EN</span>
+        </div>
+
+        {/* Latency badge */}
+        <div className="absolute top-4 right-4 bg-[#29B6F6]/20 border border-[#29B6F6]/40 px-3 py-1 rounded-full">
+          <span className="text-xs text-[#29B6F6] font-bold font-mono">~0.3s latency</span>
+        </div>
+
+        {/* Waveform */}
+        <div className="absolute bottom-24 left-0 right-0 flex items-end justify-center gap-0.5 px-8 h-12">
+          {wave.map((h, i) => (
+            <div
+              key={i}
+              className="w-1.5 rounded-full bg-[#29B6F6]/80 transition-all duration-150"
+              style={{ height: `${h * 3}px` }}
+            />
+          ))}
+        </div>
+
+        {/* Chat bubble */}
+        <div
+          className={`absolute bottom-16 left-4 right-4 transition-opacity duration-700 ${
+            msgVisible ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="bg-[#29B6F6]/20 border border-[#29B6F6]/30 backdrop-blur-sm rounded-xl px-4 py-2.5 max-w-xs">
+            <p className="text-xs text-white/90 leading-relaxed">
+              <span className="text-[#29B6F6] font-semibold">Agent: </span>
+              &ldquo;Namaste, I can help you with your account query — which product are you referring to?&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* Language chips */}
+        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-1.5">
+          {langs.map((l) => (
+            <span key={l} className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/10 border border-white/20 text-white/80">{l}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="px-5 py-2.5 bg-[#0D1F35] border-t border-white/10 flex items-center justify-between">
+        <span className="text-[10px] text-zinc-500 font-mono">Real-time conversational AI · Private VPC deployment</span>
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+      </div>
     </div>
   );
 }
