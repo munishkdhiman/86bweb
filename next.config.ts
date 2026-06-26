@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
   // (no Node.js image optimization server available on GitHub Pages)
   images: {
     unoptimized: isGithubActions,
+    qualities: [100, 75],
   },
 
   // Use --webpack flag (as in existing package.json build script)
