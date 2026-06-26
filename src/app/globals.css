@@ -7,17 +7,20 @@
   --bg: #F9FAFB;
   --bg-surface: #FFFFFF;
   --bg-elevated: #F3F4F6;
-  --fg: #09090B;
+  --fg: #18181B;
   --fg-muted: #6B7280;
   --fg-subtle: #9CA3AF;
-  --accent: #0066FF;
-  --accent-hover: #0052CC;
-  --accent-muted: rgba(0, 102, 255, 0.08);
+
+  /* Brand accent — matches 86b.ai logo sky-blue */
+  --accent: #29B6F6;
+  --accent-dark: #0288D1;
+  --accent-hover: #039BE5;
+  --accent-muted: rgba(41, 182, 246, 0.10);
   --border: #E4E4E7;
-  --border-accent: rgba(0, 102, 255, 0.25);
+  --border-accent: rgba(41, 182, 246, 0.30);
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.10);
 }
 
 /* ── Base ───────────────────────────────────────────────────────────────────── */
@@ -26,10 +29,28 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-sora), system-ui, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Typography — lighter weights throughout ────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+p, li, span {
+  font-weight: 300;
+}
+
+strong, b { font-weight: 500; }
+
+/* Bold utility — demoted to medium for the lighter feel */
+.font-bold   { font-weight: 500 !important; }
+.font-semibold { font-weight: 400 !important; }
 
 /* ── Scrollbar ──────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
@@ -38,7 +59,7 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
 
 /* ── Selection ──────────────────────────────────────────────────────────────── */
-::selection { background: rgba(0,102,255,0.12); color: #0052CC; }
+::selection { background: rgba(41,182,246,0.15); color: #0288D1; }
 
 /* ── Glass (light) ──────────────────────────────────────────────────────────── */
 .glass-light {
@@ -61,36 +82,36 @@ body {
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0,102,255,0.25);
-  box-shadow: 0 0 0 0 rgba(0,102,255,0);
+  border: 1px solid rgba(41,182,246,0.20);
+  box-shadow: 0 0 0 0 rgba(41,182,246,0);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .glass-spatial:hover {
-  border-color: rgba(0,102,255,0.55);
-  box-shadow: 0 0 32px rgba(0,102,255,0.15), inset 0 0 32px rgba(0,102,255,0.04);
+  border-color: rgba(41,182,246,0.50);
+  box-shadow: 0 0 32px rgba(41,182,246,0.12), inset 0 0 32px rgba(41,182,246,0.04);
 }
 
 /* ── Accent gradient text ───────────────────────────────────────────────────── */
 .text-accent-gradient {
-  background: linear-gradient(135deg, #0066FF 0%, #0EA5E9 100%);
+  background: linear-gradient(135deg, #29B6F6 0%, #0EA5E9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ── Blue electric glow ─────────────────────────────────────────────────────── */
+/* ── Sky-blue electric glow ─────────────────────────────────────────────────── */
 .glow-blue {
-  box-shadow: 0 0 0 1px rgba(0,102,255,0.2), 0 0 20px rgba(0,102,255,0.15);
+  box-shadow: 0 0 0 1px rgba(41,182,246,0.2), 0 0 20px rgba(41,182,246,0.15);
 }
 .glow-blue-lg {
-  box-shadow: 0 0 0 1px rgba(0,102,255,0.25), 0 0 60px rgba(0,102,255,0.2);
+  box-shadow: 0 0 0 1px rgba(41,182,246,0.25), 0 0 60px rgba(41,182,246,0.18);
 }
 
 /* ── Mesh grid (spatial section bg) ────────────────────────────────────────── */
 .mesh-grid {
   background-image:
-    linear-gradient(rgba(0,102,255,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,102,255,0.07) 1px, transparent 1px);
+    linear-gradient(rgba(41,182,246,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41,182,246,0.06) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -102,6 +123,15 @@ body {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
   border-color: var(--border-accent);
+}
+
+/* ── Stats disclaimer ───────────────────────────────────────────────────────── */
+.stats-disclaimer {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #9CA3AF;
+  font-style: italic;
+  line-height: 1.4;
 }
 
 /* ── Audio wave bars ────────────────────────────────────────────────────────── */

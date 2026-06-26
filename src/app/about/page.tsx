@@ -51,12 +51,12 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="pt-32 pb-24 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
             About 86b.ai
           </span>
           <h1 className="text-5xl md:text-6xl font-bold text-zinc-900 mb-6 leading-[1.06] max-w-4xl">
             Solution Engineers,<br />
-            <span className="text-[#0066FF]">Not Software Licences.</span>
+            <span className="text-[#29B6F6]">Not Software Licences.</span>
           </h1>
           <p className="text-zinc-500 text-xl leading-relaxed max-w-2xl mb-12">
             We are an applied AI engineering firm. We build custom, private AI systems that integrate with your existing infrastructure — and hand them over with full source code, documentation, and team training.
@@ -68,13 +68,17 @@ export default function AboutPage() {
               <div key={s.label} className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200">
                 <div className="text-3xl font-bold text-zinc-900">
                   {s.value}
-                  <span className="text-[#0066FF] text-xl ml-0.5">{s.unit}</span>
+                  <span className="text-[#29B6F6] text-xl ml-0.5">{s.unit}</span>
                 </div>
                 <div className="text-sm text-zinc-500 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
+          <p className="stats-disclaimer mt-4">
+            * All figures are indicative benchmarks based on prior engagements. Actual timelines, capabilities and outcomes are determined following a detailed requirement analysis under mutual NDA.
+          </p>
         </div>
+
       </section>
 
       {/* Who we are */}
@@ -82,7 +86,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
                 Who We Are
               </span>
               <h2 className="text-3xl font-bold text-zinc-900 mb-6 leading-tight">
@@ -132,7 +136,7 @@ export default function AboutPage() {
       {/* Operational Principles */}
       <section className="py-24 bg-white border-t border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
             Operational Principles
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-16 max-w-2xl leading-tight">
@@ -143,7 +147,7 @@ export default function AboutPage() {
             {principles.map((p, i) => (
               <div
                 key={p.number}
-                className="grid md:grid-cols-[80px_1fr] gap-6 p-8 rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:border-[#0066FF]/20 hover:shadow-sm transition-all duration-200"
+                className="grid md:grid-cols-[80px_1fr] gap-6 p-8 rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:border-[#29B6F6]/20 hover:shadow-sm transition-all duration-200"
               >
                 <div className="text-4xl font-bold text-zinc-200">{p.number}</div>
                 <div>
@@ -157,7 +161,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#0066FF] py-16">
+      <section className="bg-[#29B6F6] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to work with engineers who build?
@@ -168,7 +172,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#0066FF] font-bold hover:bg-zinc-100 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#29B6F6] font-bold hover:bg-zinc-100 transition-colors"
             >
               Book Free AI Audit
               <ChevronRight className="w-4 h-4" />
@@ -188,3 +192,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

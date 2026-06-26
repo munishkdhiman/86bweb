@@ -48,7 +48,7 @@ export default function ServicesPage() {
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4"
+            className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4"
           >
             All Capabilities
           </motion.span>
@@ -107,7 +107,7 @@ export default function ServicesPage() {
                       variants={fadeUp}
                       custom={i}
                       onClick={() => setSelectedService({ ...svc, id: svc.slug })}
-                      className="group relative rounded-xl border border-zinc-200 bg-white overflow-hidden cursor-pointer hover:border-[#0066FF]/30 hover:shadow-md transition-all duration-200"
+                      className="group relative rounded-xl border border-zinc-200 bg-white overflow-hidden cursor-pointer hover:border-[#29B6F6]/30 hover:shadow-md transition-all duration-200"
                     >
                       {/* Image */}
                       <div className="relative h-40 overflow-hidden bg-zinc-100">
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                       <div className="p-5">
                         <h3 className="font-semibold text-zinc-900 text-sm mb-1 leading-tight">{svc.title}</h3>
                         <p className="text-zinc-500 text-xs leading-relaxed mb-3">{svc.tagline}</p>
-                        <div className="flex items-center gap-1.5 text-[#0066FF] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex items-center gap-1.5 text-[#29B6F6] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                           <span>View details</span>
                           <ChevronRight className="w-3.5 h-3.5" />
                         </div>
@@ -143,3 +143,4 @@ export default function ServicesPage() {
     </div>
   );
 }
+

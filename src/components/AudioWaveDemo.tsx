@@ -29,7 +29,7 @@ export default function AudioWaveDemo() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — copy */}
           <div>
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
               Live Capability
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight mb-6">
@@ -48,7 +48,7 @@ export default function AudioWaveDemo() {
                 { value: '100%', label: 'Brand voice controlled' },
               ].map((m) => (
                 <div key={m.label} className="p-4 rounded-xl border border-zinc-200 bg-zinc-50">
-                  <div className="text-2xl font-bold text-[#0066FF]">{m.value}</div>
+                  <div className="text-2xl font-bold text-[#29B6F6]">{m.value}</div>
                   <div className="text-sm text-zinc-500 mt-1">{m.label}</div>
                 </div>
               ))}
@@ -62,7 +62,7 @@ export default function AudioWaveDemo() {
                 'Custom avatar appearance and brand voice',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-600">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF] mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6] mt-2 flex-shrink-0" />
                   {item}
                 </li>
               ))}
@@ -91,12 +91,12 @@ export default function AudioWaveDemo() {
                   {/* Avatar circle with pulse ring */}
                   <div className="relative flex items-center justify-center">
                     {/* Outer pulse rings */}
-                    <div className="absolute w-32 h-32 rounded-full border border-[#0066FF]/20 animate-pulse-ring" />
-                    <div className="absolute w-28 h-28 rounded-full border border-[#0066FF]/30 animate-pulse-ring" style={{ animationDelay: '0.5s' }} />
+                    <div className="absolute w-32 h-32 rounded-full border border-[#29B6F6]/20 animate-pulse-ring" />
+                    <div className="absolute w-28 h-28 rounded-full border border-[#29B6F6]/30 animate-pulse-ring" style={{ animationDelay: '0.5s' }} />
                     {/* Avatar */}
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#0066FF]/30 to-[#0066FF]/10 border-2 border-[#0066FF]/50 flex items-center justify-center">
-                      <div className="w-10 h-10 rounded-full bg-[#0066FF]/30 flex items-center justify-center">
-                        <div className="w-5 h-5 rounded-full bg-[#0066FF]" />
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#29B6F6]/30 to-[#29B6F6]/10 border-2 border-[#29B6F6]/50 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-[#29B6F6]/30 flex items-center justify-center">
+                        <div className="w-5 h-5 rounded-full bg-[#29B6F6]" />
                       </div>
                     </div>
                   </div>
@@ -112,7 +112,7 @@ export default function AudioWaveDemo() {
                     {bars.map((bar, i) => (
                       <div
                         key={i}
-                        className={`flex-shrink-0 w-[6px] rounded-full bg-[#0066FF] ${bar.cls}`}
+                        className={`flex-shrink-0 w-[6px] rounded-full bg-[#29B6F6] ${bar.cls}`}
                         style={{ height: `${bar.h}px` }}
                       />
                     ))}
@@ -121,7 +121,7 @@ export default function AudioWaveDemo() {
                   {/* Transcript line */}
                   <div className="w-full px-4 py-3 rounded-xl bg-zinc-800/60 border border-zinc-700/50">
                     <p className="text-xs text-zinc-400 font-mono leading-relaxed">
-                      <span className="text-[#0066FF]">Agent:</span> "Namaste. I can help you with your account query — which product are you referring to?"
+                      <span className="text-[#29B6F6]">Agent:</span> "Namaste. I can help you with your account query — which product are you referring to?"
                     </p>
                   </div>
 

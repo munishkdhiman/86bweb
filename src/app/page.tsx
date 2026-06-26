@@ -271,7 +271,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0066FF] hover:bg-[#0052CC] text-white text-sm font-semibold transition-colors shadow-lg"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold transition-colors shadow-lg"
                 >
                   {heroSlides[activeSlide].cta}
                   <ChevronRight className="w-4 h-4" />
@@ -294,7 +294,7 @@ export default function HomePage() {
                 onClick={() => setActiveSlide(i)}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeSlide
-                    ? 'w-8 h-2 bg-[#0066FF]'
+                    ? 'w-8 h-2 bg-[#29B6F6]'
                     : 'w-2 h-2 bg-white/40 hover:bg-white/70'
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
@@ -310,7 +310,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
             {trustBadges.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2.5 text-zinc-500">
-                <Icon className="w-4 h-4 text-[#0066FF]" />
+                <Icon className="w-4 h-4 text-[#29B6F6]" />
                 <span className="text-sm font-medium">{label}</span>
               </div>
             ))}
@@ -360,7 +360,7 @@ export default function HomePage() {
           >
             <motion.span
               variants={fadeUp}
-              className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4"
+              className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4"
             >
               Core Capabilities
             </motion.span>
@@ -416,8 +416,8 @@ export default function HomePage() {
                       <span className="text-xs font-mono font-semibold text-white/50">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <div className="w-9 h-9 rounded-xl bg-[#0066FF]/20 border border-[#0066FF]/30 flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-[#0066FF]" />
+                      <div className="w-9 h-9 rounded-xl bg-[#29B6F6]/20 border border-[#29B6F6]/30 flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-[#29B6F6]" />
                       </div>
                     </div>
 
@@ -428,7 +428,7 @@ export default function HomePage() {
                       <p className="text-white/65 text-sm leading-relaxed mb-4">
                         {pillar.description}
                       </p>
-                      <div className="flex items-center gap-2 text-[#0066FF] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex items-center gap-2 text-[#29B6F6] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span>View details</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>
@@ -449,7 +449,7 @@ export default function HomePage() {
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#0066FF] hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#29B6F6] hover:underline"
             >
               View all 16 services
               <ChevronRight className="w-4 h-4" />
@@ -468,7 +468,7 @@ export default function HomePage() {
         {/* Mesh grid bg */}
         <div className="absolute inset-0 mesh-grid opacity-100" />
         {/* Radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[#0066FF]/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[#29B6F6]/5 blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div
@@ -477,7 +477,7 @@ export default function HomePage() {
             viewport={{ once: true, margin: '-80px' }}
             className="text-center mb-16"
           >
-            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
               New Pillar
             </motion.span>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-bold text-white leading-tight">
@@ -514,7 +514,7 @@ export default function HomePage() {
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent" />
-                      <span className="absolute top-4 left-4 text-xs font-mono font-semibold text-[#0066FF]">
+                      <span className="absolute top-4 left-4 text-xs font-mono font-semibold text-[#29B6F6]">
                         {card.number}
                       </span>
                     </div>
@@ -522,7 +522,7 @@ export default function HomePage() {
                     <div className="p-6">
                       <h3 className="text-lg font-bold text-white mb-3 leading-tight">{card.title}</h3>
                       <p className="text-zinc-400 text-sm leading-relaxed mb-4">{card.description}</p>
-                      <div className="flex items-center gap-2 text-[#0066FF] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center gap-2 text-[#29B6F6] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                         <span>Learn more</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </div>
@@ -547,7 +547,7 @@ export default function HomePage() {
             viewport={{ once: true, margin: '-80px' }}
             className="max-w-3xl mb-16"
           >
-            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
               How We Engage
             </motion.span>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight mb-4">
@@ -576,10 +576,10 @@ export default function HomePage() {
                 >
                   {/* Step number circle */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#0066FF] text-white font-bold text-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">
+                    <div className="w-14 h-14 rounded-2xl bg-[#29B6F6] text-white font-bold text-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">
                       {phase.number}
                     </div>
-                    <span className="text-xs font-semibold text-[#0066FF] bg-blue-50 border border-blue-100 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold text-[#29B6F6] bg-blue-50 border border-blue-100 px-3 py-1 rounded-full">
                       {phase.label}
                     </span>
                   </div>
@@ -588,7 +588,7 @@ export default function HomePage() {
                   <p className="text-zinc-500 text-sm leading-relaxed mb-4">{phase.description}</p>
 
                   <div className="flex items-start gap-2 p-3 bg-white rounded-xl border border-zinc-200">
-                    <CheckCircle2 className="w-4 h-4 text-[#0066FF] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#29B6F6] flex-shrink-0 mt-0.5" />
                     <span className="text-xs text-zinc-600">{phase.deliverable}</span>
                   </div>
                 </motion.div>
@@ -599,7 +599,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BOTTOM CTA ────────────────────────────────────────────────────────── */}
-      <section className="bg-[#0066FF] py-20">
+      <section className="bg-[#29B6F6] py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial="hidden"
@@ -615,7 +615,7 @@ export default function HomePage() {
             <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#0066FF] text-sm font-bold hover:bg-zinc-100 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#29B6F6] text-sm font-bold hover:bg-zinc-100 transition-colors shadow-lg"
               >
                 Book Free AI Audit
                 <ChevronRight className="w-4 h-4" />
@@ -638,3 +638,4 @@ export default function HomePage() {
     </div>
   );
 }
+

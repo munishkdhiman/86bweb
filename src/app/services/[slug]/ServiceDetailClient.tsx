@@ -48,7 +48,7 @@ export default function ServiceDetailClient({ svc }: Props) {
           </div>
 
           <div className="max-w-2xl">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] bg-[#0066FF]/10 px-3 py-1.5 rounded-full mb-6">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] bg-[#29B6F6]/10 px-3 py-1.5 rounded-full mb-6">
               {svc.category}
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">{svc.title}</h1>
@@ -56,7 +56,7 @@ export default function ServiceDetailClient({ svc }: Props) {
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => setShowModal(true)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0066FF] hover:bg-[#0052CC] text-white font-semibold transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white font-semibold transition-colors shadow-lg"
               >
                 Request Technical Audit
                 <ChevronRight className="w-4 h-4" />
@@ -87,7 +87,7 @@ export default function ServiceDetailClient({ svc }: Props) {
               <div className="grid grid-cols-3 gap-4">
                 {svc.metrics.map((m) => (
                   <div key={m.label} className="p-5 rounded-2xl bg-white border border-zinc-200 text-center">
-                    <div className="text-3xl font-bold text-[#0066FF] mb-1">{m.value}</div>
+                    <div className="text-3xl font-bold text-[#29B6F6] mb-1">{m.value}</div>
                     <div className="text-sm text-zinc-500">{m.label}</div>
                   </div>
                 ))}
@@ -99,7 +99,7 @@ export default function ServiceDetailClient({ svc }: Props) {
               <ol className="space-y-5">
                 {svc.steps.map((step, i) => (
                   <li key={i} className="flex gap-5 p-5 bg-white rounded-xl border border-zinc-200">
-                    <span className="w-8 h-8 rounded-full bg-[#0066FF]/10 text-[#0066FF] text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-8 h-8 rounded-full bg-[#29B6F6]/10 text-[#29B6F6] text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
@@ -116,7 +116,7 @@ export default function ServiceDetailClient({ svc }: Props) {
               <div className="grid grid-cols-2 gap-3">
                 {svc.useCases.map((uc) => (
                   <div key={uc} className="flex items-center gap-3 p-4 bg-white rounded-xl border border-zinc-200">
-                    <CheckCircle2 className="w-4 h-4 text-[#0066FF] flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#29B6F6] flex-shrink-0" />
                     <span className="text-sm text-zinc-700 font-medium">{uc}</span>
                   </div>
                 ))}
@@ -133,14 +133,14 @@ export default function ServiceDetailClient({ svc }: Props) {
               </p>
               <button
                 onClick={() => setShowModal(true)}
-                className="w-full py-3.5 rounded-xl bg-[#0066FF] hover:bg-[#0052CC] text-white font-semibold transition-colors text-sm"
+                className="w-full py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white font-semibold transition-colors text-sm"
               >
                 Request Technical Audit
               </button>
               <div className="mt-4 space-y-2">
                 {['Mutual NDA signed first', 'No commitment required', 'Response within 24h'].map((t) => (
                   <div key={t} className="flex items-center gap-2 text-xs text-zinc-500">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6]" />
                     {t}
                   </div>
                 ))}
@@ -169,7 +169,7 @@ export default function ServiceDetailClient({ svc }: Props) {
                 <Link
                   key={rel.slug}
                   href={`/services/${rel.slug}`}
-                  className="group block rounded-xl border border-zinc-200 bg-white overflow-hidden hover:border-[#0066FF]/30 hover:shadow-md transition-all"
+                  className="group block rounded-xl border border-zinc-200 bg-white overflow-hidden hover:border-[#29B6F6]/30 hover:shadow-md transition-all"
                 >
                   <div className="relative h-40 overflow-hidden bg-zinc-100">
                     <Image src={rel.image} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="33vw" />
@@ -178,7 +178,7 @@ export default function ServiceDetailClient({ svc }: Props) {
                   <div className="p-5">
                     <span className="text-xs text-zinc-400">{rel.category}</span>
                     <h3 className="font-semibold text-zinc-900 text-sm mt-1 mb-1 leading-tight">{rel.title}</h3>
-                    <div className="flex items-center gap-1 text-[#0066FF] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-1 text-[#29B6F6] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                       <span>View details</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>

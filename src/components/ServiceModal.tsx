@@ -95,20 +95,26 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-3 leading-tight">
                 {service.title}
               </h2>
-              <p className="text-[#0066FF] font-medium mb-4">{service.tagline}</p>
+              <p className="text-[#29B6F6] font-medium mb-4">{service.tagline}</p>
               <p className="text-zinc-600 leading-relaxed mb-8">{service.longDescription}</p>
 
               {/* Metrics */}
               {service.metrics.length > 0 && (
-                <div className="grid grid-cols-3 gap-4 mb-8 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
-                  {service.metrics.map((m) => (
-                    <div key={m.label} className="text-center">
-                      <div className="text-xl font-bold text-[#0066FF]">{m.value}</div>
-                      <div className="text-xs text-zinc-500 mt-0.5">{m.label}</div>
-                    </div>
-                  ))}
+                <div className="mb-8">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
+                    {service.metrics.map((m) => (
+                      <div key={m.label} className="text-center">
+                        <div className="text-xl font-bold text-[#29B6F6]">{m.value}</div>
+                        <div className="text-xs text-zinc-500 mt-0.5">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="stats-disclaimer mt-2 px-1">
+                    * Indicative figures only — actual outcomes are confirmed after detailed requirement analysis with your team.
+                  </p>
                 </div>
               )}
+
 
               {/* Steps / Architecture */}
               <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-4">
@@ -117,7 +123,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <ol className="space-y-4 mb-8">
                 {service.steps.map((step, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#0066FF]/10 text-[#0066FF] text-xs font-bold flex items-center justify-center mt-0.5">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#29B6F6]/10 text-[#29B6F6] text-xs font-bold flex items-center justify-center mt-0.5">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
@@ -147,7 +153,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <ul className="space-y-1.5">
                 {service.useCases.map((uc) => (
                   <li key={uc} className="flex items-center gap-2 text-sm text-zinc-600">
-                    <ArrowRight className="w-3.5 h-3.5 text-[#0066FF] flex-shrink-0" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#29B6F6] flex-shrink-0" />
                     {uc}
                   </li>
                 ))}
@@ -161,7 +167,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                   Deploy Under NDA
                 </span>
                 <h3 className="text-xl font-bold text-white mt-2 leading-tight">
-                  Integrate <span className="text-[#0066FF]">{service.title}</span> into your infrastructure
+                  Integrate <span className="text-[#29B6F6]">{service.title}</span> into your infrastructure
                 </h3>
                 <p className="text-zinc-400 text-sm mt-2">
                   Speak directly with a lead engineer. All conversations are covered by a mutual NDA before any technical details are shared.
@@ -176,28 +182,28 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                   type="text"
                   placeholder="Full Name"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#0066FF] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors"
                 />
                 <input
                   type="text"
                   placeholder="Company / Organisation"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#0066FF] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors"
                 />
                 <input
                   type="email"
                   placeholder="Work Email"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#0066FF] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors"
                 />
                 <textarea
                   placeholder={`Brief context on how ${service.title} fits your needs…`}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#0066FF] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#29B6F6] transition-colors resize-none"
                 />
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-[#0066FF] hover:bg-[#0052CC] text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 mt-1"
+                  className="w-full py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 mt-1"
                 >
                   Request Technical Audit
                   <ChevronRight className="w-4 h-4" />
@@ -207,7 +213,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <div className="border-t border-zinc-800 pt-4 space-y-2">
                 {['Under mutual NDA', 'No commitment required', 'Response within 24h'].map((t) => (
                   <div key={t} className="flex items-center gap-2 text-xs text-zinc-500">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF] flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6] flex-shrink-0" />
                     {t}
                   </div>
                 ))}

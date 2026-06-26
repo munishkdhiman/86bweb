@@ -28,7 +28,7 @@ const phases = [
     number: '02',
     timeframe: 'Days 8–30',
     title: 'Private RAG & Model Deployment',
-    color: 'bg-[#0066FF]',
+    color: 'bg-[#29B6F6]',
     icon: Server,
     description:
       'Your first AI system is built and deployed inside your security boundary. We configure the RAG pipeline, connect all approved data sources, deploy the private LLM (or connect to your existing model), and run the first round of evaluation testing alongside your internal subject matter experts.',
@@ -75,7 +75,7 @@ export default function HowWeBuildPage() {
       {/* Header */}
       <section className="pt-32 pb-20 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
             Our Engineering Process
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 leading-tight max-w-3xl">
@@ -89,8 +89,8 @@ export default function HowWeBuildPage() {
           <div className="flex flex-wrap gap-6 mt-12">
             {principles.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-start gap-3 max-w-xs">
-                <div className="w-9 h-9 rounded-xl bg-[#0066FF]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon className="w-4 h-4 text-[#0066FF]" />
+                <div className="w-9 h-9 rounded-xl bg-[#29B6F6]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon className="w-4 h-4 text-[#29B6F6]" />
                 </div>
                 <div>
                   <p className="font-semibold text-zinc-900 text-sm">{title}</p>
@@ -126,7 +126,7 @@ export default function HowWeBuildPage() {
                     <div>
                       <div className="flex items-center gap-3 mb-1">
                         <span className="text-xs font-mono font-semibold text-zinc-400">{phase.number}</span>
-                        <span className="text-xs font-semibold text-[#0066FF] bg-blue-50 border border-blue-100 px-3 py-0.5 rounded-full flex items-center gap-1">
+                        <span className="text-xs font-semibold text-[#29B6F6] bg-blue-50 border border-blue-100 px-3 py-0.5 rounded-full flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {phase.timeframe}
                         </span>
@@ -148,7 +148,7 @@ export default function HowWeBuildPage() {
                       <ul className="space-y-2">
                         {phase.deliverables.map((d) => (
                           <li key={d} className="flex items-start gap-2.5 text-sm text-zinc-600">
-                            <CheckCircle2 className="w-4 h-4 text-[#0066FF] flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-[#29B6F6] flex-shrink-0 mt-0.5" />
                             {d}
                           </li>
                         ))}
@@ -173,7 +173,7 @@ export default function HowWeBuildPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0066FF] hover:bg-[#0052CC] text-white font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white font-semibold transition-colors"
           >
             Book Free AI Audit
             <ArrowRight className="w-4 h-4" />
@@ -185,3 +185,4 @@ export default function HowWeBuildPage() {
     </div>
   );
 }
+

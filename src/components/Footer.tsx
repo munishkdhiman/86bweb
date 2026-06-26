@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, Shield, Lock, Globe } from 'lucide-react';
 
 const footerLinks = {
@@ -40,7 +41,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#0066FF] hover:bg-[#0052CC] text-white text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-light tracking-wide transition-colors"
             >
               Book Free AI Audit
               <ChevronRight className="w-4 h-4" />
@@ -60,9 +61,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <span className="text-2xl font-bold text-white">
-              86b<span className="text-[#0066FF]">.ai</span>
-            </span>
+            <Image
+              src="/logos/86B_white.png"
+              alt="86b.ai"
+              width={80}
+              height={32}
+              className="h-8 w-auto object-contain"
+            />
             <p className="text-sm mt-3 leading-relaxed text-zinc-500">
               Applied enterprise AI — built privately, deployed securely, operated by engineers.
             </p>
@@ -73,7 +78,7 @@ export default function Footer() {
                 { icon: Globe, text: 'On-Premise Deployments' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-xs text-zinc-600">
-                  <Icon className="w-3.5 h-3.5 text-[#0066FF]" />
+                  <Icon className="w-3.5 h-3.5 text-[#29B6F6]" />
                   {text}
                 </div>
               ))}
