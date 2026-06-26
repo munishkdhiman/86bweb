@@ -461,8 +461,7 @@ export default function HomePage() {
             </p>
           </motion.div>
         </div>
-
-
+      </section>
 
       {/* ── 4 CORE CAPABILITIES BENTO ─────────────────────────────────────────── */}
       <section className="py-24 bg-white">
