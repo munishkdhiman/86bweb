@@ -63,30 +63,31 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed inset-4 md:inset-8 lg:inset-12 z-[61] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row"
+            className="fixed inset-0 md:inset-6 lg:inset-12 z-[61] bg-white md:rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row"
           >
-            {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-600 transition-colors"
+              className="absolute top-3 right-3 z-20 p-2 rounded-full bg-white/90 hover:bg-white shadow-md text-zinc-600 transition-colors"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
             </button>
 
-            {/* LEFT — 60%: Deep-dive content */}
-            <div className="flex-1 overflow-y-auto p-8 md:p-10 lg:p-12">
+            {/* LEFT — content: scrollable on all screens */}
+            <div className="flex-1 overflow-y-auto p-6 md:p-10 lg:p-12">
               {/* Image hero */}
-              <div className="relative w-full h-52 rounded-xl overflow-hidden mb-8 bg-zinc-100">
+              <div className="relative w-full h-44 md:h-56 rounded-xl overflow-hidden mb-6 bg-zinc-100">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 {service.category && (
-                  <span className="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-widest text-white/80 bg-black/30 px-3 py-1 rounded-full">
+                  <span className="absolute bottom-3 left-3 text-xs font-semibold uppercase tracking-widest text-white/80 bg-black/30 px-3 py-1 rounded-full">
                     {service.category}
                   </span>
                 )}
@@ -160,8 +161,8 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               </ul>
             </div>
 
-            {/* RIGHT — 40%: Sticky lead form — navy dark panel */}
-            <div className="w-full md:w-80 lg:w-96 bg-[#0E202E] p-8 md:p-10 flex flex-col gap-5 flex-shrink-0">
+            {/* RIGHT — lead form: full width on mobile, fixed sidebar on md+ */}
+            <div className="w-full md:w-80 lg:w-96 bg-[#0E202E] p-6 md:p-10 flex flex-col gap-5 flex-shrink-0 md:overflow-y-auto">
               <div className="border-b border-white/10 pb-5">
                 <span className="text-[10px] font-normal uppercase tracking-widest text-[#29B6F6]">Deploy Under NDA</span>
                 <h3 className="text-xl font-normal text-white mt-2 leading-snug">
