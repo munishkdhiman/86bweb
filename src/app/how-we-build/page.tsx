@@ -27,11 +27,11 @@ const phases = [
   {
     number: '02',
     timeframe: 'Days 8–30',
-    title: 'Private RAG & Model Deployment',
+    title: 'Model Deployment & Integration',
     color: 'bg-[#0E202E]',
     icon: Server,
     description:
-      'Your first AI system is built and deployed inside your security boundary. We configure the RAG pipeline, connect all approved data sources, deploy the private LLM (or connect to your existing model), and run the first round of evaluation testing alongside your internal subject matter experts.',
+      'Your first AI system is built and deployed within your chosen infrastructure — private VPC, on-premise hardware, or enterprise cloud (Azure OpenAI, AWS Bedrock, or GCP Vertex AI). We configure the RAG pipeline, connect all approved data sources, deploy or connect the AI model, and run the first round of evaluation testing alongside your internal subject matter experts.',
     deliverables: [
       'Working AI system in your staging environment',
       'RAG pipeline fully configured and tested',
@@ -64,7 +64,7 @@ const phases = [
 const principles = [
   { icon: Shield, title: 'NDA First, Always', desc: 'Every engagement begins under mutual NDA. Your data, architecture, and business context are never shared beyond the active project team.' },
   { icon: Zap, title: 'Engineers, Not Consultants', desc: 'We build. You own the output. No recurring licence fees, no vendor lock-in — just production-ready AI systems with full source code.' },
-  { icon: CheckCircle2, title: 'Your Infrastructure', desc: 'We deploy inside your VPC, your cloud account, your servers. We never own your data or your models.' },
+  { icon: CheckCircle2, title: 'Your Infrastructure', desc: 'We deploy inside your VPC, your cloud account, or your own servers — on-premise, Azure, AWS, or GCP. You own the system, the data, and the models.' },
 ];
 
 export default function HowWeBuildPage() {
@@ -79,10 +79,13 @@ export default function HowWeBuildPage() {
             Our Engineering Process
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-6 leading-tight max-w-3xl">
-            From NDA to production AI in 30 days.
+            From NDA to production AI — typically within 30 days.*
           </h1>
           <p className="text-zinc-500 text-lg max-w-2xl leading-relaxed">
             A disciplined, three-phase engagement model designed for enterprise security requirements, regulatory compliance, and measurable delivery milestones.
+          </p>
+          <p className="text-xs text-zinc-400 mt-3 max-w-xl">
+            * Timeline is indicative based on prior similar engagements. Actual timelines vary by project complexity, data readiness, and infrastructure environment. Confirmed only after a detailed scoping session under mutual NDA.
           </p>
 
           {/* Principles strip */}

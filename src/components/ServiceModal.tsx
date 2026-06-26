@@ -226,10 +226,10 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
         <div className="border-b border-white/10 pb-5">
           <span className="text-[10px] font-normal uppercase tracking-widest text-[#29B6F6]">Deploy Under NDA</span>
           <h3 className="text-xl font-normal text-white mt-2 leading-snug">
-            Integrate {service.title} into your infrastructure
+            Deploy {service.title} on your terms
           </h3>
           <p className="text-zinc-400 text-sm mt-2 leading-relaxed font-light">
-            Speak directly with a lead engineer. All conversations are covered by a mutual NDA.
+            On-premise, private VPC, or enterprise cloud — we build it to your requirements. All conversations are covered by a mutual NDA.
           </p>
         </div>
       )}

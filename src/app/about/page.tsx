@@ -14,7 +14,7 @@ const principles = [
     number: '02',
     title: 'Privacy is not a feature. It is the foundation.',
     description:
-      'We design every AI system with the assumption that your data cannot leave your control. Air-gapped deployments, private VPCs, on-premise hosting — privacy architecture is considered at design stage, not added as an afterthought.',
+      'We design every AI system with data privacy as a foundational requirement — not an afterthought. Where your compliance requirements demand it, we build fully air-gapped on-premise deployments. Where your existing cloud agreements allow it, we deploy within private VPCs on Azure, AWS, or GCP with private endpoints and data residency controls. The deployment model is always chosen to match your regulatory environment and risk appetite.',
   },
   {
     number: '03',
@@ -38,9 +38,9 @@ const principles = [
 
 const stats = [
   { value: '~30', unit: ' days*', label: 'Est. first deployment' },
-  { value: '100%', unit: '', label: 'Private infrastructure' },
+  { value: 'Flexible', unit: '', label: 'Deployment models (on-prem to cloud)' },
   { value: '16+', unit: '', label: 'AI capabilities delivered' },
-  { value: '0', unit: '', label: 'Public API calls — ever' },
+  { value: 'Your', unit: ' choice', label: 'Infrastructure model' },
 ];
 
 export default function AboutPage() {
@@ -59,7 +59,7 @@ export default function AboutPage() {
             <span className="text-[#1F3249] italic">Not Software Licences.</span>
           </h1>
           <p className="text-zinc-500 text-xl leading-relaxed max-w-2xl mb-12">
-            We are an applied AI engineering firm. We build custom, private AI systems that integrate with your existing infrastructure — and hand them over with full source code, documentation, and team training.
+            We are an applied AI engineering firm. We build custom AI systems that integrate with your existing infrastructure — deployed within your chosen environment, from on-premise to enterprise cloud — and hand them over with full source code, documentation, and team training.
           </p>
 
           {/* Stats */}
