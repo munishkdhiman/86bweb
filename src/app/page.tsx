@@ -24,8 +24,8 @@ const heroSlides = [
   },
   {
     image: '/hero_slide2.png',
-    headline: 'Private AI Infrastructure.\nZero Public Exposure.',
-    subtext: 'Your data never transits a public endpoint. On-premise LLMs, private VPCs, and air-gapped deployments — built and maintained by our engineers.',
+    headline: 'Flexible AI Infrastructure.\nYour Deployment, Your Rules.',
+    subtext: 'From fully private on-premise to Azure OpenAI, AWS Bedrock, and GCP Vertex AI — we deploy where your data, compliance, and budget requirements demand. You choose the model; we build and run it.',
     cta: 'View Our Infrastructure',
   },
   {
@@ -36,18 +36,18 @@ const heroSlides = [
   },
   {
     image: '/hero_slide4.png',
-    headline: 'Digital Human Agents.\n0.3s Latency. 40+ Languages.',
-    subtext: 'Enterprise AI avatars that handle customer queries, onboard employees, and deliver brand-consistent interactions at scale — without human escalation.',
+    headline: 'Digital Human Agents.\nSub-Second Latency. 40+ Languages.',
+    subtext: 'Enterprise AI avatars that handle customer queries, onboard employees, and deliver brand-consistent interactions at scale — with intelligent escalation routing to your human team when needed.',
     cta: 'Explore Digital Humans',
   },
 ];
 
 // ── Trust Badges ─────────────────────────────────────────────────────────────
 const trustBadges = [
-  { icon: Shield, label: 'SOC 2 Compliant' },
-  { icon: Server, label: 'On-Premise Deployments' },
+  { icon: Shield, label: 'SOC 2-Ready Architecture' },
+  { icon: Server, label: 'On-Premise & Cloud Deployments' },
   { icon: Lock, label: 'Private VPC Architecture' },
-  { icon: Globe, label: 'Zero Public Data Leakage' },
+  { icon: Globe, label: 'Data Privacy by Design' },
 ];
 
 // ── Tech Stack ────────────────────────────────────────────────────────────────
@@ -62,10 +62,11 @@ const pillars: ModalService[] = [
   {
     id: 'genai',
     title: 'Enterprise Generative AI & RAG',
-    tagline: 'Private LLMs trained on your knowledge — inside your security boundary.',
-    description: 'Custom private LLM fine-tuning and secure orchestration against your proprietary document archives.',
+    tagline: 'LLMs trained on your knowledge — deployed within your chosen security boundary.',
+    description: 'Custom LLM fine-tuning and secure orchestration against your proprietary document archives — on-premise, private VPC, or enterprise cloud.',
     longDescription:
-      'We fine-tune and deploy private large language models against your internal documentation, product data, and institutional knowledge. Your AI assistant knows your business inside out, stays within your security boundary, and never exposes sensitive data to public APIs. Every deployment includes guardrails, hallucination scoring, and PII detection.',
+      'We fine-tune and deploy large language models against your internal documentation, product data, and institutional knowledge — within your chosen deployment environment: fully private on-premise, private VPC, Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI. Every deployment includes guardrails, hallucination scoring, and PII detection layers regardless of the infrastructure model.',
+
     image: '/bento_genai.png',
     category: 'Core AI',
     steps: [
@@ -76,13 +77,13 @@ const pillars: ModalService[] = [
       { title: 'Enterprise Integration', desc: 'Deployed via intranet, Slack, Teams, or custom UI with full audit logging.' },
     ],
     stack: ['GPT-4o / Llama 3 / Mistral', 'LangChain / LlamaIndex', 'Pinecone / Weaviate', 'FastAPI', 'Kubernetes'],
-    metrics: [{ value: '85%', label: 'Query resolution' }, { value: '10×', label: 'Faster retrieval' }, { value: '100%', label: 'Private' }],
+    metrics: [{ value: '~85%', label: 'Typical query resolution' }, { value: '~10×', label: 'Est. faster retrieval' }, { value: 'Flexible', label: 'Deployment model' }],
     useCases: ['Enterprise Knowledge Assistants', 'Internal Copilots', 'Document Q&A', 'Compliance Bots'],
   },
   {
     id: 'data',
     title: 'Data Orchestration & Investor Readiness',
-    tagline: 'Transform scattered corporate data into a VC-ready data room in days.',
+    tagline: 'Transform scattered corporate data into a VC-ready data room in weeks, not months.',
     description: 'Cleaning and structuring unlisted corporate data into investor-ready compliance data rooms.',
     longDescription:
       'We connect to your fragmented data sources — ERP, CRM, finance systems, contract repositories — clean and structure them, and build investor-ready data rooms that compress due diligence from months to days. The AI layer automatically validates data consistency, flags missing documentation, and generates standard VC-format reporting packages.',
@@ -96,7 +97,7 @@ const pillars: ModalService[] = [
       { title: 'Data Room Assembly', desc: 'Investor-standard KPIs, cohort analysis, and documentation packaged.' },
     ],
     stack: ['Python / dbt', 'Snowflake', 'GPT-4o', 'Airflow', 'Notion API'],
-    metrics: [{ value: '30d', label: 'Data room ready' }, { value: '95%', label: 'Data completeness' }, { value: '3×', label: 'Faster diligence' }],
+    metrics: [{ value: '~30 days', label: 'Est. data room ready' }, { value: '~95%', label: 'Typical data completeness' }, { value: '~3×', label: 'Est. faster diligence' }],
     useCases: ['Series A/B/C Due Diligence', 'M&A Data Preparation', 'Board Reporting', 'Regulatory Submissions'],
   },
   {
@@ -116,7 +117,7 @@ const pillars: ModalService[] = [
       { title: 'Leakage Dashboard', desc: 'Real-time dashboard with flagged items, impact estimates, and recovery actions.' },
     ],
     stack: ['GPT-4o Vision', 'Unstructured.io', 'PostgreSQL', 'dbt', 'Power BI'],
-    metrics: [{ value: '12%', label: 'Avg revenue recovered' }, { value: '48h', label: 'First insights' }, { value: '$2M+', label: 'Avg leakage found' }],
+    metrics: [{ value: '~12%', label: 'Est. avg revenue recovered' }, { value: '~48h', label: 'Time to first insights' }, { value: 'Varies', label: 'Leakage found (project-dependent)' }],
     useCases: ['Revenue Leakage Recovery', 'Billing Accuracy Audits', 'MSA Compliance', 'Invoice Reconciliation'],
   },
   {
@@ -136,7 +137,7 @@ const pillars: ModalService[] = [
       { title: 'AR Overlay (Optional)', desc: 'Contextual data overlaid onto Apple Vision Pro or Meta Quest for field engineers.' },
     ],
     stack: ['Unity / Unreal Engine 5', 'AWS IoT Core', 'InfluxDB', 'Apple Vision Pro SDK', 'MQTT'],
-    metrics: [{ value: '35%', label: 'Downtime reduction' }, { value: '72h', label: 'Failure prediction' }, { value: 'Real-time', label: 'Data sync' }],
+    metrics: [{ value: '~35%', label: 'Est. downtime reduction' }, { value: 'Early', label: 'Failure prediction' }, { value: 'Real-time', label: 'Data sync' }],
     useCases: ['Factory Operations', 'Energy Grid Management', 'Supply Chain Simulation', 'Smart Buildings', 'AR Field Operations'],
   },
 ];
@@ -175,8 +176,8 @@ const phases = [
   {
     number: '02',
     label: 'Est. Days 8–30',
-    title: 'Private RAG & Model Deployment',
-    description: 'Your first AI system is built and deployed inside your security boundary. We configure the RAG pipeline, connect data sources, and run the first round of evaluation testing with your team.',
+    title: 'Model Deployment & Integration',
+    description: 'Your first AI system is built and deployed within your chosen infrastructure — private VPC, on-premise, or enterprise cloud. We configure the pipeline, connect data sources, and run the first round of evaluation testing with your team.',
     deliverable: 'Working AI system in staging environment',
   },
   {
@@ -350,6 +351,106 @@ export default function HomePage() {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* ── DEPLOYMENT SPECTRUM ────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white border-t border-zinc-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            className="text-center mb-12"
+          >
+            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
+              Deployment
+            </motion.span>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-bold text-[#0E202E] leading-tight">
+              Your infrastructure. Your choice.
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg mt-4 max-w-2xl mx-auto">
+              We work across the full enterprise deployment spectrum — from fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints. The right model depends on your regulatory environment, existing cloud agreements, and data sensitivity.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {[
+              {
+                tier: '01',
+                title: 'On-Premise / Air-Gapped',
+                sub: 'Maximum control',
+                desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
+                tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
+                accent: 'border-[#0E202E]',
+                badge: 'bg-[#0E202E] text-white',
+              },
+              {
+                tier: '02',
+                title: 'Private VPC',
+                sub: 'Balanced security',
+                desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
+                tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
+                accent: 'border-[#29B6F6]',
+                badge: 'bg-[#29B6F6] text-white',
+              },
+              {
+                tier: '03',
+                title: 'Enterprise Cloud APIs',
+                sub: 'Fast to deploy',
+                desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints and your data residency requirements. Ideal if you already hold Microsoft EA or AWS EDP credits.',
+                tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
+                accent: 'border-zinc-300',
+                badge: 'bg-zinc-700 text-white',
+              },
+              {
+                tier: '04',
+                title: 'Managed API Tier',
+                sub: 'Lowest upfront cost',
+                desc: 'OpenAI Enterprise, Anthropic Claude API, or Cohere — via your own API keys with data processing agreements in place. Best for non-sensitive use cases where speed matters.',
+                tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
+                accent: 'border-zinc-200',
+                badge: 'bg-zinc-500 text-white',
+              },
+            ].map((d, i) => (
+              <motion.div
+                key={d.tier}
+                variants={fadeUp}
+                custom={i * 0.1}
+                className={`rounded-2xl border-2 ${d.accent} bg-white p-6 flex flex-col gap-4`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${d.badge}`}>{d.tier}</span>
+                  <span className="text-xs text-zinc-400 font-medium">{d.sub}</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#0E202E] text-base leading-tight mb-2">{d.title}</h3>
+                  <p className="text-zinc-500 text-sm leading-relaxed">{d.desc}</p>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-auto">
+                  {d.tags.map(t => (
+                    <span key={t} className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-zinc-100 text-zinc-600 border border-zinc-200">{t}</span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={5}
+            className="text-center text-sm text-zinc-400 mt-8"
+          >
+            We advise on the right model for your situation. You decide. Our engineers build and run it.
+          </motion.p>
+        </div>
+      </section>
 
       {/* ── 4 CORE CAPABILITIES BENTO ─────────────────────────────────────────── */}
       <section className="py-24 bg-white">

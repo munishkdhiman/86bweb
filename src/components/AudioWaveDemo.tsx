@@ -40,20 +40,18 @@ export default function AudioWaveDemo() {
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight mb-6">
               Digital Human Agents.<br />
-              <span className="text-accent-gradient">0.3s Latency.</span>
+              <span className="text-accent-gradient">Sub-Second Latency.</span>
             </h2>
             <p className="text-zinc-600 text-lg leading-relaxed mb-8">
-              Our AI-powered Digital Human avatars deliver real-time, conversational interactions
-              indistinguishable from a trained human agent — at unlimited scale. Each avatar is
-              trained on your brand voice, product knowledge, and compliance requirements.
+              Our AI-powered Digital Human avatars deliver low-latency, natural conversational interactions that handle the majority of routine queries without human escalation — at unlimited scale. Each avatar is trained on your brand voice, product knowledge, and compliance requirements. Deployed on your preferred infrastructure: private VPC, Azure, AWS, or on-premise.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
                 { value: '40+', label: 'Languages supported' },
-                { value: '~0.3s', label: 'Est. response latency' },
+                { value: '~0.3s', label: 'Target response latency' },
                 { value: '24/7', label: 'Always available' },
-                { value: '100%', label: 'Brand voice controlled' },
+                { value: '100%', label: 'Brand-voice trained' },
               ].map((m) => (
                 <div key={m.label} className="p-4 rounded-xl border border-zinc-200 bg-zinc-50">
                   <div className="text-2xl font-bold text-[#29B6F6]">{m.value}</div>

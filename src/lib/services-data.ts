@@ -17,10 +17,10 @@ export const services: Service[] = [
   {
     slug: 'generative-ai',
     title: 'Enterprise Generative AI & RAG',
-    tagline: 'Private LLMs trained on your knowledge — deployed inside your security boundary.',
-    description: 'Custom private LLM fine-tuning and secure orchestration against your proprietary document archives.',
+    tagline: 'LLMs trained on your knowledge — deployed within your chosen security boundary.',
+    description: 'Custom LLM fine-tuning and secure orchestration against your proprietary document archives — on-premise, private VPC, or enterprise cloud.',
     longDescription:
-      'We fine-tune and deploy private large language models against your company\'s internal documentation, product data, and institutional knowledge. Your AI assistant knows your business inside out, stays within your security boundary, and never exposes sensitive data to public APIs. Every deployment includes guardrails, hallucination scoring, and PII detection layers.',
+      'We fine-tune and deploy large language models against your internal documentation, product data, and institutional knowledge — within your chosen deployment model: fully private on-premise, private VPC, Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI. Every deployment includes guardrails, hallucination scoring, and PII detection layers, regardless of the infrastructure model.',
     category: 'Core AI',
     image: '/svc_genai.png',
     steps: [
@@ -32,16 +32,16 @@ export const services: Service[] = [
       { title: 'Enterprise Integration', desc: 'Deployed via intranet, Slack, Teams, or custom UI with full audit logging.' },
     ],
     stack: ['GPT-4o / Llama 3 / Mistral', 'LangChain / LlamaIndex', 'Pinecone / Weaviate', 'FastAPI', 'Docker / Kubernetes'],
-    metrics: [{ value: '~85%', label: 'Typical query resolution' }, { value: '~10×', label: 'Est. faster retrieval' }, { value: '100%', label: 'Private deployment' }],
+    metrics: [{ value: '~85%', label: 'Typical query resolution' }, { value: '~10×', label: 'Est. faster retrieval' }, { value: 'Flexible', label: 'Deployment model' }],
     useCases: ['Enterprise Knowledge Assistants', 'Internal Copilots', 'Document Q&A Systems', 'Policy Compliance Bots', 'Product Support Automation'],
   },
   {
     slug: 'digital-humans',
     title: 'Digital Human Agents',
-    tagline: '0.3s latency conversational AI avatars across 40+ languages.',
+    tagline: 'Sub-second latency conversational AI avatars across 40+ languages.',
     description: 'AI-powered conversational avatars delivering real-time multilingual interactions at enterprise scale.',
     longDescription:
-      'Our Digital Human Agents are AI-powered conversational avatars trained on your brand voice, product knowledge, and compliance requirements. They deliver sub-second response latency across 40+ languages, integrated into your existing support infrastructure without any public data exposure.',
+      'Our Digital Human Agents are AI-powered conversational avatars trained on your brand voice, product knowledge, and compliance requirements. They deliver low-latency responses across 40+ languages, integrated into your existing support infrastructure. Deployment options include private VPC, Azure Cognitive Services, or on-premise — aligned to your data residency and compliance requirements.',
     category: 'Core AI',
     image: '/svc_digital_human.png',
     steps: [
@@ -51,17 +51,17 @@ export const services: Service[] = [
       { title: 'Latency Optimisation', desc: 'Edge caching and streaming response architecture deliver sub-0.3s latency.' },
       { title: 'Escalation Routing', desc: 'Intelligent handoff to human agents with full conversation context.' },
     ],
-    stack: ['GPT-4o / Claude 3.5', 'ElevenLabs / Azure TTS', 'WebRTC', 'Custom Avatar SDK', 'Private VPC'],
+    stack: ['GPT-4o / Claude 3.5', 'ElevenLabs / Azure TTS', 'WebRTC', 'Custom Avatar SDK', 'Private VPC / Azure'],
     metrics: [{ value: '~0.3s', label: 'Target response latency' }, { value: '40+', label: 'Languages supported' }, { value: '24/7', label: 'Designed availability' }],
     useCases: ['Customer Support Automation', 'Multilingual Sales Agents', 'Employee Onboarding', 'Virtual Training Instructors', 'Kiosk Assistants'],
   },
   {
     slug: 'intelligent-process-automation',
     title: 'Intelligent Process Automation',
-    tagline: 'AI that reads, routes, and processes documents at human-level accuracy.',
+    tagline: 'AI that reads, routes, and processes documents with high accuracy and a full audit trail.',
     description: 'End-to-end automation of document-heavy workflows using computer vision and NLP.',
     longDescription:
-      'We automate complex document-heavy business workflows that traditionally require human judgment — invoices, contracts, compliance forms, and approval chains. Our systems achieve human-level accuracy with complete audit trails and exception handling, deployed entirely within your infrastructure.',
+      'We automate complex document-heavy business workflows that traditionally require human judgment — invoices, contracts, compliance forms, and approval chains. Our systems achieve high accuracy with complete audit trails and exception handling. Deployable within your own infrastructure or via enterprise cloud, with human-in-the-loop review for low-confidence decisions.',
     category: 'Core AI',
     image: '/svc_automation.png',
     steps: [
@@ -73,7 +73,7 @@ export const services: Service[] = [
       { title: 'Audit Trail', desc: 'Every action logged — immutable audit trail for compliance and review.' },
     ],
     stack: ['Unstructured.io', 'GPT-4o Vision', 'Temporal', 'Apache Airflow', 'PostgreSQL'],
-    metrics: [{ value: '~94%', label: 'Typical extraction accuracy' }, { value: '~80%', label: 'Est. time saved' }, { value: '100%', label: 'Audit coverage' }],
+    metrics: [{ value: '~94%', label: 'Typical extraction accuracy' }, { value: '~80%', label: 'Est. time saved' }, { value: 'End-to-end', label: 'Audit trail coverage' }],
     useCases: ['Invoice Processing', 'Contract Review', 'Compliance Screening', 'Approval Workflows', 'Claims Processing'],
   },
 
@@ -121,7 +121,7 @@ export const services: Service[] = [
   {
     slug: 'investor-readiness',
     title: 'Data Structuring & Investor Readiness',
-    tagline: 'Transform scattered corporate data into a VC-ready data room in days.',
+    tagline: 'Transform scattered corporate data into a VC-ready data room in weeks, not months.',
     description: 'Cleaning and structuring unlisted corporate data into investor-ready compliance data rooms.',
     longDescription:
       'We connect to your fragmented data sources — ERP, CRM, finance systems, contract repositories — and build a structured, investor-ready data room that compresses due diligence from months to days. The AI layer automatically validates data consistency, flags missing documentation, and generates standard VC-format reporting packages.',
@@ -185,10 +185,10 @@ export const services: Service[] = [
   {
     slug: 'hr-talent-ai',
     title: 'HR & Talent AI',
-    tagline: 'AI that screens, scores, and surfaces the right candidates — without bias.',
+    tagline: 'AI that screens, scores, and surfaces the right candidates — with fairness auditing built in.',
     description: 'Intelligent CV screening, candidate scoring, and HR workflow automation.',
     longDescription:
-      'Our HR AI systems integrate with your existing ATS and HR systems to automate CV screening, candidate scoring, and interview scheduling. We build explainable models that surface the most relevant candidates based on your specific hiring criteria — with fairness auditing built in to detect and mitigate selection bias.',
+      'Our HR AI systems integrate with your existing ATS and HR systems to automate CV screening, candidate scoring, and interview scheduling. We build explainable models that surface the most relevant candidates based on your specific hiring criteria — with fairness auditing built in to continuously monitor and mitigate selection bias across demographic groups.',
     category: 'Workforce AI',
     image: '/svc_hr.png',
     steps: [
@@ -199,7 +199,7 @@ export const services: Service[] = [
       { title: 'ATS Integration', desc: 'Ranked shortlist surfaced directly inside your existing ATS workflow.' },
     ],
     stack: ['Python', 'GPT-4o', 'Fairlearn', 'Workday / Greenhouse API', 'PostgreSQL'],
-    metrics: [{ value: '~70%', label: 'Est. screening time saved' }, { value: 'Higher', label: 'Reported quality of hires' }, { value: '100%', label: 'Bias-audited process' }],
+    metrics: [{ value: '~70%', label: 'Est. screening time saved' }, { value: 'Higher', label: 'Reported quality of hires' }, { value: 'Continuous', label: 'Bias monitoring' }],
     useCases: ['High-Volume Hiring', 'Technical Screening', 'Campus Recruitment', 'Executive Search', 'Internal Mobility'],
   },
   {
@@ -241,7 +241,7 @@ export const services: Service[] = [
       { title: 'Audit Trail', desc: 'Immutable logs of all model inputs, outputs, and decisions for regulatory reporting.' },
     ],
     stack: ['SHAP / LIME', 'MLflow', 'Great Expectations', 'Azure Purview', 'Custom Audit Framework'],
-    metrics: [{ value: '100%', label: 'Audit coverage' }, { value: 'EU AI Act', label: 'Compliant' }, { value: 'ISO 42001', label: 'Aligned' }],
+    metrics: [{ value: 'End-to-end', label: 'Audit trail' }, { value: 'EU AI Act', label: 'Aligned' }, { value: 'ISO 42001', label: 'Aligned' }],
     useCases: ['Regulatory Compliance', 'AI Risk Management', 'GDPR Alignment', 'Board-Level AI Reporting', 'Ethical AI Programmes'],
   },
   {
@@ -261,7 +261,7 @@ export const services: Service[] = [
       { title: 'Remediation Report', desc: 'Prioritised vulnerability report with specific remediation recommendations.' },
     ],
     stack: ['Garak', 'LangChain Red-Team', 'Custom Prompt Libraries', 'Python', 'Grafana'],
-    metrics: [{ value: '200+', label: 'Attack vectors tested' }, { value: '~48h', label: 'Est. standard turnaround' }, { value: 'Zero*', label: 'Production incidents post-audit (to date)' }],
+    metrics: [{ value: '200+', label: 'Attack vectors tested' }, { value: '~48h', label: 'Est. standard turnaround' }, { value: 'Reduced', label: 'Production incident risk post-audit' }],
     useCases: ['Pre-deployment Safety Audits', 'Ongoing Red-Team Retainers', 'Regulatory Compliance Testing', 'Brand Risk Assessment', 'Third-party AI Audits'],
   },
 
@@ -269,10 +269,10 @@ export const services: Service[] = [
   {
     slug: 'llm-infrastructure',
     title: 'LLM Orchestration & Private Infrastructure',
-    tagline: 'End-to-end private LLM hosting — from GPU selection to API gateway.',
-    description: 'Private cloud and on-premise LLM hosting with secure API gateways and cost optimisation.',
+    tagline: 'End-to-end LLM infrastructure — from GPU selection to API gateway, on your terms.',
+    description: 'On-premise, private cloud, and enterprise managed LLM hosting with secure API gateways and cost optimisation.',
     longDescription:
-      'We design and deploy the complete private infrastructure stack for self-hosted large language models — from GPU cluster selection and model quantization through API gateway configuration, authentication, rate limiting, and cost monitoring. All inside your VPC. No external API calls.',
+      'We design and deploy the complete infrastructure stack for large language models — whether fully self-hosted on your own hardware, within a private VPC, or via Azure OpenAI Service and AWS Bedrock with private networking. We handle GPU cluster selection, model quantisation, API gateway configuration, authentication, rate limiting, and cost monitoring. The right architecture for your compliance and budget requirements.',
     category: 'MLOps & Infrastructure',
     image: '/svc_llm_infra.png',
     steps: [
@@ -283,7 +283,7 @@ export const services: Service[] = [
       { title: 'API Gateway', desc: 'Authenticated REST API with rate limiting, usage tracking, and logging.' },
     ],
     stack: ['vLLM / TGI', 'NVIDIA CUDA', 'Kubernetes', 'Traefik', 'Prometheus / Grafana'],
-    metrics: [{ value: '100%', label: 'Private infrastructure' }, { value: '~3×', label: 'Est. cost saving vs public API' }, { value: '99.9%', label: 'Target uptime SLA' }],
+    metrics: [{ value: 'Private-first', label: 'Infrastructure approach' }, { value: '~3×', label: 'Est. cost saving vs direct API' }, { value: '99.9%', label: 'Target uptime architecture' }],
     useCases: ['Private LLM Hosting', 'API Gateway for AI Services', 'GPU Cluster Management', 'Cost Optimisation', 'Air-Gapped Deployments'],
   },
   {
@@ -312,9 +312,7 @@ export const services: Service[] = [
     slug: 'ai-route-planning',
     title: 'AI Route & Logistics Optimisation',
     tagline: 'Dynamic routing AI that reduces fleet costs and delivery times simultaneously.',
-    description: 'Machine learning-powered route optimisation for delivery fleets, field service, and supply chains.',
-    longDescription:
-      'We build AI-powered logistics optimisation systems that reduce fleet operating costs by 15–30% while improving delivery reliability. Our systems ingest real-time traffic data, weather, vehicle constraints, and customer time windows to dynamically compute and update optimal routes throughout the day.',
+    description: 'We build AI-powered logistics optimisation systems that can reduce fleet operating costs by 15–30% while improving delivery reliability — results vary based on existing route efficiency, fleet size, and data quality. Our systems ingest real-time traffic data, weather, vehicle constraints, and customer time windows to dynamically compute and update optimal routes throughout the day.',
     category: 'Industry Solutions',
     image: '/svc_travel.png',
     steps: [
@@ -348,7 +346,7 @@ export const services: Service[] = [
       { title: 'Operations Dashboard', desc: 'Real-time 3D command interface with alert routing and performance KPIs.' },
     ],
     stack: ['Unity / Unreal Engine', 'AWS IoT Core', 'InfluxDB', 'MQTT', 'Python / TensorFlow'],
-    metrics: [{ value: '~35%', label: 'Est. downtime reduction' }, { value: 'Real-time', label: 'Data sync' }, { value: '~72h', label: 'Est. failure prediction window' }],
+    metrics: [{ value: '~35%', label: 'Est. downtime reduction' }, { value: 'Real-time', label: 'Data sync' }, { value: 'Hours+', label: 'Est. failure prediction window' }],
     useCases: ['Factory Operations Monitoring', 'Energy Grid Management', 'Supply Chain Simulation', 'Smart Building Management', 'Predictive Maintenance'],
   },
   {
@@ -389,7 +387,7 @@ export const services: Service[] = [
       { title: 'Analytics Integration', desc: 'Learner engagement, completion, and knowledge retention tracked per participant.' },
     ],
     stack: ['Unreal Engine 5', 'MetaHuman', 'GPT-4o', 'Azure Spatial Anchors', 'WebXR'],
-    metrics: [{ value: '~75%', label: 'Est. training cost reduction' }, { value: '~85%', label: 'Reported retention improvement' }, { value: 'Unlimited', label: 'Concurrent users (architecture)' }],
+    metrics: [{ value: '~75%', label: 'Est. training cost reduction' }, { value: '~85%', label: 'Reported retention improvement' }, { value: 'Scalable', label: 'Concurrent user architecture' }],
     useCases: ['Corporate Onboarding', 'Product Demonstration', 'Safety Training', 'Customer Virtual Showrooms', 'Remote Collaboration'],
   },
 ];
