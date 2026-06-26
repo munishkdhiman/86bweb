@@ -1,0 +1,37 @@
+
+> eightysixb-ai@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.2.9 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 15.4s
+  Running TypeScript ...
+  Finished TypeScript in 5.4s ...
+  Collecting page data using 10 workers ...
+  Generating static pages using 10 workers (0/26) ...
+  Generating static pages using 10 workers (6/26) 
+  Generating static pages using 10 workers (12/26) 
+  Generating static pages using 10 workers (19/26) 
+✓ Generating static pages using 10 workers (26/26) in 2.3s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /contact
+├ ○ /how-we-build
+├ ○ /services
+└ ● /services/[slug]
+  ├ /services/generative-ai
+  ├ /services/digital-humans
+  ├ /services/intelligent-process-automation
+  └ [+15 more paths]
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+BUILD_SUCCESS  
