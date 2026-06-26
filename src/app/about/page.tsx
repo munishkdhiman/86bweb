@@ -1,120 +1,189 @@
-import { Target, Users, Shield, Zap } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import CTAStrip from "@/components/CTAStrip";
+import Link from 'next/link';
+import { ChevronRight, ArrowRight } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
-const values = [
-  { icon: Target, title: "Outcome-Obsessed", desc: "We define measurable KPIs before starting any project. If we can't quantify the impact upfront, we won't take the engagement." },
-  { icon: Shield, title: "Security First", desc: "Every architecture decision is reviewed for data residency, access control, and regulatory compliance before a single line of code is written." },
-  { icon: Users, title: "Embedded Engineers", desc: "Our engineers work inside your teams — not remotely or in advisory roles. We understand your constraints because we live in them." },
-  { icon: Zap, title: "Speed to Production", desc: "We move from scoping to working prototype in days, not months. Enterprise AI doesn't need to be slow." },
+const principles = [
+  {
+    number: '01',
+    title: 'We build, you own.',
+    description:
+      'Every line of code, every model weight, every pipeline — handed to you at the end of the engagement. No subscription required to keep the lights on. No vendor dependency. Just software your team controls.',
+  },
+  {
+    number: '02',
+    title: 'Privacy is not a feature. It is the foundation.',
+    description:
+      'We design every AI system with the assumption that your data cannot leave your control. Air-gapped deployments, private VPCs, on-premise hosting — privacy architecture is considered at design stage, not added as an afterthought.',
+  },
+  {
+    number: '03',
+    title: 'NDA before hello.',
+    description:
+      'Before any technical conversation, a mutual NDA is signed. Your business model, your data landscape, and your strategic priorities are protected the moment you engage with us.',
+  },
+  {
+    number: '04',
+    title: 'Engineers embedded, not outsourced.',
+    description:
+      'We work inside your delivery team. Our engineers attend your standups, use your project management tools, and collaborate directly with your product and data teams. We are not a black box.',
+  },
+  {
+    number: '05',
+    title: 'Measurable outcomes, not vague roadmaps.',
+    description:
+      'Every engagement has defined success metrics agreed before work begins. We know what "done" looks like. Our contracts include milestone-based billing tied to delivered functionality, not billable hours.',
+  },
 ];
 
-const industries = [
-  "Financial Services & Insurance", "Healthcare & Life Sciences", "Logistics & Supply Chain",
-  "Manufacturing & Industrial", "Legal & Compliance", "HR & Talent Management",
-  "Retail & E-Commerce", "Government & Public Sector", "Energy & Utilities", "Pharmaceuticals",
+const stats = [
+  { value: '30', unit: 'days', label: 'Average first deployment' },
+  { value: '100%', unit: '', label: 'Private infrastructure' },
+  { value: '16+', unit: '', label: 'AI capabilities delivered' },
+  { value: '0', unit: '', label: 'Public API calls — ever' },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#f8fafc] font-sans">
+    <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      <section className="relative pt-36 pb-24 bg-white border-b border-slate-200/60 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(to right, rgba(15,23,42,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.03) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
-        <div className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-blue-100/40 to-transparent blur-[140px]" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-semibold tracking-wide mb-6">About Us</div>
-            <h1 className="text-5xl md:text-6xl font-light tracking-tight text-slate-900 mb-6 leading-tight">
-              Applied AI for{" "}
-              <span className="font-semibold" style={{ background: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                real enterprise
-              </span>{" "}
-              problems.
-            </h1>
-            <p className="text-lg text-slate-500 font-light leading-relaxed">
-              86b.ai was built on a simple observation: most enterprises want to use AI but don&apos;t know where to start — or have tried and failed with off-the-shelf tools that don&apos;t fit their actual workflows.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Hero */}
+      <section className="pt-32 pb-24 bg-white border-b border-zinc-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+            About 86b.ai
+          </span>
+          <h1 className="text-5xl md:text-6xl font-bold text-zinc-900 mb-6 leading-[1.06] max-w-4xl">
+            Solution Engineers,<br />
+            <span className="text-[#0066FF]">Not Software Licences.</span>
+          </h1>
+          <p className="text-zinc-500 text-xl leading-relaxed max-w-2xl mb-12">
+            We are an applied AI engineering firm. We build custom, private AI systems that integrate with your existing infrastructure — and hand them over with full source code, documentation, and team training.
+          </p>
 
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-semibold tracking-wide mb-6">Our Mission</div>
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 tracking-tight mb-6 leading-snug">
-              We exist to make AI work <span className="font-semibold">inside the enterprise</span> — not around it.
-            </h2>
-            <p className="text-base text-slate-500 font-light leading-relaxed mb-5">
-              Generic AI tools are built for individual productivity. Enterprise workflows are different — they involve compliance requirements, legacy databases, multi-department approvals, and data that can never leave your network.
-            </p>
-            <p className="text-base text-slate-500 font-light leading-relaxed">
-              We build the bridge. Custom AI pipelines designed around your specific constraints, deployed inside your environment, and handed over to your team with full documentation and training.
-            </p>
-          </div>
-          <div className="bg-slate-900 rounded-3xl p-10 space-y-5">
-            <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">By the Numbers</div>
-            {[
-              { value: "15+", label: "AI service specializations", desc: "Across core AI, governance, workforce, and industry solutions" },
-              { value: "90", label: "Days to first outcome", desc: "Guaranteed measurable results or we revisit at no cost" },
-              { value: "100%", label: "Private deployments", desc: "Zero customer data sent to public AI APIs" },
-              { value: "NDA", label: "Before every discussion", desc: "Signed before any technical conversation begins" },
-            ].map((item) => (
-              <div key={item.label} className="flex items-start gap-5 p-4 rounded-xl bg-white/5 border border-white/8">
-                <div className="text-3xl font-light text-blue-400 w-16 flex-shrink-0">{item.value}</div>
-                <div>
-                  <div className="text-sm font-semibold text-white mb-0.5">{item.label}</div>
-                  <div className="text-xs text-slate-500 font-light">{item.desc}</div>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((s) => (
+              <div key={s.label} className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200">
+                <div className="text-3xl font-bold text-zinc-900">
+                  {s.value}
+                  <span className="text-[#0066FF] text-xl ml-0.5">{s.unit}</span>
                 </div>
+                <div className="text-sm text-zinc-500 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-white border-y border-slate-200/40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 tracking-tight mb-4">
-              How we <span className="font-semibold" style={{ background: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>operate</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((v) => (
-              <div key={v.title} className="bg-white rounded-2xl border border-slate-200/60 p-7 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/8 transition-all group">
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 flex items-center justify-center mb-5 group-hover:border-blue-300 transition-colors">
-                  <v.icon className="w-5 h-5 text-blue-600" />
-                </div>
-                <h3 className="text-sm font-semibold text-slate-900 mb-2">{v.title}</h3>
-                <p className="text-xs text-slate-500 font-light leading-relaxed">{v.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Who we are */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 tracking-tight mb-4">
-              Industries we <span className="font-semibold" style={{ background: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>serve</span>
-            </h2>
-            <p className="text-base text-slate-500 font-light max-w-xl mx-auto">We have built AI systems across regulated and complex industries where data security and compliance are non-negotiable.</p>
-          </div>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {industries.map((ind) => (
-              <span key={ind} className="px-5 py-3 rounded-full bg-white border border-slate-200 text-sm font-medium text-slate-700 hover:border-blue-300 hover:text-blue-700 transition-colors">
-                {ind}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+                Who We Are
               </span>
+              <h2 className="text-3xl font-bold text-zinc-900 mb-6 leading-tight">
+                A small team with deep expertise in enterprise AI delivery.
+              </h2>
+              <div className="space-y-4 text-zinc-600 leading-relaxed">
+                <p>
+                  86b.ai was founded by engineers who spent years building AI systems inside large enterprises — and grew frustrated watching companies pay millions for software subscriptions that didn&apos;t solve the actual problem.
+                </p>
+                <p>
+                  The problem is never a lack of AI tools. The problem is always the same: scattered, low-quality data; security architectures that make cloud AI impossible; and AI solutions built for generic use cases that don&apos;t understand your business.
+                </p>
+                <p>
+                  We exist to solve that problem. One engagement at a time. With engineers who write the code themselves, understand the regulatory constraints, and stay until the system is genuinely working in production.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-zinc-900 rounded-2xl p-8 text-white">
+              <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                What we are not
+              </span>
+              <ul className="mt-6 space-y-4">
+                {[
+                  'A SaaS company that charges per seat',
+                  'A systems integrator who outsources delivery',
+                  'A consulting firm that produces slide decks',
+                  'A startup selling AI you don\'t control',
+                  'An offshore development shop with no AI depth',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-400">
+                    <span className="w-5 h-5 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                      ✕
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="border-t border-zinc-800 mt-8 pt-6 text-sm text-zinc-400">
+                We are engineers who build AI systems inside your infrastructure and hand them over.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Operational Principles */}
+      <section className="py-24 bg-white border-t border-zinc-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0066FF] mb-4">
+            Operational Principles
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-16 max-w-2xl leading-tight">
+            The beliefs that shape every engagement we take on.
+          </h2>
+
+          <div className="space-y-6">
+            {principles.map((p, i) => (
+              <div
+                key={p.number}
+                className="grid md:grid-cols-[80px_1fr] gap-6 p-8 rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:border-[#0066FF]/20 hover:shadow-sm transition-all duration-200"
+              >
+                <div className="text-4xl font-bold text-zinc-200">{p.number}</div>
+                <div>
+                  <h3 className="text-lg font-bold text-zinc-900 mb-2">{p.title}</h3>
+                  <p className="text-zinc-500 leading-relaxed text-sm">{p.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CTAStrip heading="Want to know if we're the right fit?" sub="Schedule a 30-minute technical call. We'll tell you honestly whether AI will help your specific use case and what it will take to build it." primaryLabel="Schedule a Call" secondaryLabel="View Services" secondaryHref="/services" />
+      {/* CTA */}
+      <section className="bg-[#0066FF] py-16">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Ready to work with engineers who build?
+          </h2>
+          <p className="text-white/75 mb-8 text-lg">
+            Start with a free AI audit. Under mutual NDA. No commitment required.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#0066FF] font-bold hover:bg-zinc-100 transition-colors"
+            >
+              Book Free AI Audit
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-white/30 text-white font-semibold hover:border-white/60 transition-colors"
+            >
+              Explore Services
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

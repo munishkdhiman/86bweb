@@ -44,3 +44,6 @@ next-env.d.ts
 public/svc_*.png
 public/video_*.png
 public/hero_*.png
+  
+public/originals/  
+copy_images.ps1  

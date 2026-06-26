@@ -1,81 +1,115 @@
-import Link from "next/link";
-import { Cpu } from "lucide-react";
-import { services, categories } from "@/lib/services-data";
+import Link from 'next/link';
+import { ChevronRight, Shield, Lock, Globe } from 'lucide-react';
+
+const footerLinks = {
+  'Solutions': [
+    { label: 'Enterprise GenAI & RAG', href: '/services/generative-ai' },
+    { label: 'Data Orchestration', href: '/services/data-orchestration' },
+    { label: 'Financial Intelligence', href: '/services/financial-intelligence' },
+    { label: 'Spatial Intelligence', href: '/#spatial' },
+    { label: 'Digital Human Agents', href: '/services/digital-humans' },
+    { label: 'View All Services', href: '/services' },
+  ],
+  'Company': [
+    { label: 'About 86b.ai', href: '/about' },
+    { label: 'How We Build', href: '/how-we-build' },
+    { label: 'Contact Us', href: '/contact' },
+  ],
+  'Legal & Security': [
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Service', href: '/terms' },
+    { label: 'Security Architecture', href: '/security' },
+    { label: 'Download NDA Template', href: '/nda-template' },
+  ],
+};
 
 export default function Footer() {
-  const footerLinks = {
-    Company: [
-      { href: "/about", label: "About 86b.ai" },
-      { href: "/how-we-build", label: "How We Build" },
-      { href: "/contact", label: "Contact Sales" },
-      { href: "/contact", label: "Book AI Audit" },
-    ],
-    Legal: [
-      { href: "#", label: "Privacy Policy" },
-      { href: "#", label: "Terms of Service" },
-      { href: "#", label: "Security Architecture" },
-      { href: "#", label: "NDA Template" },
-    ],
-  };
-
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-        {/* Brand */}
-        <div className="lg:col-span-2 space-y-5">
-          <Link href="/" className="flex items-center gap-2.5 w-fit">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-              <Cpu className="w-4 h-4 text-white" />
-            </span>
-            <span className="text-xl font-semibold tracking-tight">86b<span className="text-blue-400">.ai</span></span>
-          </Link>
-          <p className="text-sm text-slate-400 font-light leading-relaxed max-w-xs">
-            Applied Enterprise Artificial Intelligence. Custom AI capabilities that integrate directly into your existing workflows, databases, and compliance frameworks.
-          </p>
-          <div className="flex flex-wrap gap-2 pt-1">
-            {["SOC2 Ready", "HIPAA Auditable", "Private VPC", "NDA Protected", "EU AI Act"].map((badge) => (
-              <span key={badge} className="px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-semibold text-blue-400 uppercase tracking-wider">
-                {badge}
-              </span>
-            ))}
+    <footer className="bg-zinc-950 text-zinc-400">
+      {/* CTA Strip */}
+      <div className="border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
+              Ready to integrate AI into your infrastructure?
+            </h2>
+            <p className="text-zinc-400 text-sm">
+              No public data exposure. No software licenses. Just engineers who build.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#0066FF] hover:bg-[#0052CC] text-white text-sm font-semibold transition-colors"
+            >
+              Book Free AI Audit
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-zinc-700 text-zinc-300 hover:border-zinc-500 text-sm font-medium transition-colors"
+            >
+              Explore Solutions
+            </Link>
           </div>
         </div>
-
-        {/* Services col */}
-        <div>
-          <h4 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">Core Services</h4>
-          <ul className="space-y-2.5">
-            {services.slice(0, 6).map((s) => (
-              <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="text-sm text-slate-500 hover:text-white transition-colors font-light">
-                  {s.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Company + Legal */}
-        {Object.entries(footerLinks).map(([group, links]) => (
-          <div key={group}>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">{group}</h4>
-            <ul className="space-y-2.5">
-              {links.map((link) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-slate-500 hover:text-white transition-colors font-light">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
       </div>
 
-      <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-600 font-mono">© {new Date().getFullYear()} 86b.ai. All rights reserved.</p>
-          <p className="text-xs text-slate-600 font-mono">Private VPC Deployment · SOC2 Compliant · Zero Data Exposure</p>
+      {/* Main footer */}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <span className="text-2xl font-bold text-white">
+              86b<span className="text-[#0066FF]">.ai</span>
+            </span>
+            <p className="text-sm mt-3 leading-relaxed text-zinc-500">
+              Applied enterprise AI — built privately, deployed securely, operated by engineers.
+            </p>
+            <div className="flex flex-col gap-2 mt-6">
+              {[
+                { icon: Shield, text: 'SOC 2 Compliant' },
+                { icon: Lock, text: 'Private VPC Architecture' },
+                { icon: Globe, text: 'On-Premise Deployments' },
+              ].map(({ icon: Icon, text }) => (
+                <div key={text} className="flex items-center gap-2 text-xs text-zinc-600">
+                  <Icon className="w-3.5 h-3.5 text-[#0066FF]" />
+                  {text}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Link columns */}
+          {Object.entries(footerLinks).map(([heading, links]) => (
+            <div key={heading}>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-4">
+                {heading}
+              </h3>
+              <ul className="space-y-2.5">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-zinc-500 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-zinc-800 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-zinc-600">
+            © {new Date().getFullYear()} 86b.ai. All rights reserved. All client engagements are protected under mutual NDA.
+          </p>
+          <p className="text-xs text-zinc-700">
+            Built with precision by Solution Engineers.
+          </p>
         </div>
       </div>
     </footer>

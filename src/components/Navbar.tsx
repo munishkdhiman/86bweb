@@ -1,190 +1,152 @@
-"use client";
-import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Cpu, ChevronDown, Menu, X, ArrowRight } from "lucide-react";
-import { services, categories } from "@/lib/services-data";
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronRight } from 'lucide-react';
+
+const navLinks = [
+  { label: 'Services', href: '/services' },
+  { label: 'Spatial Intelligence', href: '/#spatial' },
+  { label: 'How We Build', href: '/how-we-build' },
+  { label: 'About', href: '/about' },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Only the home page has a dark hero — all other pages start with white bg
-  const isHomePage = pathname === "/";
-  // Transparent + white text only on home when not scrolled
-  const transparent = isHomePage && !scrolled;
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const isHome = pathname === '/';
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const openServices = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setServicesOpen(true);
-  };
-  const closeServices = () => {
-    closeTimer.current = setTimeout(() => setServicesOpen(false), 150);
-  };
-
-  const menuGroups = categories.slice(1, 5).map((cat) => ({
-    label: cat,
-    items: services.filter((s) => s.category === cat).slice(0, 3),
-  }));
-
-  const navLinks = [
-    { href: "/services", label: "Services", hasDropdown: true },
-    { href: "/how-we-build", label: "How We Build" },
-    { href: "/about", label: "About" },
-  ];
+  // On homepage: transparent with white text until scrolled
+  // On other pages: always solid
+  const solidNav = !isHome || scrolled;
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        transparent
-          ? "bg-transparent"
-          : "bg-white/95 backdrop-blur-xl shadow-sm border-b border-slate-200/60"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          solidNav
+            ? 'bg-white/90 backdrop-blur-xl border-b border-zinc-200/70 shadow-sm'
+            : 'bg-transparent border-b border-white/10'
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
-              <Cpu className="w-4 h-4 text-white" />
-            </span>
-            <span className={`text-xl font-semibold tracking-tight transition-colors ${transparent ? "text-white" : "text-slate-900"}`}>
-              86b<span className="text-blue-500">.ai</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <span
+              className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
+                solidNav ? 'text-zinc-900' : 'text-white'
+              }`}
+            >
+              86b<span className="text-[#0066FF]">.ai</span>
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) =>
-              link.hasDropdown ? (
-                <div key={link.href} className="relative" onMouseEnter={openServices} onMouseLeave={closeServices}>
-                  <button className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    transparent
-                      ? "text-white/85 hover:text-white hover:bg-white/10"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                  }`}>
-                    {link.label}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
-                  </button>
-
-                  <AnimatePresence>
-                    {servicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[760px] bg-white rounded-2xl shadow-2xl shadow-slate-200/80 border border-slate-200/60 overflow-hidden"
-                        onMouseEnter={openServices}
-                        onMouseLeave={closeServices}
-                      >
-                        <div className="p-6 grid grid-cols-4 gap-4">
-                          {menuGroups.map((group) => (
-                            <div key={group.label}>
-                              <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3 px-2">{group.label}</div>
-                              <div className="space-y-1">
-                                {group.items.map((svc) => (
-                                  <Link
-                                    key={svc.slug}
-                                    href={`/services/${svc.slug}`}
-                                    onClick={() => setServicesOpen(false)}
-                                    className="block px-2 py-2 rounded-lg hover:bg-blue-50 group/item transition-colors"
-                                  >
-                                    <div className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-700 leading-snug">{svc.title}</div>
-                                    <div className="text-[10px] text-slate-400 font-light leading-tight mt-0.5 line-clamp-1">{svc.tag}</div>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="border-t border-slate-100 px-6 py-3 bg-slate-50 flex items-center justify-between">
-                          <span className="text-xs text-slate-500">Explore all {services.length} AI services</span>
-                          <Link href="/services" onClick={() => setServicesOpen(false)} className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
-                            View all services <ArrowRight className="w-3 h-3" />
-                          </Link>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    transparent
-                      ? "text-white/85 hover:text-white hover:bg-white/10"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-          </nav>
-
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold shadow-md hover:opacity-90 transition-all"
-            >
-              Book AI Audit
-            </Link>
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors duration-200 hover:text-[#0066FF] ${
+                  solidNav ? 'text-zinc-600' : 'text-white/80 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className={`lg:hidden p-2 rounded-lg transition-colors ${transparent ? "text-white" : "text-slate-700"}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
+          {/* CTA + Mobile Toggle */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/contact"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#0052CC] transition-colors duration-200 shadow-sm"
+            >
+              Book AI Audit
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
 
-      {/* Mobile drawer */}
+            <button
+              onClick={() => setMobileOpen(true)}
+              className={`md:hidden p-2 rounded-lg transition-colors ${
+                solidNav
+                  ? 'text-zinc-700 hover:bg-zinc-100'
+                  : 'text-white hover:bg-white/10'
+              }`}
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Drawer */}
       <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-slate-200 overflow-hidden"
-          >
-            <div className="px-6 py-5 space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors"
+        {mobileOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
+              onClick={() => setMobileOpen(false)}
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 28, stiffness: 300 }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-white flex flex-col shadow-2xl"
+            >
+              <div className="flex items-center justify-between p-6 border-b border-zinc-100">
+                <span className="text-lg font-bold text-zinc-900">
+                  86b<span className="text-[#0066FF]">.ai</span>
+                </span>
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="p-2 rounded-lg hover:bg-zinc-100 text-zinc-500"
                 >
-                  {link.label}
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <nav className="flex-1 p-6 flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="px-4 py-3 rounded-xl text-sm font-medium text-zinc-700 hover:bg-zinc-50 hover:text-[#0066FF] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="p-6 border-t border-zinc-100">
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#0052CC] transition-colors"
+                >
+                  Book AI Audit
+                  <ChevronRight className="w-4 h-4" />
                 </Link>
-              ))}
-              <Link
-                href="/contact"
-                onClick={() => setMenuOpen(false)}
-                className="block mt-3 px-3 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold text-center"
-              >
-                Book Free AI Audit
-              </Link>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
