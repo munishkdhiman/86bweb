@@ -36,21 +36,17 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setSubmitError(null);
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        setSubmitError(data.error || 'Something went wrong. Please try again.');
-      } else {
-        setSubmitted(true);
-      }
+      const subject = encodeURIComponent(
+        `Enquiry from ${form.firstName} ${form.lastName} — ${form.company}`
+      );
+      const body = encodeURIComponent(
+        `Name: ${form.firstName} ${form.lastName}\nCompany: ${form.company}\nRole: ${form.role}\nEmail: ${form.email}\n\nService of interest: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
+      );
+      window.location.href = `mailto:munish@86b.ai?subject=${subject}&body=${body}`;
+      setSubmitted(true);
     } catch {
-      setSubmitError('Network error. Please check your connection and try again.');
+      setSubmitError('Could not open email client. Please email us directly at munish@86b.ai');
     } finally {
       setSubmitting(false);
     }

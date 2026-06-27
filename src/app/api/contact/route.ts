@@ -49,7 +49,8 @@ export async function POST(request: NextRequest) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: 'noreply@86b.ai <onboarding@resend.dev>',
+        // Switch to 'noreply@86b.ai' once domain is verified at resend.com/domains
+        from: '86b.ai Enquiry <onboarding@resend.dev>',
         to:   [toEmail],
         reply_to: email,
         subject: `New enquiry — ${firstName} ${lastName} (${company})`,
