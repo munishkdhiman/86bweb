@@ -38,15 +38,19 @@ export default function ContactPage() {
     setSubmitting(true);
     setSubmitError(null);
     try {
-      // Static export — open mailto with pre-filled form data
-      const subject = encodeURIComponent(`Enquiry from ${form.firstName} ${form.lastName} (${form.company})`);
-      const body = encodeURIComponent(
-        `Name: ${form.firstName} ${form.lastName}\nCompany: ${form.company}\nRole: ${form.role}\nEmail: ${form.email}\n\nService of interest: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
-      );
-      window.location.href = `mailto:Info@86b.ai?subject=${subject}&body=${body}`;
-      setSubmitted(true);
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setSubmitError(data.error || 'Something went wrong. Please try again.');
+      } else {
+        setSubmitted(true);
+      }
     } catch {
-      setSubmitError('Could not open email client. Please email us directly at Info@86b.ai');
+      setSubmitError('Network error. Please check your connection and try again.');
     } finally {
       setSubmitting(false);
     }

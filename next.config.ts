@@ -1,20 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Static HTML export for GitHub Pages hosting
-  output: "export",
-
-  // Custom domain (86b.ai) serves from root — no basePath needed
-  basePath: "",
-  assetPrefix: "",
-
-  // next/image requires unoptimized mode for static export
-  // (no Node.js image optimization server on GitHub Pages)
+  // Vercel handles SSR, image optimisation, and routing natively
+  // No output: 'export' needed — Vercel is a full Next.js host
   images: {
-    unoptimized: true,
+    qualities: [100, 75],
   },
-
-  // Generates /services/foo/index.html for clean URLs
   trailingSlash: true,
 };
 
