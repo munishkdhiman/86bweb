@@ -7,9 +7,9 @@ export async function POST(request: NextRequest) {
     const { firstName, lastName, email, company, role, service, budget, message } = body;
 
     // ── Zoho SMTP credentials from environment variables ──────────────────────
-    const zohoUser = process.env.ZOHO_USER;       // e.g. Info@86b.ai
+    const zohoUser = process.env.ZOHO_USER;        // e.g. munish@86b.ai
     const zohoPass = process.env.ZOHO_APP_PASSWORD; // App-specific password from Zoho
-    const toEmail  = process.env.CONTACT_EMAIL || 'Info@86b.ai';
+    const toEmail  = process.env.CONTACT_EMAIL || 'munish@86b.ai';
 
     if (!zohoUser || !zohoPass) {
       console.warn('[contact] Zoho credentials not set — logging submission:', body);
