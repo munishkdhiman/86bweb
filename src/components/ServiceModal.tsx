@@ -210,6 +210,67 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
 
 /* ── Shared form content ─────────────────────────────────────── */
 function FormContent({ service, compact = false }: { service: ModalService; compact?: boolean }) {
+  const [form, setForm] = useState({ fullName: '', company: '', email: '', requirements: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((prev) => ({ ...prev, [k]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+    try {
+      // Split full name into first / last for the API
+      const [firstName, ...rest] = form.fullName.trim().split(' ');
+      const lastName = rest.join(' ') || '-';
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: form.email,
+          company: form.company,
+          role: 'Technical Audit Request',
+          service: service.title,
+          budget: 'Not specified',
+          message: form.requirements || `Requesting a technical audit for: ${service.title}`,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || 'Something went wrong. Please try again.');
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setError('Network error. Please email us directly at munish@86b.ai');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 py-10 text-center">
+        <div className="w-12 h-12 rounded-full bg-[#29B6F6]/20 border border-[#29B6F6]/40 flex items-center justify-center">
+          <svg className="w-6 h-6 text-[#29B6F6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <div>
+          <p className="text-white font-semibold text-lg">Request received</p>
+          <p className="text-zinc-400 text-sm mt-1 leading-relaxed">
+            We'll reach out to <span className="text-[#29B6F6]">{form.email}</span> within 24 hours.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       {!compact && (
@@ -230,13 +291,15 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
         </p>
       )}
 
-      <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-3">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <div>
           <label className="block text-[11px] font-normal text-zinc-400 mb-1.5 uppercase tracking-wider">Full Name *</label>
           <input
             type="text"
             placeholder="Jane Smith"
             required
+            value={form.fullName}
+            onChange={set('fullName')}
             className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
           />
         </div>
@@ -246,6 +309,8 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             type="text"
             placeholder="Acme Corp"
             required
+            value={form.company}
+            onChange={set('company')}
             className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
           />
         </div>
@@ -255,6 +320,8 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             type="email"
             placeholder="jane@company.com"
             required
+            value={form.email}
+            onChange={set('email')}
             className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
           />
         </div>
@@ -264,16 +331,36 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             <textarea
               placeholder={`Brief context on how ${service.title} fits your needs…`}
               rows={3}
+              value={form.requirements}
+              onChange={set('requirements')}
               className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all resize-none"
             />
           </div>
         )}
+
+        {error && (
+          <p className="text-red-400 text-xs leading-relaxed">{error}</p>
+        )}
+
         <button
           type="submit"
-          className="w-full py-3 rounded-lg bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold tracking-wide transition-colors flex items-center justify-center gap-2 mt-1"
+          disabled={submitting}
+          className="w-full py-3 rounded-lg bg-[#29B6F6] hover:bg-[#039BE5] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold tracking-wide transition-colors flex items-center justify-center gap-2 mt-1"
         >
-          Request Technical Audit
-          <ChevronRight className="w-4 h-4" />
+          {submitting ? (
+            <>
+              <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+              </svg>
+              Sending…
+            </>
+          ) : (
+            <>
+              Request Technical Audit
+              <ChevronRight className="w-4 h-4" />
+            </>
+          )}
         </button>
       </form>
 
