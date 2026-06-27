@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight, Shield, Lock, Globe } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const footerLinks = {
   'Solutions': [
@@ -72,17 +72,17 @@ export default function Footer() {
             <p className="text-sm mt-3 leading-relaxed text-zinc-500">
               Applied enterprise AI — built privately, deployed securely, operated by engineers.
             </p>
-            <div className="flex flex-col gap-2 mt-6">
-              {[
-                { icon: Shield, text: 'SOC 2 Compliant' },
-                { icon: Lock, text: 'Private VPC Architecture' },
-                { icon: Globe, text: 'On-Premise Deployments' },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-xs text-zinc-600">
-                  <Icon className="w-3.5 h-3.5 text-zinc-400" />
-                  {text}
-                </div>
-              ))}
+            {/* Contact details */}
+            <div className="flex flex-col gap-1.5 mt-5">
+              <a
+                href="mailto:Info@86b.ai"
+                className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-2"
+              >
+                <span className="text-[#29B6F6] text-xs">&#9993;</span> Info@86b.ai
+              </a>
+              <span className="text-xs text-zinc-500 flex items-center gap-2">
+                <span className="text-[#29B6F6] text-xs">&#9679;</span> Gurugram, India
+              </span>
             </div>
           </div>
 

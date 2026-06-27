@@ -11,7 +11,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.7, delay: i * 0.12, ease: 'easeOut' },
+    transition: { duration: 0.7, delay: i * 0.12, ease: 'easeOut' as const },
   }),
 };
 
@@ -49,10 +49,10 @@ const principles = [
 ];
 
 const stats = [
-  { value: '~30', unit: ' days*', label: 'Est. first deployment' },
-  { value: 'Flexible', unit: '', label: 'Deployment models (on-prem to cloud)' },
-  { value: '16+', unit: '', label: 'AI capabilities delivered' },
-  { value: 'Your', unit: ' choice', label: 'Infrastructure model' },
+  { value: 'Weeks*', unit: '', label: 'Typical first deployment timeline' },
+  { value: '4', unit: '', label: 'Deployment models (on-prem to cloud)' },
+  { value: '19', unit: '', label: 'AI capabilities across 8 practice areas' },
+  { value: '100%', unit: '', label: 'Client-owned code and model weights' },
 ];
 
 export default function AboutPage() {
@@ -82,10 +82,20 @@ export default function AboutPage() {
             <motion.h1 variants={fadeUp} custom={1}
               className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl"
             >
-              Named after <span className="text-[#29B6F6] font-light">86 billion neurons</span> — the only intelligence that has never needed to be generic.
+              Named after <span className="text-[#29B6F6] font-light">86 billion neurons</span> — intelligence that has always been specific to one person, one context, one lifetime.
             </motion.h1>
 
-            <motion.p variants={fadeUp} custom={2} className="text-white/35 text-base font-light leading-relaxed max-w-xl">
+            <motion.blockquote
+              variants={fadeUp}
+              custom={2}
+              className="border-l-2 border-[#29B6F6]/40 pl-6 mt-2 max-w-2xl"
+            >
+              <p className="text-white/80 text-lg md:text-xl font-light leading-[1.75] italic">
+                "86b.ai carries that number as a name because we carry it as a philosophy. Not a target to hit, not a benchmark to beat — but a reminder of what intelligence truly is. Emergent. Adaptive. Deeply contextual. Born not from raw power, but from the slow, patient accumulation of experience."
+              </p>
+            </motion.blockquote>
+
+            <motion.p variants={fadeUp} custom={3} className="text-white/35 text-base font-light leading-relaxed max-w-xl">
               Every AI system we build carries the same standard: specific to your organisation, adaptive to your context, and owned by you entirely.
             </motion.p>
 

@@ -42,32 +42,14 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      {/* Header */}
-      <section className="pt-32 pb-16 bg-white border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4"
-          >
-            All Capabilities
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-4"
-          >
-            Our Services
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-zinc-500 text-lg max-w-2xl"
-          >
-            {services.length} enterprise AI capabilities across 8 practice areas. Click any service to see the full implementation blueprint and request a technical audit under NDA.
-          </motion.p>
+      {/* ── MINI HERO ─────────────────────────────────────────────────────────── */}
+      <section className="relative bg-[#060d18] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060d18] via-[#0a1628]/90 to-[#060d18]" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#29B6F6 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4 block">All Capabilities</span>
+          <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">19 AI capabilities.<br /><span className="text-[#29B6F6] font-light">Built and owned by you.</span></h1>
+          <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">Custom-engineered AI systems across generative AI, finance intelligence, computer vision, spatial computing, and more — all deployed within your chosen infrastructure.</p>
         </div>
       </section>
 

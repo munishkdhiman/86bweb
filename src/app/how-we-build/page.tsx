@@ -72,38 +72,38 @@ export default function HowWeBuildPage() {
     <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      {/* Header */}
-      <section className="pt-32 pb-20 bg-white border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
-            Our Engineering Process
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-6 leading-tight max-w-3xl">
-            From NDA to production AI — typically within 30 days.*
+      {/* ── MINI HERO ─────────────────────────────────────────────────────────── */}
+      <section className="relative bg-[#060d18] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060d18] via-[#0a1628]/90 to-[#060d18]" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#29B6F6 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4 block">Our Engineering Process</span>
+          <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">
+            NDA to production AI.<br />
+            <span className="text-[#29B6F6] font-light">Scoped, built, and delivered.</span>
           </h1>
-          <p className="text-zinc-500 text-lg max-w-2xl leading-relaxed">
+          <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">
             A disciplined, three-phase engagement model designed for enterprise security requirements, regulatory compliance, and measurable delivery milestones.
           </p>
-          <p className="text-xs text-zinc-400 mt-3 max-w-xl">
-            * Timeline is indicative based on prior similar engagements. Actual timelines vary by project complexity, data readiness, and infrastructure environment. Confirmed only after a detailed scoping session under mutual NDA.
-          </p>
-
-          {/* Principles strip */}
-          <div className="flex flex-wrap gap-6 mt-12">
-            {principles.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex items-start gap-3 max-w-xs">
-                  <div className="w-9 h-9 rounded-xl bg-[#0E202E]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon className="w-4 h-4 text-[#0E202E]" />
-                </div>
-                <div>
-                  <p className="font-semibold text-[#0E202E] text-sm">{title}</p>
-                  <p className="text-zinc-500 text-xs leading-relaxed mt-0.5">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
+
+      {/* Principles strip */}
+      <div className="bg-white border-b border-zinc-200">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-wrap gap-6">
+          {principles.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="flex items-start gap-3 max-w-xs">
+              <div className="w-9 h-9 rounded-xl bg-[#0E202E]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon className="w-4 h-4 text-[#0E202E]" />
+              </div>
+              <div>
+                <p className="font-semibold text-[#0E202E] text-sm">{title}</p>
+                <p className="text-zinc-500 text-xs leading-relaxed mt-0.5">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Phase timeline */}
       <div className="max-w-5xl mx-auto px-6 py-20 space-y-8">

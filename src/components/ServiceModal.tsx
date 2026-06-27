@@ -152,17 +152,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                 ))}
               </ol>
 
-              {/* Tech Stack */}
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-3">
-                Technology Stack
-              </h3>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {service.stack.map((t) => (
-                  <span key={t} className="px-3 py-1.5 bg-zinc-100 text-zinc-700 text-xs font-medium rounded-lg border border-zinc-200">
-                    {t}
-                  </span>
-                ))}
-              </div>
+
 
               {/* Use Cases */}
               <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-3">

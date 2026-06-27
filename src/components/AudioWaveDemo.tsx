@@ -9,7 +9,7 @@ export default function AudioWaveDemo() {
   const [msgVisible, setMsgVisible] = useState(true);
 
   const messages = [
-    'Namaste. I can help you with your account query — which product are you referring to?',
+    'Hello. How can I assist you with your account today?',
     'Let me pull up your account details. Could you verify your registered email?',
     'Your renewal is due in 3 days. Would you like me to process it now?',
   ];
@@ -40,7 +40,7 @@ export default function AudioWaveDemo() {
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight mb-6">
               Digital Human Agents.<br />
-              <span className="text-accent-gradient">Sub-Second Latency.</span>
+              <span className="text-accent-gradient">~0.3s Latency.</span>
             </h2>
             <p className="text-zinc-600 text-lg leading-relaxed mb-8">
               Our AI-powered Digital Human avatars deliver low-latency, natural conversational interactions that handle the majority of routine queries without human escalation — at unlimited scale. Each avatar is trained on your brand voice, product knowledge, and compliance requirements. Deployed on your preferred infrastructure: private VPC, Azure, AWS, or on-premise.
@@ -49,9 +49,9 @@ export default function AudioWaveDemo() {
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
                 { value: '40+', label: 'Languages supported' },
-                { value: '~0.3s', label: 'Target response latency' },
+                { value: '~0.3s', label: 'Target latency (GPU infrastructure)' },
                 { value: '24/7', label: 'Always available' },
-                { value: '100%', label: 'Brand-voice trained' },
+                { value: 'Custom', label: 'Avatar appearance & voice' },
               ].map((m) => (
                 <div key={m.label} className="p-4 rounded-xl border border-zinc-200 bg-zinc-50">
                   <div className="text-2xl font-bold text-[#29B6F6]">{m.value}</div>
@@ -63,9 +63,9 @@ export default function AudioWaveDemo() {
             <ul className="space-y-2">
               {[
                 'Multilingual: EN, DE, HI, AR, ZH + 36 more',
-                'Fully private deployment — no public API',
-                'Integrates with any CRM or helpdesk',
-                'Custom avatar appearance and brand voice',
+                'Private deployment options — on-premise and private VPC available',
+                'Integrates with major CRM and helpdesk platforms',
+                'Intelligent escalation routing to your human team',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-600">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6] mt-2 flex-shrink-0" />
@@ -73,6 +73,7 @@ export default function AudioWaveDemo() {
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* Right — Photorealistic MetaHuman with live animated overlays */}
@@ -89,7 +90,7 @@ export default function AudioWaveDemo() {
                     <div className="w-3 h-3 rounded-full bg-emerald-400/80" />
                   </div>
                   <div className="flex-1 mx-4 h-6 rounded bg-zinc-700/60 flex items-center px-3">
-                    <span className="text-xs text-zinc-500 font-mono">86b.ai/agent/live</span>
+                  <span className="text-xs text-zinc-500 font-mono">Agent simulation · 86b.ai</span>
                   </div>
                 </div>
 
@@ -115,7 +116,7 @@ export default function AudioWaveDemo() {
 
                   {/* Latency badge — top right */}
                   <div className="absolute top-3 right-3 bg-[#29B6F6]/20 border border-[#29B6F6]/40 px-3 py-1 rounded-full">
-                    <span className="text-[11px] text-[#29B6F6] font-bold font-mono">LIVE</span>
+                    <span className="text-[11px] text-[#29B6F6] font-bold font-mono">LIVE SIMULATION</span>
                   </div>
 
                   {/* Waveform — animated bars */}
@@ -159,7 +160,7 @@ export default function AudioWaveDemo() {
 
               {/* Caption */}
               <p className="text-center text-xs text-zinc-400 mt-3">
-                Real-time conversational AI · Private VPC deployment
+                Simulated interaction · Private VPC deployment available
               </p>
             </div>
           </div>

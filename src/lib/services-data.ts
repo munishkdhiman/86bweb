@@ -32,7 +32,7 @@ export const services: Service[] = [
       { title: 'Enterprise Integration', desc: 'Deployed via intranet, Slack, Teams, or custom UI with full audit logging.' },
     ],
     stack: ['GPT-4o / Llama 3 / Mistral', 'LangChain / LlamaIndex', 'Pinecone / Weaviate', 'FastAPI', 'Docker / Kubernetes'],
-    metrics: [{ value: '~85%', label: 'Typical query resolution' }, { value: '~10×', label: 'Est. faster retrieval' }, { value: 'Flexible', label: 'Deployment model' }],
+    metrics: [{ value: 'High', label: 'Resolution rate on indexed knowledge' }, { value: 'Flexible', label: 'On-premise to cloud deployment' }, { value: 'Zero', label: 'External data exposure (private deployments)' }],
     useCases: ['Enterprise Knowledge Assistants', 'Internal Copilots', 'Document Q&A Systems', 'Policy Compliance Bots', 'Product Support Automation'],
   },
   {
@@ -52,7 +52,7 @@ export const services: Service[] = [
       { title: 'Escalation Routing', desc: 'Intelligent handoff to human agents with full conversation context.' },
     ],
     stack: ['GPT-4o / Claude 3.5', 'ElevenLabs / Azure TTS', 'WebRTC', 'Custom Avatar SDK', 'Private VPC / Azure'],
-    metrics: [{ value: '~0.3s', label: 'Target response latency' }, { value: '40+', label: 'Languages supported' }, { value: '24/7', label: 'Designed availability' }],
+    metrics: [{ value: '~0.3s', label: 'Target response latency (GPU infrastructure)' }, { value: '40+', label: 'Languages supported' }, { value: '24/7', label: 'Designed availability' }],
     useCases: ['Customer Support Automation', 'Multilingual Sales Agents', 'Employee Onboarding', 'Virtual Training Instructors', 'Kiosk Assistants'],
   },
   {
@@ -73,7 +73,7 @@ export const services: Service[] = [
       { title: 'Audit Trail', desc: 'Every action logged — immutable audit trail for compliance and review.' },
     ],
     stack: ['Unstructured.io', 'GPT-4o Vision', 'Temporal', 'Apache Airflow', 'PostgreSQL'],
-    metrics: [{ value: '~94%', label: 'Typical extraction accuracy' }, { value: '~80%', label: 'Est. time saved' }, { value: 'End-to-end', label: 'Audit trail coverage' }],
+    metrics: [{ value: '~94%', label: 'Accuracy on standard document types' }, { value: 'Significant', label: 'Reduction in manual processing time' }, { value: 'End-to-end', label: 'Audit trail coverage' }],
     useCases: ['Invoice Processing', 'Contract Review', 'Compliance Screening', 'Approval Workflows', 'Claims Processing'],
   },
 
@@ -95,7 +95,7 @@ export const services: Service[] = [
       { title: 'Leakage Dashboard', desc: 'Real-time dashboard showing flagged items, estimated impact, and recovery actions.' },
     ],
     stack: ['GPT-4o Vision', 'Unstructured.io', 'PostgreSQL', 'dbt', 'Power BI / Metabase'],
-    metrics: [{ value: '~12%', label: 'Est. avg revenue recovered' }, { value: '~48h', label: 'Rough time to first insights' }, { value: 'Varies', label: 'Leakage found (project-dependent)' }],
+    metrics: [{ value: 'Material', label: 'Billing discrepancies surfaced' }, { value: '~48h', label: 'Rough time to first insights' }, { value: 'Varies', label: 'Leakage found (project-dependent)' }],
     useCases: ['Revenue Leakage Recovery', 'Billing Accuracy Audits', 'MSA Compliance Monitoring', 'Invoice Reconciliation', 'Finance Team Augmentation'],
   },
   {
@@ -115,7 +115,7 @@ export const services: Service[] = [
       { title: 'Production Deployment', desc: 'Models served via API integrated with your BI tools and dashboards.' },
     ],
     stack: ['Python / scikit-learn', 'XGBoost / LightGBM', 'PyTorch Forecasting', 'MLflow', 'Snowflake / BigQuery'],
-    metrics: [{ value: '~91%', label: 'Typical forecast accuracy' }, { value: '30+ days', label: 'Est. forecast horizon' }, { value: 'Real-time', label: 'Model updates' }],
+    metrics: [{ value: 'Validated', label: 'Against holdout periods per engagement' }, { value: '30+ days', label: 'Est. forecast horizon' }, { value: 'Real-time', label: 'Model updates' }],
     useCases: ['Revenue Forecasting', 'Demand Planning', 'Churn Prediction', 'Inventory Optimisation', 'Capacity Planning'],
   },
   {
@@ -135,7 +135,7 @@ export const services: Service[] = [
       { title: 'Data Room Assembly', desc: 'Structured data room with investor-standard KPIs, cohort analysis, and documentation.' },
     ],
     stack: ['Python / Pandas', 'dbt', 'Snowflake', 'GPT-4o', 'Notion / Confluence API'],
-    metrics: [{ value: '~30 days', label: 'Est. data room ready' }, { value: '~95%', label: 'Typical data completeness' }, { value: '~3×', label: 'Est. faster diligence' }],
+    metrics: [{ value: 'Weeks', label: 'Typical data room ready time' }, { value: 'High', label: 'Data completeness vs VC checklist' }, { value: '~3×', label: 'Est. faster than manual process' }],
     useCases: ['Series A/B/C Due Diligence', 'M&A Data Preparation', 'Board Reporting', 'Regulatory Submissions', 'Strategic VC Matching'],
   },
 
@@ -157,7 +157,7 @@ export const services: Service[] = [
       { title: 'Confidence Scoring', desc: 'Each extracted field carries a confidence score and source reference.' },
     ],
     stack: ['spaCy', 'Hugging Face Transformers', 'GPT-4o', 'Apache Tika', 'Elasticsearch'],
-    metrics: [{ value: '~96%', label: 'Typical extraction accuracy' }, { value: '1000+', label: 'Est. docs/hour' }, { value: '40+', label: 'Languages supported' }],
+    metrics: [{ value: '~96%', label: 'Accuracy on trained document types' }, { value: '1000+', label: 'Est. docs/hour throughput' }, { value: '40+', label: 'Languages supported' }],
     useCases: ['Contract Analysis', 'Regulatory Compliance', 'Insurance Claims', 'Legal Discovery', 'Research Synthesis'],
   },
   {
@@ -177,7 +177,7 @@ export const services: Service[] = [
       { title: 'Real-time Monitoring', desc: 'Live inference pipeline with alert routing and defect logging dashboard.' },
     ],
     stack: ['PyTorch', 'YOLO v10', 'OpenCV', 'NVIDIA TensorRT', 'NVIDIA Jetson', 'AWS Rekognition'],
-    metrics: [{ value: '~99%', label: 'Typical defect detection' }, { value: '<20ms', label: 'Target inference time' }, { value: '24/7', label: 'Live monitoring' }],
+    metrics: [{ value: '~99%', label: 'Accuracy on trained defect categories' }, { value: '<20ms', label: 'Target inference time' }, { value: '24/7', label: 'Live monitoring' }],
     useCases: ['Quality Control', 'Defect Detection', 'Facility Monitoring', 'Medical Image Analysis', 'Construction Safety'],
   },
 
@@ -199,7 +199,7 @@ export const services: Service[] = [
       { title: 'ATS Integration', desc: 'Ranked shortlist surfaced directly inside your existing ATS workflow.' },
     ],
     stack: ['Python', 'GPT-4o', 'Fairlearn', 'Workday / Greenhouse API', 'PostgreSQL'],
-    metrics: [{ value: '~70%', label: 'Est. screening time saved' }, { value: 'Higher', label: 'Reported quality of hires' }, { value: 'Continuous', label: 'Bias monitoring' }],
+    metrics: [{ value: '~70%', label: 'Est. screening time saved' }, { value: 'Full', label: 'Decision audit trail provided' }, { value: 'Continuous', label: 'Bias monitoring' }],
     useCases: ['High-Volume Hiring', 'Technical Screening', 'Campus Recruitment', 'Executive Search', 'Internal Mobility'],
   },
   {
@@ -219,7 +219,7 @@ export const services: Service[] = [
       { title: 'Progress Reporting', desc: 'Manager dashboards showing cohort progress, CEFR level changes, and engagement.' },
     ],
     stack: ['GPT-4o', 'Whisper ASR', 'Azure TTS', 'React Native', 'PostgreSQL'],
-    metrics: [{ value: '~2×', label: 'Est. faster proficiency gain' }, { value: '~90%', label: 'Reported learner satisfaction' }, { value: '40+', label: 'Languages' }],
+    metrics: [{ value: '~2×', label: 'Est. faster proficiency gain' }, { value: 'CEFR', label: 'Progress tracked per learner' }, { value: '40+', label: 'Languages' }],
     useCases: ['German Language for Indian IT Companies', 'English for International Teams', 'Technical Communication', 'Customer-Facing Language Training'],
   },
 
@@ -283,7 +283,7 @@ export const services: Service[] = [
       { title: 'API Gateway', desc: 'Authenticated REST API with rate limiting, usage tracking, and logging.' },
     ],
     stack: ['vLLM / TGI', 'NVIDIA CUDA', 'Kubernetes', 'Traefik', 'Prometheus / Grafana'],
-    metrics: [{ value: 'Private-first', label: 'Infrastructure approach' }, { value: '~3×', label: 'Est. cost saving vs direct API' }, { value: '99.9%', label: 'Target uptime architecture' }],
+    metrics: [{ value: 'Private-first', label: 'Infrastructure approach' }, { value: '~3×', label: 'Est. cost saving (high-volume deployments)' }, { value: '99.9%', label: 'Target uptime architecture' }],
     useCases: ['Private LLM Hosting', 'API Gateway for AI Services', 'GPU Cluster Management', 'Cost Optimisation', 'Air-Gapped Deployments'],
   },
   {
@@ -303,7 +303,7 @@ export const services: Service[] = [
       { title: 'Automated Retraining', desc: 'Triggered retraining when drift thresholds breached or on scheduled cadence.' },
     ],
     stack: ['MLflow', 'Apache Airflow', 'Docker / Kubernetes', 'Evidently AI', 'Weights & Biases'],
-    metrics: [{ value: '90%', label: 'Less manual ML ops' }, { value: 'Auto', label: 'Drift detection' }, { value: '1-click', label: 'Model rollback' }],
+    metrics: [{ value: 'Automated', label: 'Training and deployment pipelines' }, { value: 'Auto', label: 'Drift detection' }, { value: '1-click', label: 'Model rollback' }],
     useCases: ['ML Model Maintenance', 'Continuous Training', 'Model Performance Monitoring', 'A/B Model Testing', 'Feature Store Management'],
   },
 
@@ -313,6 +313,7 @@ export const services: Service[] = [
     title: 'AI Route & Logistics Optimisation',
     tagline: 'Dynamic routing AI that reduces fleet costs and delivery times simultaneously.',
     description: 'We build AI-powered logistics optimisation systems that can reduce fleet operating costs by 15–30% while improving delivery reliability — results vary based on existing route efficiency, fleet size, and data quality. Our systems ingest real-time traffic data, weather, vehicle constraints, and customer time windows to dynamically compute and update optimal routes throughout the day.',
+    longDescription: 'Our AI logistics systems solve the Vehicle Routing Problem (VRP) at enterprise scale — combining constraint-based OR solvers with live data feeds to compute optimal routes continuously throughout the day. We model your full operational network: depot locations, vehicle capacities, driver schedules, customer time windows, and SLA constraints. The system integrates with traffic APIs, weather services, and vehicle telemetry to adapt routes in real time as conditions change. All routing decisions are explainable and auditable — operators can inspect, override, and approve suggestions before they reach drivers.',
     category: 'Industry Solutions',
     image: '/svc_travel.png',
     steps: [
@@ -323,7 +324,7 @@ export const services: Service[] = [
       { title: 'Driver App Integration', desc: 'Optimised routes pushed to driver mobile apps with turn-by-turn navigation.' },
     ],
     stack: ['Google OR-Tools', 'Python', 'HERE Maps API', 'Kafka', 'React Native'],
-    metrics: [{ value: '~22%', label: 'Est. cost reduction' }, { value: '~18%', label: 'Est. faster delivery' }, { value: 'Real-time', label: 'Route updates' }],
+    metrics: [{ value: '~22%', label: 'Est. cost reduction (industry benchmark)' }, { value: '~18%', label: 'Est. faster delivery (industry benchmark)' }, { value: 'Real-time', label: 'Route updates' }],
     useCases: ['Last-Mile Delivery', 'Field Service Scheduling', 'Supply Chain Optimisation', 'Waste Collection Routing', 'Emergency Response'],
   },
 
@@ -346,16 +347,16 @@ export const services: Service[] = [
       { title: 'Operations Dashboard', desc: 'Real-time 3D command interface with alert routing and performance KPIs.' },
     ],
     stack: ['Unity / Unreal Engine', 'AWS IoT Core', 'InfluxDB', 'MQTT', 'Python / TensorFlow'],
-    metrics: [{ value: '~35%', label: 'Est. downtime reduction' }, { value: 'Real-time', label: 'Data sync' }, { value: 'Hours+', label: 'Est. failure prediction window' }],
+    metrics: [{ value: 'Measurable', label: 'Downtime reduction via early prediction' }, { value: 'Real-time', label: 'Data sync' }, { value: 'Hours+', label: 'Est. failure prediction window' }],
     useCases: ['Factory Operations Monitoring', 'Energy Grid Management', 'Supply Chain Simulation', 'Smart Building Management', 'Predictive Maintenance'],
   },
   {
     slug: 'spatial-computing-ar',
     title: 'Spatial Computing & AR Operations',
-    tagline: 'Hands-free AI guidance for field engineers via Apple Vision Pro and Meta Quest.',
-    description: 'Overlaying contextual AI data and real-time instructions onto AR/VR hardware for field operations.',
+    tagline: 'Hands-free AI guidance for field engineers across all major XR headsets and smart glasses.',
+    description: 'Overlaying contextual AI data and real-time instructions onto AR/VR hardware and smart glasses for field operations.',
     longDescription:
-      'We build spatial computing applications that empower field engineers and technical operators with hands-free, AI-guided maintenance and assembly protocols. Operating on Apple Vision Pro, Meta Quest, and Microsoft HoloLens, our systems overlay real-time AI instructions, equipment diagnostics, and remote expert guidance directly into the operator\'s field of view.',
+      'We build spatial computing applications that empower field engineers and technical operators with hands-free, AI-guided maintenance and assembly protocols. Compatible with all leading enterprise XR headsets — Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, RealWear Navigator — and Meta Ray-Ban smart glasses for lightweight, wearable AI in the field. Our systems overlay real-time AI instructions, equipment diagnostics, and remote expert guidance directly into the operator\'s field of view.',
     category: 'Spatial Intelligence',
     image: '/svc_spatial_ar.png',
     steps: [
@@ -364,11 +365,32 @@ export const services: Service[] = [
       { title: 'Computer Vision Integration', desc: 'Object recognition trained to identify equipment, components, and spatial anchors.' },
       { title: 'AI Guidance Layer', desc: 'Real-time AI recommendations based on equipment state and operator context.' },
       { title: 'Remote Expert Connect', desc: 'Bidirectional video with remote expert able to annotate the operator\'s AR view.' },
-      { title: 'Hardware Deployment', desc: 'Fleet management and content update infrastructure for AR devices.' },
+      { title: 'Hardware Deployment', desc: 'Fleet management and content update infrastructure for AR devices and smart glasses.' },
     ],
-    stack: ['Apple Vision Pro SDK', 'Meta Presence Platform', 'ARKit / ARCore', 'Unity', 'WebRTC', 'AWS IoT'],
-    metrics: [{ value: '~40%', label: 'Est. faster field repairs' }, { value: '~60%', label: 'Est. training time saved' }, { value: '~95%', label: 'Reported first-time fix rate' }],
+    stack: ['Meta Quest SDK', 'Microsoft HoloLens SDK', 'Meta Ray-Ban SDK', 'ARKit / ARCore', 'Unity / Unreal Engine 5', 'WebRTC', 'AWS IoT'],
+    metrics: [{ value: 'Faster', label: 'Field repairs with guided protocols' }, { value: '~60%', label: 'Est. training time saved vs classroom' }, { value: 'Higher', label: 'First-time fix rates reported' }],
     useCases: ['Industrial Maintenance', 'Assembly Guidance', 'Remote Expert Support', 'Safety Training', 'Quality Inspection'],
+  },
+  {
+    slug: 'ai-smart-glasses',
+    title: 'AI-Powered Smart Glasses',
+    tagline: 'Wearable AI for frontline workers — no headset, no screen, no friction.',
+    description: 'Meta Ray-Ban smart glasses as a lightweight enterprise AI tool for field engineers, retail staff, and logistics teams.',
+    longDescription:
+      'Meta Ray-Ban smart glasses bring AI to the frontline without the bulk of a traditional AR headset. Engineers photograph equipment and ask questions out loud — the AI identifies faults, retrieves the relevant service manual, and logs the work order in real time. Retail staff scan product barcodes and instantly surface pricing, inventory levels, and upsell recommendations. Logistics teams photograph delivery labels and receive routing instructions hands-free. We build the AI layer that sits behind the glasses — connected to your internal knowledge base, ERP, or field service platform — and deploy it within your chosen security boundary.',
+    category: 'Spatial Intelligence',
+    image: '/meta_rayban_field.png',
+    steps: [
+      { title: 'Use Case Mapping', desc: 'Identify the highest-value frontline workflows where wearable AI reduces friction.' },
+      { title: 'Knowledge Base Integration', desc: 'Connect to your internal documentation, ERP, or field service platform via secure API.' },
+      { title: 'Computer Vision Pipeline', desc: 'Visual recognition trained to identify equipment, labels, products, or defects from the glasses camera.' },
+      { title: 'Voice AI Layer', desc: 'Natural language Q&A so engineers can ask questions without touching a screen.' },
+      { title: 'Real-time Action Logging', desc: 'Every scan, query, and action logged automatically into your work order or CRM system.' },
+      { title: 'Fleet Deployment', desc: 'Device management, content updates, and monitoring infrastructure for your glasses fleet.' },
+    ],
+    stack: ['Meta Ray-Ban SDK', 'GPT-4o Vision', 'LangChain', 'FastAPI', 'AWS / Azure Private Endpoint'],
+    metrics: [{ value: 'Hands-free', label: 'Field AI — no screen needed' }, { value: 'Real-time', label: 'Work order logging and fault ID' }, { value: 'Private', label: 'Deployed within your security boundary' }],
+    useCases: ['Field Equipment Inspection', 'Retail Staff Assistance', 'Logistics & Warehouse', 'Quality Control Walkthroughs', 'Remote Expert Support'],
   },
   {
     slug: 'immersive-environments',
@@ -387,7 +409,7 @@ export const services: Service[] = [
       { title: 'Analytics Integration', desc: 'Learner engagement, completion, and knowledge retention tracked per participant.' },
     ],
     stack: ['Unreal Engine 5', 'MetaHuman', 'GPT-4o', 'Azure Spatial Anchors', 'WebXR'],
-    metrics: [{ value: '~75%', label: 'Est. training cost reduction' }, { value: '~85%', label: 'Reported retention improvement' }, { value: 'Scalable', label: 'Concurrent user architecture' }],
+    metrics: [{ value: 'Reduced', label: 'Per-head training cost vs in-person' }, { value: 'Improved', label: 'Knowledge retention vs classroom' }, { value: 'Scalable', label: 'Concurrent user architecture' }],
     useCases: ['Corporate Onboarding', 'Product Demonstration', 'Safety Training', 'Customer Virtual Showrooms', 'Remote Collaboration'],
   },
 ];

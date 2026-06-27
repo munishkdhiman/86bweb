@@ -25,7 +25,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' },
+    transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const },
   }),
 };
 
@@ -34,24 +34,19 @@ export default function BlogPage() {
     <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      {/* ── Hero ── */}
-      <section className="pt-32 pb-16 bg-white border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="max-w-2xl"
-          >
-            <motion.span variants={fadeUp} className="inline-block text-xs font-normal uppercase tracking-widest text-[#29B6F6] mb-4">
-              Insights &amp; Perspectives
-            </motion.span>
-            <motion.h1 variants={fadeUp} custom={1} className="text-5xl md:text-6xl font-bold text-[#0E202E] leading-[1.06] mb-5">
-              The 86b.ai<br />
-              <span className="text-zinc-400 font-normal italic">Blog</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed">
-              Thinking on enterprise AI — strategy, architecture, and the practical realities of building systems that actually work in production.
-            </motion.p>
-          </motion.div>
+      {/* ── MINI HERO ─────────────────────────────────────────────────────────── */}
+      <section className="relative bg-[#060d18] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060d18] via-[#0a1628]/90 to-[#060d18]" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#29B6F6 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4 block">Insights &amp; Perspectives</span>
+          <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">
+            Thinking on enterprise AI.<br />
+            <span className="text-[#29B6F6] font-light">Strategy, architecture, reality.</span>
+          </h1>
+          <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">
+            Practical writing on what it actually takes to build AI systems that work in production — not just in demos.
+          </p>
         </div>
       </section>
 

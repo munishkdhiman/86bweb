@@ -25,15 +25,35 @@ const nextSteps = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", company: "", role: "", service: "", budget: "", message: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setSubmitError(data.error || 'Something went wrong. Please try again.');
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -123,8 +143,17 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="px-8 pb-8">
-                  <button type="submit" className="w-full py-4 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold shadow-lg transition-all">
-                    Send Enquiry — NDA Sent Within 24h
+                  {submitError && (
+                    <div className="mb-4 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-600">
+                      {submitError}
+                    </div>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full py-4 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold shadow-lg transition-all"
+                  >
+                    {submitting ? 'Sending…' : 'Send Enquiry — NDA Sent Within 24h'}
                   </button>
                   <p className="text-center text-xs text-slate-400 font-light mt-4">
                     <Lock className="inline w-3 h-3 mr-1" />
