@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Vercel handles SSR, image optimisation, and routing natively
+  output: 'export',          // Static export for GitHub Pages
+  trailingSlash: true,       // Required for GitHub Pages routing
   images: {
-    qualities: [100, 75],
+    unoptimized: true,        // Required for static export (no image server)
   },
 };
 
