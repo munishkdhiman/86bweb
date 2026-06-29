@@ -185,21 +185,21 @@ const spatialCards = [
 const phases = [
   {
     number: '01',
-    label: 'Est. Days 1—7',
+    label: 'Phase 1',
     title: 'Technical Discovery',
     description: 'We map your data landscape, identify integration points, and scope the AI opportunity within your infrastructure.',
     deliverable: 'Technical opportunity brief + data readiness report',
   },
   {
     number: '02',
-    label: 'Est. Days 8—30',
+    label: 'Phase 2',
     title: 'Model Deployment & Integration',
     description: 'Your first AI system is built and deployed within your chosen infrastructure — private VPC, on-premise, or enterprise cloud. We configure the pipeline, connect data sources, and run the first round of evaluation testing with your team.',
     deliverable: 'Working AI system in staging environment',
   },
   {
     number: '03',
-    label: 'Day 30—60 (Approx.)',
+    label: 'Phase 3',
     title: 'Adversarial Testing & VPC Onboarding',
     description: 'Before production go-live, we red-team the system — prompt injection tests, edge-case evaluation, and performance benchmarking. Then we migrate to your production VPC with full handover documentation.',
     deliverable: 'Production-ready system + full documentation + team training',
