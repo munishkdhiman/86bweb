@@ -67,10 +67,17 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (err) {
-    console.error('[contact] Error sending email:', err);
+  } catch (err: unknown) {
+    const e = err as { message?: string; code?: string; response?: string; responseCode?: number };
+    console.error('[contact] Error sending email:', e);
     return NextResponse.json(
-      { error: 'An unexpected error occurred. Please email us at munish@86b.ai' },
+      {
+        error: 'Email send failed',
+        detail: e?.message,
+        code: e?.code,
+        responseCode: e?.responseCode,
+        gmailResponse: e?.response,
+      },
       { status: 500 }
     );
   }
