@@ -20,8 +20,8 @@ export default function TermsPage() {
         <div className="max-w-3xl mx-auto px-6 space-y-8">
           {[
             { h: '1. Use of This Website', p: 'This website is provided for informational purposes. By accessing it you agree not to use it for any unlawful purpose or in a way that infringes the rights of others.' },
-            { h: '2. No Warranty', p: 'The information on this site is provided as-is. Performance figures, timelines, and capability metrics shown are indicative estimates only. Actual outcomes are confirmed following a detailed requirement analysis conducted under mutual NDA.' },
-            { h: '3. Client Engagements', p: 'All client engagements are governed by a separate Master Service Agreement (MSA) and NDA. The terms of this website do not constitute a contract for services.' },
+            { h: '2. No Warranty', p: 'The information on this site is provided as-is. Performance figures, timelines, and capability metrics shown are indicative estimates only. Actual outcomes are confirmed following a detailed requirement analysis conducted under strict confidentiality.' },
+            { h: '3. Client Engagements', p: 'All client engagements are governed by a separate Master Service Agreement (MSA) and confidentiality agreement. The terms of this website do not constitute a contract for services.' },
             { h: '4. Intellectual Property', p: 'All content on this website — including text, graphics, and code — is owned by 86b.ai. You may not reproduce, distribute, or create derivative works without written permission.' },
             { h: '5. Limitation of Liability', p: '86b.ai shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website.' },
             { h: '6. Governing Law', p: 'These terms are governed by the laws of the jurisdiction in which 86b.ai is registered. Any disputes shall be subject to the exclusive jurisdiction of the courts in that jurisdiction.' },

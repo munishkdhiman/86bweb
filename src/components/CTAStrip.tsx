@@ -12,7 +12,7 @@ interface CTAStripProps {
 
 export default function CTAStrip({
   heading = "Ready for a free AI Audit?",
-  sub = "Our engineers map your workflow bottlenecks and build a concrete AI roadmap — under NDA, no commitment required.",
+  sub = "Our engineers map your workflow bottlenecks and build a concrete AI roadmap — under strict confidentiality, no commitment required.",
   primaryLabel = "Book Free AI Audit",
   primaryHref = "/contact",
   secondaryLabel = "Explore Services",
@@ -27,7 +27,7 @@ export default function CTAStrip({
       <div className="relative max-w-4xl mx-auto px-6 py-20 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-semibold tracking-wide mb-6">
           <Lock className="w-3.5 h-3.5" />
-          NDA Signed Before Any Technical Discussion
+          Strict Confidentiality Before Any Technical Discussion
         </div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight mb-5 leading-snug">{heading}</h2>
         <p className="text-base text-blue-100 font-light leading-relaxed mb-10 max-w-2xl mx-auto">{sub}</p>

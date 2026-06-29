@@ -274,19 +274,19 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
     <>
       {!compact && (
         <div className="border-b border-white/10 pb-5">
-          <span className="text-[10px] font-normal uppercase tracking-widest text-[#29B6F6]">Deploy Under NDA</span>
+          <span className="text-[10px] font-normal uppercase tracking-widest text-[#29B6F6]">Deploy Under Strict Confidentiality</span>
           <h3 className="text-xl font-normal text-white mt-2 leading-snug">
             Deploy {service.title} on your terms
           </h3>
           <p className="text-zinc-400 text-sm mt-2 leading-relaxed font-light">
-            On-premise, private VPC, or enterprise cloud — we build it to your requirements. All conversations are covered by a mutual NDA.
+            On-premise, private VPC, or enterprise cloud — we build it to your requirements. All conversations are covered by strict confidentiality.
           </p>
         </div>
       )}
 
       {compact && (
         <p className="text-zinc-400 text-xs mb-4 leading-relaxed">
-          Speak with a lead engineer — all conversations covered by NDA.
+          Speak with a lead engineer — all conversations covered by strict confidentiality.
         </p>
       )}
 
@@ -364,7 +364,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
       </form>
 
       <div className="border-t border-white/10 pt-4 space-y-2 mt-1">
-        {['Under mutual NDA', 'No commitment required', 'Response within 24h'].map((t) => (
+        {['Strict confidentiality', 'No commitment required', 'Response within 24h'].map((t) => (
           <div key={t} className="flex items-center gap-2 text-xs text-zinc-400 font-light">
             <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6]/60 flex-shrink-0" />
             {t}

@@ -132,7 +132,7 @@ export default function AboutPage() {
             ))}
           </div>
           <p className="stats-disclaimer mt-4">
-            * Estimated based on prior similar engagements. Actual timelines, scope and outcomes vary by project complexity and are confirmed only after a detailed requirement analysis under mutual NDA. Nothing on this page constitutes a guarantee.
+            * Estimated based on prior similar engagements. Actual timelines, scope and outcomes vary by project complexity and are confirmed only after a detailed requirement analysis under a strict confidentiality agreement. Nothing on this page constitutes a guarantee.
           </p>
         </div>
       </section>
@@ -223,7 +223,7 @@ export default function AboutPage() {
             Ready to work with engineers who build?
           </h2>
           <p className="text-white/75 mb-8 text-lg">
-            Start with a free AI audit. Under mutual NDA. No commitment required.
+            Start with a free AI audit. Under strict confidentiality. No commitment required.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
