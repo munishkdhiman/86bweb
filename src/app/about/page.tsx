@@ -30,9 +30,9 @@ const principles = [
   },
   {
     number: '03',
-    title: 'NDA before hello.',
+    title: 'Strict confidentiality.',
     description:
-      'Before any technical conversation, a mutual NDA is signed. Your business model, your data landscape, and your strategic priorities are protected the moment you engage with us.',
+      'Before any technical conversation, a strict confidentiality agreement is established. Your business model, your data landscape, and your strategic priorities are protected the moment you engage with us.',
   },
   {
     number: '04',
