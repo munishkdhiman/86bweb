@@ -7,7 +7,7 @@ import Link from 'next/link';
 import {
   ChevronRight, Shield, Lock, Server, Globe,
   Brain, BarChart3, DollarSign, Layers, ArrowRight,
-  CheckCircle2, Cpu, Database, Zap
+  CheckCircle2, Cpu, Database, Zap, FileText, FlaskConical
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -190,6 +190,8 @@ const phases = [
   {
     number: '01',
     label: 'Phase 1',
+    color: 'bg-[#0E202E]',
+    icon: FileText,
     title: 'Discovery & Audit',
     description: 'Before a single technical detail is shared, our lead engineers conduct a comprehensive data landscape audit — mapping all data sources, identifying integration touchpoints, assessing data quality, and scoping the AI opportunity within your existing infrastructure.',
     deliverable: 'Data source inventory and quality assessment',
@@ -197,6 +199,8 @@ const phases = [
   {
     number: '02',
     label: 'Phase 2',
+    color: 'bg-[#0E202E]',
+    icon: Server,
     title: 'Staging Environment & Integration',
     description: 'Your first AI system is built and deployed within a secure staging environment. We configure the RAG pipeline, connect all approved data sources, deploy or connect the AI model, and run the first round of evaluation testing alongside your internal subject matter experts.',
     deliverable: 'Working AI system in your staging environment',
@@ -204,6 +208,8 @@ const phases = [
   {
     number: '03',
     label: 'Phase 3',
+    color: 'bg-emerald-600',
+    icon: FlaskConical,
     title: 'Secure VPC Migration & Go-Live',
     description: 'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team, backed by optional ongoing Service Level Agreements (SLAs) for maintenance and upgrades.',
     deliverable: 'Production VPC/Cloud deployment + Ongoing SLA',
@@ -918,7 +924,9 @@ export default function HomePage() {
             <div className="hidden md:block absolute top-8 left-[calc(16.67%-1px)] right-[calc(16.67%-1px)] h-px bg-zinc-200 z-0" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-              {phases.map((phase, i) => (
+              {phases.map((phase, i) => {
+                const Icon = phase.icon;
+                return (
                 <motion.div
                   key={phase.number}
                   initial="hidden"
@@ -930,8 +938,8 @@ export default function HomePage() {
                 >
                   {/* Step number circle */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#0E202E] text-white font-normal text-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-zinc-900/15">
-                      {phase.number}
+                    <div className={`w-14 h-14 rounded-2xl ${phase.color} text-white font-normal text-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-zinc-900/15`}>
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
                     <span className="text-xs font-semibold text-[#5A6A7A] bg-zinc-50 border border-zinc-200 px-3 py-1 rounded-full">
                       {phase.label}
@@ -946,7 +954,8 @@ export default function HomePage() {
                     <span className="text-xs text-zinc-600">{phase.deliverable}</span>
                   </div>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
