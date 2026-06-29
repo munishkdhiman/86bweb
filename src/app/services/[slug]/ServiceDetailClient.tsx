@@ -3,17 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ServiceModal, { type ModalService } from '@/components/ServiceModal';
 import { services, type Service } from '@/lib/services-data';
 
 interface Props { svc: Service; }
 
 export default function ServiceDetailClient({ svc }: Props) {
-  const [showModal, setShowModal] = useState(false);
-
   const related = services
     .filter((s) => s.slug !== svc.slug && s.category === svc.category)
     .slice(0, 3)
@@ -23,8 +20,6 @@ export default function ServiceDetailClient({ svc }: Props) {
         .slice(0, Math.max(0, 3 - services.filter((s2) => s2.slug !== svc.slug && s2.category === svc.category).slice(0, 3).length))
     )
     .slice(0, 3);
-
-  const modalService: ModalService = { id: svc.slug, ...svc };
 
   return (
     <div className="min-h-screen bg-[#F9FAFB]">
@@ -53,22 +48,6 @@ export default function ServiceDetailClient({ svc }: Props) {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">{svc.title}</h1>
             <p className="text-lg text-white/70 leading-relaxed mb-8">{svc.tagline}</p>
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={() => setShowModal(true)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white font-semibold transition-colors shadow-lg"
-              >
-                Request Technical Audit
-                <ChevronRight className="w-4 h-4" />
-              </button>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/30 hover:border-white/60 text-white font-semibold transition-all"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                All Services
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -130,18 +109,18 @@ export default function ServiceDetailClient({ svc }: Props) {
           {/* Right sidebar */}
           <div className="space-y-6">
             <div className="bg-[#0E202E] rounded-2xl p-6 text-white sticky top-24">
-              <h3 className="font-bold text-lg mb-2">Deploy Under NDA</h3>
+              <h3 className="font-bold text-lg mb-2">Start Your Project</h3>
               <p className="text-zinc-400 text-sm mb-6 leading-relaxed">
-                Request a technical audit and deployment plan. All conversations covered by mutual NDA from the first call.
+                Share your requirements and we&apos;ll put together a tailored deployment plan within 24 hours.
               </p>
-              <button
-                onClick={() => setShowModal(true)}
-                className="w-full py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white font-semibold transition-colors text-sm"
+              <Link
+                href="/contact"
+                className="w-full py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white font-semibold transition-colors text-sm text-center block"
               >
-                Request Technical Audit
-              </button>
+                Get in Touch
+              </Link>
               <div className="mt-4 space-y-2">
-                {['Mutual NDA signed first', 'No commitment required', 'Response within 24h'].map((t) => (
+                {['No commitment required', 'Response within 24h'].map((t) => (
                   <div key={t} className="flex items-center gap-2 text-xs text-zinc-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6]" />
                     {t}
@@ -194,7 +173,6 @@ export default function ServiceDetailClient({ svc }: Props) {
       )}
 
       <Footer />
-      <ServiceModal service={showModal ? modalService : null} onClose={() => setShowModal(false)} />
     </div>
   );
 }

@@ -12,14 +12,13 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AudioWaveDemo from '@/components/AudioWaveDemo';
-import ServiceModal, { type ModalService } from '@/components/ServiceModal';
 
-// ── Hero Slides ──────────────────────────────────────────────────────────────
+// â”€â”€ Hero Slides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const heroSlides = [
   {
     image: '/hero_slide1.png',
     headline: 'Autonomous Workflows.\nAgents That Execute End to End.',
-    subtext: 'We replace rigid rule-based automation with private AI agents that read documents, make decisions, and orchestrate multi-step processes across your ERP, CRM, and billing systems — with full audit trails.',
+    subtext: 'We replace rigid rule-based automation with private AI agents that read documents, make decisions, and orchestrate multi-step processes across your ERP, CRM, and billing systems â€” with full audit trails.',
     cta: 'See Process Automation',
     href: '/services/intelligent-process-automation',
   },
@@ -33,21 +32,21 @@ const heroSlides = [
   {
     image: '/hero_slide4.png',
     headline: 'Digital Human Agents.\nSub-Second Latency. 40+ Languages.',
-    subtext: 'Enterprise AI avatars that handle customer queries, onboard employees, and deliver brand-consistent interactions at scale — with intelligent escalation routing to your human team when needed.',
+    subtext: 'Enterprise AI avatars that handle customer queries, onboard employees, and deliver brand-consistent interactions at scale â€” with intelligent escalation routing to your human team when needed.',
     cta: 'Explore Digital Humans',
     href: '/services/digital-humans',
   },
   {
     image: '/hero_slide2.png',
     headline: 'Computer Vision That\nCatches What Eyes Miss.',
-    subtext: 'Real-time AI trained on your production line, warehouse, or field environment — detecting defects, monitoring compliance, and flagging anomalies before they become incidents.',
+    subtext: 'Real-time AI trained on your production line, warehouse, or field environment â€” detecting defects, monitoring compliance, and flagging anomalies before they become incidents.',
     cta: 'Explore Computer Vision',
     href: '/services/computer-vision',
   },
 ];
 
 
-// ── Trust Badges ─────────────────────────────────────────────────────────────
+// â”€â”€ Trust Badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const trustBadges = [
   { icon: Shield, label: 'SOC 2-Ready Architecture' },
   { icon: Server, label: 'On-Premise & Cloud Deployments' },
@@ -55,7 +54,7 @@ const trustBadges = [
   { icon: Globe, label: 'Data Privacy by Design' },
 ];
 
-// ── Tech Stack ────────────────────────────────────────────────────────────────
+// â”€â”€ Tech Stack â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const techStack = [
   // Big company AI platforms
   'OpenAI GPT-4o', 'Anthropic Claude', 'Google Gemini', 'Meta Llama 3',
@@ -68,22 +67,22 @@ const techStack = [
   'PyTorch', 'Hugging Face', 'OpenCV',
 ];
 
-// ── 4 Core Bento Pillars ──────────────────────────────────────────────────────
-const pillars: ModalService[] = [
+// â”€â”€ 4 Core Bento Pillars â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const pillars = [
   {
     id: 'genai',
     title: 'Enterprise Generative AI & RAG',
-    tagline: 'LLMs trained on your knowledge — deployed within your chosen security boundary.',
-    description: 'Custom LLM fine-tuning and secure orchestration against your proprietary document archives — on-premise, private VPC, or enterprise cloud.',
+    tagline: 'LLMs trained on your knowledge â€” deployed within your chosen security boundary.',
+    description: 'Custom LLM fine-tuning and secure orchestration against your proprietary document archives â€” on-premise, private VPC, or enterprise cloud.',
     longDescription:
-      'We fine-tune and deploy large language models against your internal documentation, product data, and institutional knowledge — within your chosen deployment environment: fully private on-premise, private VPC, Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI. Every deployment includes guardrails, hallucination scoring, and PII detection layers regardless of the infrastructure model.',
+      'We fine-tune and deploy large language models against your internal documentation, product data, and institutional knowledge â€” within your chosen deployment environment: fully private on-premise, private VPC, Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI. Every deployment includes guardrails, hallucination scoring, and PII detection layers regardless of the infrastructure model.',
 
     image: '/bento_genai.png',
     category: 'Core AI',
     steps: [
       { title: 'Knowledge Ingestion', desc: 'All document sources connected inside your private network via secure connectors.' },
       { title: 'Embedding & Vector Indexing', desc: 'Content chunked, embedded, and stored in a private vector database.' },
-      { title: 'RAG Pipeline', desc: 'Semantically relevant context retrieved at query time — LLM sees only what\'s needed.' },
+      { title: 'RAG Pipeline', desc: 'Semantically relevant context retrieved at query time â€” LLM sees only what\'s needed.' },
       { title: 'Guardrail Layer', desc: 'Hallucination scoring, PII detection, and policy compliance before delivery.' },
       { title: 'Enterprise Integration', desc: 'Deployed via intranet, Slack, Teams, or custom UI with full audit logging.' },
     ],
@@ -97,7 +96,7 @@ const pillars: ModalService[] = [
     tagline: 'Transform scattered corporate data into a VC-ready data room in weeks, not months.',
     description: 'Cleaning and structuring unlisted corporate data into investor-ready compliance data rooms.',
     longDescription:
-      'We connect to your fragmented data sources — ERP, CRM, finance systems, contract repositories — clean and structure them, and build investor-ready data rooms that compress due diligence from months to days. The AI layer automatically validates data consistency, flags missing documentation, and generates standard VC-format reporting packages.',
+      'We connect to your fragmented data sources â€” ERP, CRM, finance systems, contract repositories â€” clean and structure them, and build investor-ready data rooms that compress due diligence from months to days. The AI layer automatically validates data consistency, flags missing documentation, and generates standard VC-format reporting packages.',
     image: '/bento_data.png',
     category: 'Finance AI',
     steps: [
@@ -108,7 +107,7 @@ const pillars: ModalService[] = [
       { title: 'Data Room Assembly', desc: 'Investor-standard KPIs, cohort analysis, and documentation packaged.' },
     ],
     stack: ['Python / dbt', 'Snowflake', 'GPT-4o', 'Airflow', 'Notion API'],
-    metrics: [{ value: '~30 days', label: 'Est. data room ready' }, { value: 'High', label: 'Data completeness vs VC checklist' }, { value: '~3×', label: 'Est. faster than manual process' }],
+    metrics: [{ value: '~30 days', label: 'Est. data room ready' }, { value: 'High', label: 'Data completeness vs VC checklist' }, { value: '~3Ã—', label: 'Est. faster than manual process' }],
     useCases: ['Series A/B/C Due Diligence', 'M&A Data Preparation', 'Board Reporting', 'Regulatory Submissions'],
   },
   {
@@ -117,7 +116,7 @@ const pillars: ModalService[] = [
     tagline: 'AI that reads your MSAs and invoices to surface revenue leakage instantly.',
     description: 'Ingesting transactions, MSAs, and invoices to track and flag revenue leakages in real time.',
     longDescription:
-      'Our financial intelligence systems connect to your transaction database, master service agreements, and invoice records to build a real-time map of your revenue flows. The AI cross-references contracted terms against actual invoicing to surface discrepancies, missed escalators, and billing gaps — delivering a living revenue audit dashboard your finance team can act on daily.',
+      'Our financial intelligence systems connect to your transaction database, master service agreements, and invoice records to build a real-time map of your revenue flows. The AI cross-references contracted terms against actual invoicing to surface discrepancies, missed escalators, and billing gaps â€” delivering a living revenue audit dashboard your finance team can act on daily.',
     image: '/bento_finance.png',
     category: 'Finance AI',
     steps: [
@@ -137,7 +136,7 @@ const pillars: ModalService[] = [
     tagline: 'Live 3D replicas of your physical systems powered by real-time predictive AI.',
     description: 'Building digital twins, spatial computing systems, and AR operations for physical infrastructure.',
     longDescription:
-      'We build live digital twin environments that mirror your physical infrastructure in real time — factories, logistics networks, energy grids, or IT systems. These are active AI agents that ingest live sensor data, predict failures before they happen, and simulate operational changes. Extended with AR overlays compatible with all leading enterprise XR headsets including Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, and RealWear Navigator.',
+      'We build live digital twin environments that mirror your physical infrastructure in real time â€” factories, logistics networks, energy grids, or IT systems. These are active AI agents that ingest live sensor data, predict failures before they happen, and simulate operational changes. Extended with AR overlays compatible with all leading enterprise XR headsets including Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, and RealWear Navigator.',
     image: '/bento_spatial.png',
     category: 'Spatial Intelligence',
     steps: [
@@ -153,7 +152,7 @@ const pillars: ModalService[] = [
   },
 ];
 
-// ── Spatial Intelligence Cards ────────────────────────────────────────────────
+// â”€â”€ Spatial Intelligence Cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const spatialCards = [
   {
     number: '01',
@@ -164,13 +163,13 @@ const spatialCards = [
   {
     number: '02',
     title: 'Spatial Computing & AR Operations',
-    description: 'Overlaying contextual AI data and real-time instructions onto enterprise XR headsets — Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, RealWear Navigator, and Meta Ray-Ban smart glasses. Empowering field engineers and frontline staff with hands-free, AI-guided protocols.',
+    description: 'Overlaying contextual AI data and real-time instructions onto enterprise XR headsets â€” Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, RealWear Navigator, and Meta Ray-Ban smart glasses. Empowering field engineers and frontline staff with hands-free, AI-guided protocols.',
     image: '/svc_spatial_ar.png',
   },
   {
     number: '03',
     title: 'AI-Powered Smart Glasses',
-    description: 'Using Meta Ray-Ban smart glasses as a lightweight AI field tool — engineers photograph equipment, scan barcodes, and ask live questions; the AI identifies faults, retrieves manuals, and logs work orders in real time. No headset required.',
+    description: 'Using Meta Ray-Ban smart glasses as a lightweight AI field tool â€” engineers photograph equipment, scan barcodes, and ask live questions; the AI identifies faults, retrieves manuals, and logs work orders in real time. No headset required.',
     image: '/meta_rayban_glasses.png',
   },
   {
@@ -181,32 +180,32 @@ const spatialCards = [
   },
 ];
 
-// ── Engagement Phases ─────────────────────────────────────────────────────────
+// â”€â”€ Engagement Phases â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const phases = [
   {
     number: '01',
-    label: 'Est. Days 1–7',
-    title: 'Secure Data Audit & NDA',
-    description: 'We sign a mutual NDA before any technical conversation begins. Our engineers map your data landscape, identify integration points, and scope the AI opportunity within your infrastructure.',
+    label: 'Est. Days 1â€“7',
+    title: 'Technical Discovery',
+    description: 'We map your data landscape, identify integration points, and scope the AI opportunity within your infrastructure.',
     deliverable: 'Technical opportunity brief + data readiness report',
   },
   {
     number: '02',
-    label: 'Est. Days 8–30',
+    label: 'Est. Days 8â€“30',
     title: 'Model Deployment & Integration',
-    description: 'Your first AI system is built and deployed within your chosen infrastructure — private VPC, on-premise, or enterprise cloud. We configure the pipeline, connect data sources, and run the first round of evaluation testing with your team.',
+    description: 'Your first AI system is built and deployed within your chosen infrastructure â€” private VPC, on-premise, or enterprise cloud. We configure the pipeline, connect data sources, and run the first round of evaluation testing with your team.',
     deliverable: 'Working AI system in staging environment',
   },
   {
     number: '03',
-    label: 'Day 30–60 (Approx.)',
+    label: 'Day 30â€“60 (Approx.)',
     title: 'Adversarial Testing & VPC Onboarding',
-    description: 'Before production go-live, we red-team the system — prompt injection tests, edge-case evaluation, and performance benchmarking. Then we migrate to your production VPC with full handover documentation.',
+    description: 'Before production go-live, we red-team the system â€” prompt injection tests, edge-case evaluation, and performance benchmarking. Then we migrate to your production VPC with full handover documentation.',
     deliverable: 'Production-ready system + full documentation + team training',
   },
 ];
 
-// ── Fade-up animation variant ─────────────────────────────────────────────────
+// â”€â”€ Fade-up animation variant â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   visible: (i = 0) => ({
@@ -219,7 +218,6 @@ const fadeUp = {
 export default function HomePage() {
 
   const [activeSlide, setActiveSlide] = useState(0);
-  const [selectedPillar, setSelectedPillar] = useState<ModalService | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const spatialRef = useRef<HTMLElement>(null);
 
@@ -241,7 +239,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="relative h-screen min-h-[700px] overflow-hidden">
         {/* Background image slides */}
         {heroSlides.map((slide, i) => (
@@ -268,7 +266,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/30 z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
 
-        {/* Text content — cross-fades with slide */}
+        {/* Text content â€” cross-fades with slide */}
         <div className="relative z-20 h-full flex flex-col justify-center px-6 max-w-7xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -325,7 +323,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TRUST BADGES ─────────────────────────────────────────────────────── */}
+      {/* â”€â”€ TRUST BADGES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6 py-5">
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
@@ -339,146 +337,119 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* ── DEPLOYMENT SPECTRUM ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-zinc-50 relative overflow-hidden border-t border-zinc-100">
-        {/* Subtle dot grid */}
-        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage:'radial-gradient(#0E202E 1px,transparent 1px)',backgroundSize:'28px 28px'}} />
-        {/* Soft radial glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-[#29B6F6]/6 blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-6">
-          {/* Header */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-16">
-            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6] mb-5">
-              <span className="w-6 h-px bg-[#29B6F6]/40" />
-              Deployment Spectrum
-              <span className="w-6 h-px bg-[#29B6F6]/40" />
-            </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-bold text-[#0E202E] leading-tight">
-              Your infrastructure. Your choice.
-            </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
-              From fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints — we deploy where your security, compliance, and budget requirements demand.
-            </motion.p>
-          </motion.div>
-
-          {/* Cards grid */}
+      {/* â”€â”€ 4 CORE CAPABILITIES BENTO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            viewport={{ once: true, margin: '-80px' }}
+            className="text-center mb-16"
           >
-            {[
-              {
-                tier: '01',
-                title: 'On-Premise\nAir-Gapped',
-                sub: 'Maximum control',
-                desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
-                tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
-              },
-              {
-                tier: '02',
-                title: 'Private VPC',
-                sub: 'Balanced security',
-                desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
-                tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
-              },
-              {
-                tier: '03',
-                title: 'Enterprise\nCloud APIs',
-                sub: 'Fast to deploy',
-                desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints. Ideal if you already hold Microsoft EA or AWS EDP credits.',
-                tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
-              },
-              {
-                tier: '04',
-                title: 'Managed\nAPI Tier',
-                sub: 'Lowest upfront cost',
-                desc: 'OpenAI Enterprise, Anthropic Claude, or Cohere — via your own API keys with DPAs in place. Best for non-sensitive use cases where speed matters.',
-                tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
-              },
-            ].map((d, i) => (
-              <motion.div
-                key={d.tier}
-                variants={fadeUp}
-                custom={i * 0.12}
-                className="relative rounded-2xl border border-zinc-200 bg-white p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-[0_8px_28px_rgba(14,32,46,0.09)] hover:-translate-y-0.5 overflow-hidden group"
-              >
-                {/* Uniform top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#29B6F6]" />
-
-                {/* Header row: badge left, tier number right */}
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-500 border border-zinc-200">
-                    {d.sub}
-                  </span>
-                  <span className="text-sm font-bold text-zinc-300 tabular-nums">{d.tier}</span>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-bold text-[#0E202E] text-base leading-snug whitespace-pre-line">{d.title}</h3>
-
-                {/* Description */}
-                <p className="text-zinc-500 text-sm leading-relaxed flex-1">{d.desc}</p>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5">
-                  {d.tags.map(t => (
-                    <span key={t} className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-zinc-50 border border-zinc-200 text-zinc-500">{t}</span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+            <motion.span
+              variants={fadeUp}
+              className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4"
+            >
+              Core Capabilities
+            </motion.span>
+            <motion.h2
+              variants={fadeUp}
+              custom={1}
+              className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight"
+            >
+              Four pillars. One engineering team.
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              className="text-zinc-500 text-lg mt-4 max-w-2xl mx-auto"
+            >
+              We don&apos;t sell software licences. We embed engineers who build AI systems custom to your infrastructure.
+            </motion.p>
           </motion.div>
 
-          <motion.p
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={6}
-            className="text-center text-xs text-zinc-400 mt-8"
+          {/* Bento grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {pillars.map((pillar, i) => {
+              const icons = [Brain, Database, DollarSign, Layers];
+              const Icon = icons[i];
+              return (
+                <Link key={pillar.id} href={`/services/${pillar.id}`} className="block">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-60px' }}
+                  variants={fadeUp}
+                  custom={i * 0.15}
+                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white cursor-pointer card-hover"
+                  style={{ minHeight: i === 0 || i === 3 ? 340 : 280 }}
+                >
+                  {/* Background image */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E202E]/90 via-[#0E202E]/40 to-[#0E202E]/10" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex flex-col justify-between p-8">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-semibold text-white/50">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <div className="w-9 h-9 rounded-xl bg-[#29B6F6]/20 border border-[#29B6F6]/30 flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-[#29B6F6]" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-white/65 text-sm leading-relaxed mb-4">
+                        {pillar.description}
+                      </p>
+                      <div className="flex items-center gap-2 text-[#29B6F6] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>View details</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={5}
+            className="text-center mt-10"
           >
-            We advise on the right model for your situation. You decide. Our engineers build and run it.
-          </motion.p>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#29B6F6] hover:underline"
+            >
+            Show all services
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── TECH STACK CLOUD — moved here: supports the Deployment Spectrum above ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="py-14 bg-white border-t border-zinc-100"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.p
-            variants={fadeUp}
-            className="text-center text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-8"
-          >
-            Technology We Deploy
-          </motion.p>
-          <motion.div
-            variants={fadeUp}
-            custom={1}
-            className="flex flex-wrap items-center justify-center gap-3"
-          >
-            {techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-500 text-sm font-medium hover:border-[#29B6F6]/40 hover:text-zinc-700 transition-colors"
-              >
-                {tech}
-              </span>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* ── 86B MANIFESTO ───────────────────────────────────────────────────── */}
-      <section className="relative py-24 overflow-hidden bg-[#060d18]">
+<section className="relative py-24 overflow-hidden bg-[#060d18]">
 
         {/* === ANIMATED BACKGROUND LAYERS === */}
 
-        {/* 1. Neuron texture — at readable opacity */}
+        {/* 1. Neuron texture â€” at readable opacity */}
         <Image
           src="/neuron_hero.png"
           alt=""
@@ -488,7 +459,7 @@ export default function HomePage() {
 
         {/* 2. Floating animated gradient orbs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Orb 1 — top-left blue */}
+          {/* Orb 1 â€” top-left blue */}
           <div
             className="absolute w-[500px] h-[500px] rounded-full"
             style={{
@@ -497,7 +468,7 @@ export default function HomePage() {
               animation: 'orb-float-1 8s ease-in-out infinite',
             }}
           />
-          {/* Orb 2 — bottom-right teal */}
+          {/* Orb 2 â€” bottom-right teal */}
           <div
             className="absolute w-[400px] h-[400px] rounded-full"
             style={{
@@ -506,7 +477,7 @@ export default function HomePage() {
               animation: 'orb-float-2 10s ease-in-out infinite',
             }}
           />
-          {/* Orb 3 — centre pulse */}
+          {/* Orb 3 â€” centre pulse */}
           <div
             className="absolute w-[300px] h-[300px] rounded-full"
             style={{
@@ -554,7 +525,7 @@ export default function HomePage() {
             transition={{ duration: 0.9, ease: 'easeOut' as const }}
             className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
           >
-            {/* Left — Logo + tagline */}
+            {/* Left â€” Logo + tagline */}
             <div className="flex flex-col items-start gap-8">
               <Image
                 src="/logos/86B_white.png"
@@ -569,7 +540,7 @@ export default function HomePage() {
                   <span className="text-[#29B6F6]">not a benchmark.</span>
                 </p>
                 <p className="text-white/50 text-sm font-light leading-relaxed max-w-xs">
-                  Named after the 86 billion neurons in the human brain — the most efficient intelligence ever observed.
+                  Named after the 86 billion neurons in the human brain â€” the most efficient intelligence ever observed.
                 </p>
               </div>
               <Link
@@ -581,11 +552,11 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Right — Three manifesto words */}
+            {/* Right â€” Three manifesto words */}
             <div className="flex flex-col">
               {[
                 { word: 'Emergent.', sub: 'Not programmed. Shaped by data, context, and iteration.' },
-                { word: 'Adaptive.', sub: 'Built for your organisation — not retrofitted from a template.' },
+                { word: 'Adaptive.', sub: 'Built for your organisation â€” not retrofitted from a template.' },
                 { word: 'Contextual.', sub: 'Every response shaped by who you are, not just what you asked.' },
               ].map((item, i) => (
                 <motion.div
@@ -615,116 +586,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 4 CORE CAPABILITIES BENTO ─────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="text-center mb-16"
-          >
-            <motion.span
-              variants={fadeUp}
-              className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4"
-            >
-              Core Capabilities
-            </motion.span>
-            <motion.h2
-              variants={fadeUp}
-              custom={1}
-              className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight"
-            >
-              Four pillars. One engineering team.
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              custom={2}
-              className="text-zinc-500 text-lg mt-4 max-w-2xl mx-auto"
-            >
-              We don&apos;t sell software licences. We embed engineers who build AI systems custom to your infrastructure.
-            </motion.p>
-          </motion.div>
-
-          {/* Bento grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {pillars.map((pillar, i) => {
-              const icons = [Brain, Database, DollarSign, Layers];
-              const Icon = icons[i];
-              return (
-                <motion.div
-                  key={pillar.id}
-                  layoutId={`card-${pillar.id}`}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-60px' }}
-                  variants={fadeUp}
-                  custom={i * 0.15}
-                  onClick={() => setSelectedPillar(pillar)}
-                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white cursor-pointer card-hover"
-                  style={{ minHeight: i === 0 || i === 3 ? 340 : 280 }}
-                >
-                  {/* Background image */}
-                  <div className="absolute inset-0">
-                    <Image
-                      src={pillar.image}
-                      alt={pillar.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E202E]/90 via-[#0E202E]/40 to-[#0E202E]/10" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="relative z-10 h-full flex flex-col justify-between p-8">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-semibold text-white/50">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <div className="w-9 h-9 rounded-xl bg-[#29B6F6]/20 border border-[#29B6F6]/30 flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-[#29B6F6]" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-white/65 text-sm leading-relaxed mb-4">
-                        {pillar.description}
-                      </p>
-                      <div className="flex items-center gap-2 text-[#29B6F6] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span>View details</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={5}
-            className="text-center mt-10"
-          >
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#29B6F6] hover:underline"
-            >
-            Show all services
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── SPATIAL INTELLIGENCE ──────────────────────────────────────────────── */}
+      {/* â”€â”€ SPATIAL INTELLIGENCE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section
         id="spatial"
         ref={spatialRef}
@@ -750,7 +612,7 @@ export default function HomePage() {
               Where AI Meets the Physical World
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="text-zinc-400 text-lg mt-4 max-w-2xl mx-auto">
-              For organisations running physical operations — factories, logistics networks, and field teams — where AI meets the real world through digital twins, AR guidance, and simulation.
+              For organisations running physical operations â€” factories, logistics networks, and field teams â€” where AI meets the real world through digital twins, AR guidance, and simulation.
             </motion.p>
           </motion.div>
 
@@ -801,10 +663,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── DIGITAL HUMAN DEMO ─────────────────────────────────────────────────── */}
+      {/* â”€â”€ DIGITAL HUMAN DEMO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <AudioWaveDemo />
 
-      {/* ── ENGAGEMENT PHILOSOPHY ─────────────────────────────────────────────── */}
+      {/* â”€â”€ ENGAGEMENT PHILOSOPHY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="py-24 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -864,7 +726,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── BOTTOM CTA ────────────────────────────────────────────────────────── */}
+      {/* â”€â”€ BOTTOM CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="bg-[#0E202E] py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
@@ -873,7 +735,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-              Start with a free AI audit.<br />Under strict mutual NDA.
+              Start with a free AI audit.<br />No sales pitch. Just engineers.
             </motion.h2>
             <motion.p variants={fadeUp} custom={1} className="text-white/75 text-lg mb-10 max-w-xl mx-auto">
               No commitment. No public data sharing. Just an honest conversation about where AI can move the needle in your organisation.
@@ -897,10 +759,140 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer />
 
-      {/* ── SERVICE MODAL ─────────────────────────────────────────────────────── */}
-      <ServiceModal service={selectedPillar} onClose={() => setSelectedPillar(null)} />
+      <section className="py-24 bg-zinc-50 relative overflow-hidden border-t border-zinc-100">
+        {/* Subtle dot grid */}
+        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage:'radial-gradient(#0E202E 1px,transparent 1px)',backgroundSize:'28px 28px'}} />
+        {/* Soft radial glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-[#29B6F6]/6 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          {/* Header */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6] mb-5">
+              <span className="w-6 h-px bg-[#29B6F6]/40" />
+              Deployment Spectrum
+              <span className="w-6 h-px bg-[#29B6F6]/40" />
+            </motion.span>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-bold text-[#0E202E] leading-tight">
+              Your infrastructure. Your choice.
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
+              From fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints â€” we deploy where your security, compliance, and budget requirements demand.
+            </motion.p>
+          </motion.div>
+
+          {/* Cards grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {[
+              {
+                tier: '01',
+                title: 'On-Premise\nAir-Gapped',
+                sub: 'Maximum control',
+                desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
+                tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
+              },
+              {
+                tier: '02',
+                title: 'Private VPC',
+                sub: 'Balanced security',
+                desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
+                tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
+              },
+              {
+                tier: '03',
+                title: 'Enterprise\nCloud APIs',
+                sub: 'Fast to deploy',
+                desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints. Ideal if you already hold Microsoft EA or AWS EDP credits.',
+                tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
+              },
+              {
+                tier: '04',
+                title: 'Managed\nAPI Tier',
+                sub: 'Lowest upfront cost',
+                desc: 'OpenAI Enterprise, Anthropic Claude, or Cohere â€” via your own API keys with DPAs in place. Best for non-sensitive use cases where speed matters.',
+                tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
+              },
+            ].map((d, i) => (
+              <motion.div
+                key={d.tier}
+                variants={fadeUp}
+                custom={i * 0.12}
+                className="relative rounded-2xl border border-zinc-200 bg-white p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-[0_8px_28px_rgba(14,32,46,0.09)] hover:-translate-y-0.5 overflow-hidden group"
+              >
+                {/* Uniform top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#29B6F6]" />
+
+                {/* Header row: badge left, tier number right */}
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-500 border border-zinc-200">
+                    {d.sub}
+                  </span>
+                  <span className="text-sm font-bold text-zinc-300 tabular-nums">{d.tier}</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="font-bold text-[#0E202E] text-base leading-snug whitespace-pre-line">{d.title}</h3>
+
+                {/* Description */}
+                <p className="text-zinc-500 text-sm leading-relaxed flex-1">{d.desc}</p>
+
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {d.tags.map(t => (
+                    <span key={t} className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-zinc-50 border border-zinc-200 text-zinc-500">{t}</span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={6}
+            className="text-center text-xs text-zinc-400 mt-8"
+          >
+            We advise on the right model for your situation. You decide. Our engineers build and run it.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* â”€â”€ TECH STACK CLOUD â€” moved here: supports the Deployment Spectrum above â”€â”€ */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="py-14 bg-white border-t border-zinc-100"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.p
+            variants={fadeUp}
+            className="text-center text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-8"
+          >
+            Technology We Deploy
+          </motion.p>
+          <motion.div
+            variants={fadeUp}
+            custom={1}
+            className="flex flex-wrap items-center justify-center gap-3"
+          >
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-500 text-sm font-medium hover:border-[#29B6F6]/40 hover:text-zinc-700 transition-colors"
+              >
+                {tech}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      <Footer />
     </div>
   );
 }

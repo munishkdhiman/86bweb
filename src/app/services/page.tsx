@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ServiceModal, { type ModalService } from '@/components/ServiceModal';
 import { services, servicesByCategory } from '@/lib/services-data';
 
 const categoryOrder = [
@@ -29,7 +29,6 @@ const fadeUp = {
 };
 
 export default function ServicesPage() {
-  const [selectedService, setSelectedService] = useState<ModalService | null>(null);
   const [openCategories, setOpenCategories] = useState<string[]>(categoryOrder);
 
   const toggleCategory = (cat: string) => {
@@ -82,13 +81,12 @@ export default function ServicesPage() {
               {isOpen && (
                 <div className="px-8 pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {categoryServices.map((svc, i) => (
+                    <Link key={svc.slug} href={`/services/${svc.slug}`} className="block">
                     <motion.div
-                      key={svc.slug}
                       initial="hidden"
                       animate="visible"
                       variants={fadeUp}
                       custom={i}
-                      onClick={() => setSelectedService({ ...svc, id: svc.slug })}
                       className="group relative rounded-xl border border-zinc-200 bg-white overflow-hidden cursor-pointer hover:border-zinc-300 hover:shadow-md transition-all duration-200"
                     >
                       {/* Image */}
@@ -112,6 +110,7 @@ export default function ServicesPage() {
                         </div>
                       </div>
                     </motion.div>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -121,7 +120,6 @@ export default function ServicesPage() {
       </div>
 
       <Footer />
-      <ServiceModal service={selectedService} onClose={() => setSelectedService(null)} />
     </div>
   );
 }

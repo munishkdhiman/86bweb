@@ -103,7 +103,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-slate-200/60 overflow-hidden">
                 <div className="p-8 border-b border-slate-100">
                   <h2 className="text-xl font-bold text-[#0E202E] mb-1">Tell us about your project</h2>
-                  <p className="text-sm text-zinc-500">All information is treated as confidential.</p>
+
                 </div>
                 <div className="p-8 space-y-5">
                   {/* Name */}
