@@ -1,15 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { firstName, lastName, email, company, role, service, budget, message } = body;
 
-    const apiKey     = process.env.RESEND_API_KEY;
-    const toEmail    = process.env.CONTACT_EMAIL || 'munish@86b.ai';
+    const toEmail      = process.env.CONTACT_EMAIL || 'munish@gestureresearch.com';
+    const gmailUser    = process.env.GMAIL_USER || 'munish@gestureresearch.com';
+    const clientId     = process.env.GMAIL_CLIENT_ID;
+    const clientSecret = process.env.GMAIL_CLIENT_SECRET;
+    const refreshToken = process.env.GMAIL_REFRESH_TOKEN;
 
-    if (!apiKey) {
-      console.warn('[contact] RESEND_API_KEY not set — logging submission:', body);
+    if (!clientId || !clientSecret || !refreshToken) {
+      console.warn('[contact] Gmail OAuth2 credentials not set — logging submission:', body);
       return NextResponse.json({ success: true, dev: true });
     }
 
@@ -42,47 +46,29 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
+    // --- Send via Gmail API (OAuth2) — uses Google directly, no third-party ---
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: gmailUser,
+        clientId,
+        clientSecret,
+        refreshToken,
       },
-      body: JSON.stringify({
-        // Switch to 'noreply@86b.ai' once domain is verified at resend.com/domains
-        from: '86b.ai Enquiry <onboarding@resend.dev>',
-        to:   [toEmail],
-        reply_to: email,
-        subject: `New enquiry — ${firstName} ${lastName} (${company})`,
-        html: emailHtml,
-        text: [
-          'New enquiry received via 86b.ai contact form',
-          '─'.repeat(46),
-          `Name:     ${firstName} ${lastName}`,
-          `Email:    ${email}`,
-          `Company:  ${company}`,
-          `Role:     ${role}`,
-          `Service:  ${service}`,
-          `Budget:   ${budget}`,
-          '',
-          'Message:',
-          message,
-        ].join('\n'),
-      }),
     });
 
-    if (!res.ok) {
-      const err = await res.text();
-      console.error('[contact] Resend error:', err);
-      return NextResponse.json(
-        { error: 'Failed to send message. Please try again or email us directly at munish@86b.ai' },
-        { status: 500 }
-      );
-    }
+    await transporter.sendMail({
+      from: `"86b.ai Contact Form" <${gmailUser}>`,
+      to: toEmail,
+      replyTo: email,
+      subject: `New Enquiry: ${firstName} ${lastName} | ${company}`,
+      html: emailHtml,
+    });
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error('[contact] Unexpected error:', err);
+    console.error('[contact] Error sending email:', err);
     return NextResponse.json(
       { error: 'An unexpected error occurred. Please email us at munish@86b.ai' },
       { status: 500 }
