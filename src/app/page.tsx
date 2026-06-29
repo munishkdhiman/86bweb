@@ -24,13 +24,6 @@ const heroSlides = [
     href: '/services/intelligent-process-automation',
   },
   {
-    image: '/hero_slide2.png',
-    headline: 'Computer Vision That\nCatches What Eyes Miss.',
-    subtext: 'Real-time AI trained on your production line, warehouse, or field environment — detecting defects, monitoring compliance, and flagging anomalies before they become incidents.',
-    cta: 'Explore Computer Vision',
-    href: '/services/computer-vision',
-  },
-  {
     image: '/hero_slide3.png',
     headline: 'Revenue Intelligence.\nSurface Leakage. Fast.',
     subtext: 'We connect your financial systems, contracts, and invoices to AI that surfaces billing discrepancies, forecasts revenue, and delivers investor-ready clarity.',
@@ -43,6 +36,13 @@ const heroSlides = [
     subtext: 'Enterprise AI avatars that handle customer queries, onboard employees, and deliver brand-consistent interactions at scale — with intelligent escalation routing to your human team when needed.',
     cta: 'Explore Digital Humans',
     href: '/services/digital-humans',
+  },
+  {
+    image: '/hero_slide2.png',
+    headline: 'Computer Vision That\nCatches What Eyes Miss.',
+    subtext: 'Real-time AI trained on your production line, warehouse, or field environment — detecting defects, monitoring compliance, and flagging anomalies before they become incidents.',
+    cta: 'Explore Computer Vision',
+    href: '/services/computer-vision',
   },
 ];
 
