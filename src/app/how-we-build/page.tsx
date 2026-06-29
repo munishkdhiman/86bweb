@@ -44,7 +44,7 @@ const phases = [
     number: '03',
     timeframe: 'Phase 3',
     title: 'Secure VPC Migration & Go-Live',
-    color: 'bg-emerald-600',
+    color: 'bg-[#0E202E]',
     icon: FlaskConical,
     description:
       'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team, backed by optional ongoing Service Level Agreements (SLAs) for maintenance and upgrades.',
@@ -79,7 +79,7 @@ export default function HowWeBuildPage() {
           <span className="text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4 block">Our Engineering Process</span>
           <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">
             Audit to production AI.<br />
-            <span className="text-[#29B6F6] font-light">Scoped, built, and delivered.</span>
+            <span className="text-[#29B6F6] font-light">Scoped, built, delivered, and supported.</span>
           </h1>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">
             A disciplined, three-phase engagement model designed for enterprise security requirements, regulatory compliance, and measurable delivery milestones.

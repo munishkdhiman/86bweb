@@ -208,7 +208,7 @@ const phases = [
   {
     number: '03',
     label: 'Phase 3',
-    color: 'bg-emerald-600',
+    color: 'bg-[#0E202E]',
     icon: FlaskConical,
     title: 'Secure VPC Migration & Go-Live',
     description: 'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team, backed by optional ongoing Service Level Agreements (SLAs) for maintenance and upgrades.',
