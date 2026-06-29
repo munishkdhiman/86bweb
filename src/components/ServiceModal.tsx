@@ -223,24 +223,30 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
     setSubmitting(true);
     setError(null);
     try {
-      const subject = encodeURIComponent(
-        `Technical Audit Request — ${form.fullName} (${form.company})`
-      );
-      const body = encodeURIComponent(
-        [
-          `Name: ${form.fullName}`,
-          `Company: ${form.company}`,
-          `Email: ${form.email}`,
-          `Service: ${service.title}`,
-          '',
-          'Requirements:',
-          form.requirements || `Requesting a technical audit for: ${service.title}`,
-        ].join('\n')
-      );
-      window.location.href = `mailto:munish@86b.ai?subject=${subject}&body=${body}`;
-      setSubmitted(true);
+      const [firstName, ...rest] = form.fullName.trim().split(' ');
+      const lastName = rest.join(' ') || '-';
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: form.email,
+          company: form.company,
+          role: 'Technical Audit Request',
+          service: service.title,
+          budget: 'Not specified',
+          message: form.requirements || `Requesting a technical audit for: ${service.title}`,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || 'Something went wrong. Please try again.');
+      } else {
+        setSubmitted(true);
+      }
     } catch {
-      setError('Could not open email client. Please email us directly at munish@86b.ai');
+      setError('Network error. Please email us directly at munish@gestureresearch.com');
     } finally {
       setSubmitting(false);
     }

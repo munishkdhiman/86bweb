@@ -37,20 +37,33 @@ export default function ContactPage() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const subject = encodeURIComponent(
-        `Enquiry from ${form.firstName} ${form.lastName} — ${form.company}`
-      );
-      const body = encodeURIComponent(
-        `Name: ${form.firstName} ${form.lastName}\nCompany: ${form.company}\nRole: ${form.role}\nEmail: ${form.email}\n\nService of interest: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
-      );
-      window.location.href = `mailto:munish@86b.ai?subject=${subject}&body=${body}`;
-      setSubmitted(true);
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          company: form.company,
+          role: form.role,
+          service: form.service,
+          budget: form.budget,
+          message: form.message,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setSubmitError(data.error || 'Something went wrong. Please try again.');
+      } else {
+        setSubmitted(true);
+      }
     } catch {
-      setSubmitError('Could not open email client. Please email us directly at munish@86b.ai');
+      setSubmitError('Network error. Please email us directly at munish@gestureresearch.com');
     } finally {
       setSubmitting(false);
     }
   };
+
 
   return (
     <div className="min-h-screen bg-[#f8fafc] font-sans">
