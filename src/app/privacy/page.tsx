@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             { h: '8. Contact', p: 'For privacy-related queries, contact: privacy@86b.ai' },
           ].map(({ h, p }) => (
             <div key={h}>
-              <h2 className="text-lg font-bold text-[#0E202E] mb-2">{h}</h2>
+              <h2 className="text-lg font-medium text-[#0E202E] mb-2">{h}</h2>
               <p className="text-zinc-500 text-sm leading-relaxed">{p}</p>
             </div>
           ))}

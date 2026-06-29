@@ -36,14 +36,14 @@ export default function AudioWaveDemo() {
           {/* Left — copy */}
           <div>
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
-              Live Capability
+              Capability Showcase: Custom Interfaces
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-light text-[#0E202E] leading-tight mb-6">
               Digital Human Agents.<br />
               <span className="text-accent-gradient">~0.3s Latency.</span>
             </h2>
             <p className="text-zinc-600 text-lg leading-relaxed mb-8">
-              Our AI-powered Digital Human avatars deliver low-latency, natural conversational interactions that handle the majority of routine queries without human escalation — at unlimited scale. Each avatar is trained on your brand voice, product knowledge, and compliance requirements. Deployed on your preferred infrastructure: private VPC, Azure, AWS, or on-premise.
+              We don't sell software licences — we engineer secure AI backends. However, the interface your users interact with is just as critical as the architecture beneath it. This Digital Human avatar is just one example of the custom, low-latency front-ends we can build on top of your private RAG pipelines and secure VPC deployments.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
@@ -54,7 +54,7 @@ export default function AudioWaveDemo() {
                 { value: 'Custom', label: 'Avatar appearance & voice' },
               ].map((m) => (
                 <div key={m.label} className="p-4 rounded-xl border border-zinc-200 bg-zinc-50">
-                  <div className="text-2xl font-bold text-[#29B6F6]">{m.value}</div>
+                  <div className="text-2xl font-light text-[#29B6F6]">{m.value}</div>
                   <div className="text-sm text-zinc-500 mt-1">{m.label}</div>
                 </div>
               ))}
@@ -116,7 +116,7 @@ export default function AudioWaveDemo() {
 
                   {/* Latency badge — top right */}
                   <div className="absolute top-3 right-3 bg-[#29B6F6]/20 border border-[#29B6F6]/40 px-3 py-1 rounded-full">
-                    <span className="text-[11px] text-[#29B6F6] font-bold font-mono">LIVE SIMULATION</span>
+                    <span className="text-[11px] text-[#29B6F6] font-medium font-mono">LIVE SIMULATION</span>
                   </div>
 
                   {/* Waveform — animated bars */}
@@ -138,7 +138,7 @@ export default function AudioWaveDemo() {
                   >
                     <div className="bg-[#29B6F6]/15 border border-[#29B6F6]/30 backdrop-blur-sm rounded-xl px-4 py-2.5">
                       <p className="text-[11px] text-white/90 leading-relaxed font-mono">
-                        <span className="text-[#29B6F6] font-bold">Agent: </span>
+                        <span className="text-[#29B6F6] font-medium">Agent: </span>
                         &ldquo;{messages[msgIdx]}&rdquo;
                       </p>
                     </div>
@@ -149,7 +149,7 @@ export default function AudioWaveDemo() {
                     {['EN', 'DE', 'HI', 'AR', 'ZH', 'FR', '+34'].map((lang) => (
                       <span
                         key={lang}
-                        className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/10 border border-white/20 text-white/80"
+                        className="px-2 py-0.5 rounded text-[10px] font-medium bg-white/10 border border-white/20 text-white/80"
                       >
                         {lang}
                       </span>

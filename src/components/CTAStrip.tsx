@@ -32,7 +32,7 @@ export default function CTAStrip({
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight mb-5 leading-snug">{heading}</h2>
         <p className="text-base text-blue-100 font-light leading-relaxed mb-10 max-w-2xl mx-auto">{sub}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={primaryHref} className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 text-sm font-bold shadow-xl hover:bg-blue-50 transition-all group">
+          <Link href={primaryHref} className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 text-sm font-medium shadow-xl hover:bg-blue-50 transition-all group">
             {primaryLabel}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>

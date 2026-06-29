@@ -10,14 +10,10 @@ import Footer from '@/components/Footer';
 import { services, servicesByCategory } from '@/lib/services-data';
 
 const categoryOrder = [
-  'Core AI',
-  'Finance AI',
-  'Advanced AI',
-  'Workforce AI',
-  'AI Governance',
-  'MLOps & Infrastructure',
-  'Industry Solutions',
-  'Spatial Intelligence',
+  'Core AI Capabilities',
+  'Enterprise Infrastructure & Security',
+  'Spatial Intelligence & Operations',
+  'Domain-Specific Solutions',
 ];
 
 const fadeUp = {
@@ -47,10 +43,25 @@ export default function ServicesPage() {
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#29B6F6 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4 block">All Capabilities</span>
-          <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">19 AI capabilities.<br /><span className="text-[#29B6F6] font-light">Built and owned by you.</span></h1>
+          <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">AI capabilities across every frontier.<br /><span className="text-[#29B6F6] font-light">Built and owned by you.</span></h1>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">Custom-engineered AI systems across generative AI, finance intelligence, computer vision, spatial computing, and more — all deployed within your chosen infrastructure.</p>
         </div>
       </section>
+
+      {/* ── STICKY NAV ────────────────────────────────────────────────────────── */}
+      <div className="sticky top-0 z-40 bg-[#F9FAFB]/80 backdrop-blur-md border-b border-zinc-200">
+        <div className="max-w-7xl mx-auto px-6 overflow-x-auto flex items-center gap-8 py-4 hide-scrollbar">
+          {categoryOrder.map((cat) => (
+            <a 
+              key={cat} 
+              href={`#${cat.replace(/\s+/g, '-').toLowerCase()}`}
+              className="whitespace-nowrap text-sm font-medium text-zinc-600 hover:text-[#0E202E] transition-colors"
+            >
+              {cat}
+            </a>
+          ))}
+        </div>
+      </div>
 
       {/* Services by category */}
       <div className="max-w-7xl mx-auto px-6 py-16 space-y-8">
@@ -60,14 +71,14 @@ export default function ServicesPage() {
           const isOpen = openCategories.includes(cat);
 
           return (
-            <div key={cat} className="border border-zinc-200 rounded-2xl bg-white overflow-hidden">
+            <div key={cat} id={cat.replace(/\s+/g, '-').toLowerCase()} className="border border-zinc-200 rounded-2xl bg-white overflow-hidden scroll-mt-24">
               {/* Category header */}
               <button
                 onClick={() => toggleCategory(cat)}
                 className="w-full flex items-center justify-between px-8 py-6 hover:bg-zinc-50 transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <h2 className="text-lg font-bold text-[#0E202E]">{cat}</h2>
+                  <h2 className="text-lg font-medium text-[#0E202E]">{cat}</h2>
                   <span className="text-xs text-zinc-400 bg-zinc-100 px-2.5 py-1 rounded-full">
                     {categoryServices.length} service{categoryServices.length !== 1 ? 's' : ''}
                   </span>
@@ -103,7 +114,7 @@ export default function ServicesPage() {
                       {/* Content */}
                       <div className="p-5">
                         <h3 className="font-semibold text-[#0E202E] text-sm mb-1 leading-tight">{svc.title}</h3>
-                        <p className="text-zinc-500 text-xs leading-relaxed mb-3">{svc.tagline}</p>
+                        <p className="text-zinc-700 text-xs leading-relaxed mb-3">{svc.tagline}</p>
                         <div className="flex items-center gap-1.5 text-[#29B6F6] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                           <span>View details</span>
                           <ChevronRight className="w-3.5 h-3.5" />

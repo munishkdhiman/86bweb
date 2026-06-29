@@ -9,14 +9,13 @@ import Footer from '@/components/Footer';
 const phases = [
   {
     number: '01',
-    timeframe: 'Days 1–7',
-    title: 'Secure Data Audit & NDA Signing',
+    timeframe: 'Phase 1',
+    title: 'Discovery & Audit',
     color: 'bg-[#0E202E]',
     icon: FileText,
     description:
-      'Before a single technical detail is shared, we sign a mutual NDA. Our lead engineers then conduct a comprehensive data landscape audit — mapping all data sources, identifying integration touchpoints, assessing data quality, and scoping the AI opportunity within your existing infrastructure.',
+      'Before a single technical detail is shared, our lead engineers conduct a comprehensive data landscape audit — mapping all data sources, identifying integration touchpoints, assessing data quality, and scoping the AI opportunity within your existing infrastructure.',
     deliverables: [
-      'Signed mutual NDA',
       'Data source inventory and quality assessment',
       'AI opportunity brief with prioritised use cases',
       'Technical feasibility report',
@@ -26,12 +25,12 @@ const phases = [
   },
   {
     number: '02',
-    timeframe: 'Days 8–30',
-    title: 'Model Deployment & Integration',
+    timeframe: 'Phase 2',
+    title: 'Staging Environment & Integration',
     color: 'bg-[#0E202E]',
     icon: Server,
     description:
-      'Your first AI system is built and deployed within your chosen infrastructure — private VPC, on-premise hardware, or enterprise cloud (Azure OpenAI, AWS Bedrock, or GCP Vertex AI). We configure the RAG pipeline, connect all approved data sources, deploy or connect the AI model, and run the first round of evaluation testing alongside your internal subject matter experts.',
+      'Your first AI system is built and deployed within a secure staging environment. We configure the RAG pipeline, connect all approved data sources, deploy or connect the AI model, and run the first round of evaluation testing alongside your internal subject matter experts.',
     deliverables: [
       'Working AI system in your staging environment',
       'RAG pipeline fully configured and tested',
@@ -43,26 +42,26 @@ const phases = [
   },
   {
     number: '03',
-    timeframe: 'Day 30+',
-    title: 'Adversarial Red-Teaming & VPC Onboarding',
+    timeframe: 'Phase 3',
+    title: 'Secure VPC Migration & Go-Live',
     color: 'bg-emerald-600',
     icon: FlaskConical,
     description:
-      'Before production go-live, our red-team conducts systematic adversarial testing — prompt injection, jailbreak attempts, edge-case data poisoning, and hallucination stress tests. Once the system passes our quality gates, we migrate to your production VPC and hand over complete documentation, source code, and training for your internal team.',
+      'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team.',
     deliverables: [
       'Red-team adversarial testing report',
-      'Production VPC deployment',
+      'Production VPC/Cloud deployment',
       'Complete source code handover',
       'Operational runbooks and documentation',
       'Internal team training sessions',
-      '30-day post-launch support included',
+      'Post-launch enterprise support included',
     ],
     team: 'Security Engineer + ML Engineer + Lead Architect',
   },
 ];
 
 const principles = [
-  { icon: Shield, title: 'NDA First, Always', desc: 'Every engagement begins under mutual NDA. Your data, architecture, and business context are never shared beyond the active project team.' },
+  { icon: Shield, title: 'Security First, Always', desc: 'Every engagement begins with strict confidentiality. Your data, architecture, and business context are never shared beyond the active project team.' },
   { icon: Zap, title: 'Engineers, Not Consultants', desc: 'We build. You own the output. No recurring licence fees, no vendor lock-in — just production-ready AI systems with full source code.' },
   { icon: CheckCircle2, title: 'Your Infrastructure', desc: 'We deploy inside your VPC, your cloud account, or your own servers — on-premise, Azure, AWS, or GCP. You own the system, the data, and the models.' },
 ];
@@ -79,7 +78,7 @@ export default function HowWeBuildPage() {
         <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4 block">Our Engineering Process</span>
           <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">
-            NDA to production AI.<br />
+            Audit to production AI.<br />
             <span className="text-[#29B6F6] font-light">Scoped, built, and delivered.</span>
           </h1>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">
@@ -98,7 +97,7 @@ export default function HowWeBuildPage() {
               </div>
               <div>
                 <p className="font-semibold text-[#0E202E] text-sm">{title}</p>
-                <p className="text-zinc-500 text-xs leading-relaxed mt-0.5">{desc}</p>
+                <p className="text-zinc-700 text-xs leading-relaxed mt-0.5">{desc}</p>
               </div>
             </div>
           ))}
@@ -134,7 +133,7 @@ export default function HowWeBuildPage() {
                           {phase.timeframe}
                         </span>
                       </div>
-                      <h2 className="text-xl font-bold text-[#0E202E]">{phase.title}</h2>
+                      <h2 className="text-xl font-medium text-[#0E202E]">{phase.title}</h2>
                     </div>
                     <span className="text-xs text-zinc-400 hidden md:block">{phase.team}</span>
                   </div>
@@ -142,7 +141,7 @@ export default function HowWeBuildPage() {
                   {/* Card body */}
                   <div className="p-8 grid md:grid-cols-2 gap-8">
                     <div>
-                      <p className="text-zinc-600 leading-relaxed text-sm">{phase.description}</p>
+                      <p className="text-zinc-700 leading-relaxed text-sm">{phase.description}</p>
                     </div>
                     <div>
                       <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-3">
@@ -150,7 +149,7 @@ export default function HowWeBuildPage() {
                       </h3>
                       <ul className="space-y-2">
                         {phase.deliverables.map((d) => (
-                          <li key={d} className="flex items-start gap-2.5 text-sm text-zinc-600">
+                          <li key={d} className="flex items-start gap-2.5 text-sm text-zinc-700">
                             <CheckCircle2 className="w-4 h-4 text-[#0E202E] flex-shrink-0 mt-0.5" />
                             {d}
                           </li>
@@ -168,11 +167,11 @@ export default function HowWeBuildPage() {
       {/* CTA */}
       <section className="bg-[#0E202E] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
             Ready to start your Day 1 audit?
           </h2>
           <p className="text-zinc-400 mb-8">
-            No commitment. All conversations covered by mutual NDA before we discuss any technical details.
+            No commitment. All conversations are strictly confidential before we discuss any technical details.
           </p>
           <Link
             href="/contact"

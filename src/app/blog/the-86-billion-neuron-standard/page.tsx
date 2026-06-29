@@ -45,7 +45,7 @@ export default function Post() {
         </div>
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-[1.1] mb-8">
+        <h1 className="text-4xl md:text-5xl font-light text-[#0E202E] leading-[1.1] mb-8">
           The 86 Billion Neuron Standard: What the Human Brain Teaches Us About Building Enterprise AI
         </h1>
 
@@ -58,7 +58,7 @@ export default function Post() {
 
           <hr className="border-zinc-200" />
 
-          <h2 className="text-2xl font-bold text-[#0E202E] pt-4">The Problem With Generic Intelligence</h2>
+          <h2 className="text-2xl font-light text-[#0E202E] pt-4">The Problem With Generic Intelligence</h2>
 
           <p>
             The most advanced language models in the world are trained on essentially everything humanity has ever written. That breadth is their strength and their fatal flaw for enterprise use. A model that knows everything tends to know nothing particularly well — and more critically, it knows nothing about <em>you</em>.
@@ -70,7 +70,7 @@ export default function Post() {
             That specificity is not a limitation. It is the entire point.
           </p>
 
-          <h2 className="text-2xl font-bold text-[#0E202E] pt-4">What 86 Billion Neurons Actually Do</h2>
+          <h2 className="text-2xl font-light text-[#0E202E] pt-4">What 86 Billion Neurons Actually Do</h2>
 
           <p>
             Neurons do not store facts. They store <em>relationships</em>. The power of the brain is not in the raw count of 86 billion — it is in the 100 trillion connections between them, each shaped by experience, context, and repetition. A senior analyst at a financial services firm does not know more raw information than a junior analyst. They recognise patterns faster because their neural pathways for that specific domain have been reinforced over years of exposure.
@@ -83,7 +83,7 @@ export default function Post() {
             &ldquo;The goal is not to build AI that knows everything. It is to build AI that knows your business better than any tool you have ever used.&rdquo;
           </blockquote>
 
-          <h2 className="text-2xl font-bold text-[#0E202E] pt-4">Three Principles the Brain Gets Right</h2>
+          <h2 className="text-2xl font-light text-[#0E202E] pt-4">Three Principles the Brain Gets Right</h2>
 
           <p>
             After years of building AI systems inside enterprises — financial services, healthcare, logistics, government — we have identified three principles from biological intelligence that consistently predict whether a deployment succeeds or fails.
@@ -106,7 +106,7 @@ export default function Post() {
 
           <hr className="border-zinc-200" />
 
-          <h2 className="text-2xl font-bold text-[#0E202E] pt-4">Why We Named Ourselves After a Number</h2>
+          <h2 className="text-2xl font-light text-[#0E202E] pt-4">Why We Named Ourselves After a Number</h2>
 
           <p>
             86b.ai takes its name from the 86 billion neurons in the human brain — not as a marketing flourish, but as a philosophical commitment. Every AI system we build is measured against the same standard: is it specific, contextual, adaptive, and genuinely useful to the organisation it serves?

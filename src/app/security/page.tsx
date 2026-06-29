@@ -31,13 +31,13 @@ export default function SecurityPage() {
               <div className="w-10 h-10 rounded-xl bg-[#0E202E] flex items-center justify-center mb-5">
                 <Icon className="w-5 h-5 text-[#29B6F6]" />
               </div>
-              <h2 className="text-lg font-bold text-[#0E202E] mb-2">{title}</h2>
+              <h2 className="text-lg font-medium text-[#0E202E] mb-2">{title}</h2>
               <p className="text-zinc-500 text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
         <div className="max-w-4xl mx-auto px-6 mt-12 p-8 rounded-2xl bg-[#0E202E] text-white">
-          <h3 className="text-xl font-bold mb-3">Security questions?</h3>
+          <h3 className="text-xl font-medium mb-3">Security questions?</h3>
           <p className="text-white/70 text-sm leading-relaxed mb-4">For detailed security documentation, architecture diagrams, or penetration test reports, contact us. All materials shared under NDA.</p>
           <a href="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-[#0E202E] text-sm font-medium hover:bg-zinc-100 transition-colors">Request Security Documentation</a>
         </div>

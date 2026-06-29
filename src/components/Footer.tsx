@@ -27,34 +27,6 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-zinc-950 text-zinc-400">
-      {/* CTA Strip */}
-      <div className="border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
-              Ready to integrate AI into your infrastructure?
-            </h2>
-            <p className="text-zinc-400 text-sm">
-              No public data exposure. No software licenses. Just engineers who build.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-[#0E202E] text-sm font-normal tracking-wide hover:bg-zinc-100 transition-colors shadow-sm"
-            >
-              Book Free AI Audit
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-zinc-700 text-zinc-300 hover:border-zinc-500 text-sm font-medium transition-colors"
-            >
-              Explore Solutions
-            </Link>
-          </div>
-        </div>
-      </div>
 
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 py-16">

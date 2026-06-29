@@ -13,12 +13,12 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AudioWaveDemo from '@/components/AudioWaveDemo';
 
-// â”€â”€ Hero Slides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Hero Slides ──────────────────────────────────────────────────────────────
 const heroSlides = [
   {
     image: '/hero_slide1.png',
     headline: 'Autonomous Workflows.\nAgents That Execute End to End.',
-    subtext: 'We replace rigid rule-based automation with private AI agents that read documents, make decisions, and orchestrate multi-step processes across your ERP, CRM, and billing systems â€” with full audit trails.',
+    subtext: 'We replace rigid rule-based automation with private AI agents that read documents, make decisions, and orchestrate multi-step processes across your ERP, CRM, and billing systems — with full audit trails.',
     cta: 'See Process Automation',
     href: '/services/intelligent-process-automation',
   },
@@ -32,21 +32,28 @@ const heroSlides = [
   {
     image: '/hero_slide4.png',
     headline: 'Digital Human Agents.\nSub-Second Latency. 40+ Languages.',
-    subtext: 'Enterprise AI avatars that handle customer queries, onboard employees, and deliver brand-consistent interactions at scale â€” with intelligent escalation routing to your human team when needed.',
+    subtext: 'Enterprise AI avatars that handle customer queries, onboard employees, and deliver brand-consistent interactions at scale — with intelligent escalation routing to your human team when needed.',
     cta: 'Explore Digital Humans',
     href: '/services/digital-humans',
   },
   {
     image: '/hero_slide2.png',
     headline: 'Computer Vision That\nCatches What Eyes Miss.',
-    subtext: 'Real-time AI trained on your production line, warehouse, or field environment â€” detecting defects, monitoring compliance, and flagging anomalies before they become incidents.',
+    subtext: 'Real-time AI trained on your production line, warehouse, or field environment — detecting defects, monitoring compliance, and flagging anomalies before they become incidents.',
     cta: 'Explore Computer Vision',
     href: '/services/computer-vision',
+  },
+  {
+    image: '/meta_rayban_glasses.png',
+    headline: 'AI in Your Field.\nWorn. Not Carried.',
+    subtext: 'Meta Ray-Ban smart glasses as a lightweight enterprise AI tool — photograph equipment, ask live questions, get instant AI guidance. Hands free. No headset required.',
+    cta: 'Explore Wearable AI',
+    href: '/services/ai-smart-glasses',
   },
 ];
 
 
-// â”€â”€ Trust Badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Trust Badges ─────────────────────────────────────────────────────────────
 const trustBadges = [
   { icon: Shield, label: 'SOC 2-Ready Architecture' },
   { icon: Server, label: 'On-Premise & Cloud Deployments' },
@@ -54,7 +61,7 @@ const trustBadges = [
   { icon: Globe, label: 'Data Privacy by Design' },
 ];
 
-// â”€â”€ Tech Stack â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Tech Stack ────────────────────────────────────────────────────────────────
 const techStack = [
   // Big company AI platforms
   'OpenAI GPT-4o', 'Anthropic Claude', 'Google Gemini', 'Meta Llama 3',
@@ -67,22 +74,22 @@ const techStack = [
   'PyTorch', 'Hugging Face', 'OpenCV',
 ];
 
-// â”€â”€ 4 Core Bento Pillars â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── 4 Core Bento Pillars ──────────────────────────────────────────────────────
 const pillars = [
   {
     id: 'genai',
     title: 'Enterprise Generative AI & RAG',
-    tagline: 'LLMs trained on your knowledge â€” deployed within your chosen security boundary.',
-    description: 'Custom LLM fine-tuning and secure orchestration against your proprietary document archives â€” on-premise, private VPC, or enterprise cloud.',
+    tagline: 'LLMs trained on your knowledge — deployed within your chosen security boundary.',
+    description: 'Custom LLM fine-tuning and secure orchestration against your proprietary document archives — on-premise, private VPC, or enterprise cloud.',
     longDescription:
-      'We fine-tune and deploy large language models against your internal documentation, product data, and institutional knowledge â€” within your chosen deployment environment: fully private on-premise, private VPC, Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI. Every deployment includes guardrails, hallucination scoring, and PII detection layers regardless of the infrastructure model.',
+      'We fine-tune and deploy large language models against your internal documentation, product data, and institutional knowledge — within your chosen deployment environment: fully private on-premise, private VPC, Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI. Every deployment includes guardrails, hallucination scoring, and PII detection layers regardless of the infrastructure model.',
 
     image: '/bento_genai.png',
     category: 'Core AI',
     steps: [
       { title: 'Knowledge Ingestion', desc: 'All document sources connected inside your private network via secure connectors.' },
       { title: 'Embedding & Vector Indexing', desc: 'Content chunked, embedded, and stored in a private vector database.' },
-      { title: 'RAG Pipeline', desc: 'Semantically relevant context retrieved at query time â€” LLM sees only what\'s needed.' },
+      { title: 'RAG Pipeline', desc: 'Semantically relevant context retrieved at query time — LLM sees only what\'s needed.' },
       { title: 'Guardrail Layer', desc: 'Hallucination scoring, PII detection, and policy compliance before delivery.' },
       { title: 'Enterprise Integration', desc: 'Deployed via intranet, Slack, Teams, or custom UI with full audit logging.' },
     ],
@@ -96,7 +103,7 @@ const pillars = [
     tagline: 'Transform scattered corporate data into a VC-ready data room in weeks, not months.',
     description: 'Cleaning and structuring unlisted corporate data into investor-ready compliance data rooms.',
     longDescription:
-      'We connect to your fragmented data sources â€” ERP, CRM, finance systems, contract repositories â€” clean and structure them, and build investor-ready data rooms that compress due diligence from months to days. The AI layer automatically validates data consistency, flags missing documentation, and generates standard VC-format reporting packages.',
+      'We connect to your fragmented data sources — ERP, CRM, finance systems, contract repositories — clean and structure them, and build investor-ready data rooms that compress due diligence from months to days. The AI layer automatically validates data consistency, flags missing documentation, and generates standard VC-format reporting packages.',
     image: '/bento_data.png',
     category: 'Finance AI',
     steps: [
@@ -116,7 +123,7 @@ const pillars = [
     tagline: 'AI that reads your MSAs and invoices to surface revenue leakage instantly.',
     description: 'Ingesting transactions, MSAs, and invoices to track and flag revenue leakages in real time.',
     longDescription:
-      'Our financial intelligence systems connect to your transaction database, master service agreements, and invoice records to build a real-time map of your revenue flows. The AI cross-references contracted terms against actual invoicing to surface discrepancies, missed escalators, and billing gaps â€” delivering a living revenue audit dashboard your finance team can act on daily.',
+      'Our financial intelligence systems connect to your transaction database, master service agreements, and invoice records to build a real-time map of your revenue flows. The AI cross-references contracted terms against actual invoicing to surface discrepancies, missed escalators, and billing gaps — delivering a living revenue audit dashboard your finance team can act on daily.',
     image: '/bento_finance.png',
     category: 'Finance AI',
     steps: [
@@ -136,7 +143,7 @@ const pillars = [
     tagline: 'Live 3D replicas of your physical systems powered by real-time predictive AI.',
     description: 'Building digital twins, spatial computing systems, and AR operations for physical infrastructure.',
     longDescription:
-      'We build live digital twin environments that mirror your physical infrastructure in real time â€” factories, logistics networks, energy grids, or IT systems. These are active AI agents that ingest live sensor data, predict failures before they happen, and simulate operational changes. Extended with AR overlays compatible with all leading enterprise XR headsets including Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, and RealWear Navigator.',
+      'We build live digital twin environments that mirror your physical infrastructure in real time — factories, logistics networks, energy grids, or IT systems. These are active AI agents that ingest live sensor data, predict failures before they happen, and simulate operational changes. Extended with AR overlays compatible with all leading enterprise XR headsets including Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, and RealWear Navigator.',
     image: '/bento_spatial.png',
     category: 'Spatial Intelligence',
     steps: [
@@ -152,7 +159,7 @@ const pillars = [
   },
 ];
 
-// â”€â”€ Spatial Intelligence Cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Spatial Intelligence Cards ────────────────────────────────────────────────
 const spatialCards = [
   {
     number: '01',
@@ -163,49 +170,43 @@ const spatialCards = [
   {
     number: '02',
     title: 'Spatial Computing & AR Operations',
-    description: 'Overlaying contextual AI data and real-time instructions onto enterprise XR headsets â€” Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, RealWear Navigator, and Meta Ray-Ban smart glasses. Empowering field engineers and frontline staff with hands-free, AI-guided protocols.',
+    description: 'Overlaying contextual AI data and real-time instructions onto enterprise XR headsets — Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, and RealWear Navigator. Empowering field engineers and frontline staff with hands-free, AI-guided protocols.',
     image: '/svc_spatial_ar.png',
   },
   {
     number: '03',
-    title: 'AI-Powered Smart Glasses',
-    description: 'Using Meta Ray-Ban smart glasses as a lightweight AI field tool â€” engineers photograph equipment, scan barcodes, and ask live questions; the AI identifies faults, retrieves manuals, and logs work orders in real time. No headset required.',
-    image: '/meta_rayban_glasses.png',
-  },
-  {
-    number: '04',
     title: 'Immersive Simulation Environments',
     description: 'Building private, secure 3D simulation spaces where Digital Human Agents operate as interactive training and support staff. Scalable corporate training without geographic constraints.',
     image: '/svc_immersive.png',
   },
 ];
 
-// â”€â”€ Engagement Phases â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Engagement Phases ─────────────────────────────────────────────────────────
 const phases = [
   {
     number: '01',
-    label: 'Est. Days 1â€“7',
+    label: 'Est. Days 1—7',
     title: 'Technical Discovery',
     description: 'We map your data landscape, identify integration points, and scope the AI opportunity within your infrastructure.',
     deliverable: 'Technical opportunity brief + data readiness report',
   },
   {
     number: '02',
-    label: 'Est. Days 8â€“30',
+    label: 'Est. Days 8—30',
     title: 'Model Deployment & Integration',
-    description: 'Your first AI system is built and deployed within your chosen infrastructure â€” private VPC, on-premise, or enterprise cloud. We configure the pipeline, connect data sources, and run the first round of evaluation testing with your team.',
+    description: 'Your first AI system is built and deployed within your chosen infrastructure — private VPC, on-premise, or enterprise cloud. We configure the pipeline, connect data sources, and run the first round of evaluation testing with your team.',
     deliverable: 'Working AI system in staging environment',
   },
   {
     number: '03',
-    label: 'Day 30â€“60 (Approx.)',
+    label: 'Day 30—60 (Approx.)',
     title: 'Adversarial Testing & VPC Onboarding',
-    description: 'Before production go-live, we red-team the system â€” prompt injection tests, edge-case evaluation, and performance benchmarking. Then we migrate to your production VPC with full handover documentation.',
+    description: 'Before production go-live, we red-team the system — prompt injection tests, edge-case evaluation, and performance benchmarking. Then we migrate to your production VPC with full handover documentation.',
     deliverable: 'Production-ready system + full documentation + team training',
   },
 ];
 
-// â”€â”€ Fade-up animation variant â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Fade-up animation variant ─────────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   visible: (i = 0) => ({
@@ -239,7 +240,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#F9FAFB]">
       <Navbar />
 
-      {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="relative h-screen min-h-[700px] overflow-hidden">
         {/* Background image slides */}
         {heroSlides.map((slide, i) => (
@@ -266,7 +267,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/30 z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
 
-        {/* Text content â€” cross-fades with slide */}
+        {/* Text content — cross-fades with slide */}
         <div className="relative z-20 h-full flex flex-col justify-center px-6 max-w-7xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -280,7 +281,7 @@ export default function HomePage() {
               <span className="inline-block text-xs font-semibold uppercase tracking-widest text-blue-300 mb-6">
                 Applied Enterprise Artificial Intelligence
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight mb-6 whitespace-pre-line">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.08] tracking-tight mb-6 whitespace-pre-line">
                 {heroSlides[activeSlide].headline}
               </h1>
               <p className="text-lg text-white/75 leading-relaxed mb-10 max-w-xl">
@@ -323,7 +324,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ TRUST BADGES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── TRUST BADGES ─────────────────────────────────────────────────────── */}
       <section className="bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-6 py-5">
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
@@ -337,7 +338,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ 4 CORE CAPABILITIES BENTO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── 4 CORE CAPABILITIES BENTO ─────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -355,7 +356,7 @@ export default function HomePage() {
             <motion.h2
               variants={fadeUp}
               custom={1}
-              className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight"
+              className="text-4xl md:text-5xl font-light text-[#0E202E] leading-tight"
             >
               Four pillars. One engineering team.
             </motion.h2>
@@ -381,7 +382,7 @@ export default function HomePage() {
                   viewport={{ once: true, margin: '-60px' }}
                   variants={fadeUp}
                   custom={i * 0.15}
-                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white cursor-pointer card-hover"
+                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white cursor-pointer card-hover h-full"
                   style={{ minHeight: i === 0 || i === 3 ? 340 : 280 }}
                 >
                   {/* Background image */}
@@ -393,11 +394,11 @@ export default function HomePage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E202E]/90 via-[#0E202E]/40 to-[#0E202E]/10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/80 to-transparent" />
                   </div>
 
                   {/* Content */}
-                  <div className="relative z-10 h-full flex flex-col justify-between p-8">
+                  <div className="relative z-10 h-full flex flex-col justify-between p-8 backdrop-blur-sm bg-black/10">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-mono font-semibold text-white/50">
                         {String(i + 1).padStart(2, '0')}
@@ -408,7 +409,7 @@ export default function HomePage() {
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                      <h3 className="text-xl font-medium text-white mb-2 leading-tight">
                         {pillar.title}
                       </h3>
                       <p className="text-white/65 text-sm leading-relaxed mb-4">
@@ -449,7 +450,7 @@ export default function HomePage() {
 
         {/* === ANIMATED BACKGROUND LAYERS === */}
 
-        {/* 1. Neuron texture â€” at readable opacity */}
+        {/* 1. Neuron texture — at readable opacity */}
         <Image
           src="/neuron_hero.png"
           alt=""
@@ -459,7 +460,7 @@ export default function HomePage() {
 
         {/* 2. Floating animated gradient orbs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Orb 1 â€” top-left blue */}
+          {/* Orb 1 — top-left blue */}
           <div
             className="absolute w-[500px] h-[500px] rounded-full"
             style={{
@@ -468,7 +469,7 @@ export default function HomePage() {
               animation: 'orb-float-1 8s ease-in-out infinite',
             }}
           />
-          {/* Orb 2 â€” bottom-right teal */}
+          {/* Orb 2 — bottom-right teal */}
           <div
             className="absolute w-[400px] h-[400px] rounded-full"
             style={{
@@ -477,7 +478,7 @@ export default function HomePage() {
               animation: 'orb-float-2 10s ease-in-out infinite',
             }}
           />
-          {/* Orb 3 â€” centre pulse */}
+          {/* Orb 3 — centre pulse */}
           <div
             className="absolute w-[300px] h-[300px] rounded-full"
             style={{
@@ -525,7 +526,7 @@ export default function HomePage() {
             transition={{ duration: 0.9, ease: 'easeOut' as const }}
             className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
           >
-            {/* Left â€” Logo + tagline */}
+            {/* Left — Logo + tagline */}
             <div className="flex flex-col items-start gap-8">
               <Image
                 src="/logos/86B_white.png"
@@ -540,7 +541,7 @@ export default function HomePage() {
                   <span className="text-[#29B6F6]">not a benchmark.</span>
                 </p>
                 <p className="text-white/50 text-sm font-light leading-relaxed max-w-xs">
-                  Named after the 86 billion neurons in the human brain â€” the most efficient intelligence ever observed.
+                  Named after the 86 billion neurons in the human brain — the most efficient intelligence ever observed.
                 </p>
               </div>
               <Link
@@ -552,11 +553,11 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Right â€” Three manifesto words */}
+            {/* Right — Three manifesto words */}
             <div className="flex flex-col">
               {[
                 { word: 'Emergent.', sub: 'Not programmed. Shaped by data, context, and iteration.' },
-                { word: 'Adaptive.', sub: 'Built for your organisation â€” not retrofitted from a template.' },
+                { word: 'Adaptive.', sub: 'Built for your organisation — not retrofitted from a template.' },
                 { word: 'Contextual.', sub: 'Every response shaped by who you are, not just what you asked.' },
               ].map((item, i) => (
                 <motion.div
@@ -568,7 +569,7 @@ export default function HomePage() {
                   className="group flex items-start gap-5 py-6 border-b border-white/[0.08] last:border-0"
                 >
                   {/* Glowing number badge */}
-                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#29B6F6]/15 border border-[#29B6F6]/30 flex items-center justify-center text-[#29B6F6] text-[10px] font-bold mt-1 group-hover:bg-[#29B6F6]/25 transition-colors">
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#29B6F6]/15 border border-[#29B6F6]/30 flex items-center justify-center text-[#29B6F6] text-[10px] font-medium mt-1 group-hover:bg-[#29B6F6]/25 transition-colors">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
@@ -586,12 +587,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ SPATIAL INTELLIGENCE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── TECH STACK CLOUD — moved here: supports the Deployment Spectrum above ── */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="py-14 bg-white border-t border-zinc-100"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.p
+            variants={fadeUp}
+            className="text-center text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-8"
+          >
+            Technology We Deploy
+          </motion.p>
+          <motion.div
+            variants={fadeUp}
+            custom={1}
+            className="flex flex-wrap items-center justify-center gap-3"
+          >
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-500 text-sm font-medium hover:border-[#29B6F6]/40 hover:text-zinc-700 transition-colors"
+              >
+                {tech}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* ── SPATIAL INTELLIGENCE ─────────────────────────────────────────────────────────────────── */}
       <section
         id="spatial"
         ref={spatialRef}
         onMouseMove={onMouseMove}
-        className="relative py-28 bg-[#0E202E] overflow-hidden"
+        className="relative py-16 md:py-20 bg-[#0E202E] overflow-hidden"
       >
         {/* Mesh grid bg */}
         <div className="absolute inset-0 mesh-grid opacity-100" />
@@ -603,20 +635,20 @@ export default function HomePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-12"
           >
             <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
               Spatial Intelligence
             </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-white leading-tight">
               Where AI Meets the Physical World
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="text-zinc-400 text-lg mt-4 max-w-2xl mx-auto">
-              For organisations running physical operations â€” factories, logistics networks, and field teams â€” where AI meets the real world through digital twins, AR guidance, and simulation.
+              For organisations running physical operations — factories, logistics networks, and field teams — where AI meets the real world through digital twins, AR guidance, and simulation.
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {spatialCards.map((card, i) => (
               <motion.div
                 key={card.number}
@@ -648,7 +680,7 @@ export default function HomePage() {
                     </div>
                     {/* Card content */}
                     <div className="p-6">
-                      <h3 className="text-lg font-bold text-white mb-3 leading-tight">{card.title}</h3>
+                      <h3 className="text-lg font-medium text-white mb-3 leading-tight">{card.title}</h3>
                       <p className="text-zinc-400 text-sm leading-relaxed mb-4">{card.description}</p>
                       <div className="flex items-center gap-2 text-[#29B6F6] text-xs font-semibold opacity-40 group-hover:opacity-100 transition-opacity">
                         <span>Learn more</span>
@@ -663,11 +695,201 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ DIGITAL HUMAN DEMO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── WEARABLE AI ─────────────────────────────────────────────────────── */}
+      <section className="relative py-28 bg-white border-t border-zinc-100 overflow-hidden">
+        {/* Soft radial glow */}
+        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] rounded-full bg-[#29B6F6]/6 blur-[120px] pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left: Text */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6] mb-5">
+                <span className="w-6 h-px bg-[#29B6F6]/40" />
+                Wearable AI
+                <span className="w-6 h-px bg-[#29B6F6]/40" />
+              </motion.span>
+              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-[#0E202E] leading-tight mb-6">
+                AI on your face.<br />Hands free. Field ready.
+              </motion.h2>
+              <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed mb-8 max-w-xl">
+                Meta Ray-Ban smart glasses turn any field engineer into an AI-powered expert. Photograph equipment, scan barcodes, ask live questions — instant guidance without touching a screen.
+              </motion.p>
+              <motion.div variants={fadeUp} custom={3} className="space-y-3 mb-10">
+                {[
+                  'Instant fault identification from a photo',
+                  'Real-time manual & SOP retrieval',
+                  'Hands-free work order logging',
+                  'No headset. No friction. Just glasses.',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-zinc-600 text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-[#29B6F6] flex-shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </motion.div>
+              <motion.div variants={fadeUp} custom={4}>
+                <Link
+                  href="/services/ai-smart-glasses"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold transition-colors shadow-lg"
+                >
+                  Explore Wearable AI
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            {/* Right: Images */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
+                <Image
+                  src="/meta_rayban_field.png"
+                  alt="Engineer using Meta Ray-Ban smart glasses in the field"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E202E]/60 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
+                  <p className="text-white text-sm font-semibold">Meta Ray-Ban Smart Glasses</p>
+                  <p className="text-white/60 text-xs mt-0.5">No headset required. Works with standard eyewear frames.</p>
+                </div>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="absolute -bottom-6 -right-4 w-36 h-36 rounded-2xl overflow-hidden border-4 border-white shadow-2xl"
+              >
+                <Image
+                  src="/meta_rayban_glasses.png"
+                  alt="Meta Ray-Ban glasses close-up"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── DIGITAL HUMAN DEMO ─────────────────────────────────────────────────── */}
       <AudioWaveDemo />
 
-      {/* â”€â”€ ENGAGEMENT PHILOSOPHY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <section className="py-24 bg-[#F9FAFB]">
+      <section className="py-24 bg-[#0A1628] relative overflow-hidden border-y border-white/5">
+        {/* Deep ambient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-[#29B6F6]/10 blur-[120px] pointer-events-none" />
+        
+        <div className="relative max-w-7xl mx-auto px-6 z-10">
+          {/* Header */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-20">
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6] mb-5">
+              <span className="w-6 h-px bg-[#29B6F6]/40" />
+              Deployment Spectrum
+              <span className="w-6 h-px bg-[#29B6F6]/40" />
+            </motion.span>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-white leading-tight">
+              Your infrastructure. Your choice.
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="text-white/60 text-lg mt-5 max-w-2xl mx-auto leading-relaxed font-light">
+              From fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints — we deploy where your security, compliance, and budget requirements demand.
+            </motion.p>
+          </motion.div>
+
+          {/* Cards grid + glowing track */}
+          <div className="relative pt-6">
+            {/* The continuous spectrum track line */}
+            <div className="hidden lg:block absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500/80 via-[#29B6F6]/80 to-purple-500/80 shadow-[0_0_15px_rgba(41,182,246,0.6)]" />
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative"
+            >
+              {[
+                {
+                  tier: '01',
+                  title: 'On-Premise\nAir-Gapped',
+                  sub: 'Maximum control',
+                  desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
+                  tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
+                },
+                {
+                  tier: '02',
+                  title: 'Private VPC',
+                  sub: 'Balanced security',
+                  desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
+                  tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
+                },
+                {
+                  tier: '03',
+                  title: 'Enterprise\nCloud APIs',
+                  sub: 'Fast to deploy',
+                  desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints. Ideal if you already hold Microsoft EA or AWS EDP credits.',
+                  tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
+                },
+                {
+                  tier: '04',
+                  title: 'Managed\nAPI Tier',
+                  sub: 'Lowest upfront cost',
+                  desc: 'OpenAI Enterprise, Anthropic Claude, or Cohere — via your own API keys with DPAs in place. Best for non-sensitive use cases where speed matters.',
+                  tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
+                },
+              ].map((d, i) => (
+                <motion.div
+                  key={d.tier}
+                  variants={fadeUp}
+                  custom={i * 0.12}
+                  className="relative rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 flex flex-col gap-6 transition-all duration-300 hover:bg-white/[0.06] hover:-translate-y-1 hover:border-white/20 group"
+                >
+                  {/* Subtle top indicator connecting to the track (mobile visible, desktop just accent) */}
+                  <div className="absolute top-0 left-8 right-8 h-px bg-white/20 group-hover:bg-[#29B6F6]/50 transition-colors duration-500" />
+                  
+                  {/* Node dot (only visible on desktop to connect to the top line) */}
+                  <div className="hidden lg:block absolute -top-[25px] left-8 w-3 h-3 rounded-full bg-[#0A1628] border-2 border-white/40 group-hover:border-white group-hover:bg-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all z-10" />
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10 group-hover:border-[#29B6F6]/40 group-hover:text-[#29B6F6] transition-colors">
+                      {d.sub}
+                    </span>
+                    <span className="text-xl font-light text-white/20">{d.tier}</span>
+                  </div>
+
+                  <h3 className="font-light text-white text-2xl leading-tight whitespace-pre-line">{d.title}</h3>
+
+                  <p className="text-white/50 text-sm leading-relaxed font-light flex-1">{d.desc}</p>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {d.tags.map(t => (
+                      <span key={t} className="px-2.5 py-1 rounded bg-black/30 border border-white/5 text-[10px] font-medium text-white/40 group-hover:text-white/60 transition-colors">{t}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={6}
+            className="text-center text-xs text-zinc-400 mt-8"
+          >
+            We advise on the right model for your situation. You decide. Our engineers build and run it.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── ENGAGEMENT PHILOSOPHY ─────────────────────────────────────────────── */}
+      <section className="py-24 bg-[#F9FAFB] border-t border-zinc-100">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -678,7 +900,7 @@ export default function HomePage() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#29B6F6] mb-4">
               How We Engage
             </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-bold text-[#0E202E] leading-tight mb-4">
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#0E202E] leading-tight mb-4">
               Solution engineers,<br />not software licences.
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed">
@@ -712,7 +934,7 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#0E202E] mb-3">{phase.title}</h3>
+                  <h3 className="text-lg font-medium text-[#0E202E] mb-3">{phase.title}</h3>
                   <p className="text-zinc-500 text-sm leading-relaxed mb-4">{phase.description}</p>
 
                   <div className="flex items-start gap-2 p-3 bg-white rounded-xl border border-zinc-200">
@@ -726,7 +948,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ BOTTOM CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+
+      {/* ── BOTTOM CTA ────────────────────────────────────────────────────────── */}
       <section className="bg-[#0E202E] py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
@@ -734,7 +957,7 @@ export default function HomePage() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-light text-white mb-4 leading-tight">
               Start with a free AI audit.<br />No sales pitch. Just engineers.
             </motion.h2>
             <motion.p variants={fadeUp} custom={1} className="text-white/75 text-lg mb-10 max-w-xl mx-auto">
@@ -760,137 +983,6 @@ export default function HomePage() {
       </section>
 
 
-      <section className="py-24 bg-zinc-50 relative overflow-hidden border-t border-zinc-100">
-        {/* Subtle dot grid */}
-        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage:'radial-gradient(#0E202E 1px,transparent 1px)',backgroundSize:'28px 28px'}} />
-        {/* Soft radial glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-[#29B6F6]/6 blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-6">
-          {/* Header */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-16">
-            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#29B6F6] mb-5">
-              <span className="w-6 h-px bg-[#29B6F6]/40" />
-              Deployment Spectrum
-              <span className="w-6 h-px bg-[#29B6F6]/40" />
-            </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-bold text-[#0E202E] leading-tight">
-              Your infrastructure. Your choice.
-            </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
-              From fully air-gapped on-premise to Azure, AWS, and GCP managed endpoints â€” we deploy where your security, compliance, and budget requirements demand.
-            </motion.p>
-          </motion.div>
-
-          {/* Cards grid */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-          >
-            {[
-              {
-                tier: '01',
-                title: 'On-Premise\nAir-Gapped',
-                sub: 'Maximum control',
-                desc: 'Fully self-hosted on your own hardware or data centre. No external network calls. Required for defence, government, and regulated finance.',
-                tags: ['Llama 3', 'Mistral', 'vLLM', 'Kubernetes'],
-              },
-              {
-                tier: '02',
-                title: 'Private VPC',
-                sub: 'Balanced security',
-                desc: 'Deployed inside your own cloud account (AWS, Azure, GCP). You own the compute, we handle the engineering. Data never leaves your perimeter.',
-                tags: ['AWS VPC', 'Azure VNET', 'GCP Private', 'Kubernetes'],
-              },
-              {
-                tier: '03',
-                title: 'Enterprise\nCloud APIs',
-                sub: 'Fast to deploy',
-                desc: 'Azure OpenAI Service, AWS Bedrock, or GCP Vertex AI with private endpoints. Ideal if you already hold Microsoft EA or AWS EDP credits.',
-                tags: ['Azure OpenAI', 'AWS Bedrock', 'GCP Vertex', 'Private Link'],
-              },
-              {
-                tier: '04',
-                title: 'Managed\nAPI Tier',
-                sub: 'Lowest upfront cost',
-                desc: 'OpenAI Enterprise, Anthropic Claude, or Cohere â€” via your own API keys with DPAs in place. Best for non-sensitive use cases where speed matters.',
-                tags: ['OpenAI Enterprise', 'Anthropic Claude', 'Cohere', 'DPA in place'],
-              },
-            ].map((d, i) => (
-              <motion.div
-                key={d.tier}
-                variants={fadeUp}
-                custom={i * 0.12}
-                className="relative rounded-2xl border border-zinc-200 bg-white p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-[0_8px_28px_rgba(14,32,46,0.09)] hover:-translate-y-0.5 overflow-hidden group"
-              >
-                {/* Uniform top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#29B6F6]" />
-
-                {/* Header row: badge left, tier number right */}
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-500 border border-zinc-200">
-                    {d.sub}
-                  </span>
-                  <span className="text-sm font-bold text-zinc-300 tabular-nums">{d.tier}</span>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-bold text-[#0E202E] text-base leading-snug whitespace-pre-line">{d.title}</h3>
-
-                {/* Description */}
-                <p className="text-zinc-500 text-sm leading-relaxed flex-1">{d.desc}</p>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5">
-                  {d.tags.map(t => (
-                    <span key={t} className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-zinc-50 border border-zinc-200 text-zinc-500">{t}</span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.p
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={6}
-            className="text-center text-xs text-zinc-400 mt-8"
-          >
-            We advise on the right model for your situation. You decide. Our engineers build and run it.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* â”€â”€ TECH STACK CLOUD â€” moved here: supports the Deployment Spectrum above â”€â”€ */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="py-14 bg-white border-t border-zinc-100"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.p
-            variants={fadeUp}
-            className="text-center text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-8"
-          >
-            Technology We Deploy
-          </motion.p>
-          <motion.div
-            variants={fadeUp}
-            custom={1}
-            className="flex flex-wrap items-center justify-center gap-3"
-          >
-            {techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-500 text-sm font-medium hover:border-[#29B6F6]/40 hover:text-zinc-700 transition-colors"
-              >
-                {tech}
-              </span>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
 
       <Footer />
     </div>

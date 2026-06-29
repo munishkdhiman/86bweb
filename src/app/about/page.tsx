@@ -111,7 +111,7 @@ export default function AboutPage() {
           <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
             About 86b.ai
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0E202E] mb-6 leading-[1.06] max-w-3xl">
+          <h2 className="text-4xl md:text-5xl font-light text-[#0E202E] mb-6 leading-[1.06] max-w-3xl">
             Solution Engineers,<br />
             <span className="text-[#1F3249] italic font-normal">Not Software Licences.</span>
           </h2>
@@ -123,7 +123,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div key={s.label} className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200">
-                <div className="text-3xl font-bold text-[#0E202E]">
+                <div className="text-3xl font-light text-[#0E202E]">
                   {s.value}
                   <span className="text-[#5A6A7A] text-xl ml-0.5">{s.unit}</span>
                 </div>
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
                 Who We Are
               </span>
-              <h2 className="text-3xl font-bold text-[#0E202E] mb-6 leading-tight">
+              <h2 className="text-3xl font-light text-[#0E202E] mb-6 leading-tight">
                 A small team with deep expertise in enterprise AI delivery.
               </h2>
               <div className="space-y-4 text-zinc-600 leading-relaxed">
@@ -195,7 +195,7 @@ export default function AboutPage() {
           <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
             Operational Principles
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0E202E] mb-16 max-w-2xl leading-tight">
+          <h2 className="text-3xl md:text-4xl font-light text-[#0E202E] mb-16 max-w-2xl leading-tight">
             The beliefs that shape every engagement we take on.
           </h2>
 
@@ -205,9 +205,9 @@ export default function AboutPage() {
                 key={p.number}
                 className="grid md:grid-cols-[80px_1fr] gap-6 p-8 rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:border-zinc-300 hover:shadow-sm transition-all duration-200"
               >
-                <div className="text-4xl font-bold text-zinc-200">{p.number}</div>
+                <div className="text-4xl font-light text-zinc-200">{p.number}</div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0E202E] mb-2">{p.title}</h3>
+                  <h3 className="text-lg font-medium text-[#0E202E] mb-2">{p.title}</h3>
                   <p className="text-zinc-500 leading-relaxed text-sm">{p.description}</p>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default function AboutPage() {
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="bg-[#0E202E] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
             Ready to work with engineers who build?
           </h2>
           <p className="text-white/75 mb-8 text-lg">

@@ -100,7 +100,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                 )}
               </div>
 
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0E202E] mb-3 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-light text-[#0E202E] mb-3 leading-tight">
                 {service.title}
               </h2>
               <p className="text-[#5A6A7A] font-normal mb-4 leading-relaxed">{service.tagline}</p>
@@ -123,7 +123,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                   <div className="grid grid-cols-3 gap-4 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
                     {service.metrics.map((m) => (
                       <div key={m.label} className="text-center">
-                        <div className="text-xl font-bold text-[#29B6F6]">{m.value}</div>
+                        <div className="text-xl font-medium text-[#29B6F6]">{m.value}</div>
                         <div className="text-xs text-zinc-500 mt-0.5">{m.label}</div>
                       </div>
                     ))}
@@ -141,7 +141,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <ol className="space-y-4 mb-8">
                 {service.steps.map((step, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#29B6F6]/10 text-[#29B6F6] text-xs font-bold flex items-center justify-center mt-0.5">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#29B6F6]/10 text-[#29B6F6] text-xs font-medium flex items-center justify-center mt-0.5">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>

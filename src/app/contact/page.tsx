@@ -76,7 +76,7 @@ export default function ContactPage() {
             <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
               <Lock className="inline w-3.5 h-3.5 mr-1" />NDA Protected · No Commitment Required
             </span>
-            <h1 className="text-5xl md:text-6xl font-bold text-[#0E202E] mb-5 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-light text-[#0E202E] mb-5 leading-tight">
               Start your{" "}
               <span className="italic text-[#1F3249]">AI journey.</span>
             </h1>
@@ -96,13 +96,13 @@ export default function ContactPage() {
                 <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-8 h-8 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#0E202E] mb-3">Message received</h2>
+                <h2 className="text-2xl font-light text-[#0E202E] mb-3">Message received</h2>
                 <p className="text-base text-zinc-500 leading-relaxed max-w-sm mx-auto">We&apos;ll review your request and send an NDA within 24 business hours. Check your inbox.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-slate-200/60 overflow-hidden">
                 <div className="p-8 border-b border-slate-100">
-                  <h2 className="text-xl font-bold text-[#0E202E] mb-1">Tell us about your project</h2>
+                  <h2 className="text-xl font-medium text-[#0E202E] mb-1">Tell us about your project</h2>
 
                 </div>
                 <div className="p-8 space-y-5">
@@ -176,7 +176,7 @@ export default function ContactPage() {
           {/* Sidebar */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h3 className="text-xl font-bold text-[#0E202E] mb-6">What happens next</h3>
+              <h3 className="text-xl font-medium text-[#0E202E] mb-6">What happens next</h3>
               <div className="space-y-5">
                 {nextSteps.map((step, i) => (
                   <div key={step.title} className="flex items-start gap-4">

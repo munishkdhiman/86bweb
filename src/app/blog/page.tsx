@@ -90,7 +90,7 @@ export default function BlogPage() {
                       <span className="text-xs font-semibold uppercase tracking-widest text-[#29B6F6]">
                         {post.category}
                       </span>
-                      <h2 className="mt-3 text-2xl md:text-3xl font-bold text-[#0E202E] leading-tight group-hover:text-[#1F3249] transition-colors">
+                      <h2 className="mt-3 text-2xl md:text-3xl font-light text-[#0E202E] leading-tight group-hover:text-[#1F3249] transition-colors">
                         {post.title}
                       </h2>
                       <p className="mt-4 text-zinc-500 text-base leading-relaxed">
@@ -135,7 +135,7 @@ export default function BlogPage() {
       {/* ── CTA ── */}
       <section className="bg-[#0E202E] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
             Want these insights in your inbox?
           </h2>
           <p className="text-white/60 mb-8 text-base font-light">
