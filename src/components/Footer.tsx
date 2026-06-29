@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react';
 const footerLinks = {
   'Solutions': [
     { label: 'Enterprise GenAI & RAG', href: '/services/generative-ai' },
-    { label: 'Data Orchestration', href: '/services/data-orchestration' },
+    { label: 'Data Orchestration', href: '/services/investor-readiness' },
     { label: 'Financial Intelligence', href: '/services/financial-intelligence' },
     { label: 'Spatial Intelligence', href: '/#spatial' },
     { label: 'Digital Human Agents', href: '/services/digital-humans' },

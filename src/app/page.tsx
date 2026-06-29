@@ -78,6 +78,7 @@ const techStack = [
 const pillars = [
   {
     id: 'genai',
+    href: '/services/generative-ai',
     title: 'Enterprise Generative AI & RAG',
     tagline: 'LLMs trained on your knowledge — deployed within your chosen security boundary.',
     description: 'Custom LLM fine-tuning and secure orchestration against your proprietary document archives — on-premise, private VPC, or enterprise cloud.',
@@ -99,6 +100,7 @@ const pillars = [
   },
   {
     id: 'data',
+    href: '/services/investor-readiness',
     title: 'Data Orchestration & Investor Readiness',
     tagline: 'Transform scattered corporate data into a VC-ready data room in weeks, not months.',
     description: 'Cleaning and structuring unlisted corporate data into investor-ready compliance data rooms.',
@@ -119,6 +121,7 @@ const pillars = [
   },
   {
     id: 'finance',
+    href: '/services/financial-intelligence',
     title: 'Financial Intelligence & Revenue Auditing',
     tagline: 'AI that reads your MSAs and invoices to surface revenue leakage instantly.',
     description: 'Ingesting transactions, MSAs, and invoices to track and flag revenue leakages in real time.',
@@ -139,6 +142,7 @@ const pillars = [
   },
   {
     id: 'spatial',
+    href: '/services/cognitive-digital-twins',
     title: 'Spatial Intelligence & Cognitive Digital Twins',
     tagline: 'Live 3D replicas of your physical systems powered by real-time predictive AI.',
     description: 'Building digital twins, spatial computing systems, and AR operations for physical infrastructure.',
@@ -186,23 +190,23 @@ const phases = [
   {
     number: '01',
     label: 'Phase 1',
-    title: 'Technical Discovery',
-    description: 'We map your data landscape, identify integration points, and scope the AI opportunity within your infrastructure.',
-    deliverable: 'Technical opportunity brief + data readiness report',
+    title: 'Discovery & Audit',
+    description: 'Before a single technical detail is shared, our lead engineers conduct a comprehensive data landscape audit — mapping all data sources, identifying integration touchpoints, assessing data quality, and scoping the AI opportunity within your existing infrastructure.',
+    deliverable: 'Data source inventory and quality assessment',
   },
   {
     number: '02',
     label: 'Phase 2',
-    title: 'Model Deployment & Integration',
-    description: 'Your first AI system is built and deployed within your chosen infrastructure — private VPC, on-premise, or enterprise cloud. We configure the pipeline, connect data sources, and run the first round of evaluation testing with your team.',
-    deliverable: 'Working AI system in staging environment',
+    title: 'Staging Environment & Integration',
+    description: 'Your first AI system is built and deployed within a secure staging environment. We configure the RAG pipeline, connect all approved data sources, deploy or connect the AI model, and run the first round of evaluation testing alongside your internal subject matter experts.',
+    deliverable: 'Working AI system in your staging environment',
   },
   {
     number: '03',
     label: 'Phase 3',
-    title: 'Adversarial Testing & VPC Onboarding',
-    description: 'Before production go-live, we red-team the system — prompt injection tests, edge-case evaluation, and performance benchmarking. Then we migrate to your production VPC with full handover documentation.',
-    deliverable: 'Production-ready system + full documentation + team training',
+    title: 'Secure VPC Migration & Go-Live',
+    description: 'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team, backed by optional ongoing Service Level Agreements (SLAs) for maintenance and upgrades.',
+    deliverable: 'Production VPC/Cloud deployment + Ongoing SLA',
   },
 ];
 
@@ -375,7 +379,7 @@ export default function HomePage() {
               const icons = [Brain, Database, DollarSign, Layers];
               const Icon = icons[i];
               return (
-                <Link key={pillar.id} href={`/services/${pillar.id}`} className="block">
+                <Link key={pillar.id} href={pillar.href} className="block">
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
