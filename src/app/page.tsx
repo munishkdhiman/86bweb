@@ -18,17 +18,17 @@ import ServiceModal, { type ModalService } from '@/components/ServiceModal';
 const heroSlides = [
   {
     image: '/hero_slide1.png',
-    headline: 'We Build the AI.\nYou Own It Completely.',
-    subtext: 'We embed solution engineers inside your teams and build custom, private AI that integrates with your existing infrastructure — not around it.',
-    cta: 'Explore AI Solutions',
-    href: '/services',
+    headline: 'Autonomous Workflows.\nAgents That Execute End to End.',
+    subtext: 'We replace rigid rule-based automation with private AI agents that read documents, make decisions, and orchestrate multi-step processes across your ERP, CRM, and billing systems — with full audit trails.',
+    cta: 'See Process Automation',
+    href: '/services/intelligent-process-automation',
   },
   {
     image: '/hero_slide2.png',
-    headline: 'Flexible AI Infrastructure.\nYour Deployment, Your Rules.',
-    subtext: 'From fully private on-premise to Azure OpenAI, AWS Bedrock, and GCP Vertex AI — we deploy where your data, compliance, and budget requirements demand. You choose the model; we build and run it.',
-    cta: 'View Deployment Options',
-    href: '/#deployment',
+    headline: 'Computer Vision That\nCatches What Eyes Miss.',
+    subtext: 'Real-time AI trained on your production line, warehouse, or field environment — detecting defects, monitoring compliance, and flagging anomalies before they become incidents.',
+    cta: 'Explore Computer Vision',
+    href: '/services/computer-vision',
   },
   {
     image: '/hero_slide3.png',
@@ -45,6 +45,7 @@ const heroSlides = [
     href: '/services/digital-humans',
   },
 ];
+
 
 // ── Trust Badges ─────────────────────────────────────────────────────────────
 const trustBadges = [
