@@ -163,7 +163,7 @@ export default function AboutPage() {
 
             <div className="bg-[#0E202E] rounded-2xl p-8 text-white">
               <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                What we are not
+                The Alternative to:
               </span>
               <ul className="mt-6 space-y-4">
                 {[

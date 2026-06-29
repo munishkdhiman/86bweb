@@ -8,7 +8,7 @@ const pillars = [
   { icon: Lock, title: 'Private VPC Deployment', desc: 'All AI systems can be deployed inside your own Virtual Private Cloud. No data transits through 86b.ai infrastructure in production.' },
   { icon: Shield, title: 'SOC 2-Ready Architecture', desc: 'Our deployment patterns follow SOC 2 Type II-aligned controls for security, availability, and confidentiality. Formal certification is pursued on a per-engagement basis.' },
   { icon: Server, title: 'On-Premise Options', desc: 'For clients with air-gapped or regulatory requirements, we support fully on-premise deployments with no external network dependency.' },
-  { icon: Eye, title: 'NDA Before Hello', desc: 'No technical discussion begins without a signed mutual NDA. Your project details, data schemas, and architecture are never disclosed.' },
+  { icon: Eye, title: 'Strict Confidentiality', desc: 'No technical discussion begins without a strict confidentiality agreement. Your project details, data schemas, and architecture are never disclosed.' },
 ];
 
 export default function SecurityPage() {
@@ -38,7 +38,7 @@ export default function SecurityPage() {
         </div>
         <div className="max-w-4xl mx-auto px-6 mt-12 p-8 rounded-2xl bg-[#0E202E] text-white">
           <h3 className="text-xl font-medium mb-3">Security questions?</h3>
-          <p className="text-white/70 text-sm leading-relaxed mb-4">For detailed security documentation, architecture diagrams, or penetration test reports, contact us. All materials shared under NDA.</p>
+          <p className="text-white/70 text-sm leading-relaxed mb-4">For detailed security documentation, architecture diagrams, or penetration test reports, contact us. All materials shared under strict confidentiality.</p>
           <a href="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-[#0E202E] text-sm font-medium hover:bg-zinc-100 transition-colors">Request Security Documentation</a>
         </div>
       </section>

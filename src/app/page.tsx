@@ -904,7 +904,7 @@ export default function HomePage() {
               Solution engineers,<br />not software licences.
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed">
-              We don&apos;t sell you a SaaS subscription and disappear. We embed our engineers inside your delivery team, build to your specifications, and leave you with full ownership.
+              We don&apos;t sell you a SaaS subscription and disappear. We embed our engineers inside your delivery team, build to your specifications, and leave you with full ownership — backed by optional post-launch Service Level Agreements (SLAs) for ongoing maintenance.
             </motion.p>
           </motion.div>
 

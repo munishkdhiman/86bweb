@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -26,6 +26,12 @@ const fadeUp = {
 
 export default function ServicesPage() {
   const [openCategories, setOpenCategories] = useState<string[]>(categoryOrder);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setOpenCategories([categoryOrder[0]]); // Collapse all but the first category on smaller screens
+    }
+  }, []);
 
   const toggleCategory = (cat: string) => {
     setOpenCategories((prev) =>

@@ -47,14 +47,14 @@ const phases = [
     color: 'bg-emerald-600',
     icon: FlaskConical,
     description:
-      'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team.',
+      'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team, backed by optional ongoing Service Level Agreements (SLAs) for maintenance and upgrades.',
     deliverables: [
       'Red-team adversarial testing report',
       'Production VPC/Cloud deployment',
       'Complete source code handover',
       'Operational runbooks and documentation',
       'Internal team training sessions',
-      'Post-launch enterprise support included',
+      'Ongoing SLA & Managed Support Agreements',
     ],
     team: 'Security Engineer + ML Engineer + Lead Architect',
   },
@@ -168,7 +168,7 @@ export default function HowWeBuildPage() {
       <section className="bg-[#0E202E] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
-            Ready to start your Day 1 audit?
+            Ready to start your Phase 1 audit?
           </h2>
           <p className="text-zinc-400 mb-8">
             No commitment. All conversations are strictly confidential before we discuss any technical details.

@@ -20,7 +20,6 @@ const footerLinks = {
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Security Architecture', href: '/security' },
-    { label: 'Download NDA Template', href: '/nda-template' },
   ],
 };
 
@@ -84,7 +83,7 @@ export default function Footer() {
         <div className="border-t border-zinc-700 mt-16 pt-8 flex flex-col gap-4">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <p className="text-xs text-zinc-400">
-              © {new Date().getFullYear()} 86b.ai. All rights reserved. All client engagements are protected under mutual NDA.
+              © {new Date().getFullYear()} 86b.ai. All rights reserved. All client engagements are protected under strict confidentiality.
             </p>
             <p className="text-xs text-zinc-500">
               Built with precision by Solution Engineers.
@@ -94,7 +93,7 @@ export default function Footer() {
             <p className="text-xs text-zinc-400 italic leading-relaxed">
               <span className="text-zinc-300 not-italic font-normal">Disclaimer: </span>
               All performance figures, timelines and capability metrics shown on this site are indicative estimates only.
-              Actual outcomes are confirmed following a detailed requirement analysis conducted under mutual NDA.
+              Actual outcomes are confirmed following a detailed requirement analysis conducted under strict confidentiality.
             </p>
           </div>
         </div>
