@@ -125,7 +125,7 @@ export default function ServiceDetailClient({ svc }: Props) {
               <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#29B6F6]/20 blur-[80px] pointer-events-none" />
               <h3 className="font-light text-2xl mb-4 text-white">Start Your Project</h3>
               <p className="text-white/70 text-base mb-10 leading-relaxed">
-                Share your requirements and we&apos;ll put together a tailored deployment plan within 24 hours.
+                Share your requirements and we&apos;ll put together a tailored deployment plan.
               </p>
               <Link
                 href="/contact"
@@ -134,7 +134,7 @@ export default function ServiceDetailClient({ svc }: Props) {
                 Get in Touch
               </Link>
               <div className="mt-8 space-y-4">
-                {['No commitment required', 'Response within 24h'].map((t) => (
+                {['No commitment required', 'Prompt response'].map((t) => (
                   <div key={t} className="flex items-center gap-3 text-sm text-white/60 font-medium">
                     <span className="w-2 h-2 rounded-full bg-[#29B6F6] shadow-[0_0_8px_rgba(41,182,246,0.8)]" />
                     {t}

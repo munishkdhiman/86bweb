@@ -17,10 +17,10 @@ const servicesList = [
 const budgets = ["< $25K", "$25K – $100K", "$100K – $500K", "$500K+", "Prefer not to say"];
 
 const nextSteps = [
-  { icon: Lock, title: "Strict Confidentiality", desc: "We sign a strict confidentiality agreement within 24 business hours — before any technical discussion." },
+  { icon: Lock, title: "Strict Confidentiality", desc: "We establish a strict confidentiality agreement promptly — before any technical discussion." },
   { icon: MessageSquare, title: "Discovery Call", desc: "30-minute call with our solution engineers to map your use case and infrastructure constraints." },
-  { icon: FileSearch, title: "Technical Proposal", desc: "Detailed proposal covering architecture, timeline, and pricing delivered within 5 business days." },
-  { icon: Rocket, title: "Kickoff", desc: "Once approved, we embed our team within 2 weeks and begin the process audit." },
+  { icon: FileSearch, title: "Technical Proposal", desc: "Detailed proposal covering architecture, timeline, and pricing delivered promptly." },
+  { icon: Rocket, title: "Kickoff", desc: "Once approved, we embed our team and begin the process audit." },
 ];
 
 export default function ContactPage() {
@@ -97,7 +97,7 @@ export default function ContactPage() {
                   <CheckCircle2 className="w-8 h-8 text-blue-600" />
                 </div>
                 <h2 className="text-2xl font-light text-[#0E202E] mb-3">Message received</h2>
-                <p className="text-base text-zinc-500 leading-relaxed max-w-sm mx-auto">We&apos;ll review your request and send a confidentiality agreement within 24 business hours. Check your inbox.</p>
+                <p className="text-base text-zinc-500 leading-relaxed max-w-sm mx-auto">We&apos;ll review your request and send a confidentiality agreement promptly. Check your inbox.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-slate-200/60 overflow-hidden">
@@ -202,7 +202,7 @@ export default function ContactPage() {
                 "No unsolicited follow-up or marketing emails",
                 "Your data is never shared or used to train models",
                 "Honest assessment — we'll tell you if AI won't help",
-                "Response within 24 business hours, always",
+                "Prompt response from our engineering team",
               ].map((g) => (
                 <div key={g} className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 flex-shrink-0 mt-0.5" />

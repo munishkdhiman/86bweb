@@ -364,7 +364,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
       </form>
 
       <div className="border-t border-white/10 pt-4 space-y-2 mt-1">
-        {['Strict confidentiality', 'No commitment required', 'Response within 24h'].map((t) => (
+        {['Strict confidentiality', 'No commitment required', 'Prompt response'].map((t) => (
           <div key={t} className="flex items-center gap-2 text-xs text-zinc-400 font-light">
             <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6]/60 flex-shrink-0" />
             {t}

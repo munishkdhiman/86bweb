@@ -161,28 +161,19 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-[#0E202E] rounded-2xl p-8 text-white">
-              <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                The Alternative to:
-              </span>
-              <ul className="mt-6 space-y-4">
-                {[
-                  'A SaaS company that charges per seat',
-                  'A systems integrator who outsources delivery',
-                  'A consulting firm that produces slide decks',
-                  "A startup selling AI you don't control",
-                  'An offshore development shop with no AI depth',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-400">
-                    <span className="w-5 h-5 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
-                      ✕
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-zinc-800 mt-8 pt-6 text-sm text-zinc-400">
-                We are engineers who build AI systems inside your infrastructure and hand them over.
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] w-full border border-zinc-200">
+              <Image
+                src="/images/enterprise-ai-abstract.png"
+                alt="Abstract AI architecture representing 86b.ai's enterprise engineering"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E202E] via-transparent to-transparent opacity-90 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-8 w-full">
+                <p className="text-white text-lg md:text-xl font-light leading-snug">
+                  We are engineers who build AI systems inside your infrastructure and hand them over.
+                </p>
               </div>
             </div>
           </div>

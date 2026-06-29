@@ -22,7 +22,7 @@ export default function NdaTemplatePage() {
       <section className="py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <p className="text-zinc-500 text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-            We do not share our confidentiality agreement publicly — every agreement is tailored to the specific engagement and jurisdiction. When you submit a contact enquiry, we send a confidentiality agreement within 24 business hours for review and signature before any technical discussion begins.
+            We do not share our confidentiality agreement publicly — every agreement is tailored to the specific engagement and jurisdiction. When you submit a contact enquiry, we promptly send a confidentiality agreement for review and signature before any technical discussion begins.
           </p>
           <Link
             href="/contact"
@@ -32,7 +32,7 @@ export default function NdaTemplatePage() {
             Submit Enquiry &mdash; Receive Confidentiality Agreement
             <ChevronRight className="w-4 h-4" />
           </Link>
-          <p className="text-xs text-zinc-400 mt-6">No commitment required. Confidentiality agreement sent within 24 business hours of your submission.</p>
+          <p className="text-xs text-zinc-400 mt-6">No commitment required. Confidentiality agreement sent promptly after your submission.</p>
         </div>
       </section>
       <Footer />
