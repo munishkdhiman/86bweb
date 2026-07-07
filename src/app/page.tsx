@@ -50,6 +50,13 @@ const heroSlides = [
     cta: 'Explore Wearable AI',
     href: '/services/ai-smart-glasses',
   },
+  {
+    image: '/hero_virtual_tour.png',
+    headline: 'Immersive Virtual Tours.\nReal-Time Interaction.',
+    subtext: 'Walk through facilities, corporate spaces, and campuses from anywhere. Navigate fully immersive 360° environments guided by real personnel sitting remotely.',
+    cta: 'Explore Virtual Tours',
+    href: '/services/virtual-tours',
+  },
 ];
 
 
@@ -170,18 +177,28 @@ const spatialCards = [
     title: 'Cognitive Digital Twins',
     description: 'Creating live, 3D digital replicas of physical facilities, supply chains, or data ecosystems powered by real-time predictive AI agents. Simulate operational changes before physical execution.',
     image: '/svc_digital_twins.png',
+    href: '/services/cognitive-digital-twins',
   },
   {
     number: '02',
     title: 'Spatial Computing & AR Operations',
     description: 'Overlaying contextual AI data and real-time instructions onto enterprise XR headsets — Meta Quest Pro, Microsoft HoloLens 2, Magic Leap 2, Vuzix Blade, and RealWear Navigator. Empowering field engineers and frontline staff with hands-free, AI-guided protocols.',
     image: '/svc_spatial_ar.png',
+    href: '/services/spatial-computing-ar',
   },
   {
     number: '03',
     title: 'Immersive Simulation Environments',
     description: 'Building private, secure 3D simulation spaces where Digital Human Agents operate as interactive training and support staff. Scalable corporate training without geographic constraints.',
     image: '/svc_immersive.png',
+    href: '/services/immersive-environments',
+  },
+  {
+    number: '04',
+    title: 'Virtual Tours & Immersive Spaces',
+    description: 'Navigate fully immersive 360° environments securely from any browser. Interact with remote personnel in real time to ask questions, request guidance, or complete transactions.',
+    image: '/hero_virtual_tour.png',
+    href: '/services/virtual-tours',
   },
 ];
 
@@ -658,7 +675,7 @@ export default function HomePage() {
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {spatialCards.map((card, i) => (
               <motion.div
                 key={card.number}
@@ -672,7 +689,7 @@ export default function HomePage() {
                   transition: 'transform 0.3s ease-out',
                 }}
               >
-                <Link href={`/services/${i === 0 ? 'cognitive-digital-twins' : i === 1 ? 'spatial-computing-ar' : 'immersive-environments'}`}>
+                <Link href={card.href}>
                   <div className="glass-spatial rounded-2xl overflow-hidden h-full group cursor-pointer">
                     {/* Card image */}
                     <div className="relative h-48 overflow-hidden">

@@ -289,7 +289,7 @@ export const services: Service[] = [
     tagline: 'Dynamic routing AI that reduces fleet costs and delivery times simultaneously.',
     description: 'We build AI-powered logistics optimisation systems that can reduce fleet operating costs by 15–30% while improving delivery reliability — results vary based on existing route efficiency, fleet size, and data quality. Our systems ingest real-time traffic data, weather, vehicle constraints, and customer time windows to dynamically compute and update optimal routes throughout the day.',
     longDescription: 'Our AI logistics systems solve the Vehicle Routing Problem (VRP) at enterprise scale — combining constraint-based OR solvers with live data feeds to compute optimal routes continuously throughout the day. We model your full operational network: depot locations, vehicle capacities, driver schedules, customer time windows, and SLA constraints. The system integrates with traffic APIs, weather services, and vehicle telemetry to adapt routes in real time as conditions change. All routing decisions are explainable and auditable — operators can inspect, override, and approve suggestions before they reach drivers.',
-    category: 'Spatial Intelligence & Operations',
+    category: 'Domain-Specific Solutions',
     image: '/svc_travel.png',
     steps: [
       { title: 'Network Modelling', desc: 'Model your fleet, depots, customer locations, and service constraints.' },
@@ -404,6 +404,46 @@ export const services: Service[] = [
     metrics: [{ value: '~2×', label: 'Est. faster proficiency gain' }, { value: 'CEFR', label: 'Progress tracked per learner' }, { value: '40+', label: 'Languages' }],
     useCases: ['German Language for Indian IT Companies', 'English for International Teams', 'Technical Communication', 'Customer-Facing Language Training'],
   },
+  {
+    slug: 'virtual-tours',
+    title: 'Virtual Tours & Immersive Spaces',
+    tagline: 'Generic 360° virtual tours with real-time remote interaction.',
+    description: 'Immersive, browser-accessible 360° environments where visitors can explore and interact with real personnel remotely.',
+    longDescription:
+      'We build fully immersive 360° virtual tours for facilities, real estate, campuses, and corporate spaces. Visitors can navigate the environment securely from any browser, interacting with remote personnel in real time to ask questions, request guidance, or complete transactions.',
+    category: 'Spatial Intelligence & Operations',
+    image: '/hero_virtual_tour.png',
+    steps: [
+      { title: 'Environment Capture', desc: 'High-fidelity 360° scanning of the physical space.' },
+      { title: 'Interactive Overlays', desc: 'Embedding hotspots, informational panels, and navigational aids.' },
+      { title: 'Real-Time Communication', desc: 'Integrating WebRTC for live audio/video chat with remote staff.' },
+      { title: 'Deployment', desc: 'Hosting securely on your chosen infrastructure.' },
+      { title: 'Analytics', desc: 'Tracking visitor paths, engagement, and interactions.' },
+    ],
+    stack: ['WebGL', 'Matterport / 3DVista', 'WebRTC', 'React', 'AWS / Azure'],
+    metrics: [{ value: 'Immersive', label: 'Browser-based 360° navigation' }, { value: 'Real-Time', label: 'Remote personnel interaction' }, { value: 'Secure', label: 'Private hosting' }],
+    useCases: ['Facility Previews', 'Real Estate Tours', 'Campus Walkthroughs', 'Corporate Headquarters Tours'],
+  },
+  {
+    slug: 'domain-specific-virtual-tours',
+    title: 'Domain-Specific Virtual Tours',
+    tagline: 'Specialised immersive environments with multilingual support.',
+    description: 'Virtual tours tailored for specific industries, featuring integrated multilingual AI assistance.',
+    longDescription:
+      'For specialized environments, we offer domain-specific virtual tours equipped with multilingual capabilities. Whether for healthcare, manufacturing, or legal settings, the immersive experience is customized to the industry\'s unique terminology and workflows, ensuring visitors receive accurate, context-aware guidance in their preferred language.',
+    category: 'Domain-Specific Solutions',
+    image: '/hero_virtual_tour.png',
+    steps: [
+      { title: 'Domain Scoping', desc: 'Mapping the specific terminology, workflows, and compliance needs of the industry.' },
+      { title: 'Custom AI Integration', desc: 'Training the assistant on domain-specific knowledge bases.' },
+      { title: 'Multilingual Support', desc: 'Enabling seamless communication across multiple languages.' },
+      { title: 'Environment Build', desc: 'Constructing the 360° space with embedded domain-specific tools.' },
+      { title: 'Quality Assurance', desc: 'Rigorous testing for accuracy, language nuances, and user experience.' },
+    ],
+    stack: ['WebGL', 'GPT-4o', 'Whisper', 'TTS', 'Domain RAG'],
+    metrics: [{ value: 'Tailored', label: 'Industry-specific terminology' }, { value: 'Multilingual', label: 'Seamless language support' }, { value: 'Context-Aware', label: 'Intelligent guidance' }],
+    useCases: ['Healthcare Facility Tours', 'Manufacturing Plant Safety Walkthroughs', 'Legal Office Orientations', 'Specialized Retail Previews'],
+  }
 ];
 
 export const servicesByCategory = services.reduce<Record<string, Service[]>>((acc, svc) => {
