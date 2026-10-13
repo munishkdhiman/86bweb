@@ -4,10 +4,10 @@ import { ChevronRight } from 'lucide-react';
 
 const footerLinks = {
   'Product': [
-    { label: 'The 86b SDK', href: '/#product' },
+    { label: 'The 86b SDK (coming soon)', href: '/#product' },
     { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Research: Intelligence per Watt', href: '/#research' },
-    { label: 'Work With Us', href: '/#partner' },
+    { label: 'Join Early Access', href: '/#early-access' },
   ],
   'Services': [
     { label: 'Enterprise AI Services', href: '/services' },

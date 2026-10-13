@@ -227,7 +227,6 @@ function DigitalHumanLivePanel() {
           alt="Digital Human Agent"
           fill
           className="object-cover object-center"
-          unoptimized
           priority
         />
         {/* Dark overlay for readability of overlays */}

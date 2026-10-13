@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "86b.ai | Brain-inspired AI that keeps learning on the device",
-  description: "86b.ai builds brain-inspired, on-device continual learning: one base model, personalised on every phone, running on a fraction of the energy. Built in India for the world's majority.",
+  description: "86b.ai is building brain-inspired, on-device continual learning: one base model, personalised on every phone, running on a fraction of the energy. Join the early preview of the 86b SDK.",
 };
 
 export default function RootLayout({

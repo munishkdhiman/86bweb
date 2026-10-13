@@ -25,7 +25,7 @@ export default function Navbar() {
   const inServices = pathname.startsWith('/services') || pathname === '/how-we-build';
   const cta = inServices
     ? { label: 'Book AI Audit', href: '/contact' }
-    : { label: 'Work With Us', href: '/#partner' };
+    : { label: 'Get Early Access', href: '/#early-access' };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);

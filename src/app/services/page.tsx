@@ -297,7 +297,6 @@ export default function ServicesPage() {
               priority={i === 0}
               sizes="100vw"
               quality={100}
-              unoptimized
             />
           </div>
         ))}
