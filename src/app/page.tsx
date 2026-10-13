@@ -14,6 +14,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EarlyAccessForm from '@/components/EarlyAccessForm';
 import NeuralField from '@/components/NeuralField';
+import BrainHead from '@/components/BrainHead';
 
 // ── Problem ─────────────────────────────────────────────────────────────────
 const problems = [
@@ -274,7 +275,8 @@ export default function HomePage() {
         <div className="aurora aurora-dark" aria-hidden="true">
           <span className="a1" /><span className="a2" /><span className="a3" /><span className="a4" />
         </div>
-        <NeuralField dark className="absolute inset-0 w-full h-full" />
+        <NeuralField dark className="absolute inset-0 w-full h-full opacity-40" />
+        <BrainHead className="absolute inset-0 w-full h-full opacity-50 lg:opacity-100" />
         {/* Keep the copy legible over the field */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0) 100%)' }} />
 
