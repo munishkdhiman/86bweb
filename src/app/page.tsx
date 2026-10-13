@@ -291,7 +291,7 @@ export default function HomePage() {
             </motion.div>
             <motion.p variants={fadeUp} custom={4} className="mt-10 text-xs text-white/55 flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-[#C4B5FF]" />
-              Like the brain, only a few neurons fire at once, passing signals along their connections. Move your cursor to excite them.
+              Like the brain, only a few neurons fire at once, passing signals along their connections.
             </motion.p>
           </motion.div>
         </div>
