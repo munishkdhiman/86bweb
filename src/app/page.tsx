@@ -702,11 +702,11 @@ export default function HomePage() {
               </div>
               {cloudServices.map((c) => (
                 <div key={c.title} className="rounded-xl bg-white/15 border border-white/20 backdrop-blur px-4 py-3">
-                  <p className="text-sm font-medium">{c.title}</p>
-                  <p className="text-white/75 text-xs mt-0.5">{c.desc}</p>
+                  <p className="text-sm font-medium text-white">{c.title}</p>
+                  <p className="text-white/80 text-xs mt-0.5">{c.desc}</p>
                 </div>
               ))}
-              <p className="mt-auto pt-3 text-sm font-medium flex items-center gap-2">
+              <p className="mt-auto pt-3 text-sm font-medium text-white flex items-center gap-2">
                 <Lock className="w-4 h-4" /> Raw data never leaves the device
               </p>
             </motion.div>
