@@ -259,7 +259,7 @@ export default function HomePage() {
         </div>
         <NeuralField className="absolute inset-0 w-full h-full" />
         {/* Keep the copy legible over the field */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF8F4]/90 via-[#FBF8F4]/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(251,248,244,0.92) 0%, rgba(251,248,244,0.75) 45%, rgba(251,248,244,0) 100%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full pointer-events-none">
           <motion.div initial="hidden" animate="visible" className="max-w-4xl pointer-events-auto">
@@ -299,7 +299,7 @@ export default function HomePage() {
             </motion.div>
             <motion.p variants={fadeUp} custom={4} className="mt-10 text-xs text-[#6B7079] flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-[#7B61FF]" />
-              Move your cursor: like the brain, only a few neurons fire at a time.
+              Like the brain, only a few neurons fire at once, passing signals along their connections. Move your cursor to excite them.
             </motion.p>
           </motion.div>
         </div>

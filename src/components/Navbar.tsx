@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Logo — 78px tall */}
           <Link href="/" className="flex items-center group flex-shrink-0">
             <Image
-              src={darkText ? '/logos/86B.png' : '/logos/86B_white.png'}
+              src={darkText ? '/logos/86B_dark.png' : '/logos/86B_white.png'}
               alt="86b.ai"
               width={265}
               height={94}
@@ -131,7 +131,7 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between p-5 border-b border-zinc-100">
                 <Image
-                  src="/logos/86B.png" alt="86b.ai" width={130} height={48}
+                  src="/logos/86B_dark.png" alt="86b.ai" width={130} height={48}
                   style={{ height: '48px', width: 'auto' }} className="object-contain"
                 />
                 <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg hover:bg-zinc-100 text-zinc-500">
