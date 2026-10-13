@@ -36,7 +36,7 @@ const capabilities = [
 const comparisons = [
   { icon: RefreshCw, title: 'vs. fine-tuning on device', desc: 'Naive updates overwrite what the model knew. A separate fast adapter learns the user while the slow learner keeps shared knowledge intact.' },
   { icon: Cloud, title: 'vs. cloud personalisation', desc: 'Sending audio and sensor data to a server costs energy, bandwidth and trust. Here the data and the learning never leave the phone; only aggregate metrics do.' },
-  { icon: Smartphone, title: 'vs. flagship-only on-device AI', desc: 'Most on-device assistants target high-end chips and a few languages. The 86b SDK is sized for ₹10,000 phones and tested on Indian languages, accents and noise first.' },
+  { icon: Smartphone, title: 'vs. flagship-only on-device AI', desc: 'Most on-device assistants target high-end chips and a few languages. The 86b SDK is sized for $100–180 phones and tested on regional languages, accents and noise first.' },
 ];
 
 // ── How it works: two rows of the framework diagram ─────────────────────────
@@ -87,11 +87,11 @@ const principles = [
   { principle: 'Knowing when unsure', build: 'Updates gated by calibrated confidence', measure: 'Calibration error' },
 ];
 
-// ── Built in India ──────────────────────────────────────────────────────────
-const indiaPoints = [
-  { title: 'India’s constraints are the world’s', desc: 'Budget phones, patchy networks, noise and many languages.' },
-  { title: 'Frugal engineering', desc: 'The discipline behind the Mars Orbiter Mission and UPI, applied to AI.' },
-  { title: 'Diversity as test bed', desc: '20+ major languages, countless accents, thousands of phone models.' },
+// ── Built for hard conditions ───────────────────────────────────────────────
+const conditionPoints = [
+  { title: 'Real-world constraints first', desc: 'Budget phones, patchy networks, noise and many languages.' },
+  { title: 'Frugal engineering', desc: 'Big capability from small compute, memory and energy budgets.' },
+  { title: 'Diversity as test bed', desc: 'Many languages, countless accents, thousands of phone models.' },
   { title: 'Ready for the wider world', desc: 'Built to work wherever phones are affordable, networks are patchy and languages are many.' },
 ];
 
@@ -114,7 +114,7 @@ const hypotheses = [
 ];
 const metrics = ['Adapted accuracy', 'Forgetting', 'Energy per inference (mJ)', 'Energy per update (mJ)', 'Latency (ms)', 'Peak memory (MB)', 'Data efficiency', 'Calibration'];
 const benchmarkDims = [
-  { icon: Languages, dim: 'Language', desc: 'Multiple Indian languages, lower-resource ones and code-mixed speech' },
+  { icon: Languages, dim: 'Language', desc: 'Multiple regional languages, lower-resource ones and code-mixed speech' },
   { icon: Users, dim: 'Speaker', desc: 'Regional accents, age groups, gender balance' },
   { icon: Mic, dim: 'Environment', desc: 'Quiet rooms, street noise, households, markets, vehicles' },
   { icon: Smartphone, dim: 'Device tier', desc: 'Low-cost, mid-range and flagship phones across chipsets' },
@@ -131,7 +131,7 @@ const roadmap: { title: string; desc: string; state: 'done' | 'current' | 'later
 
 // ── Partners ────────────────────────────────────────────────────────────────
 const partnerTypes = [
-  { icon: Package, title: 'Design partners', desc: 'Apps that need on-device personalisation for Indian users.' },
+  { icon: Package, title: 'Design partners', desc: 'Apps that need on-device personalisation for multilingual users.' },
   { icon: FileText, title: 'Researchers', desc: 'Continual learning, efficient AI and computational neuroscience.' },
   { icon: Cpu, title: 'Hardware partners', desc: 'Edge and neuromorphic chip makers.' },
 ];
@@ -282,12 +282,10 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full pointer-events-none">
           <motion.div data-motion initial={initial} animate="visible" className="max-w-4xl pointer-events-auto">
-            <motion.div data-motion variants={fadeUp} className="flex items-start md:items-center gap-4 mb-7">
-              <span className="h-px w-10 md:w-14 mt-2.5 md:mt-0 flex-shrink-0 bg-[#5CC8FF]" aria-hidden="true" />
-              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] text-white">
-                <span className="whitespace-nowrap">Brain-inspired on-device AI</span>
-                <span className="hidden md:inline text-[#5CC8FF] mx-3" aria-hidden="true">·</span>
-                <span className="block md:inline mt-1.5 md:mt-0 text-[#5CC8FF]">Built in India</span>
+            <motion.div data-motion variants={fadeUp} className="flex items-center gap-4 mb-7">
+              <span className="h-px w-8 md:w-14 flex-shrink-0 bg-[#5CC8FF]" aria-hidden="true" />
+              <span className="text-sm md:text-base font-medium uppercase tracking-[0.14em] md:tracking-[0.2em] text-white whitespace-nowrap">
+                Brain-inspired <span className="text-[#5CC8FF]">on-device AI</span>
               </span>
             </motion.div>
             <motion.h1 data-motion variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-white leading-[1.02] tracking-tight mb-8 text-balance [text-shadow:0_2px_18px_rgba(0,0,0,0.85),0_0_2px_rgba(0,0,0,0.6)]">
@@ -469,7 +467,7 @@ export default function HomePage() {
                   <Image src="/images/enterprise-ai-abstract.png" alt="Sparse neural network routing input through a few active experts" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                   <div className="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-md border border-white rounded-2xl p-5 shadow-lg">
                     <p className="text-[#000000] text-[11px] uppercase tracking-widest font-semibold mb-1.5">Designed for</p>
-                    <p className="text-[#111111] text-lg font-medium">₹8,000–15,000 (about $100–180) Android phones</p>
+                    <p className="text-[#111111] text-lg font-medium">$100–180 Android phones</p>
                     <p className="text-[#6B6B6B] text-xs mt-1">Targeting CPU, GPU and NPU via LiteRT, ExecuTorch and ONNX Runtime. Neuromorphic chips later.</p>
                   </div>
                 </div>
@@ -726,7 +724,7 @@ export default function HomePage() {
                 Voice commands that <span className="text-spectrum font-normal">learn each speaker.</span>
               </motion.h2>
               <motion.p data-motion variants={fadeUp} custom={2} className="text-[#3A3A3A] text-lg leading-relaxed mb-10 max-w-xl">
-                Voice recognition fails most on regional accents, code-mixed speech and noisy rooms: the everyday reality for Indian users. Our first testbed is designed to fix that on the phone itself.
+                Voice recognition fails most on regional accents, code-mixed speech and noisy rooms: the everyday reality for billions of users. Our first testbed is designed to fix that on the phone itself.
               </motion.p>
               <div className="space-y-4 mb-10">
                 {[
@@ -756,11 +754,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── BUILT IN INDIA + WHO IT'S FOR ────────────────────────────────────── */}
+      {/* ── HARD CONDITIONS + WHO IT'S FOR ────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden wash-mint">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="mb-12">
-            <Eyebrow color="#555555">Built in India, for the world’s majority.</Eyebrow>
+            <Eyebrow color="#555555">Built for the world’s majority.</Eyebrow>
           </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }}>
@@ -768,7 +766,7 @@ export default function HomePage() {
                 Tested where <span className="text-[#8A8A8A]">conditions are hardest.</span>
               </motion.h3>
               <div className="flex flex-col">
-                {indiaPoints.map((p, i) => (
+                {conditionPoints.map((p, i) => (
                   <motion.div data-motion
                     key={p.title}
                     variants={fadeUp} custom={2 + i * 0.4}
@@ -829,7 +827,7 @@ export default function HomePage() {
               <span className="text-spectrum font-normal">Intelligence per watt.</span>
             </motion.h2>
             <motion.p data-motion variants={fadeUp} custom={2} className="text-[#3A3A3A] text-lg leading-relaxed">
-              Our perspective paper defines the problem, the approach and the evaluation standard we will report results against: falsifiable hypotheses, an open protocol that makes energy and forgetting first-class metrics, and a benchmark grounded in Indian conditions.
+              Our perspective paper defines the problem, the approach and the evaluation standard we will report results against: falsifiable hypotheses, an open protocol that makes energy and forgetting first-class metrics, and a benchmark grounded in real-world, multilingual conditions.
             </motion.p>
           </motion.div>
 
@@ -850,7 +848,7 @@ export default function HomePage() {
                 <h3 className="font-extralight tracking-tight text-3xl md:text-4xl text-white leading-[1.1] mb-4">
                   Intelligence per Watt: A Brain-Inspired Framework for Continual On-Device Learning on Low-Cost Hardware
                 </h3>
-                <p className="text-white/80 text-sm mb-6">Munish Dhiman · 86b.ai, India</p>
+                <p className="text-white/80 text-sm mb-6">Munish Dhiman · 86b.ai</p>
                 <p className="text-white/90 text-sm leading-relaxed mb-8">
                   The brain supports general intelligence with roughly 86 billion neurons on about 20 watts. We argue the next gains in practical AI will come from systems that learn continually, compute sparsely and adapt to individual users on the devices they already own.
                 </p>
@@ -908,7 +906,7 @@ export default function HomePage() {
               </div>
 
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#6B6B6B] mb-4">An Indian-context benchmark</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#6B6B6B] mb-4">A real-world benchmark</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {benchmarkDims.map((b, i) => (
                     <div key={b.dim} className="rounded-2xl border border-[#E4E4DF] bg-white p-4 flex gap-3">
@@ -921,7 +919,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-[#6B6B6B] text-sm mt-4 leading-relaxed">
-                  Collected with informed consent, ethics committee approval and fair compensation, in line with India’s Digital Personal Data Protection Act, 2023.
+                  Collected with informed consent, ethics committee approval and fair compensation, in line with applicable data protection laws.
                 </p>
               </div>
             </div>

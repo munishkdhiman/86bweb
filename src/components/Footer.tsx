@@ -44,7 +44,7 @@ export default function Footer() {
               className="object-contain"
             />
             <p className="text-sm mt-3 leading-relaxed text-zinc-500">
-              Brain-inspired AI that keeps learning on the device and runs on a fraction of the energy. Built in India.
+              Brain-inspired AI that keeps learning on the device and runs on a fraction of the energy.
             </p>
             {/* Contact details */}
             <div className="flex flex-col gap-1.5 mt-5">

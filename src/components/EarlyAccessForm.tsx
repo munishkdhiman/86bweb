@@ -80,7 +80,7 @@ export default function EarlyAccessForm() {
       </div>
       <div>
         <label htmlFor="ea-use" className="block text-xs text-[#6B6B6B] mb-1.5">What would you build with it? <span className="text-[#9A9A9A]">(optional)</span></label>
-        <textarea id="ea-use" name="useCase" rows={3} value={form.useCase} onChange={onChange} placeholder="e.g. voice commands in a Hindi–English health app on budget phones" className={`${inputClass} resize-none`} />
+        <textarea id="ea-use" name="useCase" rows={3} value={form.useCase} onChange={onChange} placeholder="e.g. voice commands in a bilingual health app on budget phones" className={`${inputClass} resize-none`} />
       </div>
 
       <button
