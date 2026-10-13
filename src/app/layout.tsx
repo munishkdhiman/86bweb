@@ -14,8 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "86b.ai | Applied Enterprise Artificial Intelligence",
-  description: "We seamlessly integrate customized, secure, and scalable AI solutions into your existing workflows. From data orchestration to intelligent automation.",
+  title: "86b.ai | Brain-inspired AI that keeps learning on the device",
+  description: "86b.ai builds brain-inspired, on-device continual learning: one base model, personalised on every phone, running on a fraction of the energy. Built in India for the world's majority.",
 };
 
 export default function RootLayout({

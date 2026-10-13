@@ -3,20 +3,24 @@ import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 
 const footerLinks = {
-  'Solutions': [
+  'Product': [
+    { label: 'The 86b SDK', href: '/#product' },
+    { label: 'How It Works', href: '/#how-it-works' },
+    { label: 'Research: Intelligence per Watt', href: '/#research' },
+    { label: 'Work With Us', href: '/#partner' },
+  ],
+  'Services': [
+    { label: 'Enterprise AI Services', href: '/services' },
     { label: 'Enterprise GenAI & RAG', href: '/services/generative-ai' },
-    { label: 'Data Orchestration', href: '/services/investor-readiness' },
-    { label: 'Financial Intelligence', href: '/services/financial-intelligence' },
-    { label: 'Spatial Intelligence', href: '/#spatial' },
     { label: 'Digital Human Agents', href: '/services/digital-humans' },
-    { label: 'View All Services', href: '/services' },
+    { label: 'Spatial Intelligence', href: '/services#spatial' },
+    { label: 'How We Build', href: '/how-we-build' },
+    { label: 'All Services', href: '/services#catalog' },
   ],
   'Company': [
     { label: 'About 86b.ai', href: '/about' },
-    { label: 'How We Build', href: '/how-we-build' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact Us', href: '/contact' },
-  ],
-  'Legal & Security': [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Security Architecture', href: '/security' },
@@ -41,7 +45,7 @@ export default function Footer() {
               className="object-contain"
             />
             <p className="text-sm mt-3 leading-relaxed text-zinc-500">
-              Applied enterprise AI — built privately, deployed securely, operated by engineers.
+              Brain-inspired AI that keeps learning on the device and runs on a fraction of the energy. Built in India.
             </p>
             {/* Contact details */}
             <div className="flex flex-col gap-1.5 mt-5">
