@@ -39,7 +39,7 @@ export default function ContactPage() {
     setSubmitting(true);
     setSubmitError(null);
     try {
-      const result = await submitForm(`New Enquiry: ${form.firstName} ${form.lastName} | ${form.company}`, {
+      await submitForm(`New Enquiry: ${form.firstName} ${form.lastName} | ${form.company}`, {
         Name: `${form.firstName} ${form.lastName}`,
         Email: form.email,
         Company: form.company,
@@ -47,8 +47,8 @@ export default function ContactPage() {
         Service: form.service,
         Budget: form.budget,
         Message: form.message,
-      });
-      if (result === 'sent') setSubmitted(true);
+      }, form.email);
+      setSubmitted(true);
     } catch {
       setSubmitError('Something went wrong. Please email us directly at hello@86b.ai');
     } finally {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, CheckCircle2, Mail } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { submitForm } from '@/lib/forms';
 
 const interests = [
@@ -15,10 +15,10 @@ const interests = [
 const inputClass =
   'w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.04] text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#29B6F6]/60 focus:bg-white/[0.07] transition-all';
 
-// Early-access signup for the 86b SDK. Works on a static host via submitForm().
+// Early-access signup for the 86b SDK, emailed via /api/contact.
 export default function EarlyAccessForm() {
   const [form, setForm] = useState({ name: '', email: '', organisation: '', interest: interests[0], useCase: '' });
-  const [state, setState] = useState<'idle' | 'submitting' | 'sent' | 'mailto' | 'error'>('idle');
+  const [state, setState] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -27,14 +27,14 @@ export default function EarlyAccessForm() {
     e.preventDefault();
     setState('submitting');
     try {
-      const result = await submitForm(`86b SDK early access: ${form.name}`, {
+      await submitForm(`86b SDK early access: ${form.name}`, {
         Name: form.name,
         Email: form.email,
         Organisation: form.organisation,
         Interest: form.interest,
         'Use case': form.useCase,
-      });
-      setState(result);
+      }, form.email);
+      setState('sent');
     } catch {
       setState('error');
     }
@@ -92,12 +92,6 @@ export default function EarlyAccessForm() {
         <ArrowRight className="w-4 h-4" />
       </button>
 
-      {state === 'mailto' && (
-        <p className="text-xs text-white/55 flex items-start gap-2">
-          <Mail className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#29B6F6]" />
-          Your email app should open with the request ready to send. If it didn’t, write to hello@86b.ai.
-        </p>
-      )}
       {state === 'error' && (
         <p className="text-xs text-red-300">Something went wrong. Please email hello@86b.ai instead.</p>
       )}

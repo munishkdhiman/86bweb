@@ -13,7 +13,6 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EarlyAccessForm from '@/components/EarlyAccessForm';
-import { withBasePath } from '@/lib/base-path';
 
 // ── Problem ─────────────────────────────────────────────────────────────────
 const problems = [
@@ -780,7 +779,7 @@ export default function HomePage() {
                   The brain supports general intelligence with roughly 86 billion neurons on about 20 watts. We argue the next gains in practical AI will come from systems that learn continually, compute sparsely and adapt to individual users on the devices they already own.
                 </p>
                 <a
-                  href={withBasePath('/papers/intelligence-per-watt.pdf')}
+                  href="/papers/intelligence-per-watt.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] text-white text-sm font-semibold transition-colors"
