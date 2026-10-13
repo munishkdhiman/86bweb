@@ -344,7 +344,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-3 rounded-lg bg-[#16181D] hover:bg-[#2A2D35] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold tracking-wide transition-colors flex items-center justify-center gap-2 mt-1"
+          className="w-full btn btn-light"
         >
           {submitting ? (
             <>

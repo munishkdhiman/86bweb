@@ -219,14 +219,14 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#16181D] text-white font-normal hover:bg-[#2A2D35] transition-colors"
+              className="btn btn-light"
             >
               Book Free AI Audit
               <ChevronRight className="w-4 h-4" />
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-white/30 text-white font-semibold hover:border-white/60 transition-colors"
+              className="btn btn-ghost"
             >
               Explore Services
               <ArrowRight className="w-4 h-4" />

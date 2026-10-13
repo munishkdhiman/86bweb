@@ -86,7 +86,7 @@ export default function EarlyAccessForm() {
       <button
         type="submit"
         disabled={state === 'submitting'}
-        className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#16181D] hover:bg-[#2A2D35] disabled:opacity-60 text-white text-sm font-semibold transition-colors shadow-lg"
+        className="w-full btn btn-primary py-4"
       >
         {state === 'submitting' ? 'Sending…' : 'Request early access'}
         <ArrowRight className="w-4 h-4" />

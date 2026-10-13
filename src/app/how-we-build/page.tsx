@@ -175,7 +175,7 @@ export default function HowWeBuildPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#16181D] hover:bg-[#2A2D35] text-white font-semibold transition-colors"
+            className="btn btn-light"
           >
             Book Free AI Audit
             <ArrowRight className="w-4 h-4" />

@@ -245,3 +245,30 @@ strong, b { font-weight: 500; }
 @media (prefers-reduced-motion: reduce) {
   .aurora span { animation: none !important; }
 }
+
+/* ── Buttons: one system across the site ────────────────────────────────────
+   .btn + one of: primary (ink, on light), secondary (white, on light),
+   light (white, on dark/colour), ghost (glass outline, on dark/colour).
+   .btn-sm for compact placements such as the navbar. */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium tracking-[0.01em]
+           transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#7B61FF]/30
+           disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-sm { @apply px-5 py-2.5; }
+  .btn-primary {
+    @apply bg-[#16181D] text-white hover:bg-[#2A2D35] hover:-translate-y-px
+           shadow-[0_10px_24px_-12px_rgba(22,24,29,0.55)];
+  }
+  .btn-secondary {
+    @apply bg-white text-[#16181D] border border-[#E3DDD3] hover:border-[#16181D]/35 hover:-translate-y-px;
+  }
+  .btn-light {
+    @apply bg-white text-[#16181D] hover:bg-[#F4F1FF] hover:-translate-y-px
+           shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)];
+  }
+  .btn-ghost {
+    @apply bg-white/10 text-white border border-white/30 backdrop-blur hover:bg-white/15 hover:border-white/60;
+  }
+}

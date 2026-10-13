@@ -329,14 +329,14 @@ export default function ServicesPage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href={heroSlides[activeSlide].href}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#16181D] hover:bg-[#2A2D35] text-white text-sm font-semibold transition-colors shadow-lg"
+                  className="btn btn-light"
                 >
                   {heroSlides[activeSlide].cta}
                   <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/30 hover:border-white/60 text-white text-sm font-semibold backdrop-blur-sm transition-all"
+                  className="btn btn-ghost"
                 >
                   Book Free Audit
                 </Link>
@@ -644,7 +644,7 @@ export default function ServicesPage() {
               <motion.div variants={fadeUp} custom={4}>
                 <Link
                   href="/services/ai-smart-glasses"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#16181D] hover:bg-[#2A2D35] text-white text-sm font-semibold transition-colors shadow-lg"
+                  className="btn btn-primary"
                 >
                   Explore Wearable AI
                   <ChevronRight className="w-4 h-4" />
@@ -883,14 +883,14 @@ export default function ServicesPage() {
             <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#16181D] text-sm font-normal hover:bg-zinc-100 transition-colors shadow-lg"
+                className="btn btn-light"
               >
                 Book Free AI Audit
                 <ChevronRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/how-we-build"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-white/30 text-white text-sm font-semibold hover:border-white/60 transition-colors"
+                className="btn btn-ghost"
               >
                 How We Build
               </Link>

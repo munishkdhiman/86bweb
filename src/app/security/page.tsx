@@ -39,7 +39,7 @@ export default function SecurityPage() {
         <div className="max-w-4xl mx-auto px-6 mt-12 p-8 rounded-2xl bg-[#16181D] text-white">
           <h3 className="text-xl font-medium mb-3">Security questions?</h3>
           <p className="text-white/70 text-sm leading-relaxed mb-4">For detailed security documentation, architecture diagrams, or penetration test reports, contact us. All materials shared under strict confidentiality.</p>
-          <a href="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-[#16181D] text-sm font-medium hover:bg-zinc-100 transition-colors">Request Security Documentation</a>
+          <a href="/contact" className="btn btn-sm btn-light">Request Security Documentation</a>
         </div>
       </section>
       <Footer />

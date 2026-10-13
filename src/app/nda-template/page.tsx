@@ -26,7 +26,7 @@ export default function NdaTemplatePage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#16181D] text-white text-sm font-medium hover:bg-[#2A2D35] transition-colors"
+            className="btn btn-primary"
           >
             <Lock className="w-4 h-4" />
             Submit Enquiry &mdash; Receive Confidentiality Agreement

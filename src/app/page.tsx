@@ -84,7 +84,7 @@ const indiaPoints = [
   { title: 'India’s constraints are the world’s', desc: 'Budget phones, patchy networks, noise and many languages.' },
   { title: 'Frugal engineering', desc: 'The discipline behind the Mars Orbiter Mission and UPI, applied to AI.' },
   { title: 'Diversity as test bed', desc: '20+ major languages, countless accents, thousands of phone models.' },
-  { title: 'Export path built in', desc: 'South and Southeast Asia, Africa and Latin America share these conditions.' },
+  { title: 'Ready for the wider world', desc: 'Built to work wherever phones are affordable, networks are patchy and languages are many.' },
 ];
 
 // ── Who it's for ────────────────────────────────────────────────────────────
@@ -110,14 +110,6 @@ const benchmarkDims = [
   { icon: Users, dim: 'Speaker', desc: 'Regional accents, age groups, gender balance' },
   { icon: Mic, dim: 'Environment', desc: 'Quiet rooms, street noise, households, markets, vehicles' },
   { icon: Smartphone, dim: 'Device tier', desc: 'Low-cost, mid-range and flagship phones across chipsets' },
-];
-
-// ── Roadmap ─────────────────────────────────────────────────────────────────
-const roadmap = [
-  { when: 'Year 1 · Months 0–12', title: 'Research and prototyping', desc: 'Continual-learning model on budget phones; research report; patent filing.', gate: 'Beats baselines on forgetting and energy on 3+ phones' },
-  { when: 'Year 2 · Months 12–18', title: 'Pilots', desc: 'Voice demo live; 2–3 design partners; SDK alpha.', gate: 'Partners confirm accuracy gains' },
-  { when: 'Year 2 · Months 18–24', title: 'SDK launch', desc: 'Android SDK and developer dashboard; voice and wearable use cases.', gate: 'Licence customers in production' },
-  { when: 'Year 3 · Months 24–36', title: 'Scale', desc: 'Hardware co-design; spiking models; Southeast Asia and Africa; fintech and industrial edge.', gate: null },
 ];
 
 // ── Partners ────────────────────────────────────────────────────────────────
@@ -285,14 +277,14 @@ export default function HomePage() {
             <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
               <a
                 href="#early-access"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#EEE9FF] text-[#1E1A4D] text-sm font-semibold transition-colors shadow-[0_12px_40px_-12px_rgba(255,255,255,0.45)]"
+                className="group btn btn-light"
               >
                 Join early access
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
                 href="#product"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 backdrop-blur border border-white/25 hover:border-white/60 text-white text-sm font-semibold transition-all"
+                className="btn btn-ghost"
               >
                 Explore the 86b SDK
               </a>
@@ -737,7 +729,7 @@ export default function HomePage() {
                 ))}
               </div>
               <motion.p variants={fadeUp} custom={5} className="text-[#6B7079] text-sm mt-6">
-                We’ll start with consumer apps in India whose voice and sensor features must work for every user.
+                If your app’s voice or sensor features need to work for every user, on every phone, we’d like to hear from you.
               </motion.p>
             </motion.div>
           </div>
@@ -781,7 +773,7 @@ export default function HomePage() {
                   href="/papers/intelligence-per-watt.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#16181D] hover:bg-[#FBF8F4] text-sm font-semibold transition-colors"
+                  className="btn btn-light"
                 >
                   <Download className="w-4 h-4" />
                   Read the paper (PDF)
@@ -840,94 +832,6 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ROADMAP ──────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#FBF8F4]">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-16">
-            <Eyebrow color="#0E9488">Roadmap</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
-              From prototype to global scale <span className="text-[#8A8F98]">in three years.</span>
-            </motion.h2>
-          </motion.div>
-
-          <div className="relative">
-            <div className="hidden lg:block absolute top-[27px] left-0 right-0 h-[3px] rounded-full bg-spectrum opacity-70" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-              {roadmap.map((r, i) => (
-                <motion.div
-                  key={r.title}
-                  initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-40px' }} variants={fadeUp} custom={i * 0.4}
-                >
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mb-6 relative ring-8 ring-[#FBF8F4]"
-                    style={{ background: i === 0 ? 'linear-gradient(135deg,#FF6B4A,#E14FA0)' : hues[[0, 1, 2, 3][i]].bg }}
-                  >
-                    <span className="font-extralight tracking-tight text-xl" style={{ color: i === 0 ? '#fff' : hues[i].fg }}>{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                  <p className="text-xs font-semibold text-[#6B7079] mb-2 flex items-center flex-wrap gap-2">
-                    {r.when}
-                    {i === 0 && <span className="px-2 py-0.5 rounded-full bg-[#FFEDE7] text-[#E8553A] text-[10px] uppercase tracking-widest">We are here</span>}
-                  </p>
-                  <h3 className="text-lg font-medium text-[#16181D] mb-2">{r.title}</h3>
-                  <p className="text-[#6B7079] text-sm leading-relaxed mb-4">{r.desc}</p>
-                  {r.gate && (
-                    <div className="flex items-start gap-2 p-3 bg-white rounded-xl border border-[#ECE6DD]">
-                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: hues[i].fg }} />
-                      <span className="text-xs text-[#3B3F47]"><span className="text-[#6B7079]">Gate:</span> {r.gate}</span>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TEAM ─────────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
-            <Eyebrow color="#C7378A">The team</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
-              Twenty years of <span className="text-[#8A8F98]">building with emerging tech.</span>
-            </motion.h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              { name: 'Munish Dhiman', role: 'Co-founder · CEO', initials: 'MD', bio: '20 years of technology research, product development, sales and delivery. An award-winning career with recognition from government and industry.', grad: 'linear-gradient(135deg,#FF6B4A,#E14FA0)' },
-              { name: 'Aarti Dhiman', role: 'Co-founder · CTO', initials: 'AD', bio: '12 years of AI research and emerging-tech engineering, from computer vision and gesture recognition to virtual, augmented and mixed reality.', grad: 'linear-gradient(135deg,#7B61FF,#14B8A6)' },
-            ].map((f, i) => (
-              <motion.div
-                key={f.name}
-                initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.4}
-                className="rounded-[2rem] border border-[#ECE6DD] bg-[#FBF8F4] p-8 flex gap-6 items-start card-hover"
-              >
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: f.grad }}>
-                  <span className="font-extralight tracking-tight text-2xl text-white">{f.initials}</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium text-[#16181D]">{f.name}</h3>
-                  <p className="text-sm text-[#6347F0] mb-3">{f.role}</p>
-                  <p className="text-[#6B7079] text-sm leading-relaxed">{f.bio}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-2 mt-8">
-            {[
-              'NITI Aayog Champions of Change, 2017',
-              'Top 15, IBM SmartCamp Delhi',
-              'TechSparks winner',
-              'Featured in the Sunday Times of India',
-            ].map((r, i) => (
-              <span key={r} className="px-4 py-2 rounded-full text-sm" style={{ background: hues[i].bg, color: hues[i].fg }}>{r}</span>
-            ))}
           </div>
         </div>
       </section>

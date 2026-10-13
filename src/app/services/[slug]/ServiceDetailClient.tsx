@@ -129,7 +129,7 @@ export default function ServiceDetailClient({ svc }: Props) {
               </p>
               <Link
                 href="/contact"
-                className="w-full py-4 rounded-2xl bg-[#C4B5FF] hover:bg-[#D9CFFF] text-[#0F1115] font-medium transition-all text-sm text-center block shadow-[0_0_30px_rgba(123,97,255,0.25)] hover:shadow-[0_0_40px_rgba(123,97,255,0.4)] hover:-translate-y-0.5"
+                className="w-full btn btn-light py-4"
               >
                 Get in Touch
               </Link>

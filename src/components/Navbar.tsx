@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
-// Product-first navigation; services sit after a divider as a quieter secondary link.
+// Product-first navigation. Enterprise services are reached through the CTA button.
 const navLinks = [
   { label: 'Product', href: '/#product' },
   { label: 'How It Works', href: '/#how-it-works' },
@@ -15,7 +15,6 @@ const navLinks = [
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
 ];
-const secondaryLink = { label: 'Services', href: '/services' };
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -25,7 +24,7 @@ export default function Navbar() {
   const inServices = pathname.startsWith('/services') || pathname === '/how-we-build';
   const cta = inServices
     ? { label: 'Book AI Audit', href: '/contact' }
-    : { label: 'Get Early Access', href: '/#early-access' };
+    : { label: 'AI Services', href: '/services' };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -75,31 +74,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <span className={`h-4 w-px ${darkText ? 'bg-zinc-200' : 'bg-white/20'}`} />
-            <Link
-              href={secondaryLink.href}
-              className={`text-sm font-normal tracking-wide transition-colors duration-200 ${
-                inServices
-                  ? (darkText ? 'text-[#16181D]' : 'text-white')
-                  : (darkText ? 'text-zinc-400 hover:text-[#16181D]' : 'text-white/55 hover:text-white')
-              }`}
-            >
-              {secondaryLink.label}
-            </Link>
           </div>
 
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
             <Link
               href={cta.href}
-              className={`hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-normal tracking-wide transition-all duration-200 ${
-                darkText
-                  ? 'bg-[#16181D] text-white hover:bg-[#2A2D35]'
-                  : 'bg-white text-[#16181D] hover:bg-zinc-100'
-              }`}
+              className={`hidden md:inline-flex btn btn-sm ${darkText ? 'btn-primary' : 'btn-light'}`}
             >
               {cta.label}
-              <ChevronRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
 
             <button
@@ -147,19 +131,13 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <div className="my-3 h-px bg-zinc-100" />
-                <Link href={secondaryLink.href} onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 rounded-xl text-sm font-normal text-zinc-500 hover:bg-zinc-50 hover:text-[#16181D] transition-colors"
-                >
-                  Enterprise AI {secondaryLink.label}
-                </Link>
               </nav>
 
               <div className="p-5 border-t border-zinc-100">
                 <Link href={cta.href} onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-[#16181D] text-white text-sm font-normal hover:bg-[#2A2D35] transition-colors"
+                  className="btn btn-primary w-full"
                 >
-                  {cta.label} <ChevronRight className="w-4 h-4" />
+                  {cta.label} <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
             </motion.div>
