@@ -14,7 +14,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EarlyAccessForm from '@/components/EarlyAccessForm';
 import NeuralField from '@/components/NeuralField';
-import BrainHead from '@/components/BrainHead';
+import BrainGlow from '@/components/BrainGlow';
 
 // ── Problem ─────────────────────────────────────────────────────────────────
 const problems = [
@@ -276,7 +276,7 @@ export default function HomePage() {
           <span className="a1" /><span className="a2" /><span className="a3" /><span className="a4" />
         </div>
         <NeuralField dark className="absolute inset-0 w-full h-full opacity-40" />
-        <BrainHead className="absolute inset-0 w-full h-full opacity-50 lg:opacity-100" />
+        <BrainGlow className="absolute inset-0 w-full h-full opacity-45 lg:opacity-100" />
         {/* Keep the copy legible over the field */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0) 100%)' }} />
 
@@ -294,7 +294,7 @@ export default function HomePage() {
                 Brain-inspired on-device AI · Built in India
               </span>
             </motion.div>
-            <motion.h1 data-motion variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-white leading-[1.02] tracking-tight mb-8 text-balance">
+            <motion.h1 data-motion variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-white leading-[1.02] tracking-tight mb-8 text-balance [text-shadow:0_2px_18px_rgba(0,0,0,0.85),0_0_2px_rgba(0,0,0,0.6)]">
               Intelligence,<br />
               <span className="text-signal font-normal">the way nature built&nbsp;it.</span>
             </motion.h1>
