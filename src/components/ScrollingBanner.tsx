@@ -27,7 +27,7 @@ function Track({ items, speed = 40, reverse = false }: { items: string[]; speed?
       >
         {doubled.map((item, i) => (
           <span key={i} className="inline-flex items-center gap-3 px-5 py-0">
-            <span className="w-1 h-1 rounded-full bg-blue-500 flex-shrink-0" />
+            <span className="w-1 h-1 rounded-full bg-[#74835F] flex-shrink-0" />
             <span className="text-sm font-medium text-slate-500 whitespace-nowrap">{item}</span>
           </span>
         ))}

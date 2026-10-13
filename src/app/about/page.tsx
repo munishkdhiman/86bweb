@@ -57,11 +57,11 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#F9FAFB]">
+    <div className="min-h-screen bg-[#F6F7F2]">
       <Navbar />
 
       {/* ── INSPIRATION HEADER ───────────────────────────────────────────────── */}
-      <section className="relative bg-[#060d18] overflow-hidden">
+      <section className="relative bg-[#22261E] overflow-hidden">
         {/* Neuron image — very faint */}
         <Image
           src="/neuron_hero.png"
@@ -70,25 +70,25 @@ export default function AboutPage() {
           className="object-cover object-center opacity-20"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060d18]/80 via-[#060d18]/70 to-[#060d18]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#22261E]/80 via-[#22261E]/70 to-[#22261E]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 pt-44 pb-24">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col gap-5">
 
-            <motion.p variants={fadeUp} className="text-[#29B6F6] text-[11px] uppercase tracking-[0.3em] font-medium">
+            <motion.p variants={fadeUp} className="text-[#B5C19F] text-[11px] uppercase tracking-[0.3em] font-medium">
               The inspiration behind 86b.ai
             </motion.p>
 
             <motion.h1 variants={fadeUp} custom={1}
               className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl"
             >
-              Named after <span className="text-[#29B6F6] font-light">86 billion neurons</span> — intelligence that has always been specific to one person, one context, one lifetime.
+              Named after <span className="text-[#B5C19F] font-light">86 billion neurons</span> — intelligence that has always been specific to one person, one context, one lifetime.
             </motion.h1>
 
             <motion.blockquote
               variants={fadeUp}
               custom={2}
-              className="border-l-2 border-[#29B6F6]/40 pl-6 mt-2 max-w-2xl"
+              className="border-l-2 border-[#74835F]/40 pl-6 mt-2 max-w-2xl"
             >
               <p className="text-white/80 text-lg md:text-xl font-light leading-[1.75] italic">
                 "86b.ai carries that number as a name because we carry it as a philosophy. Not a target to hit, not a benchmark to beat — but a reminder of what intelligence truly is. Emergent. Adaptive. Deeply contextual. Born not from raw power, but from the slow, patient accumulation of experience."
@@ -111,9 +111,9 @@ export default function AboutPage() {
           <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
             About 86b.ai
           </span>
-          <h2 className="text-4xl md:text-5xl font-light text-[#0E202E] mb-6 leading-[1.06] max-w-3xl">
+          <h2 className="text-4xl md:text-5xl font-light text-[#2F352A] mb-6 leading-[1.06] max-w-3xl">
             Solution Engineers,<br />
-            <span className="text-[#1F3249] italic font-normal">Not Software Licences.</span>
+            <span className="text-[#454D3E] italic font-normal">Not Software Licences.</span>
           </h2>
           <p className="text-zinc-500 text-xl leading-relaxed max-w-2xl mb-12">
             We are an applied AI engineering firm. We build custom AI systems that integrate with your existing infrastructure — deployed within your chosen environment, from on-premise to enterprise cloud — and hand them over with full source code, documentation, and team training.
@@ -123,7 +123,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div key={s.label} className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200">
-                <div className="text-3xl font-light text-[#0E202E]">
+                <div className="text-3xl font-light text-[#2F352A]">
                   {s.value}
                   <span className="text-[#5A6A7A] text-xl ml-0.5">{s.unit}</span>
                 </div>
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
                 Who We Are
               </span>
-              <h2 className="text-3xl font-light text-[#0E202E] mb-6 leading-tight">
+              <h2 className="text-3xl font-light text-[#2F352A] mb-6 leading-tight">
                 A small team with deep expertise in enterprise AI delivery.
               </h2>
               <div className="space-y-4 text-zinc-600 leading-relaxed">
@@ -169,7 +169,7 @@ export default function AboutPage() {
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E202E] via-transparent to-transparent opacity-90 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2F352A] via-transparent to-transparent opacity-90 pointer-events-none" />
               <div className="absolute bottom-0 left-0 p-8 w-full">
                 <p className="text-white text-lg md:text-xl font-light leading-snug">
                   We are engineers who build AI systems inside your infrastructure and hand them over.
@@ -186,7 +186,7 @@ export default function AboutPage() {
           <span className="inline-block text-xs font-normal uppercase tracking-widest text-[#5A6A7A] mb-4">
             Operational Principles
           </span>
-          <h2 className="text-3xl md:text-4xl font-light text-[#0E202E] mb-16 max-w-2xl leading-tight">
+          <h2 className="text-3xl md:text-4xl font-light text-[#2F352A] mb-16 max-w-2xl leading-tight">
             The beliefs that shape every engagement we take on.
           </h2>
 
@@ -198,7 +198,7 @@ export default function AboutPage() {
               >
                 <div className="text-4xl font-light text-zinc-200">{p.number}</div>
                 <div>
-                  <h3 className="text-lg font-medium text-[#0E202E] mb-2">{p.title}</h3>
+                  <h3 className="text-lg font-medium text-[#2F352A] mb-2">{p.title}</h3>
                   <p className="text-zinc-500 leading-relaxed text-sm">{p.description}</p>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
-      <section className="bg-[#0E202E] py-16">
+      <section className="bg-[#2F352A] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
             Ready to work with engineers who build?
@@ -219,7 +219,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#29B6F6] text-white font-normal hover:bg-[#039BE5] transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#4A5541] text-white font-normal hover:bg-[#3B4434] transition-colors"
             >
               Book Free AI Audit
               <ChevronRight className="w-4 h-4" />

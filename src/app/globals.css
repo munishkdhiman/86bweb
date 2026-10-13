@@ -5,35 +5,35 @@
 /* ── Design Tokens — Infosys-inspired enterprise palette ────────────────────── */
 :root {
   /* Backgrounds */
-  --bg:          #F7F8FA;          /* off-white page bg */
+  --bg:          #FFFFFF;          /* off-white page bg */
   --bg-surface:  #FFFFFF;          /* card / panel surface */
-  --bg-elevated: #EEF0F4;          /* hover / subtle lift */
+  --bg-elevated: #F1F3EC;          /* hover / subtle lift */
 
   /* Foregrounds — Infosys dark charcoal + navy */
-  --fg:          #0E202E;          /* deep navy — primary heading colour */
+  --fg:          #2F352A;          /* deep navy — primary heading colour */
   --fg-body:     #2D3748;          /* charcoal — body text */
   --fg-muted:    #5A6A7A;          /* medium grey — secondary text */
   --fg-subtle:   #94A3B8;          /* light grey — hints / labels */
 
   /* Borders */
-  --border:       #DDE1E7;
-  --border-light: #EAECF0;
+  --border:       #E2E5DC;
+  --border-light: #ECEEE7;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(14,32,46,0.06);
-  --shadow-md: 0 4px 16px rgba(14,32,46,0.09);
-  --shadow-lg: 0 16px 48px rgba(14,32,46,0.12);
+  --shadow-sm: 0 1px 3px rgba(47,53,42,0.06);
+  --shadow-md: 0 4px 16px rgba(47,53,42,0.09);
+  --shadow-lg: 0 16px 48px rgba(47,53,42,0.12);
 
-  /* Brand accent — 86b.ai logo sky-blue — used sparingly */
-  --accent:       #29B6F6;
-  --accent-dark:  #0288D1;
-  --accent-hover: #039BE5;
-  --accent-muted: rgba(41,182,246,0.09);
-  --border-accent: rgba(41,182,246,0.28);
+  /* Brand accent — olive green-grey — used sparingly */
+  --accent:       #74835F;
+  --accent-dark:  #4A5541;
+  --accent-hover: #3B4434;
+  --accent-muted: rgba(116,131,95,0.09);
+  --border-accent: rgba(116,131,95,0.28);
 
   /* Navy dark sections */
-  --navy-deep:    #0E202E;
-  --navy-mid:     #1F3249;
+  --navy-deep:    #2F352A;
+  --navy-mid:     #454D3E;
   --navy-border:  rgba(255,255,255,0.08);
 }
 
@@ -51,7 +51,7 @@ body {
 
 /* ── Typography ─────────────────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
-  color: #0E202E;              /* deep navy — Infosys-inspired primary heading */
+  color: #2F352A;              /* deep navy — Infosys-inspired primary heading */
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -72,7 +72,7 @@ strong, b { font-weight: 500; }
 ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
 /* ── Selection ──────────────────────────────────────────────────────────────── */
-::selection { background: rgba(41,182,246,0.12); color: #0288D1; }
+::selection { background: rgba(116,131,95,0.12); color: #4A5541; }
 
 /* ── Navbar solid bg — clear dark text, no opacity tricks ───────────────────── */
 .nav-solid {
@@ -93,7 +93,7 @@ strong, b { font-weight: 500; }
 
 /* ── Glass (dark — spatial section) ─────────────────────────────────────────── */
 .glass-dark {
-  background: rgba(14,32,46,0.70);
+  background: rgba(47,53,42,0.70);
   backdrop-filter: blur(20px) saturate(130%);
   -webkit-backdrop-filter: blur(20px) saturate(130%);
   border: 1px solid rgba(255,255,255,0.08);
@@ -108,13 +108,13 @@ strong, b { font-weight: 500; }
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .glass-spatial:hover {
-  border-color: rgba(41,182,246,0.35);
-  box-shadow: 0 0 28px rgba(41,182,246,0.10);
+  border-color: rgba(116,131,95,0.35);
+  box-shadow: 0 0 28px rgba(116,131,95,0.10);
 }
 
 /* ── Accent gradient text ───────────────────────────────────────────────────── */
 .text-accent-gradient {
-  background: linear-gradient(135deg, #29B6F6 0%, #0EA5E9 100%);
+  background: linear-gradient(135deg, #74835F 0%, #4A5541 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -122,7 +122,7 @@ strong, b { font-weight: 500; }
 
 /* ── Subtle glow — use only on hero CTA / key accent elements ───────────────── */
 .glow-accent {
-  box-shadow: 0 0 0 1px rgba(41,182,246,0.15), 0 4px 20px rgba(41,182,246,0.12);
+  box-shadow: 0 0 0 1px rgba(116,131,95,0.15), 0 4px 20px rgba(116,131,95,0.12);
 }
 
 /* ── Mesh grid (spatial section bg) ────────────────────────────────────────── */
@@ -195,3 +195,12 @@ strong, b { font-weight: 500; }
 /* ── Horizontal scrollers without a visible scrollbar ───────────────────────── */
 .hide-scrollbar { scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── Light-theme neuron artwork: dark-on-white olive line drawing ─────────── */
+.neuron-light {
+  filter: invert(1) grayscale(1) sepia(0.45) hue-rotate(38deg) saturate(0.9) contrast(1.05);
+}
+/* Tint full-colour artwork toward the olive palette */
+.olive-tint {
+  filter: grayscale(1) sepia(0.5) hue-rotate(40deg) saturate(0.85) brightness(0.95);
+}

@@ -13,7 +13,7 @@ const interests = [
 ];
 
 const inputClass =
-  'w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.04] text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#29B6F6]/60 focus:bg-white/[0.07] transition-all';
+  'w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.04] text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#B5C19F]/60 focus:bg-white/[0.07] transition-all';
 
 // Early-access signup for the 86b SDK, emailed via /api/contact.
 export default function EarlyAccessForm() {
@@ -43,8 +43,8 @@ export default function EarlyAccessForm() {
   if (state === 'sent') {
     return (
       <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center">
-        <div className="w-14 h-14 rounded-2xl bg-[#29B6F6]/15 border border-[#29B6F6]/30 flex items-center justify-center mx-auto mb-5">
-          <CheckCircle2 className="w-7 h-7 text-[#29B6F6]" />
+        <div className="w-14 h-14 rounded-2xl bg-[#74835F]/15 border border-[#74835F]/30 flex items-center justify-center mx-auto mb-5">
+          <CheckCircle2 className="w-7 h-7 text-[#B5C19F]" />
         </div>
         <h3 className="text-2xl font-light text-white mb-2">You’re on the list.</h3>
         <p className="text-white/55 text-sm max-w-sm mx-auto leading-relaxed">
@@ -73,7 +73,7 @@ export default function EarlyAccessForm() {
         </div>
         <div>
           <label htmlFor="ea-interest" className="block text-xs text-white/50 mb-1.5">I’m interested as</label>
-          <select id="ea-interest" name="interest" value={form.interest} onChange={onChange} className={`${inputClass} [&>option]:text-[#0E202E]`}>
+          <select id="ea-interest" name="interest" value={form.interest} onChange={onChange} className={`${inputClass} [&>option]:text-[#2F352A]`}>
             {interests.map((i) => <option key={i} value={i}>{i}</option>)}
           </select>
         </div>
@@ -86,7 +86,7 @@ export default function EarlyAccessForm() {
       <button
         type="submit"
         disabled={state === 'submitting'}
-        className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#29B6F6] hover:bg-[#039BE5] disabled:opacity-60 text-white text-sm font-semibold transition-colors shadow-lg"
+        className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#B5C19F] hover:bg-[#C5CEB5] disabled:opacity-60 text-[#22261E] text-sm font-semibold transition-colors shadow-lg"
       >
         {state === 'submitting' ? 'Sending…' : 'Request early access'}
         <ArrowRight className="w-4 h-4" />

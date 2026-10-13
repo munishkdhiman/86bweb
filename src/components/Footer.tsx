@@ -29,7 +29,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-950 text-zinc-400">
+    <footer className="bg-[#22261E] text-zinc-400">
 
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -53,10 +53,10 @@ export default function Footer() {
                 href="mailto:Info@86b.ai"
                 className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-2"
               >
-                <span className="text-[#29B6F6] text-xs">&#9993;</span> Info@86b.ai
+                <span className="text-[#74835F] text-xs">&#9993;</span> Info@86b.ai
               </a>
               <span className="text-xs text-zinc-500 flex items-center gap-2">
-                <span className="text-[#29B6F6] text-xs">&#9679;</span> Gurugram, India
+                <span className="text-[#74835F] text-xs">&#9679;</span> Gurugram, India
               </span>
             </div>
           </div>

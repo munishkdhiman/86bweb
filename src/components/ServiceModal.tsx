@@ -100,7 +100,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                 )}
               </div>
 
-              <h2 className="text-2xl md:text-3xl font-light text-[#0E202E] mb-3 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-light text-[#2F352A] mb-3 leading-tight">
                 {service.title}
               </h2>
               <p className="text-[#5A6A7A] font-normal mb-4 leading-relaxed">{service.tagline}</p>
@@ -110,7 +110,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <div className="md:hidden mb-6">
                 <button
                   onClick={() => setFormOpen((v) => !v)}
-                  className="w-full py-3.5 rounded-xl bg-[#0E202E] text-white text-sm font-semibold flex items-center justify-center gap-2 transition-colors active:bg-[#1F3249]"
+                  className="w-full py-3.5 rounded-xl bg-[#2F352A] text-white text-sm font-semibold flex items-center justify-center gap-2 transition-colors active:bg-[#454D3E]"
                 >
                   {formOpen ? 'Hide Enquiry Form' : 'Request Technical Audit'}
                   {formOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
@@ -123,7 +123,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                   <div className="grid grid-cols-3 gap-4 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
                     {service.metrics.map((m) => (
                       <div key={m.label} className="text-center">
-                        <div className="text-xl font-medium text-[#29B6F6]">{m.value}</div>
+                        <div className="text-xl font-medium text-[#74835F]">{m.value}</div>
                         <div className="text-xs text-zinc-500 mt-0.5">{m.label}</div>
                       </div>
                     ))}
@@ -141,11 +141,11 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <ol className="space-y-4 mb-8">
                 {service.steps.map((step, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#29B6F6]/10 text-[#29B6F6] text-xs font-medium flex items-center justify-center mt-0.5">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#74835F]/10 text-[#74835F] text-xs font-medium flex items-center justify-center mt-0.5">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
-                      <p className="font-semibold text-[#0E202E] text-sm">{step.title}</p>
+                      <p className="font-semibold text-[#2F352A] text-sm">{step.title}</p>
                       <p className="text-zinc-500 text-sm mt-0.5">{step.desc}</p>
                     </div>
                   </li>
@@ -169,7 +169,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             </div>
 
             {/* ── RIGHT (desktop): always visible sidebar form ── */}
-            <div className="hidden md:flex w-80 lg:w-96 bg-[#0E202E] p-10 flex-col gap-5 flex-shrink-0 overflow-y-auto">
+            <div className="hidden md:flex w-80 lg:w-96 bg-[#2F352A] p-10 flex-col gap-5 flex-shrink-0 overflow-y-auto">
               <FormContent service={service} />
             </div>
 
@@ -182,11 +182,11 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ type: 'spring', damping: 32, stiffness: 280 }}
-                  className="md:hidden bg-[#0E202E] overflow-hidden flex-shrink-0"
+                  className="md:hidden bg-[#2F352A] overflow-hidden flex-shrink-0"
                 >
                   {/* Drag handle */}
                   <div className="flex items-center justify-between px-6 pt-4 pb-2">
-                    <span className="text-xs uppercase tracking-widest text-[#29B6F6] font-semibold">Request Audit</span>
+                    <span className="text-xs uppercase tracking-widest text-[#74835F] font-semibold">Request Audit</span>
                     <button
                       onClick={() => setFormOpen(false)}
                       className="p-1 rounded-full text-zinc-400 hover:text-white transition-colors"
@@ -255,15 +255,15 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-10 text-center">
-        <div className="w-12 h-12 rounded-full bg-[#29B6F6]/20 border border-[#29B6F6]/40 flex items-center justify-center">
-          <svg className="w-6 h-6 text-[#29B6F6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <div className="w-12 h-12 rounded-full bg-[#74835F]/20 border border-[#74835F]/40 flex items-center justify-center">
+          <svg className="w-6 h-6 text-[#74835F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <div>
           <p className="text-white font-semibold text-lg">Request received</p>
           <p className="text-zinc-400 text-sm mt-1 leading-relaxed">
-            We'll reach out to <span className="text-[#29B6F6]">{form.email}</span> within 24 hours.
+            We'll reach out to <span className="text-[#74835F]">{form.email}</span> within 24 hours.
           </p>
         </div>
       </div>
@@ -274,7 +274,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
     <>
       {!compact && (
         <div className="border-b border-white/10 pb-5">
-          <span className="text-[10px] font-normal uppercase tracking-widest text-[#29B6F6]">Deploy Under Strict Confidentiality</span>
+          <span className="text-[10px] font-normal uppercase tracking-widest text-[#74835F]">Deploy Under Strict Confidentiality</span>
           <h3 className="text-xl font-normal text-white mt-2 leading-snug">
             Deploy {service.title} on your terms
           </h3>
@@ -299,7 +299,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             required
             value={form.fullName}
             onChange={set('fullName')}
-            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#74835F]/60 transition-all"
           />
         </div>
         <div>
@@ -310,7 +310,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             required
             value={form.company}
             onChange={set('company')}
-            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#74835F]/60 transition-all"
           />
         </div>
         <div>
@@ -321,7 +321,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             required
             value={form.email}
             onChange={set('email')}
-            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#74835F]/60 transition-all"
           />
         </div>
         {!compact && (
@@ -332,7 +332,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
               rows={3}
               value={form.requirements}
               onChange={set('requirements')}
-              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#29B6F6]/60 transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#74835F]/60 transition-all resize-none"
             />
           </div>
         )}
@@ -344,7 +344,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-3 rounded-lg bg-[#29B6F6] hover:bg-[#039BE5] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold tracking-wide transition-colors flex items-center justify-center gap-2 mt-1"
+          className="w-full py-3 rounded-lg bg-[#4A5541] hover:bg-[#3B4434] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold tracking-wide transition-colors flex items-center justify-center gap-2 mt-1"
         >
           {submitting ? (
             <>
@@ -366,7 +366,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
       <div className="border-t border-white/10 pt-4 space-y-2 mt-1">
         {['Strict confidentiality', 'No commitment required', 'Prompt response'].map((t) => (
           <div key={t} className="flex items-center gap-2 text-xs text-zinc-400 font-light">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6]/60 flex-shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#74835F]/60 flex-shrink-0" />
             {t}
           </div>
         ))}
