@@ -7,14 +7,13 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
-// Product-first navigation; enterprise services are a plain text link after About.
+// Product-first navigation. Enterprise services are reached through the CTA button.
 const navLinks = [
   { label: 'Product', href: '/#product' },
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'Research', href: '/#research' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
 ];
 
 export default function Navbar() {
@@ -25,7 +24,7 @@ export default function Navbar() {
   const inServices = pathname.startsWith('/services') || pathname === '/how-we-build';
   const cta = inServices
     ? { label: 'Book AI Audit', href: '/contact' }
-    : { label: 'Join early access', href: '/#early-access' };
+    : { label: 'AI Services', href: '/services' };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
