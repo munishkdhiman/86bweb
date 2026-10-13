@@ -278,3 +278,8 @@ strong, b { font-weight: 500; }
     @apply bg-white/10 text-white border border-white/30 backdrop-blur hover:bg-white/15 hover:border-white/60;
   }
 }
+
+/* Reduced motion: never leave scroll-revealed content hidden or offset */
+@media (prefers-reduced-motion: reduce) {
+  [data-motion] { opacity: 1 !important; transform: none !important; }
+}

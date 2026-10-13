@@ -73,7 +73,7 @@ export default function EarlyAccessForm() {
         </div>
         <div>
           <label htmlFor="ea-interest" className="block text-xs text-[#6B7079] mb-1.5">I’m interested as</label>
-          <select id="ea-interest" name="interest" value={form.interest} onChange={onChange} className={`${inputClass}`}>
+          <select id="ea-interest" name="interest" value={form.interest} onChange={onChange} className={`${inputClass} w-full`}>
             {interests.map((i) => <option key={i} value={i}>{i}</option>)}
           </select>
         </div>
@@ -86,18 +86,18 @@ export default function EarlyAccessForm() {
       <button
         type="submit"
         disabled={state === 'submitting'}
-        className="w-full btn btn-primary py-4"
+        className="w-full btn btn-primary py-4 min-h-12"
       >
         {state === 'submitting' ? 'Sending…' : 'Request early access'}
         <ArrowRight className="w-4 h-4" />
       </button>
+      <p className="text-[11px] text-[#9A9DA4] leading-relaxed">
+        No spam, no sharing. We’ll only contact you about the preview.
+      </p>
 
       {state === 'error' && (
         <p className="text-xs text-red-600">Something went wrong. Please email hello@86b.ai instead.</p>
       )}
-      <p className="text-[11px] text-[#9A9DA4] leading-relaxed">
-        We’ll only use your details to contact you about the 86b SDK preview. No spam, no sharing.
-      </p>
     </form>
   );
 }

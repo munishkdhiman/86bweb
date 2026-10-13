@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  ChevronRight, ArrowRight, ArrowDown, Zap, Brain, Cpu, Lock, Battery,
-  Smartphone, RefreshCw, Globe, Mic, CheckCircle2, FileText,
-  Download, Gauge, ShieldCheck, Activity, Languages, Users, Mail, Phone,
-  Cloud, Package, Layers, Radio, Sparkles,
+  ArrowRight, ArrowDown, Zap, Brain, Cpu, Lock, Battery,
+  Smartphone, RefreshCw, Globe, Mic, Check, CheckCircle2, FileText,
+  Download, Gauge, ShieldCheck, Activity, Languages, Users, Mail,
+  Cloud, Package, Layers, Radio,
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -20,7 +20,7 @@ const problems = [
   { icon: Zap, title: 'Scaling hits limits', desc: 'Frontier AI needs GPU clusters, power and capital that few can afford.' },
   { icon: Smartphone, title: 'Edge is underserved', desc: 'Phones and wearables have little power or memory. Big models don’t fit.' },
   { icon: RefreshCw, title: 'Models stop learning', desc: 'Deployed models can’t adapt to each user, and naive updates erase old skills.' },
-  { icon: Globe, title: 'The majority is ignored', desc: 'On-device AI is tuned for flagship phones and a handful of languages.' },
+  { icon: Globe, title: 'Most phones are left out', desc: 'On-device AI is tuned for flagship phones and a handful of languages.' },
 ];
 
 // ── Product capabilities ────────────────────────────────────────────────────
@@ -29,6 +29,13 @@ const capabilities = [
   { icon: Brain, title: 'Remembers', desc: 'Earlier skills stay intact while new ones are learned, like memory consolidation in the brain.' },
   { icon: Battery, title: 'Computes sparsely', desc: 'Activates only the parts each input needs, cutting energy and latency.' },
   { icon: Lock, title: 'Stays private', desc: 'Data and learning never leave the phone.' },
+];
+
+// ── Why this is different ───────────────────────────────────────────────────
+const comparisons = [
+  { icon: RefreshCw, title: 'vs. fine-tuning on device', desc: 'Naive updates overwrite what the model knew. A separate fast adapter learns the user while the slow learner keeps shared knowledge intact.' },
+  { icon: Cloud, title: 'vs. cloud personalisation', desc: 'Sending audio and sensor data to a server costs energy, bandwidth and trust. Here the data and the learning never leave the phone; only aggregate metrics do.' },
+  { icon: Smartphone, title: 'vs. flagship-only on-device AI', desc: 'Most on-device assistants target high-end chips and a few languages. The 86b SDK is sized for ₹10,000 phones and tested on Indian languages, accents and noise first.' },
 ];
 
 // ── How it works: two rows of the framework diagram ─────────────────────────
@@ -112,6 +119,15 @@ const benchmarkDims = [
   { icon: Smartphone, dim: 'Device tier', desc: 'Low-cost, mid-range and flagship phones across chipsets' },
 ];
 
+// ── Development status (status strip) ──────────────────────────────────────
+const roadmap: { title: string; desc: string; state: 'done' | 'current' | 'later' }[] = [
+  { title: 'Research', desc: 'Perspective paper published, Oct 2026', state: 'done' },
+  { title: 'Prototype', desc: 'Voice-command testbed on budget phones', state: 'current' },
+  // TODO(team): confirm the developer preview date before publishing; "2027" is a placeholder.
+  { title: 'Developer preview', desc: 'First design partners, 2027', state: 'later' },
+  { title: 'Pilots', desc: 'Measured results published per device and per user group', state: 'later' },
+];
+
 // ── Partners ────────────────────────────────────────────────────────────────
 const partnerTypes = [
   { icon: Package, title: 'Design partners', desc: 'Apps that need on-device personalisation for Indian users.' },
@@ -141,7 +157,7 @@ const fadeUp = {
 
 function Eyebrow({ children, color = '#6347F0' }: { children: React.ReactNode; color?: string }) {
   return (
-    <motion.span
+    <motion.span data-motion
       variants={fadeUp}
       className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] mb-5"
       style={{ color }}
@@ -194,7 +210,7 @@ function VoiceDemo() {
         </div>
 
         <p className="text-[11px] uppercase tracking-widest text-[#6347F0] mb-2">Use {step + 1}</p>
-        <motion.p
+        <motion.p data-motion
           key={step}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -215,7 +231,7 @@ function VoiceDemo() {
           <span className="text-[#16181D] font-mono">{u.confidence}%</span>
         </div>
         <div className="h-1.5 rounded-full bg-[#16181D]/10 overflow-hidden mb-6">
-          <motion.div
+          <motion.div data-motion
             className="h-full bg-spectrum rounded-full"
             animate={{ width: `${u.confidence}%` }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -240,8 +256,17 @@ function VoiceDemo() {
 }
 
 export default function HomePage() {
+  // With reduced motion, skip the hidden start state so nothing waits on an
+  // observer to become visible. globals.css adds a CSS fallback for [data-motion].
+  const reduce = useReducedMotion();
+  const initial = reduce ? false : 'hidden';
+
   return (
     <div className="min-h-screen bg-[#FBF8F4]">
+      {/* Without JavaScript, reveal content that would otherwise start hidden */}
+      <noscript>
+        <style>{'[data-motion]{opacity:1!important;transform:none!important}'}</style>
+      </noscript>
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
@@ -254,27 +279,27 @@ export default function HomePage() {
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(16,12,42,0.8) 0%, rgba(16,12,42,0.55) 45%, rgba(16,12,42,0) 100%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full pointer-events-none">
-          <motion.div initial="hidden" animate="visible" className="max-w-4xl pointer-events-auto">
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-8">
-              <span className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
+          <motion.div data-motion initial={initial} animate="visible" className="max-w-4xl pointer-events-auto">
+            <motion.div data-motion variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-8">
+              <a href="#status" className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20 hover:border-white/40 transition-colors text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
                 <span className="relative flex w-2 h-2">
                   <span className="absolute inset-0 rounded-full bg-[#E14FA0] animate-pulse-ring" />
                   <span className="relative w-2 h-2 rounded-full bg-spectrum" />
                 </span>
-                In development · Early access open
-              </span>
+                Early access open · SDK preview in development
+              </a>
               <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60">
-                Brain-inspired AI · Built in India
+                Brain-inspired on-device AI · Built in India
               </span>
             </motion.div>
-            <motion.h1 variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-white leading-[1.02] tracking-tight mb-8">
+            <motion.h1 data-motion variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-white leading-[1.02] tracking-tight mb-8 text-balance">
               Intelligence,<br />
-              <span className="text-spectrum font-normal">the way nature built it.</span>
+              <span className="text-spectrum font-normal">the way nature built&nbsp;it.</span>
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl">
-              We’re building AI that keeps learning on the device and runs on a fraction of the energy: one base model, personalised on every phone.
+            <motion.p data-motion variants={fadeUp} custom={2} className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl">
+              Big intelligence on Tiny power. An AI Engine inspired by the brain, Switches on only what each task needs.
             </motion.p>
-            <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
+            <motion.div data-motion variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
               <a
                 href="#early-access"
                 className="group btn btn-light"
@@ -283,16 +308,12 @@ export default function HomePage() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
-                href="#product"
+                href="#how-it-works"
                 className="btn btn-ghost"
               >
-                Explore the 86b SDK
+                See how it works
               </a>
             </motion.div>
-            <motion.p variants={fadeUp} custom={4} className="mt-10 text-xs text-white/55 flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#C4B5FF]" />
-              Like the brain, only a few neurons fire at once, passing signals along their connections.
-            </motion.p>
           </motion.div>
         </div>
 
@@ -301,12 +322,48 @@ export default function HomePage() {
         </a>
       </section>
 
+      {/* ── STATUS STRIP: the one place that states development status ───── */}
+      <section id="status" className="bg-white border-y border-[#ECE6DD] py-8 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+          <ol className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {roadmap.map((r, i) => (
+              <li key={r.title} className="flex items-start gap-3">
+                {r.state === 'done' && (
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: hues[3].bg }}>
+                    <Check className="w-4 h-4" style={{ color: hues[3].fg }} />
+                  </span>
+                )}
+                {r.state === 'current' && (
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full p-[2px] bg-spectrum">
+                    <span className="w-full h-full rounded-full bg-white flex items-center justify-center text-xs font-semibold text-[#16181D]">{i + 1}</span>
+                  </span>
+                )}
+                {r.state === 'later' && (
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full border border-[#ECE6DD] bg-[#FBF8F4] flex items-center justify-center text-xs text-[#9A9DA4]">{i + 1}</span>
+                )}
+                <div>
+                  <p className={`text-sm font-medium flex items-center gap-2 ${r.state === 'later' ? 'text-[#6B7079]' : 'text-[#16181D]'}`}>
+                    {r.title}
+                    {r.state === 'current' && <span className="px-2 py-0.5 rounded-full text-[10px] uppercase tracking-widest" style={{ background: hues[2].bg, color: hues[2].fg }}>Now</span>}
+                  </p>
+                  <p className={`text-xs leading-relaxed mt-0.5 ${r.state === 'later' ? 'text-[#9A9DA4]' : 'text-[#6B7079]'}`}>{r.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <a href="#early-access" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#6347F0] hover:text-[#16181D] transition-colors whitespace-nowrap">
+            Get notified when the preview opens
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </section>
+
       {/* ── THE BENCHMARK ────────────────────────────────────────────────────── */}
       <section id="benchmark" className="bg-white scroll-mt-20 border-y border-[#ECE6DD]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-14">
+          <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="text-center mb-14">
             <Eyebrow color="#E8553A">The benchmark</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-tight tracking-tight">
+            <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-tight tracking-tight">
               The brain runs general intelligence <span className="text-[#8A8F98]">on 20 watts.</span>
             </motion.h2>
           </motion.div>
@@ -315,22 +372,22 @@ export default function HomePage() {
             {[
               { value: '86B', label: 'neurons in the human brain', hue: hues[0] },
               { value: '~20 W', label: 'to power all of it, less than a light bulb', hue: hues[3] },
-              { value: 'MW', label: 'megawatt data centres to train and serve today’s frontier AI', hue: null },
+              { value: '50,000×', label: 'the brain’s power budget, for every megawatt a data centre draws to serve frontier AI', hue: null },
             ].map((s, i) => (
-              <motion.div
+              <motion.div data-motion
                 key={s.value}
-                initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
+                initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
                 className="rounded-3xl p-10 text-center"
                 style={{ background: s.hue ? s.hue.bg : '#F3F1EE' }}
               >
-                <p className="font-extralight tracking-tight text-7xl md:text-8xl leading-none mb-4" style={{ color: s.hue ? s.hue.fg : '#9A9DA4' }}>{s.value}</p>
+                <p className="font-extralight tracking-tight text-6xl md:text-5xl lg:text-7xl leading-none mb-4 whitespace-nowrap" style={{ color: s.hue ? s.hue.fg : '#9A9DA4' }}>{s.value}</p>
                 <p className="text-[#3B3F47] text-sm max-w-[230px] mx-auto leading-relaxed">{s.label}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.p
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3}
+          <motion.p data-motion
+            initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3}
             className="text-center text-xl md:text-2xl text-[#16181D] font-light mt-12"
           >
             And unlike the brain, today’s models <span className="text-spectrum font-normal">stop learning the moment they ship.</span>
@@ -341,17 +398,17 @@ export default function HomePage() {
       {/* ── THE PROBLEM ──────────────────────────────────────────────────────── */}
       <section className="py-24 wash-peach">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
+          <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="max-w-3xl mb-14">
             <Eyebrow color="#C7378A">The problem</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+            <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
               AI scales up.<br /><span className="text-[#8A8F98]">It doesn’t scale down.</span>
             </motion.h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {problems.map((p, i) => (
-              <motion.div
+              <motion.div data-motion
                 key={p.title}
-                initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-40px' }} variants={fadeUp} custom={i * 0.5}
+                initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} variants={fadeUp} custom={i * 0.5}
                 className="rounded-3xl bg-white/90 backdrop-blur border border-[#ECE6DD] p-7 card-hover"
               >
                 <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-6" style={{ background: hues[i].bg }}>
@@ -369,18 +426,19 @@ export default function HomePage() {
       <section id="product" className="relative py-24 overflow-hidden wash-violet scroll-mt-20">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}>
-              <Eyebrow>Coming soon · The 86b SDK</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-6">
+            <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }}>
+              <Eyebrow>The 86b SDK</Eyebrow>
+              <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-6">
                 One engine that <span className="text-spectrum font-normal">keeps learning</span> on the device.
               </motion.h2>
-              <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-xl">
-                The 86b SDK, now in development, will ship one compact base model to Android apps and edge devices, then personalise it on every device. It is designed to learn each user locally, keep what it already knew, and do it within a budget phone’s power and memory limits.
+              <motion.p data-motion variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-xl">
+                The 86b SDK ships one compact base model to Android apps and edge devices, then personalises it on every phone. It is designed to learn each user locally, keep what it already knew, and stay inside a budget phone’s power and memory limits.
               </motion.p>
 
+              <Eyebrow color="#6B7079">Designed to</Eyebrow>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {capabilities.map((c, i) => (
-                  <motion.div
+                  <motion.div data-motion
                     key={c.title}
                     variants={fadeUp} custom={3 + i * 0.5}
                     className="rounded-2xl bg-white border border-[#ECE6DD] p-5 card-hover"
@@ -394,7 +452,7 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <motion.div variants={fadeUp} custom={5} className="mt-8">
+              <motion.div data-motion variants={fadeUp} custom={5} className="mt-8">
                 <a href="#early-access" className="inline-flex items-center gap-2 text-[#6347F0] text-sm font-semibold hover:text-[#16181D] transition-colors">
                   Get notified when the preview opens
                   <ArrowRight className="w-4 h-4" />
@@ -402,8 +460,8 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+            <motion.div data-motion
+              initial={reduce ? false : { opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
               className="relative"
             >
@@ -413,7 +471,7 @@ export default function HomePage() {
                   <Image src="/images/enterprise-ai-abstract.png" alt="Sparse neural network routing input through a few active experts" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                   <div className="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-md border border-white rounded-2xl p-5 shadow-lg">
                     <p className="text-[#6347F0] text-[11px] uppercase tracking-widest font-semibold mb-1.5">Designed for</p>
-                    <p className="text-[#16181D] text-lg font-medium">₹8,000–15,000 Android phones</p>
+                    <p className="text-[#16181D] text-lg font-medium">₹8,000–15,000 (about $100–180) Android phones</p>
                     <p className="text-[#6B7079] text-xs mt-1">Targeting CPU, GPU and NPU via LiteRT, ExecuTorch and ONNX Runtime. Neuromorphic chips later.</p>
                   </div>
                 </div>
@@ -423,22 +481,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── WHY THIS IS DIFFERENT ───────────────────────────────────────────── */}
+      <section className="py-24 bg-[#FBF8F4]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="max-w-3xl mb-14">
+            <Eyebrow color="#C7378A">Why this is different</Eyebrow>
+            <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+              Why not just fine-tune <span className="text-[#8A8F98]">on the phone?</span>
+            </motion.h2>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {comparisons.map((c, i) => (
+              <motion.div data-motion
+                key={c.title}
+                initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} variants={fadeUp} custom={i * 0.5}
+                className="rounded-3xl bg-white border border-[#ECE6DD] p-7 card-hover"
+              >
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-6" style={{ background: hues[i + 1].bg }}>
+                  <c.icon className="w-5 h-5" style={{ color: hues[i + 1].fg }} />
+                </div>
+                <h3 className="text-lg font-medium text-[#16181D] mb-2">{c.title}</h3>
+                <p className="text-[#6B7079] text-sm leading-relaxed">{c.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ─────────────────────────────────────────────────────── */}
       <section id="how-it-works" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
+          <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="max-w-3xl mb-14">
             <Eyebrow color="#0E9488">How it works</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-5">
-              Fast per-user learning, <span className="text-[#8A8F98]">consolidated into a sparse slow learner.</span>
+            <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-5">
+              Learn fast from each user. <span className="text-[#8A8F98]">Consolidate slowly into shared knowledge.</span>
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-[#6B7079] text-lg leading-relaxed">
+            <motion.p data-motion variants={fadeUp} custom={2} className="text-[#6B7079] text-lg leading-relaxed">
               The engine we’re building separates what a model knows from how it adapts, so each device can learn quickly without overwriting shared knowledge.
             </motion.p>
           </motion.div>
 
           {/* Diagram — desktop */}
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }} variants={fadeUp}
+          <motion.div data-motion
+            initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} variants={fadeUp}
             className="hidden lg:block rounded-[2rem] border border-[#ECE6DD] bg-[#FBF8F4] dot-paper p-10"
           >
             <p className="text-[11px] uppercase tracking-widest text-[#6B7079] font-semibold mb-4">Inference path</p>
@@ -516,9 +601,9 @@ export default function HomePage() {
           {/* Mechanisms */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-16">
             {mechanisms.map((m, i) => (
-              <motion.div
+              <motion.div data-motion
                 key={m.n}
-                initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-40px' }} variants={fadeUp} custom={i * 0.4}
+                initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} variants={fadeUp} custom={i * 0.4}
                 className="rounded-3xl p-7"
                 style={{ background: hues[i].bg }}
               >
@@ -528,23 +613,54 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Brain principles, each tied to a metric */}
+          <motion.h3 data-motion
+            initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} variants={fadeUp}
+            className="text-2xl md:text-4xl font-light text-[#16181D] leading-tight tracking-tight mt-20 mb-8 max-w-3xl"
+          >
+            Five brain principles, <span className="text-[#8A8F98]">each tied to a metric we will measure on real phones.</span>
+          </motion.h3>
+          <motion.div data-motion
+            initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+            className="rounded-[2rem] border border-[#ECE6DD] bg-white overflow-hidden"
+          >
+            <div className="hidden md:grid grid-cols-[1fr_1.5fr_1fr] px-8 py-4 bg-[#FBF8F4] border-b border-[#ECE6DD] text-xs font-semibold uppercase tracking-widest text-[#6B7079]">
+              <span>Brain principle</span>
+              <span>What we build</span>
+              <span>Measured by</span>
+            </div>
+            {principles.map((p, i) => (
+              <div key={p.principle} className="group grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-1 md:gap-0 px-6 md:px-8 py-5 border-b border-[#F1ECE4] last:border-0 transition-colors hover:bg-[#FBF8F4]">
+                <span className="text-[#16181D] font-medium flex items-center gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: hues[i].fg, boxShadow: `0 0 0 4px ${hues[i].bg}` }} />
+                  {p.principle}
+                </span>
+                <span className="text-[#3B3F47] text-sm md:text-base">{p.build}</span>
+                <span className="text-sm font-mono" style={{ color: hues[i].fg }}>{p.measure}</span>
+              </div>
+            ))}
+          </motion.div>
+          <p className="text-sm text-[#6B7079] mt-6">
+            Every result we publish will be reported alongside its cost: accuracy together with forgetting, energy, latency and memory, measured with an external power monitor on low-cost hardware.
+          </p>
         </div>
       </section>
 
       {/* ── SYSTEM ARCHITECTURE ──────────────────────────────────────────────── */}
       <section className="relative py-24 wash-mint overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-14">
-            <Eyebrow color="#0E9488">Planned system architecture</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+          <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="text-center mb-14">
+            <Eyebrow color="#0E9488">System architecture</Eyebrow>
+            <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
               Learning stays on the phone.<br /><span className="text-[#8A8F98]">The cloud only ships models.</span>
             </motion.h2>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-6 items-stretch">
             {/* On the device */}
-            <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+            <motion.div data-motion
+              initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp}
               className="rounded-[2rem] border border-[#ECE6DD] bg-white shadow-sm p-6 md:p-8 flex flex-col gap-4"
             >
               <div className="flex items-center gap-2 text-[#16181D]">
@@ -575,8 +691,8 @@ export default function HomePage() {
             </motion.div>
 
             {/* Cloud */}
-            <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
+            <motion.div data-motion
+              initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
               className="rounded-[2rem] p-6 md:p-8 flex flex-col gap-3 text-white"
               style={{ background: 'linear-gradient(160deg, #7B61FF 0%, #5B45E0 45%, #C7378A 100%)' }}
             >
@@ -602,52 +718,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TECHNOLOGY: BRAIN PRINCIPLES ─────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-12">
-            <Eyebrow color="#C77700">The technology</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
-              Five brain principles, <span className="text-[#8A8F98]">each measured on real phones.</span>
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-            className="rounded-[2rem] border border-[#ECE6DD] bg-white overflow-hidden"
-          >
-            <div className="hidden md:grid grid-cols-[1fr_1.5fr_1fr] px-8 py-4 bg-[#FBF8F4] border-b border-[#ECE6DD] text-xs font-semibold uppercase tracking-widest text-[#6B7079]">
-              <span>Brain principle</span>
-              <span>What we build</span>
-              <span>Measured by</span>
-            </div>
-            {principles.map((p, i) => (
-              <div key={p.principle} className="group grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-1 md:gap-0 px-6 md:px-8 py-5 border-b border-[#F1ECE4] last:border-0 transition-colors hover:bg-[#FBF8F4]">
-                <span className="text-[#16181D] font-medium flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: hues[i].fg, boxShadow: `0 0 0 4px ${hues[i].bg}` }} />
-                  {p.principle}
-                </span>
-                <span className="text-[#3B3F47] text-sm md:text-base">{p.build}</span>
-                <span className="text-sm font-mono" style={{ color: hues[i].fg }}>{p.measure}</span>
-              </div>
-            ))}
-          </motion.div>
-          <p className="text-sm text-[#6B7079] mt-6">
-            Every result we publish will be reported alongside its cost: accuracy together with forgetting, energy, latency and memory, measured with an external power monitor on low-cost hardware.
-          </p>
-        </div>
-      </section>
-
       {/* ── FLAGSHIP DEMO ────────────────────────────────────────────────────── */}
       <section className="relative py-24 wash-peach overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <Eyebrow color="#E8553A">Flagship demo · In development</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-6">
+            <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true }}>
+              <Eyebrow color="#E8553A">Flagship demo</Eyebrow>
+              <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-6">
                 Voice commands that <span className="text-spectrum font-normal">learn each speaker.</span>
               </motion.h2>
-              <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-xl">
+              <motion.p data-motion variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-xl">
                 Voice recognition fails most on regional accents, code-mixed speech and noisy rooms: the everyday reality for Indian users. Our first testbed is designed to fix that on the phone itself.
               </motion.p>
               <div className="space-y-4 mb-10">
@@ -656,19 +736,19 @@ export default function HomePage() {
                   'Adapts to each speaker over a few uses, on the phone',
                   'Keeps every earlier command; no audio leaves the device',
                 ].map((t, i) => (
-                  <motion.div key={t} variants={fadeUp} custom={3 + i * 0.5} className="flex items-center gap-4">
+                  <motion.div data-motion key={t} variants={fadeUp} custom={3 + i * 0.5} className="flex items-center gap-4">
                     <span className="flex-shrink-0 w-9 h-9 rounded-full font-extralight tracking-tight text-lg flex items-center justify-center" style={{ background: hues[i].bg, color: hues[i].fg }}>{i + 1}</span>
                     <p className="text-[#16181D]">{t}</p>
                   </motion.div>
                 ))}
               </div>
-              <motion.p variants={fadeUp} custom={5} className="text-sm text-[#3B3F47] pl-4 border-l-2 border-[#E14FA0]">
+              <motion.p data-motion variants={fadeUp} custom={5} className="text-sm text-[#3B3F47] pl-4 border-l-2 border-[#E14FA0]">
                 One demo to prove every claim: on-device learning, no forgetting, low energy, budget phones. Design partners will see it first.
               </motion.p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.div data-motion
+              initial={reduce ? false : { opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
               <VoiceDemo />
@@ -679,17 +759,19 @@ export default function HomePage() {
       </section>
 
       {/* ── BUILT IN INDIA + WHO IT'S FOR ────────────────────────────────────── */}
-      <section className="relative py-24 overflow-hidden bg-white">
+      <section className="relative py-24 overflow-hidden wash-mint">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="mb-12">
+            <Eyebrow color="#C77700">Built in India, for the world’s majority.</Eyebrow>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}>
-              <Eyebrow color="#C77700">An innovation from India</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-10">
-                Built in India, <span className="text-[#8A8F98]">for the world’s majority.</span>
-              </motion.h2>
+            <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }}>
+              <motion.h3 data-motion variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-8">
+                Tested where <span className="text-[#8A8F98]">conditions are hardest.</span>
+              </motion.h3>
               <div className="flex flex-col">
                 {indiaPoints.map((p, i) => (
-                  <motion.div
+                  <motion.div data-motion
                     key={p.title}
                     variants={fadeUp} custom={2 + i * 0.4}
                     className="group flex items-start gap-5 py-5 border-b border-[#F1ECE4] last:border-0"
@@ -706,14 +788,13 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}>
-              <Eyebrow color="#C7378A">Who it’s for</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-10">
-                Every device maker needs <span className="text-[#8A8F98]">smaller, personal AI.</span>
-              </motion.h2>
+            <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }}>
+              <motion.h3 data-motion variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-8">
+                Where on-device learning <span className="text-[#8A8F98]">pays off first.</span>
+              </motion.h3>
               <div className="flex flex-col gap-3">
                 {customers.map((c, i) => (
-                  <motion.div
+                  <motion.div data-motion
                     key={c.who}
                     variants={fadeUp} custom={2 + i * 0.4}
                     className="rounded-2xl px-5 py-4 flex items-center gap-4 border border-[#ECE6DD] bg-white card-hover"
@@ -728,9 +809,14 @@ export default function HomePage() {
                   </motion.div>
                 ))}
               </div>
-              <motion.p variants={fadeUp} custom={5} className="text-[#6B7079] text-sm mt-6">
+              <motion.a data-motion
+                href="#early-access"
+                variants={fadeUp} custom={5}
+                className="group inline-flex items-start gap-1.5 text-[#6347F0] hover:text-[#16181D] text-sm font-medium mt-6 transition-colors"
+              >
                 If your app’s voice or sensor features need to work for every user, on every phone, we’d like to hear from you.
-              </motion.p>
+                <ArrowRight className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+              </motion.a>
             </motion.div>
           </div>
         </div>
@@ -739,21 +825,22 @@ export default function HomePage() {
       {/* ── RESEARCH ─────────────────────────────────────────────────────────── */}
       <section id="research" className="py-24 wash-violet scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
+          <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="max-w-3xl mb-14">
             <Eyebrow>Research</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-5">
+            <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-5">
               <span className="text-spectrum font-normal">Intelligence per watt.</span>
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed">
+            <motion.p data-motion variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed">
               Our perspective paper defines the problem, the approach and the evaluation standard we will report results against: falsifiable hypotheses, an open protocol that makes energy and forgetting first-class metrics, and a benchmark grounded in Indian conditions.
             </motion.p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-8 items-start">
-            {/* Paper card */}
-            <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="rounded-[2rem] p-8 md:p-10 text-white relative overflow-hidden lg:sticky lg:top-28 shadow-[0_30px_70px_-30px_rgba(91,69,224,0.6)]"
+            {/* Paper card + author credit */}
+            <div className="lg:sticky lg:top-28">
+            <motion.div data-motion
+              initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="rounded-[2rem] p-8 md:p-10 text-white relative overflow-hidden shadow-[0_30px_70px_-30px_rgba(91,69,224,0.6)]"
               style={{ background: 'linear-gradient(150deg, #FF6B4A 0%, #E14FA0 30%, #7B61FF 70%, #5B45E0 100%)' }}
             >
               <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
@@ -769,17 +856,25 @@ export default function HomePage() {
                 <p className="text-white/90 text-sm leading-relaxed mb-8">
                   The brain supports general intelligence with roughly 86 billion neurons on about 20 watts. We argue the next gains in practical AI will come from systems that learn continually, compute sparsely and adapt to individual users on the devices they already own.
                 </p>
-                <a
-                  href="/papers/intelligence-per-watt.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-light"
-                >
-                  <Download className="w-4 h-4" />
-                  Read the paper (PDF)
-                </a>
+                <div className="flex flex-wrap items-center gap-4">
+                  <a
+                    href="/papers/intelligence-per-watt.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-light"
+                  >
+                    <Download className="w-4 h-4" />
+                    Read the paper (PDF)
+                  </a>
+                  {/* TODO(team): add an arXiv or DOI link here once the paper has one. */}
+                </div>
               </div>
             </motion.div>
+            <p className="text-sm text-[#6B7079] mt-5 px-2">
+              Written by Munish Dhiman, founder of 86b.ai.{' '}
+              <Link href="/about" className="text-[#6347F0] hover:text-[#16181D] font-medium transition-colors whitespace-nowrap">About the team →</Link>
+            </p>
+            </div>
 
             {/* Hypotheses + protocol */}
             <div className="flex flex-col gap-10">
@@ -787,9 +882,9 @@ export default function HomePage() {
                 <p className="text-xs font-semibold uppercase tracking-widest text-[#6B7079] mb-4">Hypotheses we will test</p>
                 <div className="flex flex-col gap-3">
                   {hypotheses.map((h, i) => (
-                    <motion.div
+                    <motion.div data-motion
                       key={h.id}
-                      initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.3}
+                      initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.3}
                       className="flex gap-5 p-5 rounded-2xl bg-white border border-[#ECE6DD]"
                     >
                       <span className="font-extralight tracking-tight text-2xl w-10 flex-shrink-0 leading-none pt-0.5" style={{ color: hues[i].fg }}>{h.id}</span>
@@ -843,18 +938,18 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <motion.p variants={fadeUp} className="text-[#6347F0] text-sm font-mono mb-5">86 billion neurons. 20 watts. Our benchmark.</motion.p>
-              <motion.h2 variants={fadeUp} custom={1} className="text-5xl md:text-7xl font-light text-[#16181D] leading-[1] tracking-tight mb-6">
+            <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true }}>
+              <motion.p data-motion variants={fadeUp} className="text-[#6347F0] text-sm font-mono mb-5">86 billion neurons. 20 watts. Our benchmark.</motion.p>
+              <motion.h2 data-motion variants={fadeUp} custom={1} className="text-5xl md:text-7xl font-light text-[#16181D] leading-[1] tracking-tight mb-6">
                 Sign up for the <span className="text-spectrum font-normal">early preview.</span>
               </motion.h2>
-              <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-lg">
-                The 86b SDK isn’t available yet. Join the list to hear first about the preview, pilot programme and research results. We’re especially keen to hear from:
+              <motion.p data-motion variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-lg">
+                The 86b SDK isn’t available yet. Early access means you hear first when the developer preview opens, can apply to the pilot programme, and get the measured results as we publish them. We’re especially keen to hear from:
               </motion.p>
 
               <div className="flex flex-col gap-3 mb-10">
                 {partnerTypes.map((p, i) => (
-                  <motion.div
+                  <motion.div data-motion
                     key={p.title}
                     variants={fadeUp} custom={3 + i * 0.4}
                     className="rounded-2xl px-5 py-4 flex items-center gap-4 bg-white/80 backdrop-blur border border-[#ECE6DD]"
@@ -870,18 +965,15 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <motion.div variants={fadeUp} custom={5} className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              <motion.div data-motion variants={fadeUp} custom={5} className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
                 <a href="mailto:hello@86b.ai" className="inline-flex items-center gap-2 text-[#3B3F47] hover:text-[#16181D] transition-colors">
                   <Mail className="w-4 h-4 text-[#E14FA0]" /> hello@86b.ai
-                </a>
-                <a href="tel:+919990322337" className="inline-flex items-center gap-2 text-[#3B3F47] hover:text-[#16181D] transition-colors">
-                  <Phone className="w-4 h-4 text-[#14B8A6]" /> +91 99903 22337
                 </a>
               </motion.div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.div data-motion
+              initial={reduce ? false : { opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
             >
               <EarlyAccessForm />
@@ -892,22 +984,14 @@ export default function HomePage() {
 
       {/* ── SERVICES (secondary) ─────────────────────────────────────────────── */}
       <section className="bg-white border-t border-[#ECE6DD]">
-        <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-[#F3F1EE] flex items-center justify-center flex-shrink-0">
-              <Layers className="w-4 h-4 text-[#6B7079]" />
-            </div>
-            <div>
-              <p className="text-[#16181D] font-medium">Also from 86b.ai: enterprise AI services</p>
-              <p className="text-[#6B7079] text-sm">Our engineers build private GenAI, process automation, computer vision, digital twins and more for enterprises.</p>
-            </div>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <p className="text-[#6B7079] text-sm">Also from 86b.ai: enterprise AI services for private GenAI, automation, vision and digital twins.</p>
           <Link
             href="/services"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#6347F0] hover:text-[#16181D] transition-colors whitespace-nowrap"
           >
             Explore services
-            <ChevronRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

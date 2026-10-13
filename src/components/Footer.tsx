@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
 
 const footerLinks = {
   'Product': [
-    { label: 'The 86b SDK (coming soon)', href: '/#product' },
+    { label: 'The 86b SDK', href: '/#product' },
     { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Research: Intelligence per Watt', href: '/#research' },
     { label: 'Join Early Access', href: '/#early-access' },
@@ -50,10 +49,10 @@ export default function Footer() {
             {/* Contact details */}
             <div className="flex flex-col gap-1.5 mt-5">
               <a
-                href="mailto:Info@86b.ai"
+                href="mailto:hello@86b.ai"
                 className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-2"
               >
-                <span className="text-[#7B61FF] text-xs">&#9993;</span> Info@86b.ai
+                <span className="text-[#7B61FF] text-xs">&#9993;</span> hello@86b.ai
               </a>
               <span className="text-xs text-zinc-500 flex items-center gap-2">
                 <span className="text-[#7B61FF] text-xs">&#9679;</span> Gurugram, India
@@ -85,19 +84,13 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-zinc-700 mt-16 pt-8 flex flex-col gap-4">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-            <p className="text-xs text-zinc-400">
-              © {new Date().getFullYear()} 86b.ai. All rights reserved. All client engagements are protected under strict confidentiality.
-            </p>
-            <p className="text-xs text-zinc-500">
-              Built with precision by Solution Engineers.
-            </p>
-          </div>
+          <p className="text-xs text-zinc-400">
+            © {new Date().getFullYear()} 86b.ai. All rights reserved.
+          </p>
           <div className="border-t border-zinc-700 pt-4">
             <p className="text-xs text-zinc-400 italic leading-relaxed">
               <span className="text-zinc-300 not-italic font-normal">Disclaimer: </span>
-              All performance figures, timelines and capability metrics shown on this site are indicative estimates only.
-              Actual outcomes are confirmed following a detailed requirement analysis conducted under strict confidentiality.
+              The 86b SDK is in development. Capabilities, figures and timelines on this site are design targets and will be updated as measured results are published.
             </p>
           </div>
         </div>
