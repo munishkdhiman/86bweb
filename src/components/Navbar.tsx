@@ -36,7 +36,7 @@ export default function Navbar() {
   // Both the home and services heroes are dark, so the transparent nav uses light text.
   const darkText = solidNav;
   const linkClass = darkText
-    ? 'text-[#2D3748] hover:text-[#16181D]'
+    ? 'text-[#2E2E2E] hover:text-[#111111]'
     : 'text-white/90 hover:text-white';
 
   return (
@@ -45,7 +45,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           solidNav
             ? 'bg-white border-b border-zinc-200 shadow-sm'
-            : `bg-transparent border-b ${darkText ? 'border-[#16181D]/10' : 'border-white/10'}`
+            : `bg-transparent border-b ${darkText ? 'border-[#111111]/10' : 'border-white/10'}`
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between" style={{ height: '84px' }}>
@@ -89,7 +89,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(true)}
               className={`md:hidden p-2 rounded-lg transition-colors ${
-                darkText ? 'text-[#2D3748] hover:bg-zinc-100' : 'text-white hover:bg-white/10'
+                darkText ? 'text-[#2E2E2E] hover:bg-zinc-100' : 'text-white hover:bg-white/10'
               }`}
               aria-label="Open menu"
             >
@@ -126,7 +126,7 @@ export default function Navbar() {
               <nav className="flex-1 p-5 flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                    className="px-4 py-3 rounded-xl text-sm font-normal text-[#2D3748] hover:bg-zinc-50 hover:text-[#16181D] transition-colors"
+                    className="px-4 py-3 rounded-xl text-sm font-normal text-[#2E2E2E] hover:bg-zinc-50 hover:text-[#111111] transition-colors"
                   >
                     {link.label}
                   </Link>

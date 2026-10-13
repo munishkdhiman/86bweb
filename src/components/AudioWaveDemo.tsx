@@ -35,10 +35,10 @@ export default function AudioWaveDemo() {
 
           {/* Left — copy */}
           <div>
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#7B61FF] mb-4">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#111111] mb-4">
               Capability Showcase: Custom Interfaces
             </span>
-            <h2 className="text-4xl md:text-5xl font-light text-[#16181D] leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-light text-[#111111] leading-tight mb-6">
               Digital Human Agents.<br />
               <span className="text-accent-gradient">~0.3s Latency.</span>
             </h2>
@@ -54,7 +54,7 @@ export default function AudioWaveDemo() {
                 { value: 'Custom', label: 'Avatar appearance & voice' },
               ].map((m) => (
                 <div key={m.label} className="p-4 rounded-xl border border-zinc-200 bg-zinc-50">
-                  <div className="text-2xl font-light text-[#7B61FF]">{m.value}</div>
+                  <div className="text-2xl font-light text-[#111111]">{m.value}</div>
                   <div className="text-sm text-zinc-500 mt-1">{m.label}</div>
                 </div>
               ))}
@@ -68,7 +68,7 @@ export default function AudioWaveDemo() {
                 'Intelligent escalation routing to your human team',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-600">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#16181D] mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#111111] mt-2 flex-shrink-0" />
                   {item}
                 </li>
               ))}
@@ -80,10 +80,10 @@ export default function AudioWaveDemo() {
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-md">
               {/* Browser chrome */}
-              <div className="bg-[#14161B] rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+              <div className="bg-[#0D0D0D] rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
 
                 {/* Browser top bar */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-[#14161B] border-b border-zinc-700/50">
+                <div className="flex items-center gap-2 px-4 py-3 bg-[#0D0D0D] border-b border-zinc-700/50">
                   <div className="flex gap-1.5">
                     <div className="w-3 h-3 rounded-full bg-red-400/80" />
                     <div className="w-3 h-3 rounded-full bg-amber-400/80" />
@@ -105,7 +105,7 @@ export default function AudioWaveDemo() {
                     priority
                   />
                   {/* Gradient overlay — darken bottom for readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#14161B]/90 via-[#14161B]/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/90 via-[#0D0D0D]/20 to-transparent" />
 
                   {/* Connected badge — top left */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
@@ -114,8 +114,8 @@ export default function AudioWaveDemo() {
                   </div>
 
                   {/* Latency badge — top right */}
-                  <div className="absolute top-3 right-3 bg-[#7B61FF]/20 border border-[#7B61FF]/40 px-3 py-1 rounded-full">
-                    <span className="text-[11px] text-[#7B61FF] font-medium font-mono">LIVE SIMULATION</span>
+                  <div className="absolute top-3 right-3 bg-[#111111]/20 border border-[#111111]/40 px-3 py-1 rounded-full">
+                    <span className="text-[11px] text-[#111111] font-medium font-mono">LIVE SIMULATION</span>
                   </div>
 
                   {/* Waveform — animated bars */}
@@ -123,7 +123,7 @@ export default function AudioWaveDemo() {
                     {wave.map((h, i) => (
                       <div
                         key={i}
-                        className="flex-shrink-0 w-[5px] rounded-full bg-[#7B61FF]/80 transition-all duration-150"
+                        className="flex-shrink-0 w-[5px] rounded-full bg-[#111111]/80 transition-all duration-150"
                         style={{ height: `${h * 2.4}px` }}
                       />
                     ))}
@@ -135,9 +135,9 @@ export default function AudioWaveDemo() {
                       msgVisible ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <div className="bg-[#7B61FF]/15 border border-[#7B61FF]/30 backdrop-blur-sm rounded-xl px-4 py-2.5">
+                    <div className="bg-[#111111]/15 border border-[#111111]/30 backdrop-blur-sm rounded-xl px-4 py-2.5">
                       <p className="text-[11px] text-white/90 leading-relaxed font-mono">
-                        <span className="text-[#7B61FF] font-medium">Agent: </span>
+                        <span className="text-[#111111] font-medium">Agent: </span>
                         &ldquo;{messages[msgIdx]}&rdquo;
                       </p>
                     </div>

@@ -100,17 +100,17 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                 )}
               </div>
 
-              <h2 className="text-2xl md:text-3xl font-light text-[#16181D] mb-3 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-light text-[#111111] mb-3 leading-tight">
                 {service.title}
               </h2>
-              <p className="text-[#5A6A7A] font-normal mb-4 leading-relaxed">{service.tagline}</p>
-              <p className="text-[#2D3748] leading-relaxed mb-8">{service.longDescription}</p>
+              <p className="text-[#5E5E5E] font-normal mb-4 leading-relaxed">{service.tagline}</p>
+              <p className="text-[#2E2E2E] leading-relaxed mb-8">{service.longDescription}</p>
 
               {/* ── Mobile: CTA button to open form (bottom sheet) ── */}
               <div className="md:hidden mb-6">
                 <button
                   onClick={() => setFormOpen((v) => !v)}
-                  className="w-full py-3.5 rounded-xl bg-[#16181D] text-white text-sm font-semibold flex items-center justify-center gap-2 transition-colors active:bg-[#2A2D35]"
+                  className="w-full py-3.5 rounded-xl bg-[#111111] text-white text-sm font-semibold flex items-center justify-center gap-2 transition-colors active:bg-[#262626]"
                 >
                   {formOpen ? 'Hide Enquiry Form' : 'Request Technical Audit'}
                   {formOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
@@ -123,7 +123,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                   <div className="grid grid-cols-3 gap-4 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
                     {service.metrics.map((m) => (
                       <div key={m.label} className="text-center">
-                        <div className="text-xl font-medium text-[#7B61FF]">{m.value}</div>
+                        <div className="text-xl font-medium text-[#111111]">{m.value}</div>
                         <div className="text-xs text-zinc-500 mt-0.5">{m.label}</div>
                       </div>
                     ))}
@@ -141,11 +141,11 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               <ol className="space-y-4 mb-8">
                 {service.steps.map((step, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-medium flex items-center justify-center mt-0.5">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#111111]/10 text-[#111111] text-xs font-medium flex items-center justify-center mt-0.5">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
-                      <p className="font-semibold text-[#16181D] text-sm">{step.title}</p>
+                      <p className="font-semibold text-[#111111] text-sm">{step.title}</p>
                       <p className="text-zinc-500 text-sm mt-0.5">{step.desc}</p>
                     </div>
                   </li>
@@ -160,8 +160,8 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               </h3>
               <ul className="space-y-1.5 pb-4">
                 {service.useCases.map((uc) => (
-                  <li key={uc} className="flex items-center gap-2 text-sm text-[#2D3748]">
-                    <ArrowRight className="w-3.5 h-3.5 text-[#5A6A7A] flex-shrink-0" />
+                  <li key={uc} className="flex items-center gap-2 text-sm text-[#2E2E2E]">
+                    <ArrowRight className="w-3.5 h-3.5 text-[#5E5E5E] flex-shrink-0" />
                     {uc}
                   </li>
                 ))}
@@ -169,7 +169,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             </div>
 
             {/* ── RIGHT (desktop): always visible sidebar form ── */}
-            <div className="hidden md:flex w-80 lg:w-96 bg-[#16181D] p-10 flex-col gap-5 flex-shrink-0 overflow-y-auto">
+            <div className="hidden md:flex w-80 lg:w-96 bg-[#111111] p-10 flex-col gap-5 flex-shrink-0 overflow-y-auto">
               <FormContent service={service} />
             </div>
 
@@ -182,11 +182,11 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ type: 'spring', damping: 32, stiffness: 280 }}
-                  className="md:hidden bg-[#16181D] overflow-hidden flex-shrink-0"
+                  className="md:hidden bg-[#111111] overflow-hidden flex-shrink-0"
                 >
                   {/* Drag handle */}
                   <div className="flex items-center justify-between px-6 pt-4 pb-2">
-                    <span className="text-xs uppercase tracking-widest text-[#7B61FF] font-semibold">Request Audit</span>
+                    <span className="text-xs uppercase tracking-widest text-[#111111] font-semibold">Request Audit</span>
                     <button
                       onClick={() => setFormOpen(false)}
                       className="p-1 rounded-full text-zinc-400 hover:text-white transition-colors"
@@ -255,15 +255,15 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-10 text-center">
-        <div className="w-12 h-12 rounded-full bg-[#7B61FF]/20 border border-[#7B61FF]/40 flex items-center justify-center">
-          <svg className="w-6 h-6 text-[#7B61FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <div className="w-12 h-12 rounded-full bg-[#111111]/20 border border-[#111111]/40 flex items-center justify-center">
+          <svg className="w-6 h-6 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <div>
           <p className="text-white font-semibold text-lg">Request received</p>
           <p className="text-zinc-400 text-sm mt-1 leading-relaxed">
-            We'll reach out to <span className="text-[#7B61FF]">{form.email}</span> within 24 hours.
+            We'll reach out to <span className="text-[#111111]">{form.email}</span> within 24 hours.
           </p>
         </div>
       </div>
@@ -274,7 +274,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
     <>
       {!compact && (
         <div className="border-b border-white/10 pb-5">
-          <span className="text-[10px] font-normal uppercase tracking-widest text-[#7B61FF]">Deploy Under Strict Confidentiality</span>
+          <span className="text-[10px] font-normal uppercase tracking-widest text-[#111111]">Deploy Under Strict Confidentiality</span>
           <h3 className="text-xl font-normal text-white mt-2 leading-snug">
             Deploy {service.title} on your terms
           </h3>
@@ -299,7 +299,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             required
             value={form.fullName}
             onChange={set('fullName')}
-            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#7B61FF]/60 transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#111111]/60 transition-all"
           />
         </div>
         <div>
@@ -310,7 +310,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             required
             value={form.company}
             onChange={set('company')}
-            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#7B61FF]/60 transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#111111]/60 transition-all"
           />
         </div>
         <div>
@@ -321,7 +321,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
             required
             value={form.email}
             onChange={set('email')}
-            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#7B61FF]/60 transition-all"
+            className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#111111]/60 transition-all"
           />
         </div>
         {!compact && (
@@ -332,7 +332,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
               rows={3}
               value={form.requirements}
               onChange={set('requirements')}
-              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#7B61FF]/60 transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-zinc-500 text-sm focus:outline-none focus:bg-white/15 focus:border-[#111111]/60 transition-all resize-none"
             />
           </div>
         )}
@@ -366,7 +366,7 @@ function FormContent({ service, compact = false }: { service: ModalService; comp
       <div className="border-t border-white/10 pt-4 space-y-2 mt-1">
         {['Strict confidentiality', 'No commitment required', 'Prompt response'].map((t) => (
           <div key={t} className="flex items-center gap-2 text-xs text-zinc-400 font-light">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7B61FF]/60 flex-shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#111111]/60 flex-shrink-0" />
             {t}
           </div>
         ))}
