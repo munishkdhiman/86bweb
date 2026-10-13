@@ -7,18 +7,25 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 
+// Product-first navigation; services sit after a divider as a quieter secondary link.
 const navLinks = [
-  { label: 'Services', href: '/services' },
-  { label: 'How We Build', href: '/how-we-build' },
+  { label: 'Product', href: '/#product' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Research', href: '/#research' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
 ];
+const secondaryLink = { label: 'Services', href: '/services' };
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const isHome = pathname === '/';
+  const isHome = pathname === '/' || pathname === '/services';
+  const inServices = pathname.startsWith('/services') || pathname === '/how-we-build';
+  const cta = inServices
+    ? { label: 'Book AI Audit', href: '/contact' }
+    : { label: 'Get Early Access', href: '/#early-access' };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -66,19 +73,30 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <span className={`h-4 w-px ${solidNav ? 'bg-zinc-200' : 'bg-white/20'}`} />
+            <Link
+              href={secondaryLink.href}
+              className={`text-sm font-normal tracking-wide transition-colors duration-200 ${
+                inServices
+                  ? (solidNav ? 'text-[#0E202E]' : 'text-white')
+                  : (solidNav ? 'text-zinc-400 hover:text-[#0E202E]' : 'text-white/55 hover:text-white')
+              }`}
+            >
+              {secondaryLink.label}
+            </Link>
           </div>
 
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
             <Link
-              href="/contact"
+              href={cta.href}
               className={`hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-normal tracking-wide transition-all duration-200 ${
                 solidNav
                   ? 'bg-[#0E202E] text-white hover:bg-[#1F3249]'
                   : 'bg-white text-[#0E202E] hover:bg-zinc-100'
               }`}
             >
-              Book AI Audit
+              {cta.label}
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
 
@@ -127,13 +145,19 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+                <div className="my-3 h-px bg-zinc-100" />
+                <Link href={secondaryLink.href} onClick={() => setMobileOpen(false)}
+                  className="px-4 py-3 rounded-xl text-sm font-normal text-zinc-500 hover:bg-zinc-50 hover:text-[#0E202E] transition-colors"
+                >
+                  Enterprise AI {secondaryLink.label}
+                </Link>
               </nav>
 
               <div className="p-5 border-t border-zinc-100">
-                <Link href="/contact" onClick={() => setMobileOpen(false)}
+                <Link href={cta.href} onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-[#0E202E] text-white text-sm font-normal hover:bg-[#1F3249] transition-colors"
                 >
-                  Book AI Audit <ChevronRight className="w-4 h-4" />
+                  {cta.label} <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
             </motion.div>

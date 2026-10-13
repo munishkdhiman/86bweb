@@ -102,7 +102,6 @@ export default function AudioWaveDemo() {
                     alt="Digital Human Agent"
                     fill
                     className="object-cover object-center"
-                    unoptimized
                     priority
                   />
                   {/* Gradient overlay — darken bottom for readability */}

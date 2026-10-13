@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Lock, MessageSquare, FileSearch, Rocket, CheckCircle2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { submitForm } from "@/lib/forms";
 
 const servicesList = [
   "Enterprise Generative AI", "Digital Human Agents", "Intelligent Process Automation",
@@ -36,29 +37,20 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
+    setSubmitError(null);
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          company: form.company,
-          role: form.role,
-          service: form.service,
-          budget: form.budget,
-          message: form.message,
-        }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        setSubmitError(data.error || 'Something went wrong. Please try again.');
-      } else {
-        setSubmitted(true);
-      }
+      await submitForm(`New Enquiry: ${form.firstName} ${form.lastName} | ${form.company}`, {
+        Name: `${form.firstName} ${form.lastName}`,
+        Email: form.email,
+        Company: form.company,
+        Role: form.role,
+        Service: form.service,
+        Budget: form.budget,
+        Message: form.message,
+      }, form.email);
+      setSubmitted(true);
     } catch {
-      setSubmitError('Network error. Please email us directly at munish@gestureresearch.com');
+      setSubmitError('Something went wrong. Please email us directly at hello@86b.ai');
     } finally {
       setSubmitting(false);
     }
