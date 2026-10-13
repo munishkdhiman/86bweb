@@ -282,16 +282,12 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full pointer-events-none">
           <motion.div data-motion initial={initial} animate="visible" className="max-w-4xl pointer-events-auto">
-            <motion.div data-motion variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-8">
-              <a href="#status" className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20 hover:border-white/40 transition-colors text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
-                <span className="relative flex w-2 h-2">
-                  <span className="absolute inset-0 rounded-full bg-[#555555] animate-pulse-ring" />
-                  <span className="relative w-2 h-2 rounded-full bg-spectrum" />
-                </span>
-                Early access open · SDK preview in development
-              </a>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60">
-                Brain-inspired on-device AI · Built in India
+            <motion.div data-motion variants={fadeUp} className="flex items-start md:items-center gap-4 mb-7">
+              <span className="h-px w-10 md:w-14 mt-2.5 md:mt-0 flex-shrink-0 bg-[#5CC8FF]" aria-hidden="true" />
+              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] text-white">
+                <span className="whitespace-nowrap">Brain-inspired on-device AI</span>
+                <span className="hidden md:inline text-[#5CC8FF] mx-3" aria-hidden="true">·</span>
+                <span className="block md:inline mt-1.5 md:mt-0 text-[#5CC8FF]">Built in India</span>
               </span>
             </motion.div>
             <motion.h1 data-motion variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-white leading-[1.02] tracking-tight mb-8 text-balance [text-shadow:0_2px_18px_rgba(0,0,0,0.85),0_0_2px_rgba(0,0,0,0.6)]">
