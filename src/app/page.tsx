@@ -245,13 +245,13 @@ export default function HomePage() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #1E1A4D 0%, #2B1B5C 30%, #44205E 58%, #3A1F4F 72%, #123A47 100%)' }}>
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F0C2A 0%, #170F36 30%, #24123A 58%, #1E1232 72%, #0A2129 100%)' }}>
         <div className="aurora aurora-dark" aria-hidden="true">
           <span className="a1" /><span className="a2" /><span className="a3" /><span className="a4" />
         </div>
         <NeuralField dark className="absolute inset-0 w-full h-full" />
         {/* Keep the copy legible over the field */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(32,26,80,0.8) 0%, rgba(32,26,80,0.55) 45%, rgba(32,26,80,0) 100%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(16,12,42,0.8) 0%, rgba(16,12,42,0.55) 45%, rgba(16,12,42,0) 100%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full pointer-events-none">
           <motion.div initial="hidden" animate="visible" className="max-w-4xl pointer-events-auto">
