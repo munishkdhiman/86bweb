@@ -268,6 +268,12 @@ strong, b { font-weight: 500; }
     @apply bg-white text-[#16181D] hover:bg-[#F4F1FF] hover:-translate-y-px
            shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)];
   }
+  /* Colour accent for the single most important action in a view (navbar CTA) */
+  .btn-accent {
+    @apply text-white hover:-translate-y-px hover:brightness-110
+           shadow-[0_8px_24px_-8px_rgba(123,97,255,0.7)];
+    background: linear-gradient(100deg, #7B61FF 0%, #A24BD8 50%, #E14FA0 100%);
+  }
   .btn-ghost {
     @apply bg-white/10 text-white border border-white/30 backdrop-blur hover:bg-white/15 hover:border-white/60;
   }

@@ -80,7 +80,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href={cta.href}
-              className={`hidden md:inline-flex btn btn-sm ${darkText ? 'btn-primary' : 'btn-light'}`}
+              className="hidden md:inline-flex btn btn-sm btn-accent"
             >
               {cta.label}
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -135,7 +135,7 @@ export default function Navbar() {
 
               <div className="p-5 border-t border-zinc-100">
                 <Link href={cta.href} onClick={() => setMobileOpen(false)}
-                  className="btn btn-primary w-full"
+                  className="btn btn-accent w-full"
                 >
                   {cta.label} <ArrowUpRight className="w-4 h-4" />
                 </Link>
