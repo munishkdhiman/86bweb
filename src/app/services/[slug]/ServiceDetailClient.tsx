@@ -30,11 +30,11 @@ export default function ServiceDetailClient({ svc }: Props) {
         <div className="absolute inset-0 z-0">
           <Image src={svc.image} alt={svc.title} fill className="object-cover" priority sizes="100vw" />
           {/* Dark overlay to ensure text is ALWAYS readable, regardless of the image */}
-          <div className="absolute inset-0 bg-[#2F352A]/75" />
+          <div className="absolute inset-0 bg-[#16181D]/75" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-32 lg:pb-48 w-full">
-          <div className="flex items-center gap-2 text-xs font-medium text-[#B5C19F] mb-8">
+          <div className="flex items-center gap-2 text-xs font-medium text-[#C4B5FF] mb-8">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span className="text-white/30">/</span>
             <Link href="/services" className="hover:text-white transition-colors">Services</Link>
@@ -43,7 +43,7 @@ export default function ServiceDetailClient({ svc }: Props) {
           </div>
 
           <div className="max-w-2xl">
-            <span className="inline-block text-[11px] font-medium uppercase tracking-widest text-[#2F352A] bg-[#B5C19F] px-3 py-1.5 rounded-full mb-6 shadow-[0_0_15px_rgba(116,131,95,0.5)]">
+            <span className="inline-block text-[11px] font-medium uppercase tracking-widest text-[#16181D] bg-[#C4B5FF] px-3 py-1.5 rounded-full mb-6 shadow-[0_0_15px_rgba(123,97,255,0.5)]">
               {svc.category}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-6 drop-shadow-lg">{svc.title}</h1>
@@ -59,7 +59,7 @@ export default function ServiceDetailClient({ svc }: Props) {
           {/* Left — main content */}
           <div className="lg:col-span-2 space-y-16">
             <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-zinc-100">
-              <h2 className="text-2xl font-light text-[#2F352A] mb-5">Overview</h2>
+              <h2 className="text-2xl font-light text-[#16181D] mb-5">Overview</h2>
               <p className="text-zinc-600 leading-relaxed text-lg">{svc.longDescription}</p>
             </div>
 
@@ -67,8 +67,8 @@ export default function ServiceDetailClient({ svc }: Props) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 {svc.metrics.map((m) => (
                   <div key={m.label} className="relative p-8 rounded-3xl bg-white text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-zinc-100 overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#74835F] to-[#3B4434] opacity-80" />
-                    <div className="text-4xl font-light text-[#2F352A] mb-3 tracking-tight">{m.value}</div>
+                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#7B61FF] to-[#2A2D35] opacity-80" />
+                    <div className="text-4xl font-light text-[#16181D] mb-3 tracking-tight">{m.value}</div>
                     <div className="text-sm font-semibold text-zinc-500 uppercase tracking-wider">{m.label}</div>
                   </div>
                 ))}
@@ -79,23 +79,23 @@ export default function ServiceDetailClient({ svc }: Props) {
             {svc.slug === 'digital-humans' && <DigitalHumanLivePanel />}
 
             <div>
-              <h2 className="text-2xl font-light text-[#2F352A] mb-10 pl-2">Implementation Pipeline</h2>
+              <h2 className="text-2xl font-light text-[#16181D] mb-10 pl-2">Implementation Pipeline</h2>
               <div className="relative pl-4 md:pl-2">
                 {/* Vertical Timeline Line */}
-                <div className="absolute left-9 md:left-[27px] top-6 bottom-6 w-[2px] bg-zinc-200 group-hover:bg-[#74835F]/30 transition-colors" />
+                <div className="absolute left-9 md:left-[27px] top-6 bottom-6 w-[2px] bg-zinc-200 group-hover:bg-[#7B61FF]/30 transition-colors" />
                 <div className="space-y-8 relative z-10">
                   {svc.steps.map((step, i) => (
                     <div key={i} className="flex flex-col md:flex-row gap-6 md:gap-10 items-start group">
                       {/* Timeline Node */}
                       <div className="flex-shrink-0 bg-zinc-50 py-2 relative z-10 mt-0 md:mt-2">
-                        <div className="w-10 h-10 rounded-full bg-[#4A5541] text-white text-sm font-medium flex items-center justify-center shadow-[0_0_15px_rgba(116,131,95,0.4)] ring-4 ring-zinc-50">
+                        <div className="w-10 h-10 rounded-full bg-[#16181D] text-white text-sm font-medium flex items-center justify-center shadow-[0_0_15px_rgba(123,97,255,0.4)] ring-4 ring-zinc-50">
                           {String(i + 1).padStart(2, '0')}
                         </div>
                       </div>
                       {/* Timeline Card */}
                       <div className="flex-1 p-8 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-zinc-100 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:ring-zinc-200 w-full relative overflow-hidden">
-                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-zinc-100 group-hover:bg-[#4A5541] transition-colors duration-300" />
-                        <p className="font-medium text-[#2F352A] text-xl mb-3">{step.title}</p>
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-zinc-100 group-hover:bg-[#16181D] transition-colors duration-300" />
+                        <p className="font-medium text-[#16181D] text-xl mb-3">{step.title}</p>
                         <p className="text-zinc-500 text-base leading-relaxed">{step.desc}</p>
                       </div>
                     </div>
@@ -105,12 +105,12 @@ export default function ServiceDetailClient({ svc }: Props) {
             </div>
 
             <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-zinc-100">
-              <h2 className="text-2xl font-light text-[#2F352A] mb-8">Use Cases</h2>
+              <h2 className="text-2xl font-light text-[#16181D] mb-8">Use Cases</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {svc.useCases.map((uc) => (
                   <div key={uc} className="group flex items-start gap-4 p-5 bg-zinc-50 rounded-2xl border border-transparent hover:border-zinc-200 hover:bg-white hover:shadow-md transition-all duration-300">
-                    <div className="bg-white p-2 rounded-full shadow-sm ring-1 ring-zinc-100 group-hover:ring-[#74835F]/30 group-hover:bg-[#74835F]/5 transition-all">
-                      <CheckCircle2 className="w-5 h-5 text-[#74835F]" />
+                    <div className="bg-white p-2 rounded-full shadow-sm ring-1 ring-zinc-100 group-hover:ring-[#7B61FF]/30 group-hover:bg-[#7B61FF]/5 transition-all">
+                      <CheckCircle2 className="w-5 h-5 text-[#7B61FF]" />
                     </div>
                     <span className="text-[15px] text-zinc-700 font-medium leading-relaxed mt-1.5">{uc}</span>
                   </div>
@@ -121,22 +121,22 @@ export default function ServiceDetailClient({ svc }: Props) {
 
           {/* Right sidebar */}
           <div className="space-y-8">
-            <div className="bg-[#2F352A] rounded-3xl p-8 lg:p-10 text-white sticky top-24 shadow-2xl shadow-zinc-900/20 border border-white/10 relative overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#74835F]/20 blur-[80px] pointer-events-none" />
+            <div className="bg-[#16181D] rounded-3xl p-8 lg:p-10 text-white sticky top-24 shadow-2xl shadow-zinc-900/20 border border-white/10 relative overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#7B61FF]/20 blur-[80px] pointer-events-none" />
               <h3 className="font-light text-2xl mb-4 text-white">Start Your Project</h3>
               <p className="text-white/70 text-base mb-10 leading-relaxed">
                 Share your requirements and we&apos;ll put together a tailored deployment plan.
               </p>
               <Link
                 href="/contact"
-                className="w-full py-4 rounded-2xl bg-[#B5C19F] hover:bg-[#C5CEB5] text-[#22261E] font-medium transition-all text-sm text-center block shadow-[0_0_30px_rgba(116,131,95,0.25)] hover:shadow-[0_0_40px_rgba(116,131,95,0.4)] hover:-translate-y-0.5"
+                className="w-full py-4 rounded-2xl bg-[#C4B5FF] hover:bg-[#D9CFFF] text-[#0F1115] font-medium transition-all text-sm text-center block shadow-[0_0_30px_rgba(123,97,255,0.25)] hover:shadow-[0_0_40px_rgba(123,97,255,0.4)] hover:-translate-y-0.5"
               >
                 Get in Touch
               </Link>
               <div className="mt-8 space-y-4">
                 {['No commitment required', 'Prompt response'].map((t) => (
                   <div key={t} className="flex items-center gap-3 text-sm text-white/60 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#B5C19F] shadow-[0_0_8px_rgba(116,131,95,0.8)]" />
+                    <span className="w-2 h-2 rounded-full bg-[#C4B5FF] shadow-[0_0_8px_rgba(123,97,255,0.8)]" />
                     {t}
                   </div>
                 ))}
@@ -147,7 +147,7 @@ export default function ServiceDetailClient({ svc }: Props) {
               <h3 className="text-[11px] font-medium uppercase tracking-widest text-zinc-400 mb-6">Technology Stack</h3>
               <div className="flex flex-wrap gap-3">
                 {svc.stack.map((t) => (
-                  <span key={t} className="px-4 py-2 bg-zinc-50 text-zinc-700 text-sm font-semibold rounded-full ring-1 ring-zinc-200 hover:ring-[#74835F]/50 hover:bg-[#74835F]/5 hover:text-[#2F352A] transition-all cursor-default shadow-sm">{t}</span>
+                  <span key={t} className="px-4 py-2 bg-zinc-50 text-zinc-700 text-sm font-semibold rounded-full ring-1 ring-zinc-200 hover:ring-[#7B61FF]/50 hover:bg-[#7B61FF]/5 hover:text-[#16181D] transition-all cursor-default shadow-sm">{t}</span>
                 ))}
               </div>
             </div>
@@ -159,11 +159,11 @@ export default function ServiceDetailClient({ svc }: Props) {
       {related.length > 0 && (
         <section className="bg-zinc-50 border-t border-zinc-100 py-24">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#74835F] mb-5">
-              <span className="w-6 h-px bg-[#74835F]/40" />
+            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#7B61FF] mb-5">
+              <span className="w-6 h-px bg-[#7B61FF]/40" />
               Keep Exploring
             </div>
-            <h2 className="text-3xl font-light text-[#2F352A] mb-10">Related Services</h2>
+            <h2 className="text-3xl font-light text-[#16181D] mb-10">Related Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {related.map((rel) => (
                 <Link
@@ -177,8 +177,8 @@ export default function ServiceDetailClient({ svc }: Props) {
                   </div>
                   <div className="p-6 relative">
                     <span className="inline-block px-2.5 py-1 bg-zinc-50 border border-zinc-100 rounded text-[10px] font-semibold text-zinc-500 mb-3">{rel.category}</span>
-                    <h3 className="font-medium text-[#2F352A] text-lg mb-2 leading-tight">{rel.title}</h3>
-                    <div className="flex items-center gap-1.5 text-[#74835F] text-sm font-semibold mt-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <h3 className="font-medium text-[#16181D] text-lg mb-2 leading-tight">{rel.title}</h3>
+                    <div className="flex items-center gap-1.5 text-[#7B61FF] text-sm font-semibold mt-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                       <span>Explore detail</span>
                       <ArrowRight className="w-4 h-4" />
                     </div>
@@ -210,9 +210,9 @@ function DigitalHumanLivePanel() {
   const langs = ['EN','DE','HI','AR','ZH','+36'];
 
   return (
-    <div className="rounded-2xl overflow-hidden border border-zinc-200 bg-[#282D23] relative mb-10 shadow-xl">
+    <div className="rounded-2xl overflow-hidden border border-zinc-200 bg-[#14161B] relative mb-10 shadow-xl">
       {/* Window chrome */}
-      <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#282D23] border-b border-white/10">
+      <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#14161B] border-b border-white/10">
         <span className="w-3 h-3 rounded-full bg-red-500/80" />
         <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
         <span className="w-3 h-3 rounded-full bg-green-500/80" />
@@ -230,7 +230,7 @@ function DigitalHumanLivePanel() {
           priority
         />
         {/* Dark overlay for readability of overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#282D23]/90 via-[#282D23]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#14161B]/90 via-[#14161B]/30 to-transparent" />
 
         {/* Connected badge */}
         <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
@@ -239,8 +239,8 @@ function DigitalHumanLivePanel() {
         </div>
 
         {/* Latency badge */}
-        <div className="absolute top-4 right-4 bg-[#74835F]/20 border border-[#74835F]/40 px-3 py-1 rounded-full">
-          <span className="text-xs text-[#B5C19F] font-medium font-mono">~0.3s latency</span>
+        <div className="absolute top-4 right-4 bg-[#7B61FF]/20 border border-[#7B61FF]/40 px-3 py-1 rounded-full">
+          <span className="text-xs text-[#C4B5FF] font-medium font-mono">~0.3s latency</span>
         </div>
 
         {/* Waveform */}
@@ -248,7 +248,7 @@ function DigitalHumanLivePanel() {
           {wave.map((h, i) => (
             <div
               key={i}
-              className="w-1.5 rounded-full bg-[#74835F]/80 transition-all duration-150"
+              className="w-1.5 rounded-full bg-[#7B61FF]/80 transition-all duration-150"
               style={{ height: `${h * 3}px` }}
             />
           ))}
@@ -260,9 +260,9 @@ function DigitalHumanLivePanel() {
             msgVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="bg-[#74835F]/20 border border-[#74835F]/30 backdrop-blur-sm rounded-xl px-4 py-2.5 max-w-xs">
+          <div className="bg-[#7B61FF]/20 border border-[#7B61FF]/30 backdrop-blur-sm rounded-xl px-4 py-2.5 max-w-xs">
             <p className="text-xs text-white/90 leading-relaxed">
-              <span className="text-[#B5C19F] font-semibold">Agent: </span>
+              <span className="text-[#C4B5FF] font-semibold">Agent: </span>
               &ldquo;Namaste, I can help you with your account query — which product are you referring to?&rdquo;
             </p>
           </div>
@@ -277,7 +277,7 @@ function DigitalHumanLivePanel() {
       </div>
 
       {/* Footer */}
-      <div className="px-5 py-2.5 bg-[#282D23] border-t border-white/10 flex items-center justify-between">
+      <div className="px-5 py-2.5 bg-[#14161B] border-t border-white/10 flex items-center justify-between">
         <span className="text-[10px] text-zinc-500 font-mono">Real-time conversational AI · Private VPC deployment</span>
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
       </div>

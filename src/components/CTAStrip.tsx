@@ -19,10 +19,10 @@ export default function CTAStrip({
   secondaryHref = "/services",
 }: CTAStripProps) {
   return (
-    <section className="relative bg-gradient-to-br from-[#4A5541] via-[#454D3E] to-[#2F352A] overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#5B45E0] via-[#2A2D35] to-[#16181D] overflow-hidden">
       <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(to right, rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
       <div className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-white/5 blur-3xl" />
-      <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#22261E]/30 blur-3xl" />
+      <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#0F1115]/30 blur-3xl" />
 
       <div className="relative max-w-4xl mx-auto px-6 py-20 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-semibold tracking-wide mb-6">
@@ -30,9 +30,9 @@ export default function CTAStrip({
           Strict Confidentiality Before Any Technical Discussion
         </div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight mb-5 leading-snug">{heading}</h2>
-        <p className="text-base text-[#E4E8DC] font-light leading-relaxed mb-10 max-w-2xl mx-auto">{sub}</p>
+        <p className="text-base text-[#EEE9FF] font-light leading-relaxed mb-10 max-w-2xl mx-auto">{sub}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={primaryHref} className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#4A5541] text-sm font-medium shadow-xl hover:bg-[#F1F3EC] transition-all group">
+          <Link href={primaryHref} className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#5B45E0] text-sm font-medium shadow-xl hover:bg-[#F4F1FF] transition-all group">
             {primaryLabel}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>

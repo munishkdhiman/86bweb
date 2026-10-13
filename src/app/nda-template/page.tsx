@@ -7,13 +7,13 @@ export const metadata = { title: 'Strict Confidentiality | 86b.ai', description:
 
 export default function NdaTemplatePage() {
   return (
-    <div className="min-h-screen bg-[#F6F7F2] font-sans">
+    <div className="min-h-screen bg-[#FBF8F4] font-sans">
       <Navbar />
-      <section className="relative bg-[#22261E] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#22261E] via-[#282D23]/90 to-[#22261E]" />
-        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#74835F 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <section className="relative bg-[#0F1115] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F1115] via-[#14161B]/90 to-[#0F1115]" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#7B61FF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#74835F] mb-4 block">Confidentiality First</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#7B61FF] mb-4 block">Confidentiality First</span>
           <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">Strict Confidentiality Before Hello</h1>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">No technical discussion begins without a signed confidentiality agreement. Every agreement is tailored to the specific engagement and jurisdiction.</p>
         </div>
@@ -26,7 +26,7 @@ export default function NdaTemplatePage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#2F352A] text-white text-sm font-medium hover:bg-[#454D3E] transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#16181D] text-white text-sm font-medium hover:bg-[#2A2D35] transition-colors"
           >
             <Lock className="w-4 h-4" />
             Submit Enquiry &mdash; Receive Confidentiality Agreement

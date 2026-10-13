@@ -11,7 +11,7 @@ const phases = [
     number: '01',
     timeframe: 'Phase 1',
     title: 'Discovery & Audit',
-    color: 'bg-[#2F352A]',
+    color: 'bg-[#16181D]',
     icon: FileText,
     description:
       'Before a single technical detail is shared, our lead engineers conduct a comprehensive data landscape audit — mapping all data sources, identifying integration touchpoints, assessing data quality, and scoping the AI opportunity within your existing infrastructure.',
@@ -27,7 +27,7 @@ const phases = [
     number: '02',
     timeframe: 'Phase 2',
     title: 'Staging Environment & Integration',
-    color: 'bg-[#2F352A]',
+    color: 'bg-[#16181D]',
     icon: Server,
     description:
       'Your first AI system is built and deployed within a secure staging environment. We configure the RAG pipeline, connect all approved data sources, deploy or connect the AI model, and run the first round of evaluation testing alongside your internal subject matter experts.',
@@ -44,7 +44,7 @@ const phases = [
     number: '03',
     timeframe: 'Phase 3',
     title: 'Secure VPC Migration & Go-Live',
-    color: 'bg-[#2F352A]',
+    color: 'bg-[#16181D]',
     icon: FlaskConical,
     description:
       'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team, backed by optional ongoing Service Level Agreements (SLAs) for maintenance and upgrades.',
@@ -68,18 +68,18 @@ const principles = [
 
 export default function HowWeBuildPage() {
   return (
-    <div className="min-h-screen bg-[#F6F7F2]">
+    <div className="min-h-screen bg-[#FBF8F4]">
       <Navbar />
 
       {/* ── MINI HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative bg-[#22261E] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#22261E] via-[#282D23]/90 to-[#22261E]" />
-        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#74835F 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <section className="relative bg-[#0F1115] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F1115] via-[#14161B]/90 to-[#0F1115]" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#7B61FF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#B5C19F] mb-4 block">Our Engineering Process</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#C4B5FF] mb-4 block">Our Engineering Process</span>
           <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">
             Audit to production AI.<br />
-            <span className="text-[#B5C19F] font-light">Scoped, built, delivered, and supported.</span>
+            <span className="text-[#C4B5FF] font-light">Scoped, built, delivered, and supported.</span>
           </h1>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">
             A disciplined, three-phase engagement model designed for enterprise security requirements, regulatory compliance, and measurable delivery milestones.
@@ -92,11 +92,11 @@ export default function HowWeBuildPage() {
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-wrap gap-6">
           {principles.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="flex items-start gap-3 max-w-xs">
-              <div className="w-9 h-9 rounded-xl bg-[#2F352A]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Icon className="w-4 h-4 text-[#2F352A]" />
+              <div className="w-9 h-9 rounded-xl bg-[#16181D]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon className="w-4 h-4 text-[#16181D]" />
               </div>
               <div>
-                <p className="font-semibold text-[#2F352A] text-sm">{title}</p>
+                <p className="font-semibold text-[#16181D] text-sm">{title}</p>
                 <p className="text-zinc-700 text-xs leading-relaxed mt-0.5">{desc}</p>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function HowWeBuildPage() {
                           {phase.timeframe}
                         </span>
                       </div>
-                      <h2 className="text-xl font-medium text-[#2F352A]">{phase.title}</h2>
+                      <h2 className="text-xl font-medium text-[#16181D]">{phase.title}</h2>
                     </div>
                     <span className="text-xs text-zinc-400 hidden md:block">{phase.team}</span>
                   </div>
@@ -150,7 +150,7 @@ export default function HowWeBuildPage() {
                       <ul className="space-y-2">
                         {phase.deliverables.map((d) => (
                           <li key={d} className="flex items-start gap-2.5 text-sm text-zinc-700">
-                            <CheckCircle2 className="w-4 h-4 text-[#2F352A] flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-[#16181D] flex-shrink-0 mt-0.5" />
                             {d}
                           </li>
                         ))}
@@ -165,7 +165,7 @@ export default function HowWeBuildPage() {
       </div>
 
       {/* CTA */}
-      <section className="bg-[#2F352A] py-16">
+      <section className="bg-[#16181D] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
             Ready to start your Phase 1 audit?
@@ -175,7 +175,7 @@ export default function HowWeBuildPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#4A5541] hover:bg-[#3B4434] text-white font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#16181D] hover:bg-[#2A2D35] text-white font-semibold transition-colors"
           >
             Book Free AI Audit
             <ArrowRight className="w-4 h-4" />

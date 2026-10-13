@@ -208,7 +208,7 @@ const phases = [
   {
     number: '01',
     label: 'Phase 1',
-    color: 'bg-[#2F352A]',
+    color: 'bg-[#16181D]',
     icon: FileText,
     title: 'Discovery & Audit',
     description: 'Before a single technical detail is shared, our lead engineers conduct a comprehensive data landscape audit — mapping all data sources, identifying integration touchpoints, assessing data quality, and scoping the AI opportunity within your existing infrastructure.',
@@ -217,7 +217,7 @@ const phases = [
   {
     number: '02',
     label: 'Phase 2',
-    color: 'bg-[#2F352A]',
+    color: 'bg-[#16181D]',
     icon: Server,
     title: 'Staging Environment & Integration',
     description: 'Your first AI system is built and deployed within a secure staging environment. We configure the RAG pipeline, connect all approved data sources, deploy or connect the AI model, and run the first round of evaluation testing alongside your internal subject matter experts.',
@@ -226,7 +226,7 @@ const phases = [
   {
     number: '03',
     label: 'Phase 3',
-    color: 'bg-[#2F352A]',
+    color: 'bg-[#16181D]',
     icon: FlaskConical,
     title: 'Secure VPC Migration & Go-Live',
     description: 'Before production go-live, our red-team conducts systematic adversarial testing. Once the system passes our quality gates, we execute the secure migration into your production VPC, cloud account, or on-premise servers. We then hand over complete documentation, source code, and training for your internal team, backed by optional ongoing Service Level Agreements (SLAs) for maintenance and upgrades.',
@@ -276,7 +276,7 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F6F7F2]">
+    <div className="min-h-screen bg-[#FBF8F4]">
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
@@ -316,7 +316,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl"
             >
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C5CEB5] mb-6">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#D9CFFF] mb-6">
                 86b.ai Services · Applied Enterprise AI
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.08] tracking-tight mb-6 whitespace-pre-line">
@@ -329,7 +329,7 @@ export default function ServicesPage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href={heroSlides[activeSlide].href}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#4A5541] hover:bg-[#3B4434] text-white text-sm font-semibold transition-colors shadow-lg"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#16181D] hover:bg-[#2A2D35] text-white text-sm font-semibold transition-colors shadow-lg"
                 >
                   {heroSlides[activeSlide].cta}
                   <ChevronRight className="w-4 h-4" />
@@ -352,7 +352,7 @@ export default function ServicesPage() {
                 onClick={() => setActiveSlide(i)}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeSlide
-                    ? 'w-8 h-2 bg-[#4A5541]'
+                    ? 'w-8 h-2 bg-[#16181D]'
                     : 'w-2 h-2 bg-white/40 hover:bg-white/70'
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
@@ -369,7 +369,7 @@ export default function ServicesPage() {
             <a
               key={item.href}
               href={item.href}
-              className="whitespace-nowrap text-sm font-normal text-zinc-500 hover:text-[#2F352A] transition-colors"
+              className="whitespace-nowrap text-sm font-normal text-zinc-500 hover:text-[#16181D] transition-colors"
             >
               {item.label}
             </a>
@@ -383,7 +383,7 @@ export default function ServicesPage() {
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
             {trustBadges.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2.5 text-zinc-500">
-                <Icon className="w-4 h-4 text-[#74835F]" />
+                <Icon className="w-4 h-4 text-[#7B61FF]" />
                 <span className="text-sm font-medium">{label}</span>
               </div>
             ))}
@@ -402,14 +402,14 @@ export default function ServicesPage() {
           >
             <motion.span
               variants={fadeUp}
-              className="inline-block text-xs font-semibold uppercase tracking-widest text-[#74835F] mb-4"
+              className="inline-block text-xs font-semibold uppercase tracking-widest text-[#7B61FF] mb-4"
             >
               Core Capabilities
             </motion.span>
             <motion.h2
               variants={fadeUp}
               custom={1}
-              className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight"
+              className="text-4xl md:text-5xl font-light text-[#16181D] leading-tight"
             >
               Four pillars. One engineering team.
             </motion.h2>
@@ -456,8 +456,8 @@ export default function ServicesPage() {
                       <span className="text-xs font-mono font-semibold text-white/50">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <div className="w-9 h-9 rounded-xl bg-[#74835F]/20 border border-[#74835F]/30 flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-[#74835F]" />
+                      <div className="w-9 h-9 rounded-xl bg-[#7B61FF]/20 border border-[#7B61FF]/30 flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-[#7B61FF]" />
                       </div>
                     </div>
 
@@ -468,7 +468,7 @@ export default function ServicesPage() {
                       <p className="text-white/65 text-sm leading-relaxed mb-4">
                         {pillar.description}
                       </p>
-                      <div className="flex items-center gap-2 text-[#74835F] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex items-center gap-2 text-[#7B61FF] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span>View details</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>
@@ -490,7 +490,7 @@ export default function ServicesPage() {
           >
             <a
               href="#catalog"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#74835F] hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#7B61FF] hover:underline"
             >
             Show all services
               <ChevronRight className="w-4 h-4" />
@@ -521,7 +521,7 @@ export default function ServicesPage() {
             {techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-500 text-sm font-medium hover:border-[#74835F]/40 hover:text-zinc-700 transition-colors"
+                className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-500 text-sm font-medium hover:border-[#7B61FF]/40 hover:text-zinc-700 transition-colors"
               >
                 {tech}
               </span>
@@ -535,12 +535,12 @@ export default function ServicesPage() {
         id="spatial"
         ref={spatialRef}
         onMouseMove={onMouseMove}
-        className="relative py-16 md:py-20 bg-[#2F352A] overflow-hidden scroll-mt-32"
+        className="relative py-16 md:py-20 bg-[#16181D] overflow-hidden scroll-mt-32"
       >
         {/* Mesh grid bg */}
         <div className="absolute inset-0 mesh-grid opacity-100" />
         {/* Radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[#74835F]/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[#7B61FF]/5 blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div
@@ -549,7 +549,7 @@ export default function ServicesPage() {
             viewport={{ once: true, margin: '-80px' }}
             className="text-center mb-10 md:mb-12"
           >
-            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#B5C19F] mb-4">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C4B5FF] mb-4">
               Spatial Intelligence
             </motion.span>
             <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-white leading-tight">
@@ -586,7 +586,7 @@ export default function ServicesPage() {
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent" />
-                      <span className="absolute top-4 left-4 text-xs font-mono font-semibold text-[#B5C19F]">
+                      <span className="absolute top-4 left-4 text-xs font-mono font-semibold text-[#C4B5FF]">
                         {card.number}
                       </span>
                     </div>
@@ -594,7 +594,7 @@ export default function ServicesPage() {
                     <div className="p-6">
                       <h3 className="text-lg font-medium text-white mb-3 leading-tight">{card.title}</h3>
                       <p className="text-zinc-400 text-sm leading-relaxed mb-4">{card.description}</p>
-                      <div className="flex items-center gap-2 text-[#B5C19F] text-xs font-semibold opacity-40 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center gap-2 text-[#C4B5FF] text-xs font-semibold opacity-40 group-hover:opacity-100 transition-opacity">
                         <span>Learn more</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </div>
@@ -610,19 +610,19 @@ export default function ServicesPage() {
       {/* ── WEARABLE AI ─────────────────────────────────────────────────────── */}
       <section id="wearable" className="relative py-28 bg-white border-t border-zinc-100 overflow-hidden scroll-mt-32">
         {/* Soft radial glow */}
-        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] rounded-full bg-[#74835F]/6 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] rounded-full bg-[#7B61FF]/6 blur-[120px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: Text */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#74835F] mb-5">
-                <span className="w-6 h-px bg-[#74835F]/40" />
+              <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#7B61FF] mb-5">
+                <span className="w-6 h-px bg-[#7B61FF]/40" />
                 Wearable AI
-                <span className="w-6 h-px bg-[#74835F]/40" />
+                <span className="w-6 h-px bg-[#7B61FF]/40" />
               </motion.span>
-              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-[#2F352A] leading-tight mb-6">
+              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-[#16181D] leading-tight mb-6">
                 AI on your face.<br />Hands free. Field ready.
               </motion.h2>
               <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed mb-8 max-w-xl">
@@ -636,7 +636,7 @@ export default function ServicesPage() {
                   'No headset. No friction. Just glasses.',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 text-zinc-600 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-[#74835F] flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#7B61FF] flex-shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -644,7 +644,7 @@ export default function ServicesPage() {
               <motion.div variants={fadeUp} custom={4}>
                 <Link
                   href="/services/ai-smart-glasses"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#4A5541] hover:bg-[#3B4434] text-white text-sm font-semibold transition-colors shadow-lg"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#16181D] hover:bg-[#2A2D35] text-white text-sm font-semibold transition-colors shadow-lg"
                 >
                   Explore Wearable AI
                   <ChevronRight className="w-4 h-4" />
@@ -668,7 +668,7 @@ export default function ServicesPage() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2F352A]/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#16181D]/60 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
                   <p className="text-white text-sm font-semibold">Meta Ray-Ban Smart Glasses</p>
                   <p className="text-white/60 text-xs mt-0.5">No headset required. Works with standard eyewear frames.</p>
@@ -697,17 +697,17 @@ export default function ServicesPage() {
       {/* ── DIGITAL HUMAN DEMO ─────────────────────────────────────────────────── */}
       <div id="digital-humans" className="scroll-mt-32"><AudioWaveDemo /></div>
 
-      <section id="deployment" className="py-24 bg-[#282D23] relative overflow-hidden border-y border-white/5 scroll-mt-32">
+      <section id="deployment" className="py-24 bg-[#14161B] relative overflow-hidden border-y border-white/5 scroll-mt-32">
         {/* Deep ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-[#74835F]/10 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full bg-[#7B61FF]/10 blur-[120px] pointer-events-none" />
         
         <div className="relative max-w-7xl mx-auto px-6 z-10">
           {/* Header */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-20">
-            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#B5C19F] mb-5">
-              <span className="w-6 h-px bg-[#B5C19F]/40" />
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#C4B5FF] mb-5">
+              <span className="w-6 h-px bg-[#C4B5FF]/40" />
               Deployment Spectrum
-              <span className="w-6 h-px bg-[#B5C19F]/40" />
+              <span className="w-6 h-px bg-[#C4B5FF]/40" />
             </motion.span>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-white leading-tight">
               Your infrastructure. Your choice.
@@ -720,7 +720,7 @@ export default function ServicesPage() {
           {/* Cards grid + glowing track */}
           <div className="relative pt-6">
             {/* The continuous spectrum track line */}
-            <div className="hidden lg:block absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B5C19F]/80 via-[#74835F]/80 to-[#4A5541]/80 shadow-[0_0_15px_rgba(116,131,95,0.6)]" />
+            <div className="hidden lg:block absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C4B5FF]/80 via-[#7B61FF]/80 to-[#5B45E0]/80 shadow-[0_0_15px_rgba(123,97,255,0.6)]" />
 
             <motion.div
               initial="hidden"
@@ -765,13 +765,13 @@ export default function ServicesPage() {
                   className="relative rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 flex flex-col gap-6 transition-all duration-300 hover:bg-white/[0.06] hover:-translate-y-1 hover:border-white/20 group"
                 >
                   {/* Subtle top indicator connecting to the track (mobile visible, desktop just accent) */}
-                  <div className="absolute top-0 left-8 right-8 h-px bg-white/20 group-hover:bg-[#74835F]/50 transition-colors duration-500" />
+                  <div className="absolute top-0 left-8 right-8 h-px bg-white/20 group-hover:bg-[#7B61FF]/50 transition-colors duration-500" />
                   
                   {/* Node dot (only visible on desktop to connect to the top line) */}
-                  <div className="hidden lg:block absolute -top-[25px] left-8 w-3 h-3 rounded-full bg-[#282D23] border-2 border-white/40 group-hover:border-white group-hover:bg-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all z-10" />
+                  <div className="hidden lg:block absolute -top-[25px] left-8 w-3 h-3 rounded-full bg-[#14161B] border-2 border-white/40 group-hover:border-white group-hover:bg-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all z-10" />
 
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10 group-hover:border-[#74835F]/40 group-hover:text-[#B5C19F] transition-colors">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10 group-hover:border-[#7B61FF]/40 group-hover:text-[#C4B5FF] transition-colors">
                       {d.sub}
                     </span>
                     <span className="text-xl font-light text-white/20">{d.tier}</span>
@@ -801,7 +801,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── ENGAGEMENT PHILOSOPHY ─────────────────────────────────────────────── */}
-      <section id="engagement" className="py-24 bg-[#F6F7F2] border-t border-zinc-100 scroll-mt-32">
+      <section id="engagement" className="py-24 bg-[#FBF8F4] border-t border-zinc-100 scroll-mt-32">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -809,10 +809,10 @@ export default function ServicesPage() {
             viewport={{ once: true, margin: '-80px' }}
             className="max-w-3xl mb-16"
           >
-            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#74835F] mb-4">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-semibold uppercase tracking-widest text-[#7B61FF] mb-4">
               How We Engage
             </motion.span>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight mb-4">
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#16181D] leading-tight mb-4">
               Solution engineers,<br />not software licences.
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed">
@@ -848,11 +848,11 @@ export default function ServicesPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-medium text-[#2F352A] mb-3">{phase.title}</h3>
+                  <h3 className="text-lg font-medium text-[#16181D] mb-3">{phase.title}</h3>
                   <p className="text-zinc-500 text-sm leading-relaxed mb-4">{phase.description}</p>
 
                   <div className="flex items-start gap-2 p-3 bg-white rounded-xl border border-zinc-200">
-                    <CheckCircle2 className="w-4 h-4 text-[#74835F] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#7B61FF] flex-shrink-0 mt-0.5" />
                     <span className="text-xs text-zinc-600">{phase.deliverable}</span>
                   </div>
                 </motion.div>
@@ -867,7 +867,7 @@ export default function ServicesPage() {
       <ServiceCatalog />
 
       {/* ── BOTTOM CTA ────────────────────────────────────────────────────────── */}
-      <section className="bg-[#2F352A] py-20">
+      <section className="bg-[#16181D] py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial="hidden"
@@ -883,7 +883,7 @@ export default function ServicesPage() {
             <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#2F352A] text-sm font-normal hover:bg-zinc-100 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#16181D] text-sm font-normal hover:bg-zinc-100 transition-colors shadow-lg"
               >
                 Book Free AI Audit
                 <ChevronRight className="w-4 h-4" />

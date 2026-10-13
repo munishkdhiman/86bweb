@@ -37,7 +37,7 @@ export default function Post() {
 
         {/* Meta */}
         <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400 mb-6">
-          <span className="px-3 py-1 rounded-full bg-[#F1F3EC] text-[#74835F] font-semibold uppercase tracking-wider">
+          <span className="px-3 py-1 rounded-full bg-[#F4F1FF] text-[#7B61FF] font-semibold uppercase tracking-wider">
             AI Strategy
           </span>
           <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> June 27, 2025</span>
@@ -45,7 +45,7 @@ export default function Post() {
         </div>
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-light text-[#2F352A] leading-[1.1] mb-8">
+        <h1 className="text-4xl md:text-5xl font-light text-[#16181D] leading-[1.1] mb-8">
           The 86 Billion Neuron Standard: What the Human Brain Teaches Us About Building Enterprise AI
         </h1>
 
@@ -58,7 +58,7 @@ export default function Post() {
 
           <hr className="border-zinc-200" />
 
-          <h2 className="text-2xl font-light text-[#2F352A] pt-4">The Problem With Generic Intelligence</h2>
+          <h2 className="text-2xl font-light text-[#16181D] pt-4">The Problem With Generic Intelligence</h2>
 
           <p>
             The most advanced language models in the world are trained on essentially everything humanity has ever written. That breadth is their strength and their fatal flaw for enterprise use. A model that knows everything tends to know nothing particularly well — and more critically, it knows nothing about <em>you</em>.
@@ -70,7 +70,7 @@ export default function Post() {
             That specificity is not a limitation. It is the entire point.
           </p>
 
-          <h2 className="text-2xl font-light text-[#2F352A] pt-4">What 86 Billion Neurons Actually Do</h2>
+          <h2 className="text-2xl font-light text-[#16181D] pt-4">What 86 Billion Neurons Actually Do</h2>
 
           <p>
             Neurons do not store facts. They store <em>relationships</em>. The power of the brain is not in the raw count of 86 billion — it is in the 100 trillion connections between them, each shaped by experience, context, and repetition. A senior analyst at a financial services firm does not know more raw information than a junior analyst. They recognise patterns faster because their neural pathways for that specific domain have been reinforced over years of exposure.
@@ -79,34 +79,34 @@ export default function Post() {
             This is the architecture we should be building AI towards in enterprise. Not breadth. Not raw parameters. But deep, domain-specific systems that recognise the patterns that matter to one organisation — and ignore the noise that does not.
           </p>
 
-          <blockquote className="border-l-4 border-[#74835F] pl-6 py-2 text-zinc-500 italic text-xl font-light">
+          <blockquote className="border-l-4 border-[#7B61FF] pl-6 py-2 text-zinc-500 italic text-xl font-light">
             &ldquo;The goal is not to build AI that knows everything. It is to build AI that knows your business better than any tool you have ever used.&rdquo;
           </blockquote>
 
-          <h2 className="text-2xl font-light text-[#2F352A] pt-4">Three Principles the Brain Gets Right</h2>
+          <h2 className="text-2xl font-light text-[#16181D] pt-4">Three Principles the Brain Gets Right</h2>
 
           <p>
             After years of building AI systems inside enterprises — financial services, healthcare, logistics, government — we have identified three principles from biological intelligence that consistently predict whether a deployment succeeds or fails.
           </p>
 
-          <h3 className="text-xl font-semibold text-[#2F352A]">1. Context is not optional</h3>
+          <h3 className="text-xl font-semibold text-[#16181D]">1. Context is not optional</h3>
           <p>
             Your brain never processes a signal in isolation. Every incoming data point is cross-referenced against memory, environment, and prior experience. Generic AI strips this context away. It answers the question in front of it without understanding the business situation, regulatory environment, or organisational history. Building context in — through fine-tuning, RAG pipelines, and domain-specific guardrails — is not a nice-to-have. It is table stakes.
           </p>
 
-          <h3 className="text-xl font-semibold text-[#2F352A]">2. Learning must be continuous, not one-off</h3>
+          <h3 className="text-xl font-semibold text-[#16181D]">2. Learning must be continuous, not one-off</h3>
           <p>
             The brain does not get trained once and then deployed. It updates with every experience and every correction. Most enterprise AI deployments treat model training as a project milestone rather than an ongoing process. Six months after deployment, the model is stale. Building feedback loops, retraining pipelines, and drift detection from day one is the difference between AI that ages gracefully and AI that quietly becomes a liability.
           </p>
 
-          <h3 className="text-xl font-semibold text-[#2F352A]">3. Trust is earned through specificity</h3>
+          <h3 className="text-xl font-semibold text-[#16181D]">3. Trust is earned through specificity</h3>
           <p>
             Users trust the senior analyst because her judgment has been proven right, in this domain, before. Generic AI earns no such trust — and rightly so. When a model has been fine-tuned on your documents and validated against your historical decisions, it begins to earn the same standing. Not because it is more capable in the abstract. Because it has demonstrated competence in the specific.
           </p>
 
           <hr className="border-zinc-200" />
 
-          <h2 className="text-2xl font-light text-[#2F352A] pt-4">Why We Named Ourselves After a Number</h2>
+          <h2 className="text-2xl font-light text-[#16181D] pt-4">Why We Named Ourselves After a Number</h2>
 
           <p>
             86b.ai takes its name from the 86 billion neurons in the human brain — not as a marketing flourish, but as a philosophical commitment. Every AI system we build is measured against the same standard: is it specific, contextual, adaptive, and genuinely useful to the organisation it serves?
@@ -118,7 +118,7 @@ export default function Post() {
 
           <p className="text-zinc-400 text-base font-light pt-8 border-t border-zinc-100">
             <strong className="text-zinc-600 font-normal">86b.ai</strong> is an applied AI engineering firm. We build custom AI systems inside enterprise infrastructure — fine-tuned, governed, and handed over with full source code and documentation.{' '}
-            <Link href="/contact" className="text-[#74835F] hover:underline">
+            <Link href="/contact" className="text-[#7B61FF] hover:underline">
               Book a free AI audit →
             </Link>
           </p>

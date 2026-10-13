@@ -39,13 +39,13 @@ export default function ServiceCatalog() {
   };
 
   return (
-    <section id="catalog" className="py-24 bg-[#F6F7F2] border-t border-zinc-100 scroll-mt-32">
+    <section id="catalog" className="py-24 bg-[#FBF8F4] border-t border-zinc-100 scroll-mt-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-10">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#74835F] mb-4">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#7B61FF] mb-4">
             All Services
           </span>
-          <h2 className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-light text-[#16181D] leading-tight mb-4">
             The full catalogue.
           </h2>
           <p className="text-zinc-500 text-lg leading-relaxed">
@@ -60,7 +60,7 @@ export default function ServiceCatalog() {
               key={cat}
               href={`#${cat.replace(/\s+/g, '-').toLowerCase()}`}
               onClick={() => setOpenCategories((prev) => (prev.includes(cat) ? prev : [...prev, cat]))}
-              className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-600 text-sm hover:border-[#74835F]/40 hover:text-[#2F352A] transition-colors"
+              className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-600 text-sm hover:border-[#7B61FF]/40 hover:text-[#16181D] transition-colors"
             >
               {cat}
             </a>
@@ -81,7 +81,7 @@ export default function ServiceCatalog() {
                   className="w-full flex items-center justify-between px-8 py-6 hover:bg-zinc-50 transition-colors"
                 >
                   <div className="flex items-center gap-4">
-                    <h3 className="text-lg font-medium text-[#2F352A]">{cat}</h3>
+                    <h3 className="text-lg font-medium text-[#16181D]">{cat}</h3>
                     <span className="text-xs text-zinc-400 bg-zinc-100 px-2.5 py-1 rounded-full">
                       {categoryServices.length} service{categoryServices.length !== 1 ? 's' : ''}
                     </span>
@@ -116,9 +116,9 @@ export default function ServiceCatalog() {
                         </div>
                         {/* Content */}
                         <div className="p-5">
-                          <h4 className="font-semibold text-[#2F352A] text-sm mb-1 leading-tight">{svc.title}</h4>
+                          <h4 className="font-semibold text-[#16181D] text-sm mb-1 leading-tight">{svc.title}</h4>
                           <p className="text-zinc-700 text-xs leading-relaxed mb-3">{svc.tagline}</p>
-                          <div className="flex items-center gap-1.5 text-[#74835F] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="flex items-center gap-1.5 text-[#7B61FF] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                             <span>View details</span>
                             <ChevronRight className="w-3.5 h-3.5" />
                           </div>

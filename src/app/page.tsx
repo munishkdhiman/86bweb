@@ -13,6 +13,7 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EarlyAccessForm from '@/components/EarlyAccessForm';
+import NeuralField from '@/components/NeuralField';
 
 // ── Problem ─────────────────────────────────────────────────────────────────
 const problems = [
@@ -127,6 +128,16 @@ const partnerTypes = [
 ];
 
 // ── Fade-up animation variant ─────────────────────────────────────────────────
+// ── Spectrum hues, cycled across cards and rows ──────────────────────────────
+const hues = [
+  { fg: '#E8553A', bg: '#FFEDE7', ring: '#FFD3C4' }, // coral
+  { fg: '#C7378A', bg: '#FCE7F2', ring: '#F8C9E2' }, // magenta
+  { fg: '#6347F0', bg: '#EFEBFF', ring: '#D9CFFF' }, // violet
+  { fg: '#0E9488', bg: '#E2F7F3', ring: '#BDEDE4' }, // teal
+  { fg: '#C77700', bg: '#FFF3DC', ring: '#FBE0A9' }, // amber
+];
+
+// ── Fade-up animation variant ─────────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   visible: (i = 0) => ({
@@ -136,13 +147,14 @@ const fadeUp = {
   }),
 };
 
-function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
+function Eyebrow({ children, color = '#6347F0' }: { children: React.ReactNode; color?: string }) {
   return (
     <motion.span
       variants={fadeUp}
-      className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest mb-5 ${dark ? 'text-[#B5C19F]' : 'text-[#4A5541]'}`}
+      className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] mb-5"
+      style={{ color }}
     >
-      <span className={`w-6 h-px ${dark ? 'bg-[#B5C19F]/50' : 'bg-[#74835F]/50'}`} />
+      <span className="w-2 h-2 rounded-full" style={{ background: color }} />
       {children}
     </motion.span>
   );
@@ -151,14 +163,12 @@ function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?:
 function DiagramNode({ title, desc, highlight = false }: { title: string; desc: string; highlight?: boolean }) {
   return (
     <div
-      className={`rounded-xl border px-4 py-3.5 text-center h-full flex flex-col justify-center transition-colors ${
-        highlight
-          ? 'border-[#74835F] bg-[#74835F]/10 shadow-[0_0_24px_rgba(116,131,95,0.18)]'
-          : 'border-zinc-200 bg-white'
+      className={`rounded-2xl px-4 py-3.5 text-center h-full flex flex-col justify-center ${
+        highlight ? 'border-spectrum shadow-[0_10px_30px_-10px_rgba(123,97,255,0.45)]' : 'border border-[#ECE6DD] bg-white'
       }`}
     >
-      <p className="text-sm font-medium text-[#2F352A] leading-tight">{title}</p>
-      <p className="text-xs text-zinc-500 mt-1 leading-snug">{desc}</p>
+      <p className={`text-sm font-medium leading-tight ${highlight ? 'text-spectrum' : 'text-[#16181D]'}`}>{title}</p>
+      <p className="text-xs text-[#6B7079] mt-1 leading-snug">{desc}</p>
     </div>
   );
 }
@@ -173,6 +183,7 @@ function VoiceDemo() {
     { phrase: '“Alarm subah chhe baje”', confidence: 88, learned: true },
     { phrase: '“Papa ko call karo”', confidence: 97, learned: true },
   ];
+  const barColors = ['#FF6B4A', '#E14FA0', '#7B61FF', '#14B8A6'];
 
   useEffect(() => {
     const w = setInterval(() => setWave((v) => v.map(() => Math.floor(Math.random() * 16) + 3)), 160);
@@ -182,56 +193,54 @@ function VoiceDemo() {
 
   const u = uses[step];
   return (
-    <div className="relative mx-auto w-[280px] rounded-[2.5rem] border-[10px] border-[#2F352A] bg-[#22261E] shadow-2xl overflow-hidden">
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 rounded-full bg-[#2F352A] z-10" />
-      <div className="px-5 pt-10 pb-7 min-h-[500px] flex flex-col">
-        <div className="flex items-center justify-between text-[10px] text-white/40 mb-8">
+    <div className="relative mx-auto w-[280px] rounded-[2.75rem] border-[10px] border-[#16181D] bg-white shadow-[0_40px_80px_-30px_rgba(22,24,29,0.45)] overflow-hidden">
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 rounded-full bg-[#16181D] z-10" />
+      <div className="px-5 pt-10 pb-7 min-h-[500px] flex flex-col wash-violet">
+        <div className="flex items-center justify-between text-[10px] text-[#6B7079] mb-8">
           <span className="font-mono">86b SDK · on-device</span>
           <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> offline</span>
         </div>
 
-        <p className="text-[11px] uppercase tracking-widest text-[#B5C19F] mb-2">Use {step + 1}</p>
+        <p className="text-[11px] uppercase tracking-widest text-[#6347F0] mb-2">Use {step + 1}</p>
         <motion.p
           key={step}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-white text-xl font-light leading-snug mb-8 min-h-[56px]"
+          className="font-light text-[#16181D] text-[28px] leading-tight mb-8 min-h-[70px]"
         >
           {u.phrase}
         </motion.p>
 
         <div className="flex items-center justify-center gap-[3px] h-16 mb-8">
           {wave.map((h, i) => (
-            <div key={i} className="w-[5px] rounded-full bg-[#4A5541] transition-all duration-150" style={{ height: `${h * 3}px`, opacity: 0.5 + (h / 40) }} />
+            <div key={i} className="w-[5px] rounded-full transition-all duration-150" style={{ height: `${h * 3}px`, background: barColors[Math.floor((i / wave.length) * barColors.length)] }} />
           ))}
         </div>
 
         <div className="mb-2 flex items-center justify-between text-xs">
-          <span className="text-white/50">Confidence</span>
-          <span className="text-white font-mono">{u.confidence}%</span>
+          <span className="text-[#6B7079]">Confidence</span>
+          <span className="text-[#16181D] font-mono">{u.confidence}%</span>
         </div>
-        <div className="h-1.5 rounded-full bg-white/10 overflow-hidden mb-6">
+        <div className="h-1.5 rounded-full bg-[#16181D]/10 overflow-hidden mb-6">
           <motion.div
-            className="h-full bg-[#4A5541] rounded-full"
+            className="h-full bg-spectrum rounded-full"
             animate={{ width: `${u.confidence}%` }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           />
         </div>
 
         <div className="mt-auto space-y-2">
-          <div className="flex items-center gap-2 text-xs text-white/60">
-            <CheckCircle2 className={`w-3.5 h-3.5 ${u.learned ? 'text-[#B5C19F]' : 'text-white/20'}`} />
-            Adapter updated for this speaker
-          </div>
-          <div className="flex items-center gap-2 text-xs text-white/60">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#B5C19F]" />
-            Earlier commands retained
-          </div>
-          <div className="flex items-center gap-2 text-xs text-white/60">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#B5C19F]" />
-            No audio leaves the device
-          </div>
+          {[
+            { label: 'Adapter updated for this speaker', on: u.learned, color: '#E14FA0' },
+            { label: 'Earlier commands retained', on: true, color: '#7B61FF' },
+            { label: 'No audio leaves the device', on: true, color: '#14B8A6' },
+          ].map((row) => (
+            <div key={row.label} className="flex items-center gap-2 text-xs text-[#3B3F47]">
+              <CheckCircle2 className="w-3.5 h-3.5" style={{ color: row.on ? row.color : '#C9CCD2' }} />
+              {row.label}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -240,113 +249,110 @@ function VoiceDemo() {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#F6F7F2]">
+    <div className="min-h-screen bg-[#FBF8F4]">
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
-        <Image
-          src="/neuron_hero.png"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center neuron-light opacity-40 md:opacity-60 md:object-right"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40" />
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(#74835F 1px, transparent 1px)', backgroundSize: '32px 32px' }}
-        />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#FBF8F4]">
+        <div className="aurora" aria-hidden="true">
+          <span className="a1" /><span className="a2" /><span className="a3" /><span className="a4" />
+        </div>
+        <NeuralField className="absolute inset-0 w-full h-full" />
+        {/* Keep the copy legible over the field */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF8F4]/90 via-[#FBF8F4]/40 to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
-          <motion.div initial="hidden" animate="visible" className="max-w-3xl">
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#74835F]/10 border border-[#74835F]/30 text-[11px] font-semibold uppercase tracking-widest text-[#74835F]">
-                <span className="relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#4A5541] animate-pulse-ring" />
-                  <span className="relative w-1.5 h-1.5 rounded-full bg-[#4A5541]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full pointer-events-none">
+          <motion.div initial="hidden" animate="visible" className="max-w-4xl pointer-events-auto">
+            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-8">
+              <span className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur border border-[#ECE6DD] shadow-sm text-[11px] font-semibold uppercase tracking-[0.16em] text-[#16181D]">
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inset-0 rounded-full bg-[#E14FA0] animate-pulse-ring" />
+                  <span className="relative w-2 h-2 rounded-full bg-spectrum" />
                 </span>
                 In development · Early access open
               </span>
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#7A8273]">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#6B7079]">
                 Brain-inspired AI · Built in India
               </span>
             </motion.div>
-            <motion.h1 variants={fadeUp} custom={1} className="text-5xl md:text-6xl lg:text-7xl font-extralight text-[#2F352A] leading-[1.05] tracking-tight mb-7">
+            <motion.h1 variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-[#16181D] leading-[1.02] tracking-tight mb-8">
               Intelligence,<br />
-              <span className="text-[#74835F] font-light">the way nature built it.</span>
+              <span className="text-spectrum font-normal">the way nature built it.</span>
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-[#4B5347] leading-relaxed mb-10 max-w-xl">
-              We’re building AI that keeps learning on the device and runs on a fraction of the energy: one base model, personalised on every phone. Join the early preview of the 86b SDK.
+            <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-[#3B3F47] leading-relaxed mb-10 max-w-xl">
+              We’re building AI that keeps learning on the device and runs on a fraction of the energy: one base model, personalised on every phone.
             </motion.p>
-            <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4">
+            <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
               <a
                 href="#early-access"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#4A5541] hover:bg-[#3B4434] text-white text-sm font-semibold transition-colors shadow-lg"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#16181D] hover:bg-[#2A2D35] text-white text-sm font-semibold transition-colors shadow-[0_12px_30px_-12px_rgba(22,24,29,0.6)]"
               >
                 Join early access
-                <ChevronRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
                 href="#product"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2F352A]/25 hover:border-[#2F352A]/60 bg-white/60 text-[#2F352A] text-sm font-semibold backdrop-blur-sm transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/80 backdrop-blur border border-[#ECE6DD] hover:border-[#16181D]/30 text-[#16181D] text-sm font-semibold transition-all"
               >
                 Explore the 86b SDK
               </a>
             </motion.div>
+            <motion.p variants={fadeUp} custom={4} className="mt-10 text-xs text-[#6B7079] flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#7B61FF]" />
+              Move your cursor: like the brain, only a few neurons fire at a time.
+            </motion.p>
           </motion.div>
         </div>
 
-        <a href="#benchmark" aria-label="Scroll down" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-[#7A8273] hover:text-[#2F352A] transition-colors">
+        <a href="#benchmark" aria-label="Scroll down" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-[#6B7079] hover:text-[#16181D] transition-colors">
           <ArrowDown className="w-5 h-5 animate-float" />
         </a>
       </section>
 
       {/* ── THE BENCHMARK ────────────────────────────────────────────────────── */}
-      <section id="benchmark" className="bg-white border-b border-zinc-200 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-6 py-20">
+      <section id="benchmark" className="bg-white scroll-mt-20 border-y border-[#ECE6DD]">
+        <div className="max-w-7xl mx-auto px-6 py-24">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-14">
-            <Eyebrow>The benchmark</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-5xl font-light text-[#2F352A] leading-tight">
-              The brain runs general intelligence on 20 watts.
+            <Eyebrow color="#E8553A">The benchmark</Eyebrow>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-tight tracking-tight">
+              The brain runs general intelligence <span className="text-[#8A8F98]">on 20 watts.</span>
             </motion.h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-200 rounded-2xl overflow-hidden border border-zinc-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { value: '86B', label: 'neurons in the human brain', accent: true },
-              { value: '~20 W', label: 'to power all of it, less than a light bulb', accent: true },
-              { value: 'MW', label: 'megawatt data centres to train and serve today’s frontier AI', accent: false },
+              { value: '86B', label: 'neurons in the human brain', hue: hues[0] },
+              { value: '~20 W', label: 'to power all of it, less than a light bulb', hue: hues[3] },
+              { value: 'MW', label: 'megawatt data centres to train and serve today’s frontier AI', hue: null },
             ].map((s, i) => (
               <motion.div
                 key={s.value}
                 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                className="bg-white p-10 text-center"
+                className="rounded-3xl p-10 text-center"
+                style={{ background: s.hue ? s.hue.bg : '#F3F1EE' }}
               >
-                <p className={`text-6xl md:text-7xl font-extralight tracking-tight mb-3 ${s.accent ? 'text-accent-gradient' : 'text-zinc-400'}`}>{s.value}</p>
-                <p className="text-zinc-500 text-sm max-w-[220px] mx-auto leading-relaxed">{s.label}</p>
+                <p className="font-extralight tracking-tight text-7xl md:text-8xl leading-none mb-4" style={{ color: s.hue ? s.hue.fg : '#9A9DA4' }}>{s.value}</p>
+                <p className="text-[#3B3F47] text-sm max-w-[230px] mx-auto leading-relaxed">{s.label}</p>
               </motion.div>
             ))}
           </div>
 
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3}
-            className="text-center text-lg text-[#2F352A] font-light mt-10"
+            className="text-center text-xl md:text-2xl text-[#16181D] font-light mt-12"
           >
-            And unlike the brain, today’s models <span className="text-[#4A5541]">stop learning the moment they ship.</span>
+            And unlike the brain, today’s models <span className="text-spectrum font-normal">stop learning the moment they ship.</span>
           </motion.p>
         </div>
       </section>
 
       {/* ── THE PROBLEM ──────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#F6F7F2]">
+      <section className="py-24 wash-peach">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
-            <Eyebrow>The problem</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight">
-              AI scales up.<br />It doesn’t scale down.
+            <Eyebrow color="#C7378A">The problem</Eyebrow>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+              AI scales up.<br /><span className="text-[#8A8F98]">It doesn’t scale down.</span>
             </motion.h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -354,13 +360,13 @@ export default function HomePage() {
               <motion.div
                 key={p.title}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-40px' }} variants={fadeUp} custom={i * 0.5}
-                className="rounded-2xl border border-zinc-200 bg-white p-7 card-hover"
+                className="rounded-3xl bg-white/90 backdrop-blur border border-[#ECE6DD] p-7 card-hover"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#74835F]/10 border border-[#74835F]/25 flex items-center justify-center mb-6">
-                  <p.icon className="w-5 h-5 text-[#4A5541]" />
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-6" style={{ background: hues[i].bg }}>
+                  <p.icon className="w-5 h-5" style={{ color: hues[i].fg }} />
                 </div>
-                <h3 className="text-lg font-medium text-[#2F352A] mb-2">{p.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{p.desc}</p>
+                <h3 className="text-lg font-medium text-[#16181D] mb-2">{p.title}</h3>
+                <p className="text-[#6B7079] text-sm leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -368,21 +374,15 @@ export default function HomePage() {
       </section>
 
       {/* ── PRODUCT: 86b SDK ─────────────────────────────────────────────────── */}
-      <section id="product" className="relative py-24 overflow-hidden bg-[#F6F7F2] scroll-mt-20">
-        <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(#74835F 1px, transparent 1px)', backgroundSize: '32px 32px' }}
-        />
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#74835F]/10 blur-[120px] pointer-events-none" />
-
+      <section id="product" className="relative py-24 overflow-hidden wash-violet scroll-mt-20">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}>
               <Eyebrow>Coming soon · The 86b SDK</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-extralight text-[#2F352A] leading-tight mb-6">
-                One engine that<br /><span className="text-[#74835F]">keeps learning on the device.</span>
+              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-6">
+                One engine that <span className="text-spectrum font-normal">keeps learning</span> on the device.
               </motion.h2>
-              <motion.p variants={fadeUp} custom={2} className="text-[#4B5347] text-lg leading-relaxed mb-10 max-w-xl">
+              <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-xl">
                 The 86b SDK, now in development, will ship one compact base model to Android apps and edge devices, then personalise it on every device. It is designed to learn each user locally, keep what it already knew, and do it within a budget phone’s power and memory limits.
               </motion.p>
 
@@ -391,17 +391,19 @@ export default function HomePage() {
                   <motion.div
                     key={c.title}
                     variants={fadeUp} custom={3 + i * 0.5}
-                    className="bg-white border border-[#E2E5DC] shadow-sm card-hover rounded-2xl p-5"
+                    className="rounded-2xl bg-white border border-[#ECE6DD] p-5 card-hover"
                   >
-                    <c.icon className="w-5 h-5 text-[#74835F] mb-3" />
-                    <h3 className="text-[#2F352A] text-base font-medium mb-1">{c.title}</h3>
-                    <p className="text-[#7A8273] text-sm leading-relaxed">{c.desc}</p>
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: hues[i].bg }}>
+                      <c.icon style={{ color: hues[i].fg, width: 18, height: 18 }} />
+                    </div>
+                    <h3 className="text-[#16181D] text-base font-medium mb-1">{c.title}</h3>
+                    <p className="text-[#6B7079] text-sm leading-relaxed">{c.desc}</p>
                   </motion.div>
                 ))}
               </div>
 
               <motion.div variants={fadeUp} custom={5} className="mt-8">
-                <a href="#early-access" className="inline-flex items-center gap-2 text-[#74835F] text-sm font-semibold hover:text-[#2F352A] transition-colors">
+                <a href="#early-access" className="inline-flex items-center gap-2 text-[#6347F0] text-sm font-semibold hover:text-[#16181D] transition-colors">
                   Get notified when the preview opens
                   <ArrowRight className="w-4 h-4" />
                 </a>
@@ -413,13 +415,15 @@ export default function HomePage() {
               transition={{ duration: 0.7, ease: 'easeOut' }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden aspect-square border border-[#E2E5DC] shadow-2xl">
-                <Image src="/images/enterprise-ai-abstract.png" alt="Sparse neural network routing input through a few active experts" fill className="object-cover olive-tint" sizes="(max-width: 1024px) 100vw, 50vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#22261E]/90 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5">
-                  <p className="text-[#C5CEB5] text-[11px] uppercase tracking-widest font-semibold mb-1.5">Designed for</p>
-                  <p className="text-white text-lg font-light">₹8,000–15,000 Android phones</p>
-                  <p className="text-white/60 text-xs mt-1">Targeting CPU, GPU and NPU via LiteRT, ExecuTorch and ONNX Runtime. Neuromorphic chips later.</p>
+              <div className="absolute -inset-6 rounded-[2.5rem] bg-spectrum opacity-20 blur-2xl" />
+              <div className="relative rounded-[2rem] p-[3px] bg-spectrum">
+                <div className="relative rounded-[1.85rem] overflow-hidden aspect-square">
+                  <Image src="/images/enterprise-ai-abstract.png" alt="Sparse neural network routing input through a few active experts" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <div className="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-md border border-white rounded-2xl p-5 shadow-lg">
+                    <p className="text-[#6347F0] text-[11px] uppercase tracking-widest font-semibold mb-1.5">Designed for</p>
+                    <p className="text-[#16181D] text-lg font-medium">₹8,000–15,000 Android phones</p>
+                    <p className="text-[#6B7079] text-xs mt-1">Targeting CPU, GPU and NPU via LiteRT, ExecuTorch and ONNX Runtime. Neuromorphic chips later.</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -431,11 +435,11 @@ export default function HomePage() {
       <section id="how-it-works" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
-            <Eyebrow>How it works</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight mb-5">
-              Fast per-user learning, consolidated into a sparse slow learner.
+            <Eyebrow color="#0E9488">How it works</Eyebrow>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-5">
+              Fast per-user learning, <span className="text-[#8A8F98]">consolidated into a sparse slow learner.</span>
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="text-[#6B7079] text-lg leading-relaxed">
               The engine we’re building separates what a model knows from how it adapts, so each device can learn quickly without overwriting shared knowledge.
             </motion.p>
           </motion.div>
@@ -443,47 +447,44 @@ export default function HomePage() {
           {/* Diagram — desktop */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }} variants={fadeUp}
-            className="hidden lg:block rounded-3xl border border-zinc-200 bg-[#F6F7F2] p-10"
+            className="hidden lg:block rounded-[2rem] border border-[#ECE6DD] bg-[#FBF8F4] dot-paper p-10"
           >
-            <p className="text-[11px] uppercase tracking-widest text-zinc-400 font-semibold mb-4">Inference path</p>
+            <p className="text-[11px] uppercase tracking-widest text-[#6B7079] font-semibold mb-4">Inference path</p>
             <div className="grid grid-cols-[1fr_40px_1fr_40px_1fr_40px_1fr] items-stretch">
               {inferencePath.map((n, i) => (
                 <div key={n.title} className="contents">
                   <DiagramNode {...n} />
                   {i < inferencePath.length - 1 && (
-                    <div className="flex items-center justify-center"><ArrowRight className="w-4 h-4 text-zinc-300" /></div>
+                    <div className="flex items-center justify-center"><ArrowRight className="w-4 h-4 text-[#B9BCC2]" /></div>
                   )}
                 </div>
               ))}
             </div>
 
             {/* Connectors between rows — one cell per diagram column */}
-            <div className="grid grid-cols-[1fr_40px_1fr_40px_1fr_40px_1fr] h-20 text-[11px] text-zinc-400">
-              {/* Consolidation rises up and runs right */}
+            <div className="grid grid-cols-[1fr_40px_1fr_40px_1fr_40px_1fr] h-20 text-[11px] text-[#6B7079]">
               <div className="relative">
-                <div className="absolute left-1/2 top-1/2 bottom-0 w-px bg-zinc-300" />
-                <div className="absolute left-1/2 right-0 top-1/2 h-px bg-zinc-300" />
+                <div className="absolute left-1/2 top-1/2 bottom-0 w-px bg-[#14B8A6]" />
+                <div className="absolute left-1/2 right-0 top-1/2 h-px bg-[#14B8A6]" />
               </div>
-              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-zinc-300" /></div>
+              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-[#14B8A6]" /></div>
               <div className="relative">
-                <div className="absolute inset-x-0 top-1/2 h-px bg-zinc-300" />
-                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[150%] whitespace-nowrap">consolidate into slow weights</span>
+                <div className="absolute inset-x-0 top-1/2 h-px bg-[#14B8A6]" />
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[150%] whitespace-nowrap text-[#0E9488]">consolidate into slow weights</span>
               </div>
-              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-zinc-300" /></div>
-              {/* Into the slow learner: consolidation (left) and adapter (right) */}
+              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-[#14B8A6]" /></div>
               <div className="relative">
-                <div className="absolute left-0 w-[30%] top-1/2 h-px bg-zinc-300" />
-                <div className="absolute left-[30%] top-0 h-1/2 w-px bg-zinc-300" />
-                <span className="arrow-up absolute left-[30%] top-0 border-b-zinc-300" />
-                <div className="absolute left-[70%] top-0 bottom-0 w-px bg-[#4A5541]" />
-                <span className="arrow-up absolute left-[70%] top-0 border-b-[#74835F]" />
-                <span className="absolute left-[70%] top-1/2 -translate-y-1/2 ml-2 whitespace-nowrap text-[#4A5541]">adapter applied</span>
+                <div className="absolute left-0 w-[30%] top-1/2 h-px bg-[#14B8A6]" />
+                <div className="absolute left-[30%] top-0 h-1/2 w-px bg-[#14B8A6]" />
+                <span className="arrow-up absolute left-[30%] top-0 border-b-[#14B8A6]" />
+                <div className="absolute left-[70%] top-0 bottom-0 w-px bg-[#E14FA0]" />
+                <span className="arrow-up absolute left-[70%] top-0 border-b-[#E14FA0]" />
+                <span className="absolute left-[70%] top-1/2 -translate-y-1/2 ml-2 whitespace-nowrap text-[#C7378A]">adapter applied</span>
               </div>
               <div />
-              {/* Prediction feeds the uncertainty gate */}
               <div className="relative">
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-zinc-300" />
-                <span className="arrow-down absolute left-1/2 bottom-0 border-t-zinc-300" />
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#B9BCC2]" />
+                <span className="arrow-down absolute left-1/2 bottom-0 border-t-[#B9BCC2]" />
               </div>
             </div>
 
@@ -492,12 +493,12 @@ export default function HomePage() {
                 <div key={n.title} className="contents">
                   <DiagramNode {...n} />
                   {i < arr.length - 1 && (
-                    <div className="flex items-center justify-center"><ArrowRight className="w-4 h-4 text-zinc-300 rotate-180" /></div>
+                    <div className="flex items-center justify-center"><ArrowRight className="w-4 h-4 text-[#B9BCC2] rotate-180" /></div>
                   )}
                 </div>
               ))}
             </div>
-            <p className="text-[11px] uppercase tracking-widest text-zinc-400 font-semibold mt-4">Adaptation loop</p>
+            <p className="text-[11px] uppercase tracking-widest text-[#6B7079] font-semibold mt-4">Adaptation loop</p>
           </motion.div>
 
           {/* Diagram — mobile / tablet */}
@@ -506,13 +507,13 @@ export default function HomePage() {
               { label: 'Inference path', nodes: inferencePath },
               { label: 'Adaptation loop', nodes: adaptationLoop },
             ].map((col) => (
-              <div key={col.label} className="rounded-2xl border border-zinc-200 bg-[#F6F7F2] p-5">
-                <p className="text-[11px] uppercase tracking-widest text-zinc-400 font-semibold mb-4">{col.label}</p>
+              <div key={col.label} className="rounded-3xl border border-[#ECE6DD] bg-[#FBF8F4] p-5">
+                <p className="text-[11px] uppercase tracking-widest text-[#6B7079] font-semibold mb-4">{col.label}</p>
                 <div className="flex flex-col items-stretch">
                   {col.nodes.map((n, i) => (
                     <div key={n.title} className="flex flex-col items-center">
                       <div className="w-full"><DiagramNode {...n} /></div>
-                      {i < col.nodes.length - 1 && <ArrowDown className="w-4 h-4 text-zinc-300 my-1.5" />}
+                      {i < col.nodes.length - 1 && <ArrowDown className="w-4 h-4 text-[#B9BCC2] my-1.5" />}
                     </div>
                   ))}
                 </div>
@@ -521,16 +522,17 @@ export default function HomePage() {
           </div>
 
           {/* Mechanisms */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-16">
             {mechanisms.map((m, i) => (
               <motion.div
                 key={m.n}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-40px' }} variants={fadeUp} custom={i * 0.4}
-                className="border-t border-zinc-200 pt-6"
+                className="rounded-3xl p-7"
+                style={{ background: hues[i].bg }}
               >
-                <span className="text-xs font-mono font-semibold text-[#4A5541]">{m.n}</span>
-                <h3 className="text-lg font-medium text-[#2F352A] mt-2 mb-2">{m.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{m.desc}</p>
+                <span className="font-extralight tracking-tight text-4xl leading-none" style={{ color: hues[i].fg }}>{m.n}</span>
+                <h3 className="text-lg font-medium text-[#16181D] mt-3 mb-2">{m.title}</h3>
+                <p className="text-[#3B3F47] text-sm leading-relaxed">{m.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -538,15 +540,12 @@ export default function HomePage() {
       </section>
 
       {/* ── SYSTEM ARCHITECTURE ──────────────────────────────────────────────── */}
-      <section className="relative py-24 bg-[#2F352A] overflow-hidden">
-        <div className="absolute inset-0 mesh-grid" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[#74835F]/5 blur-[120px] pointer-events-none" />
-
+      <section className="relative py-24 wash-mint overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-center mb-14">
-            <Eyebrow dark>Planned system architecture</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-white leading-tight">
-              Learning stays on the phone.<br />The cloud only ships models.
+            <Eyebrow color="#0E9488">Planned system architecture</Eyebrow>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+              Learning stays on the phone.<br /><span className="text-[#8A8F98]">The cloud only ships models.</span>
             </motion.h2>
           </motion.div>
 
@@ -554,123 +553,124 @@ export default function HomePage() {
             {/* On the device */}
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 flex flex-col gap-4"
+              className="rounded-[2rem] border border-[#ECE6DD] bg-white shadow-sm p-6 md:p-8 flex flex-col gap-4"
             >
-              <div className="flex items-center gap-2 text-white">
-                <Smartphone className="w-4 h-4 text-[#B5C19F]" />
+              <div className="flex items-center gap-2 text-[#16181D]">
+                <Smartphone className="w-4 h-4 text-[#0E9488]" />
                 <span className="text-sm font-medium">On the device</span>
               </div>
-              <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-center text-sm text-white/70">
+              <div className="rounded-xl bg-[#FBF8F4] border border-[#ECE6DD] px-4 py-3 text-center text-sm text-[#3B3F47]">
                 Partner app: voice, wearable, health, fintech
               </div>
-              <div className="rounded-2xl border border-[#74835F]/40 p-4">
-                <p className="text-xs font-semibold text-[#B5C19F] mb-3">86b SDK</p>
+              <div className="rounded-2xl p-4 bg-[#EFEBFF]/60 border border-[#D9CFFF]">
+                <p className="text-xs font-semibold text-[#6347F0] mb-3">86b SDK</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {sdkModules.map((m) => (
                     <div
                       key={m.title}
-                      className={`rounded-xl px-3 py-3 text-center border ${
-                        m.highlight ? 'bg-[#74835F]/15 border-[#74835F]/50' : 'bg-white/[0.04] border-white/10'
-                      }`}
+                      className={`rounded-xl px-3 py-3 text-center ${m.highlight ? 'border-spectrum' : 'bg-white border border-[#ECE6DD]'}`}
                     >
-                      <p className="text-white text-sm font-medium leading-tight">{m.title}</p>
-                      <p className="text-white/45 text-xs mt-0.5">{m.desc}</p>
+                      <p className={`text-sm font-medium leading-tight ${m.highlight ? 'text-spectrum' : 'text-[#16181D]'}`}>{m.title}</p>
+                      <p className="text-[#6B7079] text-xs mt-0.5">{m.desc}</p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-center">
-                <p className="text-sm text-white/80">Runtimes: LiteRT · ExecuTorch · ONNX Runtime</p>
-                <p className="text-xs text-white/45 mt-0.5">CPU, GPU and NPU today; neuromorphic chips later</p>
+              <div className="rounded-xl bg-[#FBF8F4] border border-[#ECE6DD] px-4 py-3 text-center">
+                <p className="text-sm text-[#16181D]">Runtimes: LiteRT · ExecuTorch · ONNX Runtime</p>
+                <p className="text-xs text-[#6B7079] mt-0.5">CPU, GPU and NPU today; neuromorphic chips later</p>
               </div>
             </motion.div>
 
             {/* Cloud */}
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
-              className="rounded-3xl border border-white/10 bg-[#22261E]/70 p-6 md:p-8 flex flex-col gap-3"
+              className="rounded-[2rem] p-6 md:p-8 flex flex-col gap-3 text-white"
+              style={{ background: 'linear-gradient(160deg, #7B61FF 0%, #5B45E0 45%, #C7378A 100%)' }}
             >
-              <div className="flex items-center gap-2 text-white mb-1">
-                <Cloud className="w-4 h-4 text-[#B5C19F]" />
+              <div className="flex items-center gap-2 mb-1">
+                <Cloud className="w-4 h-4" />
                 <span className="text-sm font-medium">86b cloud</span>
               </div>
               {cloudServices.map((c) => (
-                <div key={c.title} className="rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3">
-                  <p className="text-white text-sm font-medium">{c.title}</p>
-                  <p className="text-white/45 text-xs mt-0.5">{c.desc}</p>
+                <div key={c.title} className="rounded-xl bg-white/15 border border-white/20 backdrop-blur px-4 py-3">
+                  <p className="text-sm font-medium">{c.title}</p>
+                  <p className="text-white/75 text-xs mt-0.5">{c.desc}</p>
                 </div>
               ))}
-              <p className="mt-auto pt-3 text-sm text-[#B5C19F] font-medium flex items-center gap-2">
+              <p className="mt-auto pt-3 text-sm font-medium flex items-center gap-2">
                 <Lock className="w-4 h-4" /> Raw data never leaves the device
               </p>
             </motion.div>
           </div>
 
-          <p className="text-center text-xs text-white/40 mt-8">
+          <p className="text-center text-xs text-[#6B7079] mt-8">
             Base models and signed updates flow down to devices. Only anonymous, aggregate performance metrics flow up. Architecture is tentative and will evolve through the pilots.
           </p>
         </div>
       </section>
 
       {/* ── TECHNOLOGY: BRAIN PRINCIPLES ─────────────────────────────────────── */}
-      <section className="py-24 bg-[#F6F7F2]">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-12">
-            <Eyebrow>The technology</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight">
-              Five brain principles,<br />each measured on real phones.
+            <Eyebrow color="#C77700">The technology</Eyebrow>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+              Five brain principles, <span className="text-[#8A8F98]">each measured on real phones.</span>
             </motion.h2>
           </motion.div>
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-            className="rounded-2xl border border-zinc-200 bg-white overflow-hidden"
+            className="rounded-[2rem] border border-[#ECE6DD] bg-white overflow-hidden"
           >
-            <div className="hidden md:grid grid-cols-[1fr_1.5fr_1fr] px-8 py-4 bg-zinc-50 border-b border-zinc-200 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+            <div className="hidden md:grid grid-cols-[1fr_1.5fr_1fr] px-8 py-4 bg-[#FBF8F4] border-b border-[#ECE6DD] text-xs font-semibold uppercase tracking-widest text-[#6B7079]">
               <span>Brain principle</span>
               <span>What we build</span>
               <span>Measured by</span>
             </div>
-            {principles.map((p) => (
-              <div key={p.principle} className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-1 md:gap-0 px-6 md:px-8 py-5 border-b border-zinc-100 last:border-0 hover:bg-[#74835F]/[0.04] transition-colors">
-                <span className="text-[#2F352A] font-medium flex items-center gap-2"><Sparkles className="w-4 h-4 text-[#74835F]" />{p.principle}</span>
-                <span className="text-zinc-600 text-sm md:text-base">{p.build}</span>
-                <span className="text-sm font-mono text-[#4A5541] md:text-zinc-500">{p.measure}</span>
+            {principles.map((p, i) => (
+              <div key={p.principle} className="group grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-1 md:gap-0 px-6 md:px-8 py-5 border-b border-[#F1ECE4] last:border-0 transition-colors hover:bg-[#FBF8F4]">
+                <span className="text-[#16181D] font-medium flex items-center gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: hues[i].fg, boxShadow: `0 0 0 4px ${hues[i].bg}` }} />
+                  {p.principle}
+                </span>
+                <span className="text-[#3B3F47] text-sm md:text-base">{p.build}</span>
+                <span className="text-sm font-mono" style={{ color: hues[i].fg }}>{p.measure}</span>
               </div>
             ))}
           </motion.div>
-          <p className="text-sm text-zinc-500 mt-6">
+          <p className="text-sm text-[#6B7079] mt-6">
             Every result we publish will be reported alongside its cost: accuracy together with forgetting, energy, latency and memory, measured with an external power monitor on low-cost hardware.
           </p>
         </div>
       </section>
 
       {/* ── FLAGSHIP DEMO ────────────────────────────────────────────────────── */}
-      <section className="relative py-24 bg-white overflow-hidden">
-        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] rounded-full bg-[#74835F]/6 blur-[120px] pointer-events-none" />
+      <section className="relative py-24 wash-peach overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <Eyebrow>Flagship demo · In development</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight mb-6">
-                Voice commands that<br />learn each speaker.
+              <Eyebrow color="#E8553A">Flagship demo · In development</Eyebrow>
+              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-6">
+                Voice commands that <span className="text-spectrum font-normal">learn each speaker.</span>
               </motion.h2>
-              <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed mb-10 max-w-xl">
+              <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-xl">
                 Voice recognition fails most on regional accents, code-mixed speech and noisy rooms: the everyday reality for Indian users. Our first testbed is designed to fix that on the phone itself.
               </motion.p>
-              <div className="space-y-5 mb-10">
+              <div className="space-y-4 mb-10">
                 {[
                   'Starts from one compact base model',
                   'Adapts to each speaker over a few uses, on the phone',
                   'Keeps every earlier command; no audio leaves the device',
                 ].map((t, i) => (
-                  <motion.div key={t} variants={fadeUp} custom={3 + i * 0.5} className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#2F352A] text-white text-sm flex items-center justify-center">{i + 1}</span>
-                    <p className="text-[#2F352A] pt-1">{t}</p>
+                  <motion.div key={t} variants={fadeUp} custom={3 + i * 0.5} className="flex items-center gap-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full font-extralight tracking-tight text-lg flex items-center justify-center" style={{ background: hues[i].bg, color: hues[i].fg }}>{i + 1}</span>
+                    <p className="text-[#16181D]">{t}</p>
                   </motion.div>
                 ))}
               </div>
-              <motion.p variants={fadeUp} custom={5} className="text-sm text-zinc-500 border-l-2 border-[#74835F] pl-4">
+              <motion.p variants={fadeUp} custom={5} className="text-sm text-[#3B3F47] pl-4 border-l-2 border-[#E14FA0]">
                 One demo to prove every claim: on-device learning, no forgetting, low energy, budget phones. Design partners will see it first.
               </motion.p>
             </motion.div>
@@ -680,37 +680,34 @@ export default function HomePage() {
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
               <VoiceDemo />
-              <p className="text-center text-xs text-zinc-400 mt-4">Concept illustration of the planned demo</p>
+              <p className="text-center text-xs text-[#6B7079] mt-4">Concept illustration of the planned demo</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── BUILT IN INDIA + WHO IT'S FOR ────────────────────────────────────── */}
-      <section className="relative py-24 overflow-hidden bg-white border-t border-[#E2E5DC]">
-        <Image src="/neuron_hero.png" alt="" fill className="object-cover object-center neuron-light opacity-[0.12] pointer-events-none select-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/80 pointer-events-none" />
-
+      <section className="relative py-24 overflow-hidden bg-white">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}>
-              <Eyebrow>An innovation from India</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-extralight text-[#2F352A] leading-tight mb-10">
-                Built in India,<br /><span className="text-[#74835F]">for the world’s majority.</span>
+              <Eyebrow color="#C77700">An innovation from India</Eyebrow>
+              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-10">
+                Built in India, <span className="text-[#8A8F98]">for the world’s majority.</span>
               </motion.h2>
               <div className="flex flex-col">
                 {indiaPoints.map((p, i) => (
                   <motion.div
                     key={p.title}
                     variants={fadeUp} custom={2 + i * 0.4}
-                    className="group flex items-start gap-5 py-5 border-b border-[#2F352A]/10 last:border-0"
+                    className="group flex items-start gap-5 py-5 border-b border-[#F1ECE4] last:border-0"
                   >
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#74835F]/15 border border-[#74835F]/30 flex items-center justify-center text-[#74835F] text-[10px] font-medium mt-0.5">
+                    <span className="flex-shrink-0 font-extralight tracking-tight text-3xl leading-none w-10" style={{ color: hues[(i + 4) % 5].fg }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
-                      <span className="block text-[#2F352A] text-xl font-light group-hover:text-[#74835F] transition-colors">{p.title}</span>
-                      <span className="block text-[#7A8273] text-sm mt-1 leading-relaxed">{p.desc}</span>
+                      <span className="block text-[#16181D] text-xl font-light">{p.title}</span>
+                      <span className="block text-[#6B7079] text-sm mt-1 leading-relaxed">{p.desc}</span>
                     </div>
                   </motion.div>
                 ))}
@@ -718,28 +715,28 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}>
-              <Eyebrow>Who it’s for</Eyebrow>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-extralight text-[#2F352A] leading-tight mb-10">
-                Every device maker needs smaller, personal AI.
+              <Eyebrow color="#C7378A">Who it’s for</Eyebrow>
+              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-10">
+                Every device maker needs <span className="text-[#8A8F98]">smaller, personal AI.</span>
               </motion.h2>
               <div className="flex flex-col gap-3">
                 {customers.map((c, i) => (
                   <motion.div
                     key={c.who}
                     variants={fadeUp} custom={2 + i * 0.4}
-                    className="bg-white border border-[#E2E5DC] shadow-sm card-hover rounded-2xl px-5 py-4 flex items-center gap-4"
+                    className="rounded-2xl px-5 py-4 flex items-center gap-4 border border-[#ECE6DD] bg-white card-hover"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-[#74835F]/15 border border-[#74835F]/30 flex items-center justify-center flex-shrink-0">
-                      <c.icon className="w-4 h-4 text-[#74835F]" />
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: hues[i].bg }}>
+                      <c.icon className="w-4 h-4" style={{ color: hues[i].fg }} />
                     </div>
                     <div>
-                      <p className="text-[#2F352A] text-sm font-medium">{c.who}</p>
-                      <p className="text-[#7A8273] text-sm">{c.need}</p>
+                      <p className="text-[#16181D] text-sm font-medium">{c.who}</p>
+                      <p className="text-[#6B7079] text-sm">{c.need}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
-              <motion.p variants={fadeUp} custom={5} className="text-[#7A8273] text-sm mt-6">
+              <motion.p variants={fadeUp} custom={5} className="text-[#6B7079] text-sm mt-6">
                 We’ll start with consumer apps in India whose voice and sensor features must work for every user.
               </motion.p>
             </motion.div>
@@ -748,14 +745,14 @@ export default function HomePage() {
       </section>
 
       {/* ── RESEARCH ─────────────────────────────────────────────────────────── */}
-      <section id="research" className="py-24 bg-white scroll-mt-20">
+      <section id="research" className="py-24 wash-violet scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
             <Eyebrow>Research</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight mb-5">
-              Intelligence per watt.
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight mb-5">
+              <span className="text-spectrum font-normal">Intelligence per watt.</span>
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-zinc-500 text-lg leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed">
               Our perspective paper defines the problem, the approach and the evaluation standard we will report results against: falsifiable hypotheses, an open protocol that makes energy and forgetting first-class metrics, and a benchmark grounded in Indian conditions.
             </motion.p>
           </motion.div>
@@ -764,25 +761,27 @@ export default function HomePage() {
             {/* Paper card */}
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="rounded-3xl bg-[#2F352A] p-8 md:p-10 text-white relative overflow-hidden lg:sticky lg:top-28"
+              className="rounded-[2rem] p-8 md:p-10 text-white relative overflow-hidden lg:sticky lg:top-28 shadow-[0_30px_70px_-30px_rgba(91,69,224,0.6)]"
+              style={{ background: 'linear-gradient(150deg, #FF6B4A 0%, #E14FA0 30%, #7B61FF 70%, #5B45E0 100%)' }}
             >
-              <div className="absolute inset-0 mesh-grid" />
+              <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
+              <div className="absolute -right-4 top-24 w-32 h-32 rounded-full bg-white/10" />
               <div className="relative">
-                <span className="inline-block text-[10px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/5 text-[#B5C19F] border border-[#B5C19F]/30 mb-6">
+                <span className="inline-block text-[10px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/15 border border-white/30 mb-6">
                   Perspective · October 2026
                 </span>
-                <h3 className="text-2xl md:text-3xl font-light text-white leading-snug mb-4">
+                <h3 className="font-extralight tracking-tight text-3xl md:text-4xl text-white leading-[1.1] mb-4">
                   Intelligence per Watt: A Brain-Inspired Framework for Continual On-Device Learning on Low-Cost Hardware
                 </h3>
-                <p className="text-white/50 text-sm mb-6">Munish Dhiman · 86b.ai, India</p>
-                <p className="text-white/70 text-sm leading-relaxed mb-8">
+                <p className="text-white/80 text-sm mb-6">Munish Dhiman · 86b.ai, India</p>
+                <p className="text-white/90 text-sm leading-relaxed mb-8">
                   The brain supports general intelligence with roughly 86 billion neurons on about 20 watts. We argue the next gains in practical AI will come from systems that learn continually, compute sparsely and adapt to individual users on the devices they already own.
                 </p>
                 <a
                   href="/papers/intelligence-per-watt.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#4A5541] hover:bg-[#3B4434] text-white text-sm font-semibold transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#16181D] hover:bg-[#FBF8F4] text-sm font-semibold transition-colors"
                 >
                   <Download className="w-4 h-4" />
                   Read the paper (PDF)
@@ -793,18 +792,18 @@ export default function HomePage() {
             {/* Hypotheses + protocol */}
             <div className="flex flex-col gap-10">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">Hypotheses we will test</p>
-                <div className="flex flex-col">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#6B7079] mb-4">Hypotheses we will test</p>
+                <div className="flex flex-col gap-3">
                   {hypotheses.map((h, i) => (
                     <motion.div
                       key={h.id}
                       initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.3}
-                      className="flex gap-5 py-4 border-b border-zinc-100 last:border-0"
+                      className="flex gap-5 p-5 rounded-2xl bg-white border border-[#ECE6DD]"
                     >
-                      <span className="text-sm font-mono font-semibold text-[#4A5541] w-8 flex-shrink-0 pt-0.5">{h.id}</span>
+                      <span className="font-extralight tracking-tight text-2xl w-10 flex-shrink-0 leading-none pt-0.5" style={{ color: hues[i].fg }}>{h.id}</span>
                       <div>
-                        <p className="text-[#2F352A] font-medium">{h.name}</p>
-                        <p className="text-zinc-500 text-sm leading-relaxed mt-0.5">{h.desc}</p>
+                        <p className="text-[#16181D] font-medium">{h.name}</p>
+                        <p className="text-[#6B7079] text-sm leading-relaxed mt-0.5">{h.desc}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -812,31 +811,31 @@ export default function HomePage() {
               </div>
 
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">Evaluation protocol</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#6B7079] mb-4">Evaluation protocol</p>
                 <div className="flex flex-wrap gap-2">
-                  {metrics.map((m) => (
-                    <span key={m} className="px-3.5 py-1.5 rounded-full border border-zinc-200 bg-white text-zinc-600 text-sm">{m}</span>
+                  {metrics.map((m, i) => (
+                    <span key={m} className="px-3.5 py-1.5 rounded-full text-sm" style={{ background: hues[i % 5].bg, color: hues[i % 5].fg }}>{m}</span>
                   ))}
                 </div>
-                <p className="text-zinc-500 text-sm mt-4 leading-relaxed">
+                <p className="text-[#6B7079] text-sm mt-4 leading-relaxed">
                   Measured on at least three low-cost Android phones across chipset families, reported per device and per user subgroup so no population is hidden in an average.
                 </p>
               </div>
 
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">An Indian-context benchmark</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#6B7079] mb-4">An Indian-context benchmark</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {benchmarkDims.map((b) => (
-                    <div key={b.dim} className="rounded-xl border border-zinc-200 bg-[#F6F7F2] p-4 flex gap-3">
-                      <b.icon className="w-4 h-4 text-[#4A5541] flex-shrink-0 mt-0.5" />
+                  {benchmarkDims.map((b, i) => (
+                    <div key={b.dim} className="rounded-2xl border border-[#ECE6DD] bg-white p-4 flex gap-3">
+                      <b.icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: hues[i].fg }} />
                       <div>
-                        <p className="text-[#2F352A] text-sm font-medium">{b.dim}</p>
-                        <p className="text-zinc-500 text-xs leading-relaxed mt-0.5">{b.desc}</p>
+                        <p className="text-[#16181D] text-sm font-medium">{b.dim}</p>
+                        <p className="text-[#6B7079] text-xs leading-relaxed mt-0.5">{b.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <p className="text-zinc-500 text-sm mt-4 leading-relaxed">
+                <p className="text-[#6B7079] text-sm mt-4 leading-relaxed">
                   Collected with informed consent, ethics committee approval and fair compensation, in line with India’s Digital Personal Data Protection Act, 2023.
                 </p>
               </div>
@@ -846,36 +845,39 @@ export default function HomePage() {
       </section>
 
       {/* ── ROADMAP ──────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#F6F7F2] border-t border-zinc-100">
+      <section className="py-24 bg-[#FBF8F4]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-16">
-            <Eyebrow>Roadmap</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight">
-              From prototype to global scale in three years.
+            <Eyebrow color="#0E9488">Roadmap</Eyebrow>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+              From prototype to global scale <span className="text-[#8A8F98]">in three years.</span>
             </motion.h2>
           </motion.div>
 
           <div className="relative">
-            <div className="hidden lg:block absolute top-[27px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#74835F] via-[#74835F]/50 to-zinc-200" />
+            <div className="hidden lg:block absolute top-[27px] left-0 right-0 h-[3px] rounded-full bg-spectrum opacity-70" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
               {roadmap.map((r, i) => (
                 <motion.div
                   key={r.title}
                   initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-40px' }} variants={fadeUp} custom={i * 0.4}
                 >
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg relative ${i === 0 ? 'bg-[#4A5541] shadow-[#74835F]/30' : 'bg-[#2F352A] shadow-zinc-900/15'}`}>
-                    <span className="text-white text-lg font-light">{String(i + 1).padStart(2, '0')}</span>
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center mb-6 relative ring-8 ring-[#FBF8F4]"
+                    style={{ background: i === 0 ? 'linear-gradient(135deg,#FF6B4A,#E14FA0)' : hues[[0, 1, 2, 3][i]].bg }}
+                  >
+                    <span className="font-extralight tracking-tight text-xl" style={{ color: i === 0 ? '#fff' : hues[i].fg }}>{String(i + 1).padStart(2, '0')}</span>
                   </div>
-                  <p className="text-xs font-semibold text-[#5A6A7A] mb-2">
+                  <p className="text-xs font-semibold text-[#6B7079] mb-2 flex items-center flex-wrap gap-2">
                     {r.when}
-                    {i === 0 && <span className="ml-2 px-2 py-0.5 rounded-full bg-[#74835F]/10 text-[#4A5541] text-[10px] uppercase tracking-widest">We are here</span>}
+                    {i === 0 && <span className="px-2 py-0.5 rounded-full bg-[#FFEDE7] text-[#E8553A] text-[10px] uppercase tracking-widest">We are here</span>}
                   </p>
-                  <h3 className="text-lg font-medium text-[#2F352A] mb-2">{r.title}</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed mb-4">{r.desc}</p>
+                  <h3 className="text-lg font-medium text-[#16181D] mb-2">{r.title}</h3>
+                  <p className="text-[#6B7079] text-sm leading-relaxed mb-4">{r.desc}</p>
                   {r.gate && (
-                    <div className="flex items-start gap-2 p-3 bg-white rounded-xl border border-zinc-200">
-                      <CheckCircle2 className="w-4 h-4 text-[#74835F] flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-zinc-600"><span className="text-zinc-400">Gate:</span> {r.gate}</span>
+                    <div className="flex items-start gap-2 p-3 bg-white rounded-xl border border-[#ECE6DD]">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: hues[i].fg }} />
+                      <span className="text-xs text-[#3B3F47]"><span className="text-[#6B7079]">Gate:</span> {r.gate}</span>
                     </div>
                   )}
                 </motion.div>
@@ -889,29 +891,29 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="max-w-3xl mb-14">
-            <Eyebrow>The team</Eyebrow>
-            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-[#2F352A] leading-tight">
-              Twenty years of building with emerging tech.
+            <Eyebrow color="#C7378A">The team</Eyebrow>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#16181D] leading-[1.05] tracking-tight">
+              Twenty years of <span className="text-[#8A8F98]">building with emerging tech.</span>
             </motion.h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { name: 'Munish Dhiman', role: 'Co-founder · CEO', initials: 'MD', bio: '20 years of technology research, product development, sales and delivery. An award-winning career with recognition from government and industry.' },
-              { name: 'Aarti Dhiman', role: 'Co-founder · CTO', initials: 'AD', bio: '12 years of AI research and emerging-tech engineering, from computer vision and gesture recognition to virtual, augmented and mixed reality.' },
+              { name: 'Munish Dhiman', role: 'Co-founder · CEO', initials: 'MD', bio: '20 years of technology research, product development, sales and delivery. An award-winning career with recognition from government and industry.', grad: 'linear-gradient(135deg,#FF6B4A,#E14FA0)' },
+              { name: 'Aarti Dhiman', role: 'Co-founder · CTO', initials: 'AD', bio: '12 years of AI research and emerging-tech engineering, from computer vision and gesture recognition to virtual, augmented and mixed reality.', grad: 'linear-gradient(135deg,#7B61FF,#14B8A6)' },
             ].map((f, i) => (
               <motion.div
                 key={f.name}
                 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.4}
-                className="rounded-2xl border border-zinc-200 bg-[#F6F7F2] p-8 flex gap-6 items-start card-hover"
+                className="rounded-[2rem] border border-[#ECE6DD] bg-[#FBF8F4] p-8 flex gap-6 items-start card-hover"
               >
-                <div className="w-16 h-16 rounded-2xl bg-[#2F352A] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#74835F] text-lg font-light">{f.initials}</span>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: f.grad }}>
+                  <span className="font-extralight tracking-tight text-2xl text-white">{f.initials}</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-[#2F352A]">{f.name}</h3>
-                  <p className="text-sm text-[#4A5541] mb-3">{f.role}</p>
-                  <p className="text-zinc-500 text-sm leading-relaxed">{f.bio}</p>
+                  <h3 className="text-xl font-medium text-[#16181D]">{f.name}</h3>
+                  <p className="text-sm text-[#6347F0] mb-3">{f.role}</p>
+                  <p className="text-[#6B7079] text-sm leading-relaxed">{f.bio}</p>
                 </div>
               </motion.div>
             ))}
@@ -923,25 +925,26 @@ export default function HomePage() {
               'Top 15, IBM SmartCamp Delhi',
               'TechSparks winner',
               'Featured in the Sunday Times of India',
-            ].map((r) => (
-              <span key={r} className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-zinc-500 text-sm">{r}</span>
+            ].map((r, i) => (
+              <span key={r} className="px-4 py-2 rounded-full text-sm" style={{ background: hues[i].bg, color: hues[i].fg }}>{r}</span>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── EARLY ACCESS ─────────────────────────────────────────────────────── */}
-      <section id="early-access" className="relative bg-[#2F352A] py-24 overflow-hidden scroll-mt-20">
-        <div className="absolute inset-0 mesh-grid" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] rounded-full bg-[#74835F]/10 blur-[120px] pointer-events-none" />
+      <section id="early-access" className="relative py-24 overflow-hidden scroll-mt-20 bg-[#FBF8F4]">
+        <div className="aurora" aria-hidden="true">
+          <span className="a1" /><span className="a2" /><span className="a3" /><span className="a4" />
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <motion.p variants={fadeUp} className="text-[#B5C19F] text-sm font-mono mb-5">86 billion neurons. 20 watts. Our benchmark.</motion.p>
-              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-light text-white leading-tight mb-5">
-                Sign up for the<br /><span className="text-[#B5C19F]">early preview.</span>
+              <motion.p variants={fadeUp} className="text-[#6347F0] text-sm font-mono mb-5">86 billion neurons. 20 watts. Our benchmark.</motion.p>
+              <motion.h2 variants={fadeUp} custom={1} className="text-5xl md:text-7xl font-light text-[#16181D] leading-[1] tracking-tight mb-6">
+                Sign up for the <span className="text-spectrum font-normal">early preview.</span>
               </motion.h2>
-              <motion.p variants={fadeUp} custom={2} className="text-white/60 text-lg leading-relaxed mb-10 max-w-lg">
+              <motion.p variants={fadeUp} custom={2} className="text-[#3B3F47] text-lg leading-relaxed mb-10 max-w-lg">
                 The 86b SDK isn’t available yet. Join the list to hear first about the preview, pilot programme and research results. We’re especially keen to hear from:
               </motion.p>
 
@@ -950,25 +953,25 @@ export default function HomePage() {
                   <motion.div
                     key={p.title}
                     variants={fadeUp} custom={3 + i * 0.4}
-                    className="glass-spatial rounded-2xl px-5 py-4 flex items-center gap-4"
+                    className="rounded-2xl px-5 py-4 flex items-center gap-4 bg-white/80 backdrop-blur border border-[#ECE6DD]"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-[#74835F]/15 border border-[#74835F]/30 flex items-center justify-center flex-shrink-0">
-                      <p.icon className="w-4 h-4 text-[#B5C19F]" />
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: hues[i + 1].bg }}>
+                      <p.icon className="w-4 h-4" style={{ color: hues[i + 1].fg }} />
                     </div>
                     <div>
-                      <p className="text-white text-sm font-medium">{p.title}</p>
-                      <p className="text-white/50 text-sm">{p.desc}</p>
+                      <p className="text-[#16181D] text-sm font-medium">{p.title}</p>
+                      <p className="text-[#6B7079] text-sm">{p.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
               <motion.div variants={fadeUp} custom={5} className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                <a href="mailto:hello@86b.ai" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors">
-                  <Mail className="w-4 h-4 text-[#B5C19F]" /> hello@86b.ai
+                <a href="mailto:hello@86b.ai" className="inline-flex items-center gap-2 text-[#3B3F47] hover:text-[#16181D] transition-colors">
+                  <Mail className="w-4 h-4 text-[#E14FA0]" /> hello@86b.ai
                 </a>
-                <a href="tel:+919990322337" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors">
-                  <Phone className="w-4 h-4 text-[#B5C19F]" /> +91 99903 22337
+                <a href="tel:+919990322337" className="inline-flex items-center gap-2 text-[#3B3F47] hover:text-[#16181D] transition-colors">
+                  <Phone className="w-4 h-4 text-[#14B8A6]" /> +91 99903 22337
                 </a>
               </motion.div>
             </motion.div>
@@ -984,20 +987,20 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES (secondary) ─────────────────────────────────────────────── */}
-      <section className="bg-white border-t border-zinc-100">
+      <section className="bg-white border-t border-[#ECE6DD]">
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center flex-shrink-0">
-              <Layers className="w-4 h-4 text-zinc-500" />
+            <div className="w-10 h-10 rounded-xl bg-[#F3F1EE] flex items-center justify-center flex-shrink-0">
+              <Layers className="w-4 h-4 text-[#6B7079]" />
             </div>
             <div>
-              <p className="text-[#2F352A] font-medium">Also from 86b.ai: enterprise AI services</p>
-              <p className="text-zinc-500 text-sm">Our engineers build private GenAI, process automation, computer vision, digital twins and more for enterprises.</p>
+              <p className="text-[#16181D] font-medium">Also from 86b.ai: enterprise AI services</p>
+              <p className="text-[#6B7079] text-sm">Our engineers build private GenAI, process automation, computer vision, digital twins and more for enterprises.</p>
             </div>
           </div>
           <Link
             href="/services"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#4A5541] hover:text-[#2F352A] transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#6347F0] hover:text-[#16181D] transition-colors whitespace-nowrap"
           >
             Explore services
             <ChevronRight className="w-4 h-4" />

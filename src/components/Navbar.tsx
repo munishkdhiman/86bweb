@@ -37,7 +37,7 @@ export default function Navbar() {
   // The home hero is light, so the transparent nav uses dark text there.
   const darkText = solidNav || pathname === '/';
   const linkClass = darkText
-    ? 'text-[#2D3748] hover:text-[#2F352A]'
+    ? 'text-[#2D3748] hover:text-[#16181D]'
     : 'text-white/90 hover:text-white';
 
   return (
@@ -46,7 +46,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           solidNav
             ? 'bg-white border-b border-zinc-200 shadow-sm'
-            : `bg-transparent border-b ${darkText ? 'border-[#2F352A]/10' : 'border-white/10'}`
+            : `bg-transparent border-b ${darkText ? 'border-[#16181D]/10' : 'border-white/10'}`
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between" style={{ height: '84px' }}>
@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Logo — 78px tall */}
           <Link href="/" className="flex items-center group flex-shrink-0">
             <Image
-              src={darkText ? '/logos/86B_olive.png' : '/logos/86B_white.png'}
+              src={darkText ? '/logos/86B_spectrum.png' : '/logos/86B_white.png'}
               alt="86b.ai"
               width={265}
               height={94}
@@ -80,8 +80,8 @@ export default function Navbar() {
               href={secondaryLink.href}
               className={`text-sm font-normal tracking-wide transition-colors duration-200 ${
                 inServices
-                  ? (darkText ? 'text-[#2F352A]' : 'text-white')
-                  : (darkText ? 'text-zinc-400 hover:text-[#2F352A]' : 'text-white/55 hover:text-white')
+                  ? (darkText ? 'text-[#16181D]' : 'text-white')
+                  : (darkText ? 'text-zinc-400 hover:text-[#16181D]' : 'text-white/55 hover:text-white')
               }`}
             >
               {secondaryLink.label}
@@ -94,8 +94,8 @@ export default function Navbar() {
               href={cta.href}
               className={`hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-normal tracking-wide transition-all duration-200 ${
                 darkText
-                  ? 'bg-[#2F352A] text-white hover:bg-[#454D3E]'
-                  : 'bg-white text-[#2F352A] hover:bg-zinc-100'
+                  ? 'bg-[#16181D] text-white hover:bg-[#2A2D35]'
+                  : 'bg-white text-[#16181D] hover:bg-zinc-100'
               }`}
             >
               {cta.label}
@@ -131,7 +131,7 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between p-5 border-b border-zinc-100">
                 <Image
-                  src="/logos/86B_olive.png" alt="86b.ai" width={130} height={48}
+                  src="/logos/86B_spectrum.png" alt="86b.ai" width={130} height={48}
                   style={{ height: '48px', width: 'auto' }} className="object-contain"
                 />
                 <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg hover:bg-zinc-100 text-zinc-500">
@@ -142,14 +142,14 @@ export default function Navbar() {
               <nav className="flex-1 p-5 flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                    className="px-4 py-3 rounded-xl text-sm font-normal text-[#2D3748] hover:bg-zinc-50 hover:text-[#2F352A] transition-colors"
+                    className="px-4 py-3 rounded-xl text-sm font-normal text-[#2D3748] hover:bg-zinc-50 hover:text-[#16181D] transition-colors"
                   >
                     {link.label}
                   </Link>
                 ))}
                 <div className="my-3 h-px bg-zinc-100" />
                 <Link href={secondaryLink.href} onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 rounded-xl text-sm font-normal text-zinc-500 hover:bg-zinc-50 hover:text-[#2F352A] transition-colors"
+                  className="px-4 py-3 rounded-xl text-sm font-normal text-zinc-500 hover:bg-zinc-50 hover:text-[#16181D] transition-colors"
                 >
                   Enterprise AI {secondaryLink.label}
                 </Link>
@@ -157,7 +157,7 @@ export default function Navbar() {
 
               <div className="p-5 border-t border-zinc-100">
                 <Link href={cta.href} onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-[#2F352A] text-white text-sm font-normal hover:bg-[#454D3E] transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-[#16181D] text-white text-sm font-normal hover:bg-[#2A2D35] transition-colors"
                 >
                   {cta.label} <ChevronRight className="w-4 h-4" />
                 </Link>

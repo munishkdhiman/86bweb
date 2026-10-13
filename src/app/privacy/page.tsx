@@ -6,13 +6,13 @@ export const metadata = { title: 'Privacy Policy | 86b.ai', description: 'How 86
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#F6F7F2] font-sans">
+    <div className="min-h-screen bg-[#FBF8F4] font-sans">
       <Navbar />
-      <section className="relative bg-[#22261E] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#22261E] via-[#282D23]/90 to-[#22261E]" />
-        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#74835F 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <section className="relative bg-[#0F1115] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F1115] via-[#14161B]/90 to-[#0F1115]" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#7B61FF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#74835F] mb-4 block">Legal</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#7B61FF] mb-4 block">Legal</span>
           <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">Privacy Policy</h1>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">How we handle your personal data and project information. Last updated: June 2025.</p>
         </div>
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             { h: '8. Contact', p: 'For privacy-related queries, contact: privacy@86b.ai' },
           ].map(({ h, p }) => (
             <div key={h}>
-              <h2 className="text-lg font-medium text-[#2F352A] mb-2">{h}</h2>
+              <h2 className="text-lg font-medium text-[#16181D] mb-2">{h}</h2>
               <p className="text-zinc-500 text-sm leading-relaxed">{p}</p>
             </div>
           ))}

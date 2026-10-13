@@ -37,8 +37,8 @@ export async function POST(request: NextRequest) {
       .map(([k, v]) => `<tr><td style="padding:8px 0;color:#5A6A7A;width:140px;vertical-align:top">${escapeHtml(k)}</td><td style="padding:8px 0;white-space:pre-wrap">${escapeHtml(String(v).slice(0, 5000))}</td></tr>`)
       .join('');
 
-    const emailHtml = `<div style="font-family:Arial,sans-serif;max-width:600px;color:#2F352A">
-      <h2 style="border-bottom:2px solid #74835F;padding-bottom:8px">${escapeHtml(subject)}</h2>
+    const emailHtml = `<div style="font-family:Arial,sans-serif;max-width:600px;color:#16181D">
+      <h2 style="border-bottom:2px solid #7B61FF;padding-bottom:8px">${escapeHtml(subject)}</h2>
       <table style="width:100%;border-collapse:collapse;margin-top:16px">${rows}</table>
       <p style="margin-top:24px;font-size:11px;color:#9aa5b4">Sent via the 86b.ai website${replyTo ? ' · Reply to respond directly' : ''}</p>
     </div>`;

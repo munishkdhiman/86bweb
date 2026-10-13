@@ -31,18 +31,18 @@ const fadeUp = {
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-[#F6F7F2]">
+    <div className="min-h-screen bg-[#FBF8F4]">
       <Navbar />
 
       {/* ── MINI HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative bg-[#22261E] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#22261E] via-[#282D23]/90 to-[#22261E]" />
-        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#74835F 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <section className="relative bg-[#0F1115] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F1115] via-[#14161B]/90 to-[#0F1115]" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#7B61FF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 pt-40 pb-20">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#B5C19F] mb-4 block">Insights &amp; Perspectives</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#C4B5FF] mb-4 block">Insights &amp; Perspectives</span>
           <h1 className="text-4xl md:text-5xl font-extralight text-white leading-[1.15] max-w-2xl mb-4">
             Thinking on enterprise AI.<br />
-            <span className="text-[#B5C19F] font-light">Strategy, architecture, reality.</span>
+            <span className="text-[#C4B5FF] font-light">Strategy, architecture, reality.</span>
           </h1>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-xl">
             Practical writing on what it actually takes to build AI systems that work in production — not just in demos.
@@ -78,7 +78,7 @@ export default function BlogPage() {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/5" />
                     {/* Featured badge */}
                     <div className="absolute top-5 left-5">
-                      <span className="inline-block px-3 py-1 rounded-full bg-[#4A5541] text-white text-[10px] font-semibold uppercase tracking-wider">
+                      <span className="inline-block px-3 py-1 rounded-full bg-[#16181D] text-white text-[10px] font-semibold uppercase tracking-wider">
                         Latest Post
                       </span>
                     </div>
@@ -87,10 +87,10 @@ export default function BlogPage() {
                   {/* Content */}
                   <div className="flex flex-col justify-between p-10 md:p-12">
                     <div>
-                      <span className="text-xs font-semibold uppercase tracking-widest text-[#74835F]">
+                      <span className="text-xs font-semibold uppercase tracking-widest text-[#7B61FF]">
                         {post.category}
                       </span>
-                      <h2 className="mt-3 text-2xl md:text-3xl font-light text-[#2F352A] leading-tight group-hover:text-[#454D3E] transition-colors">
+                      <h2 className="mt-3 text-2xl md:text-3xl font-light text-[#16181D] leading-tight group-hover:text-[#2A2D35] transition-colors">
                         {post.title}
                       </h2>
                       <p className="mt-4 text-zinc-500 text-base leading-relaxed">
@@ -109,7 +109,7 @@ export default function BlogPage() {
                           {post.readTime}
                         </span>
                       </div>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#74835F] group-hover:gap-3 transition-all duration-200">
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#7B61FF] group-hover:gap-3 transition-all duration-200">
                         Read article <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
@@ -133,7 +133,7 @@ export default function BlogPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-[#2F352A] py-16">
+      <section className="bg-[#16181D] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
             Want these insights in your inbox?
@@ -143,7 +143,7 @@ export default function BlogPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#4A5541] text-white font-normal hover:bg-[#3B4434] transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#16181D] text-white font-normal hover:bg-[#2A2D35] transition-colors"
           >
             Get in touch <ArrowRight className="w-4 h-4" />
           </Link>
