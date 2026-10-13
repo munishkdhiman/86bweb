@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 // neuron, forming chains of activity. The cursor wires into nearby neurons and
 // excites them. Respects prefers-reduced-motion (renders one still frame).
 
-const COLORS = ['#2BD98A', '#5BE8A8', '#1FC27A', '#9AF2C8', '#2BD98A'];
+const COLORS = ['#5CC8FF', '#8AD8FF', '#3AB4F2', '#BDE8FF', '#5CC8FF'];
 
 type Neuron = {
   x: number; y: number; vx: number; vy: number;
@@ -28,7 +28,7 @@ export default function NeuralField({ className = '', dark = false }: { classNam
     // Resting colour of cells and synapses; firing colours come from COLORS
     const idle = dark ? '#D9D9D9' : '#111111';
     const idleLinkAlpha = dark ? 0.16 : 0.22;
-    const cursorColor = dark ? '#2BD98A' : '#12B76A';
+    const cursorColor = dark ? '#5CC8FF' : '#1A8FD6';
     let width = 0, height = 0;
     let neurons: Neuron[] = [];
     let pulses: Pulse[] = [];

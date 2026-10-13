@@ -114,7 +114,7 @@ strong, b { font-weight: 500; }
 
 /* ── Accent gradient text ───────────────────────────────────────────────────── */
 .text-accent-gradient {
-  background: linear-gradient(100deg, #777777 0%, #555555 35%, #111111 70%, #12B76A 100%);
+  background: linear-gradient(100deg, #777777 0%, #555555 35%, #111111 70%, #1A8FD6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -200,20 +200,20 @@ strong, b { font-weight: 500; }
 /* ── Spectrum palette (coral → magenta → violet → teal) ─────────────────────── */
 
 .text-spectrum {
-  background: linear-gradient(100deg, #0B8F58 0%, #0B8F58 100%);
+  background: linear-gradient(100deg, #0B78C9 0%, #0B78C9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.bg-spectrum { background: #2BD98A; }
-.text-signal { color: #2BD98A; }
+.bg-spectrum { background: #5CC8FF; }
+.text-signal { color: #5CC8FF; }
 
 /* Gradient hairline border for highlighted cards */
 .border-spectrum {
   border: 1.5px solid transparent;
   background:
     linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(#2BD98A, #2BD98A) border-box;
+    linear-gradient(#5CC8FF, #5CC8FF) border-box;
 }
 
 /* ── Aurora: slow drifting colour fields behind the hero ────────────────────── */
@@ -221,7 +221,7 @@ strong, b { font-weight: 500; }
 .aurora span { position: absolute; border-radius: 9999px; mix-blend-mode: multiply; }
 .aurora .a1 { width: 46vw; height: 46vw; left: 48%; top: 4%;  background: #E6E6E0; animation: drift-a 22s ease-in-out infinite; }
 .aurora .a2 { width: 40vw; height: 40vw; left: 66%; top: 38%; background: #E2E2DC; animation: drift-b 26s ease-in-out infinite; }
-.aurora .a3 { width: 36vw; height: 36vw; left: 30%; top: 52%; background: #D2F2E2; animation: drift-c 30s ease-in-out infinite; }
+.aurora .a3 { width: 36vw; height: 36vw; left: 30%; top: 52%; background: #D3EAFA; animation: drift-c 30s ease-in-out infinite; }
 .aurora .a4 { width: 28vw; height: 28vw; left: 80%; top: 0%;  background: #E4E4DE; animation: drift-b 24s ease-in-out infinite reverse; }
 @keyframes drift-a { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-8%,10%) scale(1.12); } }
 @keyframes drift-b { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-12%,-6%) scale(0.92); } }
@@ -229,8 +229,8 @@ strong, b { font-weight: 500; }
 
 /* Soft colour washes for section backgrounds */
 .wash-violet { background: radial-gradient(60% 80% at 85% 10%, #F0F0EC 0%, rgba(238,233,255,0) 70%), #FFFFFF; }
-.wash-peach  { background: radial-gradient(55% 70% at 10% 20%, #F0F0EC 0%, rgba(255,232,223,0) 70%), radial-gradient(50% 60% at 95% 90%, #E2F7EC 0%, rgba(221,246,239,0) 70%), #FFFFFF; }
-.wash-mint   { background: radial-gradient(60% 70% at 15% 85%, #E2F7EC 0%, rgba(221,246,239,0) 70%), radial-gradient(45% 55% at 90% 10%, #EDEDE8 0%, rgba(251,227,240,0) 70%), #F7F7F4; }
+.wash-peach  { background: radial-gradient(55% 70% at 10% 20%, #F0F0EC 0%, rgba(255,232,223,0) 70%), radial-gradient(50% 60% at 95% 90%, #E4F2FC 0%, rgba(221,246,239,0) 70%), #FFFFFF; }
+.wash-mint   { background: radial-gradient(60% 70% at 15% 85%, #E4F2FC 0%, rgba(221,246,239,0) 70%), radial-gradient(45% 55% at 90% 10%, #EDEDE8 0%, rgba(251,227,240,0) 70%), #F7F7F4; }
 
 /* Dotted paper texture */
 .dot-paper { background-image: radial-gradient(rgba(17,17,17,0.07) 1px, transparent 1px); background-size: 22px 22px; }
@@ -238,9 +238,9 @@ strong, b { font-weight: 500; }
 /* Dark variant: luminous colour fields on near-black */
 .aurora-dark { opacity: 0.5; filter: blur(100px); }
 .aurora-dark span { mix-blend-mode: screen; }
-.aurora-dark .a1 { background: #2BD98A; opacity: 0.08; }
+.aurora-dark .a1 { background: #5CC8FF; opacity: 0.08; }
 .aurora-dark .a2 { background: #333333; opacity: 0.4; }
-.aurora-dark .a3 { background: #2BD98A; opacity: 0.12; }
+.aurora-dark .a3 { background: #5CC8FF; opacity: 0.12; }
 .aurora-dark .a4 { background: #2A2A2A; opacity: 0.4; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -254,7 +254,7 @@ strong, b { font-weight: 500; }
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium tracking-[0.01em]
-           transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2BD98A]/40
+           transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#5CC8FF]/40
            disabled:opacity-60 disabled:cursor-not-allowed;
   }
   .btn-sm { @apply px-5 py-2.5; }
@@ -272,8 +272,8 @@ strong, b { font-weight: 500; }
   /* Colour accent for the single most important action in a view (navbar CTA) */
   .btn-accent {
     @apply text-[#0A0A0A] hover:-translate-y-px hover:brightness-105
-           shadow-[0_8px_24px_-8px_rgba(43,217,138,0.7)];
-    background: #2BD98A;
+           shadow-[0_8px_24px_-8px_rgba(92,200,255,0.7)];
+    background: #5CC8FF;
   }
   .btn-ghost {
     @apply bg-white/10 text-white border border-white/30 backdrop-blur hover:bg-white/15 hover:border-white/60;

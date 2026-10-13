@@ -63,17 +63,30 @@ export default function BrainGlow({
       const b = brainLayer.getContext('2d')!;
       b.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      // Soft halo behind the brain
-      const halo = b.createRadialGradient(cx, cy, s * 0.1, cx, cy, s * 0.8);
-      halo.addColorStop(0, rgba(glow, 0.18));
-      halo.addColorStop(1, rgba(glow, 0));
-      b.fillStyle = halo;
-      b.fillRect(cx - s, cy - s, s * 2, s * 2);
-
       if (img?.complete && img.naturalWidth) {
         const w = s * 1.05, h = w / ASPECT;
         b.drawImage(img, cx - w / 2, cy - h / 2, w, h);
+        // Fade the frontal lobe into the background where it sits behind the copy
+        if (width >= 900) {
+          const x0 = cx - w / 2;
+          const fade = b.createLinearGradient(x0, 0, x0 + w * 0.42, 0);
+          fade.addColorStop(0, 'rgba(0,0,0,0.7)');
+          fade.addColorStop(1, 'rgba(0,0,0,0)');
+          b.globalCompositeOperation = 'destination-out';
+          b.fillStyle = fade;
+          b.fillRect(x0 - 2, cy - h / 2 - 2, w * 0.42 + 2, h + 4);
+          b.globalCompositeOperation = 'source-over';
+        }
       }
+
+      // Soft halo, painted behind the brain so the fade above never clips it
+      const halo = b.createRadialGradient(cx, cy, s * 0.1, cx, cy, s * 0.8);
+      halo.addColorStop(0, rgba(glow, 0.18));
+      halo.addColorStop(1, rgba(glow, 0));
+      b.globalCompositeOperation = 'destination-over';
+      b.fillStyle = halo;
+      b.fillRect(cx - s, cy - s, s * 2, s * 2);
+      b.globalCompositeOperation = 'source-over';
     };
 
     // ── Network around the brain ───────────────────────────────────────────
@@ -121,8 +134,8 @@ export default function BrainGlow({
       canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const wide = width >= 900;
-      s = wide ? Math.min(height * 0.74, width * 0.37) : Math.min(height * 0.8, width * 1.1);
-      cx = wide ? width * 0.8 : width * 0.55;
+      s = wide ? Math.min(height * 0.72, width * 0.35) : Math.min(height * 0.8, width * 1.1);
+      cx = wide ? width * 0.74 : width * 0.55;
       cy = height * (wide ? 0.53 : 0.48);
       loadImage(s * 1.05 * dpr > 760 ? SRC : SRC_SM);
       paintBrain();

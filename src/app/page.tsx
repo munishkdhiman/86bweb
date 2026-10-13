@@ -142,7 +142,7 @@ const hues = [
   { fg: '#555555', bg: '#F2F2EE', ring: '#E6E6E0' }, // coral
   { fg: '#444444', bg: '#EFEFEA', ring: '#E0E0DA' }, // magenta
   { fg: '#000000', bg: '#F0F0EC', ring: '#DADAD4' }, // violet
-  { fg: '#0B8F58', bg: '#E6F8EF', ring: '#C8EFDA' }, // teal
+  { fg: '#0B78C9', bg: '#E8F4FD', ring: '#C9E4F8' }, // teal
   { fg: '#555555', bg: '#F2F2EE', ring: '#DADAD4' }, // amber
 ];
 
@@ -192,7 +192,7 @@ function VoiceDemo() {
     { phrase: '“Alarm subah chhe baje”', confidence: 88, learned: true },
     { phrase: '“Papa ko call karo”', confidence: 97, learned: true },
   ];
-  const barColors = ['#777777', '#555555', '#111111', '#12B76A'];
+  const barColors = ['#777777', '#555555', '#111111', '#1A8FD6'];
 
   useEffect(() => {
     const w = setInterval(() => setWave((v) => v.map(() => Math.floor(Math.random() * 16) + 3)), 160);
@@ -243,7 +243,7 @@ function VoiceDemo() {
           {[
             { label: 'Adapter updated for this speaker', on: u.learned, color: '#555555' },
             { label: 'Earlier commands retained', on: true, color: '#111111' },
-            { label: 'No audio leaves the device', on: true, color: '#12B76A' },
+            { label: 'No audio leaves the device', on: true, color: '#1A8FD6' },
           ].map((row) => (
             <div key={row.label} className="flex items-center gap-2 text-xs text-[#3A3A3A]">
               <CheckCircle2 className="w-3.5 h-3.5" style={{ color: row.on ? row.color : '#CBCBCB' }} />
@@ -514,7 +514,7 @@ export default function HomePage() {
       <section id="how-it-works" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="max-w-3xl mb-14">
-            <Eyebrow color="#0B8F58">How it works</Eyebrow>
+            <Eyebrow color="#0B78C9">How it works</Eyebrow>
             <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#111111] leading-[1.05] tracking-tight mb-5">
               Learn fast from each user. <span className="text-[#8A8A8A]">Consolidate slowly into shared knowledge.</span>
             </motion.h2>
@@ -543,19 +543,19 @@ export default function HomePage() {
             {/* Connectors between rows — one cell per diagram column */}
             <div className="grid grid-cols-[1fr_40px_1fr_40px_1fr_40px_1fr] h-20 text-[11px] text-[#6B6B6B]">
               <div className="relative">
-                <div className="absolute left-1/2 top-1/2 bottom-0 w-px bg-[#12B76A]" />
-                <div className="absolute left-1/2 right-0 top-1/2 h-px bg-[#12B76A]" />
+                <div className="absolute left-1/2 top-1/2 bottom-0 w-px bg-[#1A8FD6]" />
+                <div className="absolute left-1/2 right-0 top-1/2 h-px bg-[#1A8FD6]" />
               </div>
-              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-[#12B76A]" /></div>
+              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-[#1A8FD6]" /></div>
               <div className="relative">
-                <div className="absolute inset-x-0 top-1/2 h-px bg-[#12B76A]" />
-                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[150%] whitespace-nowrap text-[#0B8F58]">consolidate into slow weights</span>
+                <div className="absolute inset-x-0 top-1/2 h-px bg-[#1A8FD6]" />
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[150%] whitespace-nowrap text-[#0B78C9]">consolidate into slow weights</span>
               </div>
-              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-[#12B76A]" /></div>
+              <div className="relative"><div className="absolute inset-x-0 top-1/2 h-px bg-[#1A8FD6]" /></div>
               <div className="relative">
-                <div className="absolute left-0 w-[30%] top-1/2 h-px bg-[#12B76A]" />
-                <div className="absolute left-[30%] top-0 h-1/2 w-px bg-[#12B76A]" />
-                <span className="arrow-up absolute left-[30%] top-0 border-b-[#12B76A]" />
+                <div className="absolute left-0 w-[30%] top-1/2 h-px bg-[#1A8FD6]" />
+                <div className="absolute left-[30%] top-0 h-1/2 w-px bg-[#1A8FD6]" />
+                <span className="arrow-up absolute left-[30%] top-0 border-b-[#1A8FD6]" />
                 <div className="absolute left-[70%] top-0 bottom-0 w-px bg-[#555555]" />
                 <span className="arrow-up absolute left-[70%] top-0 border-b-[#555555]" />
                 <span className="absolute left-[70%] top-1/2 -translate-y-1/2 ml-2 whitespace-nowrap text-[#444444]">adapter applied</span>
@@ -653,7 +653,7 @@ export default function HomePage() {
       <section className="relative py-24 wash-mint overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div data-motion initial={initial} whileInView="visible" viewport={{ once: true, margin: '0px' }} className="text-center mb-14">
-            <Eyebrow color="#0B8F58">System architecture</Eyebrow>
+            <Eyebrow color="#0B78C9">System architecture</Eyebrow>
             <motion.h2 data-motion variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-light text-[#111111] leading-[1.05] tracking-tight">
               Learning stays on the phone.<br /><span className="text-[#8A8A8A]">The cloud only ships models.</span>
             </motion.h2>
@@ -666,7 +666,7 @@ export default function HomePage() {
               className="rounded-[2rem] border border-[#E4E4DF] bg-white shadow-sm p-6 md:p-8 flex flex-col gap-4"
             >
               <div className="flex items-center gap-2 text-[#111111]">
-                <Smartphone className="w-4 h-4 text-[#0B8F58]" />
+                <Smartphone className="w-4 h-4 text-[#0B78C9]" />
                 <span className="text-sm font-medium">On the device</span>
               </div>
               <div className="rounded-xl bg-[#F7F7F4] border border-[#E4E4DF] px-4 py-3 text-center text-sm text-[#3A3A3A]">
@@ -843,7 +843,7 @@ export default function HomePage() {
             <motion.div data-motion
               initial={initial} whileInView="visible" viewport={{ once: true }} variants={fadeUp}
               className="rounded-[2rem] p-8 md:p-10 text-white relative overflow-hidden shadow-[0_30px_70px_-30px_rgba(17,17,17,0.6)]"
-              style={{ background: 'radial-gradient(70% 55% at 0% 0%, rgba(43,217,138,0.28) 0%, rgba(43,217,138,0) 60%), linear-gradient(150deg, #1A1A1A 0%, #0A0A0A 100%)' }}
+              style={{ background: 'radial-gradient(70% 55% at 0% 0%, rgba(92,200,255,0.28) 0%, rgba(92,200,255,0) 60%), linear-gradient(150deg, #1A1A1A 0%, #0A0A0A 100%)' }}
             >
               <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
               <div className="absolute -right-4 top-24 w-32 h-32 rounded-full bg-white/10" />
