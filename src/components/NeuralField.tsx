@@ -15,7 +15,7 @@ type Neuron = {
 };
 type Pulse = { from: number; to: number; t: number; color: string };
 
-export default function NeuralField({ className = '' }: { className?: string }) {
+export default function NeuralField({ className = '', dark = false }: { className?: string; dark?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -25,6 +25,10 @@ export default function NeuralField({ className = '' }: { className?: string }) 
     if (!ctx) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Resting colour of cells and synapses; firing colours come from COLORS
+    const idle = dark ? '#E4E0FF' : '#16181D';
+    const idleLinkAlpha = dark ? 0.16 : 0.22;
+    const cursorColor = dark ? '#A794FF' : '#7B61FF';
     let width = 0, height = 0;
     let neurons: Neuron[] = [];
     let pulses: Pulse[] = [];
@@ -105,8 +109,8 @@ export default function NeuralField({ className = '' }: { className?: string }) 
           if (d2 > LINK * LINK) continue;
           const closeness = 1 - Math.sqrt(d2) / LINK;
           const active = Math.max(a.charge, b.charge);
-          ctx.strokeStyle = active > 0.1 ? (a.charge >= b.charge ? a.color : b.color) : '#16181D';
-          ctx.globalAlpha = closeness * 0.22 + active * closeness * 0.5;
+          ctx.strokeStyle = active > 0.1 ? (a.charge >= b.charge ? a.color : b.color) : idle;
+          ctx.globalAlpha = closeness * idleLinkAlpha + active * closeness * 0.6;
           ctx.lineWidth = 0.9 + active * 1.2;
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         }
@@ -118,7 +122,7 @@ export default function NeuralField({ className = '' }: { className?: string }) 
           const dx = n.x - mouse.x, dy = n.y - mouse.y;
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d > 140) continue;
-          ctx.strokeStyle = '#7B61FF';
+          ctx.strokeStyle = cursorColor;
           ctx.globalAlpha = (1 - d / 140) * 0.5;
           ctx.lineWidth = 1;
           ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y); ctx.lineTo(n.x, n.y); ctx.stroke();
@@ -132,7 +136,7 @@ export default function NeuralField({ className = '' }: { className?: string }) 
         const hx = a.x + (b.x - a.x) * head, hy = a.y + (b.y - a.y) * head;
         const tx = a.x + (b.x - a.x) * tail, ty = a.y + (b.y - a.y) * tail;
         const grad = ctx.createLinearGradient(tx, ty, hx, hy);
-        grad.addColorStop(0, 'rgba(255,255,255,0)');
+        grad.addColorStop(0, dark ? 'rgba(11,13,18,0)' : 'rgba(255,255,255,0)');
         grad.addColorStop(1, p.color);
         ctx.globalAlpha = 0.95;
         ctx.strokeStyle = grad;
@@ -157,13 +161,13 @@ export default function NeuralField({ className = '' }: { className?: string }) 
           const rad = 30 * n.charge + 8;
           const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, rad);
           glow.addColorStop(0, n.color);
-          glow.addColorStop(1, 'rgba(255,255,255,0)');
+          glow.addColorStop(1, dark ? 'rgba(11,13,18,0)' : 'rgba(255,255,255,0)');
           ctx.globalAlpha = 0.45 * n.charge;
           ctx.fillStyle = glow;
           ctx.beginPath(); ctx.arc(n.x, n.y, rad, 0, Math.PI * 2); ctx.fill();
         }
-        ctx.globalAlpha = 0.55 + n.charge * 0.45;
-        ctx.fillStyle = n.charge > 0.08 ? n.color : '#16181D';
+        ctx.globalAlpha = (dark ? 0.4 : 0.55) + n.charge * (dark ? 0.6 : 0.45);
+        ctx.fillStyle = n.charge > 0.08 ? n.color : idle;
         ctx.beginPath(); ctx.arc(n.x, n.y, n.r + n.charge * 2.5, 0, Math.PI * 2); ctx.fill();
       }
       ctx.globalAlpha = 1;
@@ -188,7 +192,7 @@ export default function NeuralField({ className = '' }: { className?: string }) 
 
         if (mouse.active) {
           const dx = n.x - mouse.x, dy = n.y - mouse.y;
-          if (dx * dx + dy * dy < 110 * 110 && Math.random() < 0.05) fire(i, '#7B61FF');
+          if (dx * dx + dy * dy < 110 * 110 && Math.random() < 0.05) fire(i, cursorColor);
         }
         n.charge = Math.max(0, n.charge - dt * 1.1);
         n.ring = Math.max(0, n.ring - dt * 1.4);
@@ -249,7 +253,7 @@ export default function NeuralField({ className = '' }: { className?: string }) 
       window.removeEventListener('pointermove', onMove);
       document.removeEventListener('pointerleave', onLeave);
     };
-  }, []);
+  }, [dark]);
 
   return <canvas ref={canvasRef} className={className} aria-hidden="true" />;
 }

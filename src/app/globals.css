@@ -234,6 +234,14 @@ strong, b { font-weight: 500; }
 /* Dotted paper texture */
 .dot-paper { background-image: radial-gradient(rgba(22,24,29,0.07) 1px, transparent 1px); background-size: 22px 22px; }
 
+/* Dark variant: luminous colour fields on near-black */
+.aurora-dark { opacity: 0.85; filter: blur(90px); }
+.aurora-dark span { mix-blend-mode: screen; }
+.aurora-dark .a1 { background: #FF6B4A; opacity: 0.45; }
+.aurora-dark .a2 { background: #7B61FF; opacity: 0.55; }
+.aurora-dark .a3 { background: #14B8A6; opacity: 0.5; }
+.aurora-dark .a4 { background: #E14FA0; opacity: 0.5; }
+
 @media (prefers-reduced-motion: reduce) {
   .aurora span { animation: none !important; }
 }

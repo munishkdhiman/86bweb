@@ -34,8 +34,8 @@ export default function Navbar() {
   }, []);
 
   const solidNav = !isHome || scrolled;
-  // The home hero is light, so the transparent nav uses dark text there.
-  const darkText = solidNav || pathname === '/';
+  // Both the home and services heroes are dark, so the transparent nav uses light text.
+  const darkText = solidNav;
   const linkClass = darkText
     ? 'text-[#2D3748] hover:text-[#16181D]'
     : 'text-white/90 hover:text-white';

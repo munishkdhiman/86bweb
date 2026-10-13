@@ -253,58 +253,58 @@ export default function HomePage() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#FBF8F4]">
-        <div className="aurora" aria-hidden="true">
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #1E1A4D 0%, #2B1B5C 30%, #44205E 58%, #3A1F4F 72%, #123A47 100%)' }}>
+        <div className="aurora aurora-dark" aria-hidden="true">
           <span className="a1" /><span className="a2" /><span className="a3" /><span className="a4" />
         </div>
-        <NeuralField className="absolute inset-0 w-full h-full" />
+        <NeuralField dark className="absolute inset-0 w-full h-full" />
         {/* Keep the copy legible over the field */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(251,248,244,0.92) 0%, rgba(251,248,244,0.75) 45%, rgba(251,248,244,0) 100%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 48% 42% at 30% 52%, rgba(32,26,80,0.8) 0%, rgba(32,26,80,0.55) 45%, rgba(32,26,80,0) 100%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full pointer-events-none">
           <motion.div initial="hidden" animate="visible" className="max-w-4xl pointer-events-auto">
             <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-8">
-              <span className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur border border-[#ECE6DD] shadow-sm text-[11px] font-semibold uppercase tracking-[0.16em] text-[#16181D]">
+              <span className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
                 <span className="relative flex w-2 h-2">
                   <span className="absolute inset-0 rounded-full bg-[#E14FA0] animate-pulse-ring" />
                   <span className="relative w-2 h-2 rounded-full bg-spectrum" />
                 </span>
                 In development · Early access open
               </span>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#6B7079]">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60">
                 Brain-inspired AI · Built in India
               </span>
             </motion.div>
-            <motion.h1 variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-[#16181D] leading-[1.02] tracking-tight mb-8">
+            <motion.h1 variants={fadeUp} custom={1} className="text-[3.25rem] md:text-7xl lg:text-[5.25rem] font-extralight text-white leading-[1.02] tracking-tight mb-8">
               Intelligence,<br />
               <span className="text-spectrum font-normal">the way nature built it.</span>
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-[#3B3F47] leading-relaxed mb-10 max-w-xl">
+            <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl">
               We’re building AI that keeps learning on the device and runs on a fraction of the energy: one base model, personalised on every phone.
             </motion.p>
             <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
               <a
                 href="#early-access"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#16181D] hover:bg-[#2A2D35] text-white text-sm font-semibold transition-colors shadow-[0_12px_30px_-12px_rgba(22,24,29,0.6)]"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#EEE9FF] text-[#1E1A4D] text-sm font-semibold transition-colors shadow-[0_12px_40px_-12px_rgba(255,255,255,0.45)]"
               >
                 Join early access
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
                 href="#product"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/80 backdrop-blur border border-[#ECE6DD] hover:border-[#16181D]/30 text-[#16181D] text-sm font-semibold transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 backdrop-blur border border-white/25 hover:border-white/60 text-white text-sm font-semibold transition-all"
               >
                 Explore the 86b SDK
               </a>
             </motion.div>
-            <motion.p variants={fadeUp} custom={4} className="mt-10 text-xs text-[#6B7079] flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#7B61FF]" />
+            <motion.p variants={fadeUp} custom={4} className="mt-10 text-xs text-white/55 flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#C4B5FF]" />
               Like the brain, only a few neurons fire at once, passing signals along their connections. Move your cursor to excite them.
             </motion.p>
           </motion.div>
         </div>
 
-        <a href="#benchmark" aria-label="Scroll down" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-[#6B7079] hover:text-[#16181D] transition-colors">
+        <a href="#benchmark" aria-label="Scroll down" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/50 hover:text-white transition-colors">
           <ArrowDown className="w-5 h-5 animate-float" />
         </a>
       </section>
