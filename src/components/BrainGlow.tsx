@@ -2,10 +2,10 @@
 
 import { useEffect, useRef } from 'react';
 
-// A glowing, translucent brain (side view) wrapped in a polygon network.
-// The brain body, folds and grooves are painted once per resize to an offscreen
-// canvas; each frame adds the network, firing nodes and travelling spikes on
-// top. Respects prefers-reduced-motion (one still frame) and pauses off-screen.
+// A glowing brain image wrapped in a polygon network. The brain and its halo
+// are painted once per resize to an offscreen canvas; each frame adds the
+// network, firing nodes and travelling spikes on top. Respects
+// prefers-reduced-motion (one still frame) and pauses off-screen.
 
 type Node = {
   hx: number; hy: number; x: number; y: number; phase: number;
@@ -14,38 +14,10 @@ type Node = {
 type Edge = [number, number];
 type Pulse = { edge: number; dir: 1 | -1; t: number };
 
-type Pt = [number, number];
-// Unit space, frontal lobe on the left. Width ≈ 1, y grows down.
-const CEREBRUM: Pt[] = [
-  [-0.48, 0.02], [-0.5, -0.12], [-0.43, -0.27], [-0.27, -0.38], [-0.04, -0.43],
-  [0.18, -0.4], [0.36, -0.29], [0.47, -0.1], [0.47, 0.08], [0.39, 0.19],
-  [0.25, 0.2], [0.12, 0.25], [0.02, 0.31], [-0.13, 0.33], [-0.26, 0.27],
-  [-0.31, 0.15], [-0.4, 0.1],
-];
-const CEREBELLUM: Pt[] = [
-  [0.14, 0.23], [0.3, 0.19], [0.42, 0.24], [0.4, 0.35], [0.25, 0.39], [0.13, 0.33],
-];
-const STEM: Pt[] = [
-  [0.02, 0.29], [0.12, 0.28], [0.14, 0.44], [0.1, 0.56], [0.03, 0.54], [0.01, 0.4],
-];
-const SYLVIAN: Pt[] = [[-0.31, 0.13], [-0.14, 0.06], [0.06, -0.01], [0.2, -0.1], [0.27, -0.13]];
-const CENTRAL: Pt[] = [[0.02, -0.42], [-0.03, -0.27], [0.03, -0.13], [-0.02, 0.02]];
-
-function curve(p: Path2D, pts: Pt[], closed: boolean) {
-  const n = pts.length;
-  const at = (i: number) => pts[closed ? (i + n) % n : Math.max(0, Math.min(n - 1, i))];
-  p.moveTo(pts[0][0], pts[0][1]);
-  const end = closed ? n : n - 1;
-  for (let i = 0; i < end; i++) {
-    const p0 = at(i - 1), p1 = at(i), p2 = at(i + 1), p3 = at(i + 2);
-    p.bezierCurveTo(
-      p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6,
-      p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6,
-      p2[0], p2[1],
-    );
-  }
-  if (closed) p.closePath();
-}
+// Cropped, transparent brain renders (1200px for desktop, 720px for phones)
+const SRC = '/images/brain-hero.webp';
+const SRC_SM = '/images/brain-hero-sm.webp';
+const ASPECT = 1200 / 1085;
 
 const rgba = (hex: string, a: number) => {
   const v = parseInt(hex.slice(1), 16);
@@ -54,8 +26,8 @@ const rgba = (hex: string, a: number) => {
 
 export default function BrainGlow({
   className = '',
-  glow = '#2BD98A',
-  core = '#D8FFEC',
+  glow = '#5CC8FF',
+  core = '#E6F7FF',
 }: { className?: string; glow?: string; core?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -75,94 +47,33 @@ export default function BrainGlow({
     let pulses: Pulse[] = [];
     let raf = 0, last = performance.now(), fireTimer = 0, time = 0;
 
-    const toPx = (pts: Pt[]): Pt[] => pts.map(([x, y]) => [cx + x * s, cy + y * s]);
-    const path = (pts: Pt[], closed = true) => { const p = new Path2D(); curve(p, toPx(pts), closed); return p; };
+    let img: HTMLImageElement | null = null;
+    const loadImage = (src: string) => {
+      if (img && img.dataset.src === src) return;
+      img = new Image();
+      img.dataset.src = src;
+      img.decoding = 'async';
+      img.onload = () => { paintBrain(); if (!raf) draw(); };
+      img.src = src;
+    };
 
     // ── Static brain, painted once per resize ──────────────────────────────
     const paintBrain = () => {
       brainLayer.width = canvas.width; brainLayer.height = canvas.height;
       const b = brainLayer.getContext('2d')!;
       b.setTransform(dpr, 0, 0, dpr, 0, 0);
-      b.lineCap = 'round'; b.lineJoin = 'round';
-
-      const cerebrum = path(CEREBRUM), cerebellum = path(CEREBELLUM), stem = path(STEM);
-      const all = new Path2D();
-      all.addPath(cerebrum); all.addPath(cerebellum); all.addPath(stem);
 
       // Soft halo behind the brain
-      const halo = b.createRadialGradient(cx, cy, s * 0.1, cx, cy, s * 0.75);
-      halo.addColorStop(0, rgba(glow, 0.16));
+      const halo = b.createRadialGradient(cx, cy, s * 0.1, cx, cy, s * 0.8);
+      halo.addColorStop(0, rgba(glow, 0.18));
       halo.addColorStop(1, rgba(glow, 0));
       b.fillStyle = halo;
       b.fillRect(cx - s, cy - s, s * 2, s * 2);
 
-      // Glassy body: darker centre, brighter rim
-      for (const part of [stem, cerebellum, cerebrum]) {
-        const body = b.createRadialGradient(cx, cy - s * 0.05, s * 0.05, cx, cy - s * 0.05, s * 0.55);
-        body.addColorStop(0, rgba(glow, 0.06));
-        body.addColorStop(0.7, rgba(glow, 0.14));
-        body.addColorStop(1, rgba(glow, 0.32));
-        b.fillStyle = body;
-        b.fill(part);
+      if (img?.complete && img.naturalWidth) {
+        const w = s * 1.05, h = w / ASPECT;
+        b.drawImage(img, cx - w / 2, cy - h / 2, w, h);
       }
-
-      // Folds: smooth random walks confined to each part, drawn with glow
-      b.globalCompositeOperation = 'lighter';
-      const folds = (part: Path2D, count: number, len: number, step: number, x0: number, x1: number, y0: number, y1: number) => {
-        for (let k = 0; k < count; k++) {
-          let x = 0, y = 0, tries = 0;
-          do { x = cx + (x0 + Math.random() * (x1 - x0)) * s; y = cy + (y0 + Math.random() * (y1 - y0)) * s; }
-          while (!b.isPointInPath(part, x * dpr, y * dpr) && ++tries < 60);
-          if (tries >= 60) continue;
-          let a = Math.random() * Math.PI * 2;
-          const pts: Pt[] = [[x, y]];
-          for (let i = 0; i < len; i++) {
-            a += (Math.random() - 0.5) * 0.75;
-            let nx = x + Math.cos(a) * step * s, ny = y + Math.sin(a) * step * s;
-            if (!b.isPointInPath(part, nx * dpr, ny * dpr)) {
-              a += Math.PI * (0.6 + Math.random() * 0.5);
-              nx = x + Math.cos(a) * step * s; ny = y + Math.sin(a) * step * s;
-              if (!b.isPointInPath(part, nx * dpr, ny * dpr)) break;
-            }
-            x = nx; y = ny; pts.push([x, y]);
-          }
-          if (pts.length < 4) continue;
-          const p = new Path2D(); curve(p, pts, false);
-          b.strokeStyle = rgba(glow, 0.06); b.lineWidth = s * 0.055; b.stroke(p);
-          b.strokeStyle = rgba(glow, 0.1); b.lineWidth = s * 0.026; b.stroke(p);
-          b.shadowColor = glow; b.shadowBlur = 8;
-          b.strokeStyle = rgba(core, 0.28); b.lineWidth = Math.max(0.8, s * 0.004); b.stroke(p);
-          b.shadowBlur = 0;
-        }
-      };
-      b.save(); b.clip(cerebrum); folds(cerebrum, 46, 16, 0.024, -0.5, 0.48, -0.43, 0.33); b.restore();
-      // Cerebellum: tight horizontal folia
-      b.save(); b.clip(cerebellum);
-      for (let k = 0; k < 6; k++) {
-        const yy = 0.21 + k * 0.03;
-        const p = new Path2D(); curve(p, toPx([[0.1, yy + 0.02], [0.24, yy - 0.015], [0.36, yy + 0.005], [0.45, yy + 0.03]]), false);
-        b.strokeStyle = rgba(glow, 0.1); b.lineWidth = s * 0.014; b.stroke(p);
-        b.strokeStyle = rgba(core, 0.2); b.lineWidth = Math.max(0.7, s * 0.0028); b.stroke(p);
-      }
-      b.restore();
-
-      // Main grooves read as darker channels with a bright lip
-      b.globalCompositeOperation = 'source-over';
-      for (const g of [SYLVIAN, CENTRAL]) {
-        const p = path(g, false);
-        b.strokeStyle = 'rgba(5,8,7,0.45)'; b.lineWidth = s * 0.012; b.stroke(p);
-        b.strokeStyle = rgba(core, 0.22); b.lineWidth = Math.max(0.8, s * 0.003); b.stroke(p);
-      }
-
-      // Bright rim
-      b.globalCompositeOperation = 'lighter';
-      b.shadowColor = glow; b.shadowBlur = 18;
-      b.strokeStyle = rgba(core, 0.5); b.lineWidth = Math.max(1, s * 0.004);
-      b.stroke(cerebrum);
-      b.strokeStyle = rgba(core, 0.25);
-      b.stroke(cerebellum); b.stroke(stem);
-      b.shadowBlur = 0;
-      b.globalCompositeOperation = 'source-over';
     };
 
     // ── Network around the brain ───────────────────────────────────────────
@@ -213,6 +124,7 @@ export default function BrainGlow({
       s = wide ? Math.min(height * 0.74, width * 0.37) : Math.min(height * 0.8, width * 1.1);
       cx = wide ? width * 0.8 : width * 0.55;
       cy = height * (wide ? 0.53 : 0.48);
+      loadImage(s * 1.05 * dpr > 760 ? SRC : SRC_SM);
       paintBrain();
       buildNetwork();
     };
